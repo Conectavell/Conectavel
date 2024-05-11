@@ -6,6 +6,9 @@ const Seção = styled.section`
     width: 100%;
     background: #F2F4F8;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px
 `
 
 const Title = styled.div`
