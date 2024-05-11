@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Review from './Reviews'
 
 const Seção = styled.section`
     height: 100%;
@@ -36,23 +37,10 @@ const Heading_text = styled.p`
 
 const Reviews = styled.div`
     height: 100%;
-    width: auto;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-`
-
-const Review = styled.div`
-    background: #ffffff;
-    height: fit-content;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 34px;
-`
-
-const ImageBox = styled.div`
-    
+    gap: 10px;
 `
 
 function Colaboradores() {
@@ -67,9 +55,12 @@ function Colaboradores() {
                 </Heading>
             </Title>
             <Reviews>
-                <Review>
-
-                </Review>
+               <Review nome="Walter Anderson" opiniao_title="Faulty Wiring in My Kitchen." data="March 15, 2023"/>
+               <Review nome="Susan Torres" opiniao_title="Circuit Breaker Tripping" data="April 5, 2023"/>
+               <Review nome="John Davis" opiniao_title="Flickering Lights in The Living Room" data="May 2, 2023"/>
+               <Review nome="Brandon Miller" opiniao_title="Power Outage Troubleshooting." data="July 7, 2023"/>
+               <Review nome="Gloria Williams" opiniao_title="Upgrading Lighting Fixtures." data="August 20, 2023"/>
+               <Review nome="Melissa Ross" opiniao_title="Installation of New Electrical Outlets." data="June 10, 2023"/>
             </Reviews>
         </Seção>
     )
