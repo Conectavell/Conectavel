@@ -63,7 +63,6 @@ const Text = styled.div`
     gap: 16px;
 
     p{
-        font-family: 'inter';
         width: 296px;
         font-size: 16px;
         line-height: 160%;
@@ -83,7 +82,6 @@ const Icon_list = styled.div`
     p{
         color: #0B378D;
         font-weight: 900;
-
     }
 `
 

@@ -19,6 +19,7 @@ const Box = styled.nav`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 4rem;
     ul{
         display: flex;
         flex-direction: row;
@@ -41,15 +42,16 @@ const Box = styled.nav`
 const ListItem = styled.li`
     list-style-type: none;
     font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
 
     &:hover{
-        color: #06AB11;
+        color: #009788;
         transition: all .3s linear;
     }
 
 `
-const Cadastro = styled.button`
+export const Button = styled.button`
     padding: .8rem 1rem;
     border: none;
     outline: none;
@@ -61,7 +63,7 @@ const Cadastro = styled.button`
     transition: all .3s linear;
     
     &:hover{
-        background-color: #2196F3;
+        background-color: #009788;
 
     }
     `
@@ -75,7 +77,7 @@ const Login = styled.button`
     font-weight: bold;
 
     &:hover{
-        color: #06AB11;
+        color: #009788;
         transition: all .3s linear;
     }
 `
@@ -109,7 +111,7 @@ const Nav = () => {
             </ul>
             <div className='bloco'>
                 <IoSearch size='25px' />
-                <Cadastro>Cadastre-se</Cadastro>
+                <Button>Cadastre-se</Button>
                 <Login>Login</Login>
                 <Lang>
                     {
