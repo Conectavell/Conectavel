@@ -3,12 +3,13 @@ import Review from './Reviews'
 
 const Seção = styled.section`
     height: 100%;
-    width: 100%;
+    width: 80%;
     background: #F2F4F8;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 31px
+    gap: 31px;
+    margin: auto;
 `
 
 const Title = styled.div`
@@ -32,6 +33,7 @@ const Heading = styled.div`
 `
 
 const Heading_text = styled.p`  
+    font-family: "Quantico", sans-serif;
     width: 510px;
     font-size: 56px;
     line-height: 140%;
@@ -44,6 +46,7 @@ const Reviews = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin: auto;
 `
 
 function Colaboradores() {
@@ -58,12 +61,12 @@ function Colaboradores() {
                 </Heading>
             </Title>
             <Reviews>
-               <Review nome="Walter Anderson" opiniao_title="Faulty Wiring in My Kitchen." data="March 15, 2023"/>
-               <Review nome="Susan Torres" opiniao_title="Circuit Breaker Tripping" data="April 5, 2023"/>
-               <Review nome="John Davis" opiniao_title="Flickering Lights in The Living Room" data="May 2, 2023"/>
-               <Review nome="Brandon Miller" opiniao_title="Power Outage Troubleshooting." data="July 7, 2023"/>
-               <Review nome="Gloria Williams" opiniao_title="Upgrading Lighting Fixtures." data="August 20, 2023"/>
-               <Review nome="Melissa Ross" opiniao_title="Installation of New Electrical Outlets." data="June 10, 2023"/>
+                <Review nome="Walter Anderson" opiniao_title="Faulty Wiring in My Kitchen." data="March 15, 2023" />
+                <Review nome="Susan Torres" opiniao_title="Circuit Breaker Tripping" data="April 5, 2023" />
+                <Review nome="John Davis" opiniao_title="Flickering Lights in The Living Room" data="May 2, 2023" />
+                <Review nome="Brandon Miller" opiniao_title="Power Outage Troubleshooting." data="July 7, 2023" />
+                <Review nome="Gloria Williams" opiniao_title="Upgrading Lighting Fixtures." data="August 20, 2023" />
+                <Review nome="Melissa Ross" opiniao_title="Installation of New Electrical Outlets." data="June 10, 2023" />
             </Reviews>
         </Seção>
     )
