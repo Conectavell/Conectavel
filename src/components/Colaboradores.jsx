@@ -3,12 +3,12 @@ import Review from './Reviews'
 
 const Seção = styled.section`
     height: 100%;
-    width: 100%;
+    width: auto;
     background: #F2F4F8;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 31px
+    gap: 31px;
 `
 
 const Title = styled.div`
@@ -39,7 +39,7 @@ const Heading_text = styled.p`
 `
 
 const Reviews = styled.div`
-    height: 100%;
+    height: auto;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
