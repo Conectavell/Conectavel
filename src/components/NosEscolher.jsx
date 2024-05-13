@@ -8,7 +8,6 @@ const Box = styled.div`
     width: 100%;
     background-color: #2196F3;
     margin: auto;
-    margin-bottom: 2rem;
     padding-top: 0;
     padding-bottom: 0;
     padding: 3% 10%;
