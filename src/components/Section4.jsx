@@ -10,6 +10,8 @@ const ContratarWrapper = styled.section`
     flex-direction: column;
     padding: 24px;
     gap: 28px;
+
+
 `
 
 const CimaSection = styled.div`
@@ -18,6 +20,12 @@ const CimaSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: 1000px){
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
 `
 
 const Title = styled.div`
@@ -25,6 +33,10 @@ const Title = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+    }
 `
 
 const Sub_heading = styled.p`
@@ -32,12 +44,21 @@ const Sub_heading = styled.p`
     letter-spacing: 10%;
     font-size: 16px;
     color: #0B378D;
+
+    @media only screen and (max-width: 1000px){
+        text-align: center;
+    }
 `
 
 const Heading = styled.h2`
     color: #151515;
     font-size: 56px;
     line-height: 140%;
+
+    @media only screen and (max-width: 1000px){
+        font-size: 30px;
+        width: 100%;
+    }
 `
 
 const ImgTopo = styled.div`
@@ -47,6 +68,10 @@ const ImgTopo = styled.div`
     background-position: center;
     background-size: cover;
     border-radius: 20px;
+
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+    }
 `
 
 const BaixoSection = styled.div`
@@ -55,6 +80,11 @@ const BaixoSection = styled.div`
     display: flex;
     justify-content: center;
     gap: 30px;
+
+    @media only screen and (max-width: 1000px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 
