@@ -9,6 +9,7 @@ const Seção = styled.section`
     display: flex;
     flex-direction: column;
     gap: 31px;
+
 `
 
 const Title = styled.div`
@@ -17,6 +18,8 @@ const Title = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+
 `
 
 const Sub_heading = styled.p`
@@ -24,6 +27,10 @@ const Sub_heading = styled.p`
     font-weight: 400;
     letter-spacing: 10%;
     color: #0B378D;
+
+    @media only screen and (max-width: 1000px){
+        text-align: center;
+    }
 `
 
 const Heading = styled.div`
@@ -36,6 +43,10 @@ const Heading_text = styled.p`
     font-size: 56px;
     line-height: 140%;
     font-weight: 400;
+
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+    }
 `
 
 const Reviews = styled.div`

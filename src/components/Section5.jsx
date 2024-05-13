@@ -7,11 +7,16 @@ import ImgArvores from '../assets/ImgArvores.png'
 import { useState } from "react";
 
 const ContribuaWrapper = styled.section`
-    width: auto;
     height: 100%;
+    width: auto;
     background: #188b6b;
     display: flex;
     padding: 24px;
+
+    @media only screen and (max-width: 1000px){
+        flex-direction: column;
+        gap: 24px;
+    }
 `
 
 const LadoEsquerdo = styled.div`
@@ -19,7 +24,11 @@ const LadoEsquerdo = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 40px
+    gap: 40px;
+
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+    }
 `
 
 const SubHeading = styled.p`
@@ -28,6 +37,10 @@ const SubHeading = styled.p`
     line-height: 100%;
     letter-spacing: 10%;
     color: #A6DFFC;
+
+    @media only screen and (max-width: 1000px){
+        text-align: center;
+    }
 `
 
 const Topo = styled.div`
@@ -58,17 +71,31 @@ const LadoDireito = styled.div`
     flex-direction: column;
     gap: 10px;
     align-items: center;
+
+    
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
 `
 
 const ImgSeta = styled.img`
     width: auto;
     height: 22.5px;
+
+
 `
 
 const ImgP = styled.img`
     width: 600px;
     height: 600px;
     transition: width 2s, height 2s, transform 2s;
+
+    @media only screen and (max-width: 1000px){
+        width: 75%;
+        height: 75%;
+    }
 `
 
 const Botão = styled.button`
