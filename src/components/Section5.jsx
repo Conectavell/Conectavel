@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Cima from '../assets/cima.png';
 import Baixo from '../assets/baixo.png';
 import ImgPlanta from '../assets/ImgPlanta.png'
+import ImgLuz from '../assets/ImgLuz.png'
+import ImgArvores from '../assets/ImgArvores.png'
+import { useState } from "react";
 
 const ContribuaWrapper = styled.section`
     width: auto;
@@ -65,10 +68,41 @@ const ImgSeta = styled.img`
 const ImgP = styled.img`
     width: 600px;
     height: 600px;
+    transition: width 2s, height 2s, transform 2s;
+`
+
+const Botão = styled.button`
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
 `
 
 
 function Section5() {
+    const imagens = [ImgArvores, ImgLuz, ImgPlanta];
+    var i = 0;
+
+
+    function mudaImagem(lado){
+        if(lado == "cima"){
+            i++
+            if(i > 2){
+                i = 0
+            }
+        }else if(lado == "baixo"){
+            i--
+            if(i < 0){
+                i = 2
+            }
+        }
+        console.log(i)
+        setImagem(imagens[i])
+    }
+
+    const [imagem, setImagem] = useState(imagens[i])
+
     return (
         <ContribuaWrapper>
             <LadoEsquerdo>
@@ -81,9 +115,9 @@ function Section5() {
                 </Textao>
             </LadoEsquerdo>
             <LadoDireito>
-                    <ImgSeta src={Cima} alt="Cima"/>
-                    <ImgP src={ImgPlanta} alt="Planta"/>
-                    <ImgSeta src={Baixo} alt="Cima"/>
+                <Botão><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")}/></Botão>
+                <ImgP src={imagem} alt="Planta"/>
+                <Botão><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")}/></Botão>
             </LadoDireito>
         </ContribuaWrapper>
     )

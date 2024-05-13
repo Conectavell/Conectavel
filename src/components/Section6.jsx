@@ -42,6 +42,8 @@ const Reviews = styled.div`
     height: auto;
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
 `
