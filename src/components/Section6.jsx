@@ -3,7 +3,8 @@ import Review from './Reviews'
 
 const Seção = styled.section`
     height: 100%;
-    width: auto;
+    width: 80%;
+    margin: auto;
     background: #F2F4F8;
     padding: 24px;
     display: flex;

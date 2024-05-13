@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import logo from '../assets/Logo.png'
 import { BiLogoLinkedin, BiLogoInstagram } from "react-icons/bi"
 import { FaGithub } from 'react-icons/fa'
 
