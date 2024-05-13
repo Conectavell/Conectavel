@@ -12,21 +12,32 @@ export const SectionTitle = styled.section`
     margin: auto;
     text-align: center;
     width: 80%;
+    @media (max-width: 768px){
+        width: 100%;
+        text-align: center;
+    }
 `
 
 export const TitleCenter = styled.h2`
     font-size: 3em;
     line-height: 140%;
     font-weight: 400;
+    @media (max-width: 768px){
+        width: 100%;
+        text-align: center;
+    }
 `
 
 const ComoFunciona = () => {
+    const { innerWidth: width, innerHeight: height } = window
+
+
     return (
         <Box>
             <SectionTitle>
                 <Sub_heading>COMO FUNCIONA </Sub_heading>
                 <TitleCenter>
-                    Como acessar nosso <br/> serviço
+                    Como acessar nosso{width > 768 ? <br /> : ''}  serviço
                 </TitleCenter>
             </SectionTitle>
 
