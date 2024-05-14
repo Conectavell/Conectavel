@@ -16,26 +16,56 @@ const Box = styled.header`
     .left{
         margin-top: 1rem;
     }
+
+@media (max-width: 1024px){
+    width: 90%;
+}
+@media (max-width: 768px){
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .right{
+        position: static;
+    }
+    .left{
+        display: none;
+    }
+}
 `
 export const Sub_heading = styled.p`
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 10%;
     color: #0B378D;
+
+    @media (max-width: 768px){
+        text-align: center;
+    }
+
 `
 
-export const Heading_text = styled.h1`  
-    width: 70%;
+const Heading_text = styled.h1`  
+    width: 100%;
     font-size: 3em;
     line-height: 140%;
     font-weight: 400;
+    
+    @media (max-width: 768px){
+        width: 100%;
+        text-align: center;
+    }
 `
 export const Detail = styled.p`  
-color: #95979C;
+    color: #95979C;
+    @media (max-width: 768px){
+        width: 80%;
+        text-align: center;
+    }
 `
 
 const Inicio = () => {
-
+    const { innerWidth: width, innerHeight: height } = window
 
     return (
         <>
@@ -44,12 +74,20 @@ const Inicio = () => {
                     <Sub_heading>
                         UM CICLO QUE SE RENOVA
                     </Sub_heading>
-                    <Heading_text>Conserte seus<br/> equipamentos com<br/> qualidade</Heading_text>
+                    <Heading_text>Conserte seus<br /> equipamentos com<br /> qualidade</Heading_text>
                 </div>
-                <Detail style={{marginTop: '1rem'}}>Obtenha rentabilidade e contribua para o descarte eletrônico<br/> correto</Detail>
+                <Detail style={width > 768 ? { marginTop: '1rem' }:{ marginTop: '1rem', marginBottom: '1rem' }}>Obtenha rentabilidade e contribua para o descarte eletrônico<br /> correto</Detail>
 
-                <img className='left' src={header2} alt="" />
-                <img className='right' src={header1} alt="" />
+                {
+                    width > 768
+                        ? <>
+                            <img className='left' src={header2} alt="" />
+                            <img className='right' src={header1} alt="" />
+                        </>
+                        :
+                        <img className='right' width="90%" src={header1} alt="" />
+                }
+
             </Box>
         </>
     )

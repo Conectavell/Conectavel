@@ -7,14 +7,33 @@ const Box = styled.div`
     img{
         width: 48px;
     }
+
+    @media (max-width: 768px){
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        img{
+            width: 48px !important;
+        }
+    }
 `
 const Title = styled.p`
     color: white;
     font-size: 24px;
+    @media (max-width: 768px){
+        align-items: center;
+        justify-content: center;
+    }
     `
 const Text = styled.p`
     color: white;
     font-size: 16px;
+    @media (max-width: 768px){
+        width: 100;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 

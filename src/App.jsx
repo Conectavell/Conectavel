@@ -9,12 +9,13 @@ import Footer from './components/Footer'
 import Inicio from './components/Inicio'
 import ComoFunciona from './components/ComoFunciona'
 import NosEscolher from './components/NosEscolher'
+import ExpandedNavContext from './context/ExpandNavContext.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [expand, setExpand] = useState(false)
 
   return (
-    <>
+    <ExpandedNavContext.Provider value={{expand, setExpand}}>
       <Nav/>
       <Inicio/>
       <ComoFunciona/>
@@ -23,7 +24,7 @@ function App() {
       <Section5/>
       <Section6 />
       <Footer />
-    </>
+    </ExpandedNavContext.Provider>
   )
 }
 

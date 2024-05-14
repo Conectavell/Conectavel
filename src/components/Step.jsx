@@ -9,6 +9,7 @@ const Box = styled.div`
     border: 1px solid #5EC460;
     border-radius: 12px;
     margin-bottom: 2rem;
+
     
     .step{
         border: 1px solid #5EC460;
@@ -23,6 +24,13 @@ const Box = styled.div`
         font-size: 24px;
         line-height: 140%;
     }
+
+    @media (max-width: 768px){
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        overflow: hidden;
+    }
 `
 const Content = styled.div`
     width: 33%;
@@ -32,10 +40,14 @@ const Content = styled.div`
     padding: 1.5rem;
     gap: .5rem;
 
-    
+    @media (max-width: 768px){
+       width: 100%;
+    }
 `
 
 const Step = ({ titulo1, titulo2, titulo3, text1, text2, text3 }) => {
+    const { innerWidth: width, innerHeight: height } = window
+    
     return (
         <Box>
             <Content>
@@ -43,12 +55,12 @@ const Step = ({ titulo1, titulo2, titulo3, text1, text2, text3 }) => {
                 <h4 className='title'>{titulo1}</h4>
                 <Detail style={{ textAlign: 'center' }}>{text1}</Detail>
             </Content>
-            <Content style={{ borderLeft: '1px solid #5EC460' }}>
+            <Content style={width > 768 ? { borderLeft: '1px solid #5EC460' } : { borderTop: '1px solid #5EC460' }}>
                 <p className='step'>Step 2</p>
                 <h4 className='title'>{titulo2}</h4>
                 <Detail style={{ textAlign: 'center' }}>{text2}</Detail>
             </Content>
-            <Content style={{ borderLeft: '1px solid #5EC460' }}>
+            <Content style={width > 768 ? { borderLeft: '1px solid #5EC460' } : { borderTop: '1px solid #5EC460' }}>
                 <p className='step'>Step 3</p>
                 <h4 className='title'>{titulo3}</h4>
                 <Detail style={{ textAlign: 'center' }}>{text3}</Detail>
