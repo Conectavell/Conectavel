@@ -28,11 +28,9 @@ const Nav = () => {
     const navItems = ['Home', 'Serviços', 'Colaboradores', 'Descarte', 'Quem somos nós']
     const { innerWidth: width, innerHeight: height } = window
     const {expand, setExpand} = useContext(ExpandedNavContext)
-
-
     
     const Box = styled.nav`
-    width: 67.05vw;
+    width: 77.05vw;
     margin: auto;
     padding: .5rem 3rem;
     margin-top: 1rem;
@@ -113,7 +111,7 @@ const Nav = () => {
                             <img className='logotipo' src={logotipo_alternativo} alt="" />
                         </div>
                         {
-                            width > 768
+                            width > 1161
                                 ?
                                 <>
                                     <ul>

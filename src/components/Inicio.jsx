@@ -28,6 +28,9 @@ const Box = styled.header`
     .right{
         position: static;
     }
+    .left{
+        display: none;
+    }
 }
 `
 export const Sub_heading = styled.p`
@@ -42,8 +45,8 @@ export const Sub_heading = styled.p`
 
 `
 
-export const Heading_text = styled.h1`  
-    width: 70%;
+const Heading_text = styled.h1`  
+    width: 100%;
     font-size: 3em;
     line-height: 140%;
     font-weight: 400;
@@ -73,7 +76,7 @@ const Inicio = () => {
                     </Sub_heading>
                     <Heading_text>Conserte seus<br /> equipamentos com<br /> qualidade</Heading_text>
                 </div>
-                <Detail style={{ marginTop: '1rem' }}>Obtenha rentabilidade e contribua para o descarte eletrônico<br /> correto</Detail>
+                <Detail style={width > 768 ? { marginTop: '1rem' }:{ marginTop: '1rem', marginBottom: '1rem' }}>Obtenha rentabilidade e contribua para o descarte eletrônico<br /> correto</Detail>
 
                 {
                     width > 768
