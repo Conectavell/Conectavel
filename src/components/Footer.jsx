@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { BiLogoLinkedin, BiLogoInstagram } from "react-icons/bi"
 import { FaGithub } from 'react-icons/fa'
 import logo from '../assets/LogoFooter.png'
+import logotipo from '../assets/logotipo.png'
 
 const FooterWrapper = styled.footer`
     height: fit-content;
@@ -11,8 +12,10 @@ const FooterWrapper = styled.footer`
     align-items: center;
     justify-content: center;
     gap: 14px;
-    background: rgb(94,196,96);
-    background: linear-gradient(0deg, rgba(94,196,96,1) 0%, rgba(33,150,243,1) 100%);   
+    padding-top: 2rem;
+    background: linear-gradient(180deg, rgba(176, 217, 255, 0.2604) -34.62%, rgba(6, 171, 17, 0.4154) 80.41%, rgba(0, 121, 106, 0.62) 99.92%), #2196F3;
+    background-blend-mode: color, normal;
+
 `
 
 const LadoEsquerdo_footer = styled.div`
@@ -74,9 +77,9 @@ const OpcaoFooter = styled.p`
     `}
 `
 
-const CircuSustain = styled.p`
-    font-size: 40px;
-    color: #fff;
+const CircuSustain = styled.div`
+    align-items: center;
+    display: flex;
 `
 
 const DivOpcaoFooter = styled.div`
@@ -113,8 +116,8 @@ const DivFooter = styled.div`
 
 const LinhaFinal = styled.div`
     width: 80%;
-    height: 2px;
-    background-color: gray;
+    height: 1px;
+    background-color: #0000002a;
     border-radius: 50px;
 `
 
@@ -127,7 +130,7 @@ function Footer() {
                     <LadoEsquerdo_footer_logo>
                         <DivLogo>
                             <ImgLogo src={logo} />
-                            <CircuSustain>CircuSustain</CircuSustain>
+                            <CircuSustain><img src={logotipo} width='212px' alt="" /></CircuSustain>
                         </DivLogo>
                         <OpcaoFooter>Um ciclo que se renova.</OpcaoFooter>
                     </LadoEsquerdo_footer_logo>
@@ -155,7 +158,7 @@ function Footer() {
                 </LadoDireito_footer>
             </DivFooter>
             <LinhaFinal></LinhaFinal>
-            <OpcaoFooter final>Copyrigth @ 2024 CircuSustain</OpcaoFooter>
+            <OpcaoFooter final>Copyright @ 2024 CircuSustain</OpcaoFooter>
         </FooterWrapper>
 
     );

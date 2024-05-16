@@ -32,7 +32,6 @@ const Nav = () => {
     const Box = styled.nav`
     width: 77.05vw;
     margin: auto;
-    padding: .5rem 3rem;
     margin-top: 1rem;
     height: 3rem;
     height: 3rem;
@@ -61,9 +60,13 @@ const Nav = () => {
     .logotipo{
         width: 119px;
     }
-
+    
+    @media (min-width: 1024px) {
+        padding: .5rem 3rem;
+    }
     @media (max-width: 1024px) {
-        width: 90vw;
+        width: 80vw;
+        padding: .2rem 1rem;
     }
     @media (max-width: 768px){
         ul{

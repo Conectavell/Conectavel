@@ -10,6 +10,9 @@ const Review = styled.div`
     gap: 30px;
     padding: 34px;
     border-radius: 20px;
+    @media only screen and (max-width: 1000px){
+        width: 70vw;
+    }
 `
 
 const ImageBox = styled.div`
