@@ -9,7 +9,7 @@ import { useContext } from 'react'
 import ExpandedNavContext from '../context/ExpandNavContext'
 
 const Box = styled.nav`
-    width: 85%;
+    width: 80vw !important;
     margin: auto;
     padding: .5rem 1rem;
     margin-top: 1rem;

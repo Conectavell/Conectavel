@@ -5,13 +5,14 @@ import ImgPlanta from '../assets/ImgPlanta.png'
 import ImgLuz from '../assets/ImgLuz.png'
 import ImgArvores from '../assets/ImgArvores.png'
 import { useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const ContribuaWrapper = styled.section`
     height: 100%;
     width: auto;
     background: #188b6b;
     display: flex;
-    padding: 24px;
+    padding: 3rem;
 
     @media only screen and (max-width: 1000px){
         flex-direction: column-reverse;
@@ -24,6 +25,7 @@ const LadoEsquerdo = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
 
     @media only screen and (max-width: 1000px){
@@ -51,10 +53,14 @@ const Topo = styled.div`
 `
 
 const Heading = styled.h2`
-    font-size: 56px;
+    font-size: 3rem;
+    width: 100%;
     font-weight: 400;
     line-height: 140%;
     color: #FFFFFF;
+    @media only screen and (max-width: 1000px){
+        text-align: center;
+    }
 `
 
 const Textao = styled.p`
@@ -62,6 +68,9 @@ const Textao = styled.p`
     font-weight: 400;
     color: #ffffff;
     text-align: center;
+    @media only screen and (max-width: 1000px){
+        text-align: justify;
+    }
 `
 
 const LadoDireito = styled.div`
@@ -83,13 +92,11 @@ const LadoDireito = styled.div`
 const ImgSeta = styled.img`
     width: auto;
     height: 22.5px;
-
-
 `
 
 const ImgP = styled.img`
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     transition: width 2s, height 2s, transform 2s;
 
     @media only screen and (max-width: 1000px){
@@ -114,21 +121,20 @@ const Botão = styled.button`
     `}
 `
 
-
 function Section5() {
     const imagens = [ImgArvores, ImgLuz, ImgPlanta];
     var i = 0;
 
 
-    function mudaImagem(lado){
-        if(lado == "cima"){
+    function mudaImagem(lado) {
+        if (lado == "cima") {
             i++
-            if(i > 2){
+            if (i > 2) {
                 i = 0
             }
-        }else if(lado == "baixo"){
+        } else if (lado == "baixo") {
             i--
-            if(i < 0){
+            if (i < 0) {
                 i = 2
             }
         }
@@ -137,6 +143,7 @@ function Section5() {
     }
 
     const [imagem, setImagem] = useState(imagens[i])
+    const { innerWidth: width, innerHeight: height } = window
 
     return (
         <ContribuaWrapper>
@@ -145,15 +152,33 @@ function Section5() {
                     <SubHeading>CONTRIBUA</SubHeading>
                     <Heading>O descarte correto transforma</Heading>
                 </Topo>
+                {
+                    width > 954
+                        ?
+                        ''
+                        :
+                        <LadoDireito>
+                            <Botão esquerdo><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")} /></Botão>
+                            <ImgP src={imagem} alt="Planta" />
+                            <Botão direita><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")} /></Botão>
+                        </LadoDireito>
+                }
                 <Textao>
                     Quando o lixo eletrônico entra em contato com a natureza, desencadeia uma série de impactos ambientais significativos. Os componentes tóxicos presentes nos dispositivos eletrônicos, como chumbo, mercúrio e cádmio, contaminam o solo e a água, comprometendo a qualidade dos ecossistemas. Essa contaminação afeta a biodiversidade, causando danos à flora e à fauna, e também representa uma ameaça à saúde humana através da cadeia alimentar.
                 </Textao>
             </LadoEsquerdo>
-            <LadoDireito>
-                <Botão esquerdo><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")}/></Botão>
-                <ImgP src={imagem} alt="Planta"/>
-                <Botão direita><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")}/></Botão>
-            </LadoDireito>
+            {
+                width > 954
+                    ?
+                    <LadoDireito>
+                        <Botão direita><IoIosArrowForward size='2.5rem' color='white' onClick={() => mudaImagem("cima")} /></Botão>
+                        <ImgP src={imagem} alt="Planta" />
+                        <Botão esquerdo><IoIosArrowBack size='2.5rem' color='white' onClick={() => mudaImagem("baixo")} />  </Botão>
+                    </LadoDireito>
+                    :
+                    ''
+            }
+
         </ContribuaWrapper>
     )
 }

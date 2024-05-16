@@ -10,7 +10,8 @@ const ContratarWrapper = styled.section`
     flex-direction: column;
     padding: 24px;
     gap: 28px;
-
+    padding-bottom: 7rem;
+    padding-top: 4rem;
 
 `
 
@@ -44,20 +45,23 @@ const Sub_heading = styled.p`
     letter-spacing: 10%;
     font-size: 16px;
     color: #0B378D;
-
+    
     @media only screen and (max-width: 1000px){
         text-align: center;
     }
-`
+    `
 
 const Heading = styled.h2`
+    font-weight: 400;
     color: #151515;
-    font-size: 56px;
+    font-size: 3em;
     line-height: 140%;
+    width: 70%;
 
     @media only screen and (max-width: 1000px){
-        font-size: 30px;
+        font-size: 3rem;
         width: 100%;
+        text-align: center;
     }
 `
 
@@ -68,6 +72,7 @@ const ImgTopo = styled.div`
     background-position: center;
     background-size: cover;
     border-radius: 20px;
+    margin-top: 2rem;
 
     @media only screen and (max-width: 1000px){
         width: 100%;
@@ -97,12 +102,12 @@ function Section4() {
                     <Sub_heading>CONTRATE O MELHOR PROFISSIONAL</Sub_heading>
                     <Heading>Contrate o melhor profissional de eletrônica da cidade.</Heading>
                 </Title>
-                <ImgTopo/>
+                <ImgTopo />
             </CimaSection>
             <BaixoSection>
-                <Vantagens titulo="Profissionalismo e conhecimento" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais."/>
-                <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks."/>
-                <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço."/>
+                <Vantagens titulo="Profissionalismo e conhecimento" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
+                <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks." />
+                <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço." />
             </BaixoSection>
         </ContratarWrapper>
     );

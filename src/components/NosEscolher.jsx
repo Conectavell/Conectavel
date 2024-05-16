@@ -66,9 +66,9 @@ const Box = styled.div`
         }
     }
 `
-const Heading_text = styled.h1`  
+const Heading_text = styled.h2`  
     width: 100%;
-    font-size: 3em;
+    font-size: 3rem;
     line-height: 140%;
     font-weight: 400;
     
@@ -92,7 +92,6 @@ const NosEscolher = () => {
                     :
                     <>
                         <img src={escolher} alt="" />
-                        <Button className='button'>Get Started</Button>
                     </>
             }
             <div className="row">
@@ -105,7 +104,7 @@ const NosEscolher = () => {
                         <Qualidades title="Seguro" text="Receba sua tecnologia de volta em ótimo estado" />
                         <Qualidades title="Sustentável" text="Como profissional, você possui recursos para descartar corretamente eletrônicos" />
                         {
-                            width > 954 ? <Button className='button'>Get Started</Button> : ''
+                            width > 954 ? <Button className='button'>Começar agora</Button> : ''
                         }
 
                     </div>
@@ -116,7 +115,7 @@ const NosEscolher = () => {
                 </div>
             </div>
             {
-                width > 954 ? '' : <Button className='button'>Get Started</Button>
+                width > 954 ? '' : <Button className='button'>Começar agora</Button>
             }
         </Box >
     )
