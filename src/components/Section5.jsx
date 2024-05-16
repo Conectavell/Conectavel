@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Cima from '../assets/cima.png';
 import Baixo from '../assets/baixo.png';
 import ImgPlanta from '../assets/ImgPlanta.png'
@@ -14,7 +14,7 @@ const ContribuaWrapper = styled.section`
     padding: 24px;
 
     @media only screen and (max-width: 1000px){
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 24px;
     }
 `
@@ -104,6 +104,14 @@ const Botão = styled.button`
     cursor: pointer;
     width: fit-content;
     height: fit-content;
+
+    ${props => props.esquerdo && css`
+        transform: rotate(-90deg);
+    `}
+
+    ${props => props.direita && css`
+        transform: rotate(-90deg);
+    `}
 `
 
 
@@ -142,9 +150,9 @@ function Section5() {
                 </Textao>
             </LadoEsquerdo>
             <LadoDireito>
-                <Botão><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")}/></Botão>
+                <Botão esquerdo><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")}/></Botão>
                 <ImgP src={imagem} alt="Planta"/>
-                <Botão><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")}/></Botão>
+                <Botão direita><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")}/></Botão>
             </LadoDireito>
         </ContribuaWrapper>
     )
