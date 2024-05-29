@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Detail, Sub_heading } from './Inicio'
+import { Detail, Sub_heading } from './Header'
 import Step from './Step'
 
 export const Box = styled.header`

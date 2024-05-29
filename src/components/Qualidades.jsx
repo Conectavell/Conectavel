@@ -1,21 +1,16 @@
 import styled from 'styled-components'
 import icon from '../assets/iconQualidades.png'
+import { LuUsers } from 'react-icons/lu'
 
 const Box = styled.div`
     display: flex;
     flex-direction: column;
-    img{
-        width: 48px;
-    }
+    margin: 2rem auto;
 
     @media (max-width: 768px){
         align-items: center;
         justify-content: center;
         text-align: center;
-
-        img{
-            width: 48px !important;
-        }
     }
 `
 const Title = styled.p`
@@ -42,7 +37,7 @@ const Qualidades = ({title, text}) => {
     
   return (
     <Box>
-        <img src={icon} alt="" />
+        <LuUsers size="50px" color='var(--laranja)' />
         <Title>{title}</Title>
         <Text>{text}</Text>
     </Box>

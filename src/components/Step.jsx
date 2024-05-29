@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Detail } from './Inicio'
+import { Detail } from './Header'
 
 const Box = styled.div`
     width: 100%;
