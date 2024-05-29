@@ -3,9 +3,10 @@ import Review from './Reviews'
 
 const Seção = styled.section`
     height: 100%;
-    width: auto;
+    width: 80%;
+    margin: auto;
     background: #F2F4F8;
-    padding: 24px;
+    padding: 3rem 24px;
     display: flex;
     flex-direction: column;
     gap: 31px;
@@ -17,8 +18,9 @@ const Title = styled.div`
     width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-
+    @media only screen and (max-width: 1000px){
+        text-align: center;
+    }
 
 `
 
@@ -38,9 +40,9 @@ const Heading = styled.div`
     width: fit-content;
 `
 
-const Heading_text = styled.p`  
+const Heading_text = styled.h2`  
     width: 510px;
-    font-size: 56px;
+    font-size: 3rem;
     line-height: 140%;
     font-weight: 400;
 
@@ -56,7 +58,11 @@ const Reviews = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
+    @media only screen and (max-width: 1000px){
+        gap: 40px;
+    }
+    
 `
 
 function Colaboradores() {

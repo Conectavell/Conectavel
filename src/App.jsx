@@ -1,21 +1,15 @@
 import { useState } from 'react'
-import './App.css'
-
-import Section4 from './components/Section4.jsx'
-import Section5 from './components/Section5.jsx'
-import Section6 from './components/Section6.jsx'
-import Footer from './components/Footer'
+import ExpandedNavContext from './context/ExpandNavContext.jsx'
+import Routes from './Routes.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <Section4/>
-      <Section5/>
-      <Section6 />
-      <Footer />
-    </>
+  const [expand, setExpand] = useState(false)
+  
+  return(
+    // Aplicação dos Providers dos contextos
+    <ExpandedNavContext.Provider value={{expand, setExpand}}>
+      <Routes/>
+    </ExpandedNavContext.Provider>
   )
 }
 
