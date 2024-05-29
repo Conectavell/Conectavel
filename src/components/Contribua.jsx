@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import Cima from '../assets/cima.png';
-import Baixo from '../assets/baixo.png';
+import cima from '../assets/cima.png';
+import baixo from '../assets/baixo.png';
 import ImgPlanta from '../assets/ImgPlanta.png'
 import ImgLuz from '../assets/ImgLuz.png'
 import ImgArvores from '../assets/ImgArvores.png'
@@ -9,10 +9,15 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const ContribuaWrapper = styled.section`
     height: 100%;
-    width: auto;
-    background: #188b6b;
+    width: 100%;
+    background: var(--verde_principal);
+`
+const Content = styled.div`
+    width: 80%;
     display: flex;
+    justify-content: space-between;
     padding: 3rem;
+    margin: auto;
 
     @media only screen and (max-width: 1000px){
         flex-direction: column-reverse;
@@ -35,10 +40,10 @@ const LadoEsquerdo = styled.div`
 
 const SubHeading = styled.p`
     font-weight: 400;
-    font-size: 16px;
+    font-size: 24px;
     line-height: 100%;
     letter-spacing: 10%;
-    color: #A6DFFC;
+    color: var(--azul_principal);
 
     @media only screen and (max-width: 1000px){
         text-align: center;
@@ -53,7 +58,7 @@ const Topo = styled.div`
 `
 
 const Heading = styled.h2`
-    font-size: 3rem;
+    font-size: 48px;
     width: 100%;
     font-weight: 400;
     line-height: 140%;
@@ -75,7 +80,7 @@ const Textao = styled.p`
 
 const LadoDireito = styled.div`
     height: 100%;
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -147,38 +152,39 @@ function Section5() {
 
     return (
         <ContribuaWrapper>
-            <LadoEsquerdo>
-                <Topo>
-                    <SubHeading>CONTRIBUA</SubHeading>
-                    <Heading>O descarte correto transforma</Heading>
-                </Topo>
+            <Content>
+                <LadoEsquerdo>
+                    <Topo>
+                        <SubHeading>CONTRIBUA</SubHeading>
+                        <Heading>O descarte correto transforma</Heading>
+                    </Topo>
+                    {
+                        width > 954
+                            ?
+                            ''
+                            :
+                            <LadoDireito>
+                                <Botão esquerdo><ImgSeta src={cima} alt="Cima" onClick={() => mudaImagem("cima")} /></Botão>
+                                <ImgP src={imagem} alt="Planta" />
+                                <Botão direita><ImgSeta src={baixo} alt="Baixo" onClick={() => mudaImagem("baixo")} /></Botão>
+                            </LadoDireito>
+                    }
+                    <Textao>
+                        Quando o lixo eletrônico entra em contato com a natureza, desencadeia uma série de impactos ambientais significativos. Os componentes tóxicos presentes nos dispositivos eletrônicos, como chumbo, mercúrio e cádmio, contaminam o solo e a água, comprometendo a qualidade dos ecossistemas. Essa contaminação afeta a biodiversidade, causando danos à flora e à fauna, e também representa uma ameaça à saúde humana através da cadeia alimentar.
+                    </Textao>
+                </LadoEsquerdo>
                 {
                     width > 954
                         ?
-                        ''
-                        :
                         <LadoDireito>
-                            <Botão esquerdo><ImgSeta src={Cima} alt="Cima" onClick={() => mudaImagem("cima")} /></Botão>
+                            <Botão direita><IoIosArrowForward size='2.5rem' color='var(--azul_principal)' onClick={() => mudaImagem("cima")} /></Botão>
                             <ImgP src={imagem} alt="Planta" />
-                            <Botão direita><ImgSeta src={Baixo} alt="Baixo" onClick={() => mudaImagem("baixo")} /></Botão>
+                            <Botão esquerdo><IoIosArrowBack size='2.5rem' color='var(--azul_principal)' onClick={() => mudaImagem("baixo")} />  </Botão>
                         </LadoDireito>
+                        :
+                        ''
                 }
-                <Textao>
-                    Quando o lixo eletrônico entra em contato com a natureza, desencadeia uma série de impactos ambientais significativos. Os componentes tóxicos presentes nos dispositivos eletrônicos, como chumbo, mercúrio e cádmio, contaminam o solo e a água, comprometendo a qualidade dos ecossistemas. Essa contaminação afeta a biodiversidade, causando danos à flora e à fauna, e também representa uma ameaça à saúde humana através da cadeia alimentar.
-                </Textao>
-            </LadoEsquerdo>
-            {
-                width > 954
-                    ?
-                    <LadoDireito>
-                        <Botão direita><IoIosArrowForward size='2.5rem' color='white' onClick={() => mudaImagem("cima")} /></Botão>
-                        <ImgP src={imagem} alt="Planta" />
-                        <Botão esquerdo><IoIosArrowBack size='2.5rem' color='white' onClick={() => mudaImagem("baixo")} />  </Botão>
-                    </LadoDireito>
-                    :
-                    ''
-            }
-
+            </Content>
         </ContribuaWrapper>
     )
 }

@@ -1,21 +1,21 @@
 import Nav from '../components/Nav'
-import Inicio from '../components/Inicio'
+import Header from '../components/Header'
 import ComoFunciona from '../components/ComoFunciona'
 import NosEscolher from '../components/NosEscolher'
-import Section4 from '../components/Section4'
-import Section5 from '../components/Section5'
 import Footer from '../components/Footer'
 import Colaboradores from '../components/Colaboradores'
+import ContrateMelhorProfissional from '../components/ContrateMelhorProfissional'
+import Contribua from '../components/Contribua'
 
 const HomePage = () => {
   return (
     <>
       <Nav />
-      <Inicio />
+      <Header />
       <ComoFunciona />
       <NosEscolher />
-      <Section4 />
-      <Section5 />
+      <ContrateMelhorProfissional />
+      <Contribua />
       <Colaboradores />
       <Footer />
     </>

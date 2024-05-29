@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { Sub_heading } from './Inicio'
+import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
 import { Button } from './Nav'
 
 const Box = styled.div`
     width: 100%;
-    background-color: #2196F3;
+    background-color: var(--azul_principal);
     margin: auto;
     padding-top: 0;
     padding-bottom: 0;
@@ -68,7 +68,7 @@ const Box = styled.div`
 `
 const Heading_text = styled.h2`  
     width: 100%;
-    font-size: 3rem;
+    font-size: 64px;
     line-height: 140%;
     font-weight: 400;
     
@@ -83,10 +83,10 @@ const NosEscolher = () => {
 
     return (
         <Box>
-                <Sub_heading style={{ color: '#394B21' }}>
+                <Sub_heading style={{ color: 'var(--laranja)' }}>
                     PORQUE NOS ESCOLHER
                 </Sub_heading>
-                <Heading_text style={width > 768 ? { color: '#ffffff', width: '30%' } : { color: '#ffffff', width: '90%' }}>Serviço confiável e de qualidade</Heading_text>
+                <Heading_text style={width > 768 ? { color: '#ffffff', width: '50%' } : { color: '#ffffff', width: '90%' }}>Serviço confiável e de qualidade</Heading_text>
             {
                 width > 954 ? ''
                     :

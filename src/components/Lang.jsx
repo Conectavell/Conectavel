@@ -17,48 +17,18 @@ const LangBox = styled.a`
 
 const Lang = () => {
     const [lang, setLang] = useState("pt-br")
-    const [showLang, setShowLang] = useState(false)
+    const [src, setSrc] = useState(br)
 
 
     return (
         <LangBox>
-            {
-                showLang
-                    ?
-                    <>
-                        <img
-                            onClick={
-                                () => {
-                                    setLang("pt-br")
-                                    setShowLang(!showLang)
-                                }}
-                            src={br} alt="" />
-                        <img
-                            onClick={
-                                () => {
-                                    setLang("en")
-                                    setShowLang(!showLang)
-                                }}
-                            src={en} alt="" />
-                    </>
-                    :
-                    lang === 'pt-br' ?
-                        <img
-                            onClick={
-                                () => {
-                                    setLang("pt-br")
-                                    setShowLang(!showLang)
-                                }}
-                            src={br} alt="" />
-                        :
-                        <img
-                            onClick={
-                                () => {
-                                    setLang("en")
-                                    setShowLang(!showLang)
-                                }}
-                            src={en} alt="" />
-            }
+            <img
+                onClick={
+                    () => {
+                        setLang(lang === "pt-br" ? "en" : "pt-br")
+                        setSrc(src === br ? en : br)
+                    }}
+                src={src} alt={`Bandeira ${lang}`} />
         </LangBox>
     )
 }

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { BiLogoLinkedin, BiLogoInstagram } from "react-icons/bi"
 import { FaGithub } from 'react-icons/fa'
-import logo from '../assets/LogoFooter.png'
+import logo from '../assets/logo.png'
 import logotipo from '../assets/logotipo.png'
 
 const FooterWrapper = styled.footer`
@@ -11,16 +11,13 @@ const FooterWrapper = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
     padding-top: 2rem;
-    background: linear-gradient(180deg, rgba(176, 217, 255, 0.2604) -34.62%, rgba(6, 171, 17, 0.4154) 80.41%, rgba(0, 121, 106, 0.62) 99.92%), #2196F3;
+    background: linear-gradient(180deg, rgba(176, 217, 255, 0.2604) -34.62%, rgba(119, 221, 119, 0.62) 80.41%, rgba(44, 184, 123, 0.62) 99.92%), #175EC6;
     background-blend-mode: color, normal;
-
 `
 
 const LadoEsquerdo_footer = styled.div`
-    width: 50%;
-    height: 133px;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -50,7 +47,7 @@ const LadoEsquerdo_footer_redes = styled.div`
 `
 
 const LadoDireito_footer = styled.div`
-    width: 50%;
+    width: 40%;
     height: 133px;
     display: flex;
     gap: 14px;
@@ -92,12 +89,10 @@ const DivOpcaoFooter = styled.div`
 const DivLogo = styled.div`
     display: flex;
     gap: 10px;
-
-
 `
 
 const ImgLogo = styled.img`
-    height: 59.81px;
+    width: 85px;
 `
 
 const DivFooter = styled.div`
@@ -106,6 +101,7 @@ const DivFooter = styled.div`
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     @media only screen and (max-width: 1000px){
         flex-direction: column;
@@ -130,7 +126,7 @@ function Footer() {
                     <LadoEsquerdo_footer_logo>
                         <DivLogo>
                             <ImgLogo src={logo} />
-                            <CircuSustain><img src={logotipo} width='212px' alt="" /></CircuSustain>
+                            <CircuSustain><img src={logotipo} width='198px' alt="" /></CircuSustain>
                         </DivLogo>
                         <OpcaoFooter>Um ciclo que se renova.</OpcaoFooter>
                     </LadoEsquerdo_footer_logo>

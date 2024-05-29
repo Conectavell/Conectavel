@@ -43,8 +43,8 @@ const Title = styled.div`
 const Sub_heading = styled.p`
     font-weight: 400;
     letter-spacing: 10%;
-    font-size: 16px;
-    color: #0B378D;
+    font-size: 24px;
+    color: var(--azul_principal);
     
     @media only screen and (max-width: 1000px){
         text-align: center;
@@ -54,9 +54,9 @@ const Sub_heading = styled.p`
 const Heading = styled.h2`
     font-weight: 400;
     color: #151515;
-    font-size: 3em;
+    font-size: 48px;
     line-height: 140%;
-    width: 70%;
+    width: 90%;
 
     @media only screen and (max-width: 1000px){
         font-size: 3rem;
@@ -94,7 +94,7 @@ const BaixoSection = styled.div`
 
 
 
-function Section4() {
+function ContrateMelhorProfissional() {
     return (
         <ContratarWrapper>
             <CimaSection>
@@ -105,12 +105,12 @@ function Section4() {
                 <ImgTopo />
             </CimaSection>
             <BaixoSection>
-                <Vantagens titulo="Profissionalismo e conhecimento" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
                 <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks." />
+                <Vantagens titulo="Profissionalismo e conhecimento" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
                 <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço." />
             </BaixoSection>
         </ContratarWrapper>
     );
 }
 
-export default Section4
+export default ContrateMelhorProfissional

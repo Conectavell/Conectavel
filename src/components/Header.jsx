@@ -1,12 +1,14 @@
 import styled from 'styled-components'
-import header1 from '../assets/header1.png'
-import header2 from '../assets/header2.png'
+import headerImage from '../assets/headerImage.png'
+import headerImage2 from '../assets/headerImage2.png'
 
 const Box = styled.header`
     width: 80%;
     margin: auto;
     position: relative;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 
     .right{
         position: absolute;
@@ -34,7 +36,7 @@ const Box = styled.header`
 }
 `
 export const Sub_heading = styled.p`
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 400;
     letter-spacing: 10%;
     color: #0B378D;
@@ -47,7 +49,7 @@ export const Sub_heading = styled.p`
 
 const Heading_text = styled.h1`  
     width: 100%;
-    font-size: 3em;
+    font-size: 48px;
     line-height: 140%;
     font-weight: 400;
     
@@ -57,28 +59,30 @@ const Heading_text = styled.h1`
     }
 `
 export const Detail = styled.p`  
-    color: #95979C;
+    color: var(--verde_principal);
+    font-size: 20px;
+    margin-bottom: 1rem;
     @media (max-width: 768px){
         width: 80%;
         text-align: center;
     }
 `
 
-const Inicio = () => {
+const Header = () => {
     const { innerWidth: width, innerHeight: height } = window
 
     return (
         <>
             <Box>
-                <div>
-                    <Sub_heading>
-                        UM CICLO QUE SE RENOVA
-                    </Sub_heading>
-                    <Heading_text>Conserte seus<br /> equipamentos com<br /> qualidade</Heading_text>
-                </div>
-                <Detail style={width > 768 ? { marginTop: '1rem' }:{ marginTop: '1rem', marginBottom: '1rem' }}>Obtenha rentabilidade e contribua para o descarte eletrônico<br /> correto</Detail>
+                {/* <div> */}
+                <Sub_heading>
+                    UM CICLO QUE SE RENOVA
+                </Sub_heading>
+                <Heading_text>Conserte seus equipamentos com qualidade</Heading_text>
+                {/* </div> */}
+                <Detail style={width > 768 ? { marginTop: '1rem' } : { marginTop: '1rem', marginBottom: '1rem' }}>Obtenha rentabilidade e contribua para o descarte eletrônico<br /> correto</Detail>
 
-                {
+                {/* {
                     width > 768
                         ? <>
                             <img className='left' src={header2} alt="" />
@@ -86,11 +90,14 @@ const Inicio = () => {
                         </>
                         :
                         <img className='right' width="90%" src={header1} alt="" />
-                }
-
+                } */}
+                <div style={{alignSelf: 'center'}}>
+                    <img src={headerImage} style={{marginRight: '5rem'}} width="636px" alt="" />
+                    <img src={headerImage2} width="430px" alt="" />
+                </div>
             </Box>
         </>
     )
 }
 
-export default Inicio
+export default Header
