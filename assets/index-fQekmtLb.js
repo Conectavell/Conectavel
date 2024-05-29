@@ -429,7 +429,7 @@ Error generating stack: `+o.message+`
     }
 `,Sg=_.h2`  
     width: 100%;
-    font-size: 64px;
+    font-size: 48px;
     line-height: 140%;
     font-weight: 400;
     
