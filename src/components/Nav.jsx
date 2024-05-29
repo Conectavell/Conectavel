@@ -7,6 +7,7 @@ import Lang from './Lang'
 import { useContext } from 'react'
 import ExpandedNavContext from '../context/ExpandNavContext'
 import ExpandedNav from './ExpandedNav'
+import { Link } from 'react-router-dom'
 
 export const Button = styled.button`
     padding: .8rem 1rem;
@@ -27,8 +28,8 @@ export const Button = styled.button`
 const Nav = () => {
     const navItems = ['Home', 'Serviços', 'Colaboradores', 'Descarte', 'Quem somos nós']
     const { innerWidth: width, innerHeight: height } = window
-    const {expand, setExpand} = useContext(ExpandedNavContext)
-    
+    const { expand, setExpand } = useContext(ExpandedNavContext)
+
     const Box = styled.nav`
     width: 77.05vw;
     margin: auto;
@@ -78,12 +79,16 @@ const Nav = () => {
     list-style-type: none;
     font-size: 13px;
     font-weight: 500;
+    
+`
+    const StyledLink = styled(Link)`
     cursor: pointer;
-
+    text-decoration: none;
+    color: #000;
     &:hover{
         color: #009788;
         transition: all .3s linear;
-    }
+}
 `
     const Login = styled.button`
     border-radius: 1.5rem;
@@ -119,7 +124,14 @@ const Nav = () => {
                                 <>
                                     <ul>
                                         {navItems.map((item, index) => {
-                                            return <ListItem key={index}>{item}</ListItem>
+                                            return (
+                                                <ListItem key={index}>
+                                                    <StyledLink to={`/${item === "Home" ? "CircuSustain" : item}`}>
+                                                        {item}
+                                                    </StyledLink>
+                                                </ListItem>
+
+                                            )
                                         })
                                         }
                                     </ul>
