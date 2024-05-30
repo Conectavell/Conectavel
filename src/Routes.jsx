@@ -13,7 +13,7 @@ const Routes = () => {
         <>
             <BrowserRouter>
                 <Rotas>
-                    <Route path='/CircuSustain' element={<HomePage/>} />
+                    <Route path='/Conectavel' element={<HomePage/>} />
                     <Route path='/Cadastro' exact element={<CadastroPage/>} />
                     <Route path='/Login' exact element={<LoginPage/>} />
                     <Route path='/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
