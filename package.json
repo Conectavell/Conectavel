@@ -14,9 +14,18 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "gh-pages": "^6.1.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/joy": "^5.0.0-beta.36",
+    "@mui/material": "^5.15.18",
+    "axios": "^1.6.8",
+    "react-bootstrap": "^2.10.2",
+    "react-awesome-reveal": "^4.2.10"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
