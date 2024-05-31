@@ -13,6 +13,7 @@ const ContratarWrapper = styled.section`
     margin: auto;
     @media (max-width: 992px){
         width: 100%;
+        padding: 2rem 24px;
     }
 `
 

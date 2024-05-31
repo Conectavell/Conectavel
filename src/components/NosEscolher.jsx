@@ -31,10 +31,6 @@ const Box = styled.div`
     .qualidades{
         width: 20vw;
     }
-    img{
-        margin: .5rem 0;
-        width: 40%;
-    }
     
     @media (max-width: 992px){
         padding: 1rem .5rem;
@@ -43,9 +39,6 @@ const Box = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        img{
-            width: 70%;
-        }
         .row{
             justify-content: center;
             gap: 0;
@@ -54,11 +47,9 @@ const Box = styled.div`
         .left{
             flex-direction: column;
             position: unset;
-            left: auto;
-            top: auto;
         }
         .qualidades{
-            width: 50vw;
+            width: 90vw;
         }
         .button{
             margin-top: 1rem;
