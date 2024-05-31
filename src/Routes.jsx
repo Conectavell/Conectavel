@@ -12,12 +12,12 @@ const Routes = () => {
         <>
             <BrowserRouter>
                 <Rotas>
-                    <Route path='/CircuSustain' element={<HomePage/>} />
-                    <Route path='/CircuSustain/Cadastro' exact element={<CadastroPage/>} />
-                    <Route path='/CircuSustain/Login' exact element={<LoginPage/>} />
-                    <Route path='/CircuSustain/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
-                    <Route path='/CircuSustain/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
-                    <Route path='/CircuSustain/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
+                    <Route path='/Conectavel' element={<HomePage/>} />
+                    <Route path='/Conectavel/Cadastro' exact element={<CadastroPage/>} />
+                    <Route path='/Conectavel/Login' exact element={<LoginPage/>} />
+                    <Route path='/Conectavel/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
+                    <Route path='/Conectavel/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
+                    <Route path='/Conectavel/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                 </Rotas>
             </BrowserRouter>
         </>

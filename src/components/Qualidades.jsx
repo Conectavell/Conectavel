@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import icon from '../assets/iconQualidades.png'
 import { LuUsers } from 'react-icons/lu'
 
 const Box = styled.div`
@@ -15,15 +14,15 @@ const Box = styled.div`
 `
 const Title = styled.p`
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     @media (max-width: 768px){
         align-items: center;
         justify-content: center;
     }
     `
 const Text = styled.p`
-    color: white;
-    font-size: 16px;
+    color: #e1e2e4;
+    font-size: 20px;
     @media (max-width: 768px){
         width: 100;
         align-items: center;
@@ -31,17 +30,15 @@ const Text = styled.p`
     }
 `
 
+const Qualidades = ({ title, text }) => {
 
-
-const Qualidades = ({title, text}) => {
-    
-  return (
-    <Box>
-        <LuUsers size="50px" color='var(--laranja)' />
-        <Title>{title}</Title>
-        <Text>{text}</Text>
-    </Box>
-  )
+    return (
+        <Box>
+            <LuUsers size="50px" color='var(--laranja)' />
+            <Title>{title}</Title>
+            <Text>{text}</Text>
+        </Box>
+    )
 }
 
 export default Qualidades

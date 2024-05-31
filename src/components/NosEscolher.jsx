@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
-import { Button } from './Nav'
+import { Button } from './BarraNavegacao'
 
 const Box = styled.div`
     width: 100%;
@@ -25,19 +25,18 @@ const Box = styled.div`
         top: 40vh;
     }
     .button{
-        margin-top: 8rem;
         padding: 1.3rem 3rem;
         border-radius: 100px;
     }
     .qualidades{
         width: 20vw;
-        /* height: 50px; */
     }
     img{
-        margin: .5rem 0
+        margin: .5rem 0;
+        width: 40%;
     }
     
-    @media (max-width: 768px){
+    @media (max-width: 992px){
         padding: 1rem .5rem;
         min-height: 100vh;
         display: flex;
@@ -71,9 +70,11 @@ const Heading_text = styled.h2`
     font-size: 48px;
     line-height: 140%;
     font-weight: 400;
+    color: #fff;
+    width: 50%;
     
-    @media (max-width: 768px){
-        width: 80%;
+    @media (max-width: 992px){
+        width: 90%;
         text-align: center;
     }
 `
@@ -83,20 +84,14 @@ const NosEscolher = () => {
 
     return (
         <Box>
-                <Sub_heading style={{ color: 'var(--laranja)' }}>
-                    PORQUE NOS ESCOLHER
-                </Sub_heading>
-                <Heading_text style={width > 768 ? { color: '#ffffff', width: '50%' } : { color: '#ffffff', width: '90%' }}>Serviço confiável e de qualidade</Heading_text>
-            {
-                width > 954 ? ''
-                    :
-                    <>
-                        <img src={escolher} alt="" />
-                    </>
-            }
+            <Sub_heading style={{ color: 'var(--laranja)' }}>
+                PORQUE NOS ESCOLHER
+            </Sub_heading>
+            <Heading_text >Serviço confiável e de qualidade</Heading_text>
+
             <div className="row">
                 {
-                    width > 954 ? <img src={escolher} alt="" /> : ''
+                    width > 992 ? <img src={escolher} /> : ''
                 }
 
                 <div className="left">
@@ -104,7 +99,7 @@ const NosEscolher = () => {
                         <Qualidades title="Seguro" text="Receba sua tecnologia de volta em ótimo estado" />
                         <Qualidades title="Sustentável" text="Como profissional, você possui recursos para descartar corretamente eletrônicos" />
                         {
-                            width > 954 ? <Button className='button'>Começar agora</Button> : ''
+                            width > 992 ? <Button className='button'>Começar agora</Button> : ''
                         }
 
                     </div>
@@ -115,7 +110,7 @@ const NosEscolher = () => {
                 </div>
             </div>
             {
-                width > 954 ? '' : <Button className='button'>Começar agora</Button>
+                width > 992 ? '' : <Button className='button'>Começar agora</Button>
             }
         </Box >
     )
