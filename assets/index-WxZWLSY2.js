@@ -323,12 +323,15 @@ Error generating stack: `+o.message+`
         flex-direction: row;
         gap: 4rem;
     }
+    .row img{
+        width: 30vw;
+    }
     .left{
         display: flex;
         flex-direction: row;
         position: absolute;
         left: 50vw;
-        top: 40vh;
+        top: 30vh;
     }
     .button{
         padding: 1.3rem 3rem;
