@@ -46,7 +46,7 @@ export const Sub_heading = styled.p`
 
 `
 
-const Heading_text = styled.h1`  
+const Heading_text = styled.h2`  
     width: 100%;
     font-size: 48px;
     font-weight: 400;
