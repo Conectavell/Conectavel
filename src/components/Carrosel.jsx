@@ -7,7 +7,7 @@ import "../styles/carrossel.css"
 
 const Carrosel = () => {
     return (
-        <Carousel interval={2000} className='container'  data-bs-theme="light">
+        <Carousel interval={4000} className='container'  data-bs-theme="light">
             <Carousel.Item >
                 <img
                     className="d-block container__img"
