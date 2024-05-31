@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
-import { Button } from './Nav'
+import { Button } from './BarraNavegacao'
 
 const Box = styled.div`
     width: 100%;
