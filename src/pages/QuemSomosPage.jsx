@@ -67,7 +67,7 @@ const QuemSomosPage = () => {
                     <Integrante
                         img={bruno}
                         nome="Bruno Carlos"
-                        funcao="PO | Frontend"
+                        funcao="Front-end | PO"
                         linkedinLink="https://www.linkedin.com/in/devanarodrigues"
                         linkedin="/in/devanarodrigues"
                         githubLink="https://github.com/devanarodrigues"
@@ -77,7 +77,7 @@ const QuemSomosPage = () => {
                         invert={true}
                         img={rafaella}
                         nome="Rafaella Costa"
-                        funcao="Scrum Master | Social Media | Front-end"
+                        funcao="Front-end | Scrum Master | Social Media"
                         linkedinLink="https://www.linkedin.com/in/devanarodrigues"
                         linkedin="/in/devanarodrigues"
                         githubLink="https://github.com/devanarodrigues"
@@ -88,7 +88,7 @@ const QuemSomosPage = () => {
                     <Integrante
                         img={pedro}
                         nome="Pedro Xavier"
-                        funcao="Financeiro | Fullstack"
+                        funcao="Fullstack | Financeiro"
                         linkedinLink="https://www.linkedin.com/in/devanarodrigues"
                         linkedin="/in/devanarodrigues"
                         githubLink="https://github.com/devanarodrigues"
@@ -132,7 +132,7 @@ const QuemSomosPage = () => {
                     <Integrante
                         img={kevyn}
                         nome="Kevyn Rodrigues"
-                        funcao="Back-end"
+                        funcao="Back-end | Social Media"
                         linkedinLink="https://www.linkedin.com/in/devanarodrigues"
                         linkedin="/in/devanarodrigues"
                         githubLink="https://github.com/devanarodrigues"
@@ -142,7 +142,7 @@ const QuemSomosPage = () => {
                         img={gabriel}
                         invert={true}
                         nome="Gabriel Amorim"
-                        funcao="Back-end"
+                        funcao="Back-end | Social Media"
                         linkedinLink="https://www.linkedin.com/in/devanarodrigues"
                         linkedin="/in/devanarodrigues"
                         githubLink="https://github.com/devanarodrigues"
