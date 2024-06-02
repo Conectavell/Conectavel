@@ -1,4 +1,3 @@
-import React from 'react'
 import BarraNavegacao from '../components/BarraNavegacao'
 import styled from 'styled-components'
 import Integrante from '../components/Integrante'

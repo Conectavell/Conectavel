@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLinkedin } from 'react-icons/fa6'
 
@@ -53,7 +52,7 @@ const Integrante = ({ img, nome, funcao, linkedinLink, githubLink, linkedin, git
 
             a:hover{
                 color: var(--laranja);
-                transition: .2s ease-in-out;
+                transition: .3s ease-in-out;
             }
             @media (max-width:992px){
                 display: flex;

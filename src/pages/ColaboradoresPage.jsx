@@ -1,7 +1,5 @@
-import React from 'react'
 import BarraNavegacao from '../components/BarraNavegacao'
 import styled from 'styled-components'
-
 import jailson from '../assets/jailson.png'
 import adriana from '../assets/adriana.png'
 import martinha from '../assets/martinha.png'

@@ -1,9 +1,6 @@
-// import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../assets/logo.png'
 import logotipo from '../assets/logotipo.png'
 import styled from 'styled-components';
@@ -64,7 +61,7 @@ const BarraNavegacao = () => {
         transition: all .3s linear;
     }
 `
-    
+
     const NavSection = styled.div`
     display: flex;
     gap: 1rem;
@@ -79,14 +76,14 @@ const BarraNavegacao = () => {
     `
 
     return (
-        <Navbar expand="lg"  className='navbar' style={{marginBottom: '2rem'}}>
+        <Navbar expand="lg" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
-                    <img width={60} src={logo} alt="" />
-                    <img width={119} src={logotipo} alt="" />
+                    <img width={60} src={logo} />
+                    <img width={119} src={logotipo} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
-                    <FaBarsStaggered color='white'/>
+                    <FaBarsStaggered color='white' />
                 </Navbar.Toggle>
                 <Navbar.Collapse id="navbarScroll">
                     <NavSection>
@@ -94,7 +91,9 @@ const BarraNavegacao = () => {
                             {navItems.map((item, index) => {
                                 return (
                                     <ListItem key={index}>
-                                        <StyledLink to={`/${item === "Home" ? "CircuSustain" : item}`}>
+                                        <StyledLink to={
+                                            item === "Home" ? "/Conectavel" : item === "Quem somos" ? "/Conectavel/QuemSomos" : `/Conectavel/${item}`
+                                        }>
                                             {item}
                                         </StyledLink>
                                     </ListItem>
