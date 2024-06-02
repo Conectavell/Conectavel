@@ -23,7 +23,7 @@ const NavbarPerfis = ({ usuario }) => {
     // usuario="cliente"
 
     return (
-        <Navbar expand="lg" className="navbar">
+        <Navbar expand="lg" className="navbar-perfil">
             <Container className='navbar__container'>
                 <Navbar.Brand href="#home">
                     <img width={70} src={logo} alt="" />
