@@ -3,7 +3,10 @@ import kemilly from '../assets/kemilly.png'
 import pedro from '../assets/pedroAlves.png'
 import styled from 'styled-components'
 
-const BemVindo = ({usuario}) => {
+const BemVindo = ({ usuario }) => {
+    const { innerWidth: width, innerHeight: height } = window
+
+
     const Container = styled.div`
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.5);
@@ -19,6 +22,14 @@ const BemVindo = ({usuario}) => {
 
     p{
         margin: 0;
+    }
+
+    @media (max-width: 992px){
+        width: 10rem;
+        font-size: .8em;
+        img{
+            width: 2rem;
+        }
     }
     `
 
@@ -42,7 +53,10 @@ const BemVindo = ({usuario}) => {
                 <img src={usuario === "profissional" ? pedro : kemilly} width={45} alt="" />
 
                 <Details>
-                    <p>Bem vindo de volta,</p>
+                    {
+                        width > 992 ? <p>Bem vindo de volta,</p>
+                            : ''
+                    }
                     <Nome>{usuario === "profissional" ? "Pedro Alves" : "Kemilly Vitoria"} </Nome>
                 </Details>
             </Container>

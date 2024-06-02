@@ -33,4 +33,11 @@
     gap: .8rem;
 }
 
+@media (max-width:992px){
+    .navbar__container__collapse__content{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 
