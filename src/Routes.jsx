@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
 import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
+import NavbarPerfis from './components/NavbarPerfis'
 
 const Routes = () => {
     
@@ -17,6 +18,7 @@ const Routes = () => {
                     <Route path='/Conectavel/Login' exact element={<LoginPage/>} />
                     <Route path='/Conectavel/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
                     <Route path='/Conectavel/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
+
                     <Route path='/Conectavel/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                 </Rotas>
             </BrowserRouter>
