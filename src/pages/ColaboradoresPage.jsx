@@ -21,7 +21,6 @@ const ColaboradoresPage = () => {
     }
 
 `
-
     const Heading_text = styled.h2`  
     width: 100%;
     font-size: 48px;

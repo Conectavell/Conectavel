@@ -6,6 +6,7 @@ import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
 import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
 import ColaboradoresPage from './pages/ColaboradoresPage'
+import QuemSomosPage from './pages/QuemSomosPage'
 
 const Routes = () => {
 
@@ -20,6 +21,7 @@ const Routes = () => {
                     <Route path='/Conectavel/PreencherCliente' element={<CompletarInfoClientePage />} />
                     <Route path='/Conectavel/PreencherPrestador' element={<CompletarInfoPrestadorPage />} />
                     <Route path='/Conectavel/Colaboradores' element={<ColaboradoresPage />} />
+                    <Route path='/Conectavel/QuemSomos' element={<QuemSomosPage />} />
 
 
                     <Route path="/Conectavel/PerfilPrestador" element={<PerfilPrestadorPage />} />
