@@ -37,7 +37,7 @@ const Box = styled.header`
 export const Sub_heading = styled.p`
     font-size: 24px;
     font-weight: 400;
-    color: #0B378D;
+    color: var(--azul_principal);
     
     @media (max-width: 992px){
         font-size: 20px;

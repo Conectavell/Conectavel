@@ -17,12 +17,15 @@ const Box = styled.div`
         flex-direction: row;
         gap: 4rem;
     }
+    .row img{
+        width: 30vw;
+    }
     .left{
         display: flex;
         flex-direction: row;
         position: absolute;
         left: 50vw;
-        top: 40vh;
+        top: 30vh;
     }
     .button{
         padding: 1.3rem 3rem;
@@ -30,10 +33,6 @@ const Box = styled.div`
     }
     .qualidades{
         width: 20vw;
-    }
-    img{
-        margin: .5rem 0;
-        width: 40%;
     }
     
     @media (max-width: 992px){
@@ -43,9 +42,6 @@ const Box = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        img{
-            width: 70%;
-        }
         .row{
             justify-content: center;
             gap: 0;
@@ -54,11 +50,9 @@ const Box = styled.div`
         .left{
             flex-direction: column;
             position: unset;
-            left: auto;
-            top: auto;
         }
         .qualidades{
-            width: 50vw;
+            width: 90vw;
         }
         .button{
             margin-top: 1rem;

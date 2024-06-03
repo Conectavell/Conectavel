@@ -31,3 +31,6 @@ body{
   background: #fff;
   overflow-x: hidden;
 }
+.carousel-indicators{
+  position: inherit !important;
+}
