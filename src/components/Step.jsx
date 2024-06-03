@@ -52,17 +52,17 @@ const Step = ({ titulo1, titulo2, titulo3, text1, text2, text3 }) => {
     return (
         <Box>
             <Content>
-                <p className='step'>Step 1</p>
+                <p className='step'>Passo 1</p>
                 <h4 className='title'>{titulo1}</h4>
                 <Texto>{text1}</Texto>
             </Content>
             <Content style={width > 768 ? { borderLeft: '1px solid var(--verde_principal)' } : { borderTop: '1px solid var(--verde_principal)' }}>
-                <p className='step'>Step 2</p>
+                <p className='step'>Passo 2</p>
                 <h4 className='title'>{titulo2}</h4>
                 <Texto>{text2}</Texto>
             </Content>
             <Content style={width > 768 ? { borderLeft: '1px solid var(--verde_principal)' } : { borderTop: '1px solid var(--verde_principal)' }}>
-                <p className='step'>Step 3</p>
+                <p className='step'>Passo 3</p>
                 <h4 className='title'>{titulo3}</h4>
                 <Texto>{text3}</Texto>
             </Content>
