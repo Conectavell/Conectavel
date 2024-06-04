@@ -7,6 +7,7 @@ import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
+import DescartePage from './pages/DescartePage'
 
 const Routes = () => {
 
@@ -16,16 +17,17 @@ const Routes = () => {
                 <Rotas>
 
                     <Route path='/Conectavel' element={<HomePage />} />
-                    <Route path='/Conectavel/Cadastro' exact element={<CadastroPage />} />
-                    <Route path='/Conectavel/Login' element={<LoginPage />} />
-                    <Route path='/Conectavel/PreencherCliente' element={<CompletarInfoClientePage />} />
-                    <Route path='/Conectavel/PreencherPrestador' element={<CompletarInfoPrestadorPage />} />
-                    <Route path='/Conectavel/Colaboradores' element={<ColaboradoresPage />} />
-                    <Route path='/Conectavel/QuemSomos' element={<QuemSomosPage />} />
+                    <Route path='/Conectavel/cadastro' exact element={<CadastroPage />} />
+                    <Route path='/Conectavel/login' element={<LoginPage />} />
+                    <Route path='/Conectavel/preenchercliente' element={<CompletarInfoClientePage />} />
+                    <Route path='/Conectavel/preencherprestador' element={<CompletarInfoPrestadorPage />} />
+                    <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
+                    <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
 
-                    <Route path="/Conectavel/PerfilPrestador" element={<PerfilPrestadorPage />} />
+                    <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
 
+                    <Route path="/Conectavel/descarte" element={<DescartePage />} />
                 </Rotas>
 
             </BrowserRouter>
