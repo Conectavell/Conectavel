@@ -61,7 +61,7 @@ const BarraNavegacao = () => {
         transition: all .3s linear;
     }
 `
-    
+
     const NavSection = styled.div`
     display: flex;
     gap: 1rem;
@@ -76,14 +76,14 @@ const BarraNavegacao = () => {
     `
 
     return (
-        <Navbar expand="lg"  className='navbar' style={{marginBottom: '2rem'}}>
+        <Navbar expand="lg" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
-                    <img width={60} src={logo} alt="" />
-                    <img width={119} src={logotipo} alt="" />
+                    <img width={60} src={logo} />
+                    <img width={119} src={logotipo} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
-                    <FaBarsStaggered color='white'/>
+                    <FaBarsStaggered color='white' />
                 </Navbar.Toggle>
                 <Navbar.Collapse id="navbarScroll">
                     <NavSection>
@@ -91,7 +91,9 @@ const BarraNavegacao = () => {
                             {navItems.map((item, index) => {
                                 return (
                                     <ListItem key={index}>
-                                        <StyledLink to={`/${item === "Home" ? "CircuSustain" : item}`}>
+                                        <StyledLink to={
+                                            item === "Home" ? "/Conectavel" : item === "Quem somos" ? "/Conectavel/QuemSomos" : `/Conectavel/${item}`
+                                        }>
                                             {item}
                                         </StyledLink>
                                     </ListItem>
