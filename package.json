@@ -26,7 +26,8 @@
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
     "react-swipeable-views-utils": "^0.14.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "@react-google-maps/api": "^2.19.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
