@@ -57,8 +57,8 @@ const Heading_text = styled.h2`
     `
 
 const Mapa = styled.div`
-        width: 909px;
-        height: 488px;
+        width: 70%;
+        height: 30.5rem;
         background-color: var(--azul_principal);
         border-radius: 10px;
         overflow: hidden;
@@ -66,6 +66,10 @@ const Mapa = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media (max-width: 992px){
+            width: 90%;
+        }
     `
 
 const PontosColeta = () => {
@@ -77,19 +81,36 @@ const PontosColeta = () => {
             <Sub_heading>
                 ENCONTRE PONTOS DE COLETA
             </Sub_heading>
-            <Heading_text>Samsung Recicla</Heading_text>
+            <Heading_text>
+                {
+                    company === "samsung" ? "Samsung Recicla"
+                        : company === "abree" ? "ABREE"
+                            : company === "green" ? "Green Eletron"
+                                : "Veja todos"
+                }
+            </Heading_text>
 
             <Mapa>
                 <Maps company={company} />
             </Mapa>
 
-            <Button><MdOutlineOpenInNew size={30} />  Veja todos os pontos de coleta</Button>
-
+            {
+                company !== "todos"
+                    ?
+                    <Button
+                        href={
+                            company === "samsung" ? "https://www.samsung.com/br/support/programa-reciclagem/#pontos-coleta"
+                                : company === "abree" ? "https://abree.org.br/pontos-de-recebimento"
+                                    : "https://greeneletron.org.br/localizador"} target='_blank'>
+                        <MdOutlineOpenInNew size={30} />  Veja todos os pontos de coleta
+                    </Button>
+                    : ''
+            }
             <div>
-                <Button onClick={() => setCompany("samsung")}><MdOutlineOpenInNew size={30} />  Samsung</Button>
-                <Button onClick={() => setCompany("abree")}><MdOutlineOpenInNew size={30} />  Abree</Button>
-                <Button onClick={() => setCompany("green")}><MdOutlineOpenInNew size={30} />  GreenEletron</Button>
-                <Button onClick={() => setCompany("todos")}><MdOutlineOpenInNew size={30} />  todos</Button>
+                <Button onClick={() => setCompany("samsung")}>  Samsung</Button>
+                <Button onClick={() => setCompany("abree")}>  Abree</Button>
+                <Button onClick={() => setCompany("green")}>  GreenEletron</Button>
+                <Button onClick={() => setCompany("todos")}>  Todos</Button>
             </div>
 
         </Box>
