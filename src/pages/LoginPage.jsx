@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
@@ -64,6 +64,7 @@ const FormDiv = styled.div`
   a {
     color: var(--azul_secundario);
     text-decoration: none;
+    display: block;
   }
   .ckeckbox-input {
     margin: 5px;
@@ -75,7 +76,7 @@ const FormDiv = styled.div`
     margin-top: 20px;
     margin-bottom: 5px;
   }
-// Estilização botão Arrow
+  // Estilização botão Arrow
 
   .arrow_button {
     cursor: pointer;
@@ -126,6 +127,7 @@ const StyledLink = styled(Link)`
 `;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   return (
     <ContainerDiv>
       <LogoDiv>
@@ -135,7 +137,7 @@ const LoginPage = () => {
       </LogoDiv>
 
       <FormDiv>
-        <button className="arrow_button">
+        <button onClick={() => navigate(-1)} className="arrow_button">
           <img src={Arrow_button} alt="Botão Voltar" />
         </button>
 
@@ -166,7 +168,7 @@ const LoginPage = () => {
           <div className="center-text">
             <span>
               Não tem uma conta?&nbsp;
-              <StyledLink to="/Cadastro">Cadastre-se</StyledLink>
+              <StyledLink to="/Conectavel/Cadastro">Cadastre-se</StyledLink>
             </span>
             <br />
             <span
@@ -192,3 +194,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+  

@@ -139,8 +139,8 @@ const Nav = () => {
                                     </ul>
                                     <div className='bloco'>
                                         <IoSearch color='white' size='25px' />
-                                        <Button>Cadastre-se</Button>
-                                        <Login>Login</Login>
+                                      <Link to="/Conectavel/Cadastro"><Button>Cadastre-se</Button></Link>  
+                                        <Link to="/Conectavel/Login"><Login>Login</Login></Link>
                                         <Lang />
                                     </div>
                                 </>

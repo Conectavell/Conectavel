@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
@@ -56,7 +56,7 @@ const FormDiv = styled.div`
   h2 {
     color: var(--laranja);
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
     margin-bottom: 40px;
     margin-top: -73px;
   }
@@ -70,6 +70,7 @@ const FormDiv = styled.div`
   a {
     color: var(--azul_secundario);
     text-decoration: none;
+    display: block;
   }
 
   .center-text {
@@ -78,7 +79,7 @@ const FormDiv = styled.div`
     margin-bottom: 5px;
   }
 
-// Estilização botão Arrow
+  // Estilização botão Arrow
 
   .arrow_button {
     cursor: pointer;
@@ -93,7 +94,7 @@ const FormDiv = styled.div`
     margin-left: 30px;
   }
 
-// estilização dos Botoes Clientes e Prestadores de serviço
+  // estilização dos Botoes Clientes e Prestadores de serviço
 
   .button_container {
     justify-content: center;
@@ -163,6 +164,7 @@ const StyledLink = styled(Link)`
 `;
 
 const CadastroPage = () => {
+  const navigate = useNavigate();
   return (
     <ContainerDiv>
       <LogoDiv>
@@ -172,7 +174,7 @@ const CadastroPage = () => {
       </LogoDiv>
 
       <FormDiv>
-        <button className="arrow_button">
+        <button onClick={() => navigate(-1)} className="arrow_button">
           <img src={Arrow_button} alt="Botão Voltar" />
         </button>
 
@@ -180,10 +182,8 @@ const CadastroPage = () => {
           <h2>Cadastre-se</h2>
 
           <div className="button_container">
-            
-              <button className="button_selec">Cliente</button>
-              <button className="button_selec">Prestador de Serviço</button>
-          
+            <button className="button_selec">Cliente</button>
+            <button className="button_selec">Prestador de Serviço</button>
           </div>
 
           <form action="">
@@ -207,7 +207,7 @@ const CadastroPage = () => {
             <div className="center-text">
               <span>
                 Já possui uma conta? &nbsp;
-                <StyledLink to="/LoginPage">Entrar</StyledLink>
+                <StyledLink to="/Conectavel/Login">Entrar</StyledLink>
               </span>
             </div>
 
