@@ -25,17 +25,23 @@ export const Button = styled.button`
     }
     `
 const BarraNavegacao = () => {
-    const navItems = ['Home', 'Serviços', 'Colaboradores', 'Descarte', 'Quem somos']
+    const navItems = ['Home', 'Colaboradores', 'Descarte', 'Quem somos']
 
     const ListItem = styled.p`
     list-style-type: none;
     font-size: .9em;
     font-weight: 500;
     margin: 0 .5rem;
+    color: white;
+    cursor: pointer;
 
     @media (max-width: 992px) {
         margin: .5rem auto;
     }
+    &:hover{
+        color: var(--laranja);
+        transition: all .3s linear;
+}
 `
     const StyledLink = styled(Link)`
     cursor: pointer;
@@ -99,6 +105,9 @@ const BarraNavegacao = () => {
                                     </ListItem>
                                 )
                             })}
+                            <ListItem>
+                                Serviços
+                            </ListItem>
                         </Nav>
                         <div >
                             <Button>Cadastre-se</Button>
