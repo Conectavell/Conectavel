@@ -8,6 +8,7 @@ import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
+import Footer from './components/Footer'
 
 const Routes = () => {
 
@@ -29,6 +30,7 @@ const Routes = () => {
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                 </Rotas>
+                    
 
             </BrowserRouter>
         </>

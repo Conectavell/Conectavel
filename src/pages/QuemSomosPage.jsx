@@ -9,6 +9,7 @@ import gabriel from '../assets/gabrielA.png'
 import kevyn from '../assets/kevyn.png'
 import julia from '../assets/julia.png'
 import gustavo from '../assets/gustavo.png'
+import Footer from '../components/Footer'
 
 
 
@@ -151,7 +152,7 @@ const QuemSomosPage = () => {
 
 
             </BoxEquipe>
-
+            <Footer/>
         </>
     )
 }
