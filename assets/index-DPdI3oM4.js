@@ -268,15 +268,21 @@ Error generating stack: `+o.message+`
     &:hover{
         background-color: var(--verde_principal);
     }
-    `,Cl=()=>{const e=["Home","Serviços","Colaboradores","Descarte","Quem somos"],t=D.p`
+    `,Cl=()=>{const e=["Home","Colaboradores","Descarte","Quem somos"],t=D.p`
     list-style-type: none;
     font-size: .9em;
     font-weight: 500;
     margin: 0 .5rem;
+    color: white;
+    cursor: pointer;
 
     @media (max-width: 992px) {
         margin: .5rem auto;
     }
+    &:hover{
+        color: var(--laranja);
+        transition: all .3s linear;
+}
 `,n=D(Ox)`
     cursor: pointer;
     text-decoration: none;
@@ -310,7 +316,7 @@ Error generating stack: `+o.message+`
         flex-direction: column;
         margin-bottom: 1rem;
     }
-    `;return p.jsx(Pn,{expand:"lg",className:"navbar",style:{marginBottom:"2rem"},children:p.jsxs(Ic,{fluid:!0,className:"navbar__container",children:[p.jsxs(Pn.Brand,{href:"#",children:[p.jsx("img",{width:60,src:Fc}),p.jsx("img",{width:119,src:$c})]}),p.jsx(Pn.Toggle,{"aria-controls":"basic-navbar-nav",children:p.jsx(Bv,{color:"white"})}),p.jsx(Pn.Collapse,{id:"navbarScroll",children:p.jsxs(i,{children:[p.jsx(mn,{style:{margin:"auto"},className:"me-auto my-2 my-lg-0",children:e.map((o,s)=>p.jsx(t,{children:p.jsx(n,{to:o==="Home"?"/Conectavel":o==="Quem somos"?"/Conectavel/QuemSomos":`/Conectavel/${o}`,children:o})},s))}),p.jsxs("div",{children:[p.jsx(Su,{children:"Cadastre-se"}),p.jsx(r,{children:"Login"}),p.jsx(UL,{})]})]})})]})})},FL=D.div`
+    `;return p.jsx(Pn,{expand:"lg",className:"navbar",style:{marginBottom:"2rem"},children:p.jsxs(Ic,{fluid:!0,className:"navbar__container",children:[p.jsxs(Pn.Brand,{href:"#",children:[p.jsx("img",{width:60,src:Fc}),p.jsx("img",{width:119,src:$c})]}),p.jsx(Pn.Toggle,{"aria-controls":"basic-navbar-nav",children:p.jsx(Bv,{color:"white"})}),p.jsx(Pn.Collapse,{id:"navbarScroll",children:p.jsxs(i,{children:[p.jsxs(mn,{style:{margin:"auto"},className:"me-auto my-2 my-lg-0",children:[e.map((o,s)=>p.jsx(t,{children:p.jsx(n,{to:o==="Home"?"/Conectavel":o==="Quem somos"?"/Conectavel/QuemSomos":`/Conectavel/${o}`,children:o})},s)),p.jsx(t,{children:"Serviços"})]}),p.jsxs("div",{children:[p.jsx(Su,{children:"Cadastre-se"}),p.jsx(r,{children:"Login"}),p.jsx(UL,{})]})]})})]})})},FL=D.div`
     width: 100%;
     background-color: var(--azul_principal);
     margin: auto;
