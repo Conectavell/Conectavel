@@ -14,11 +14,11 @@ const Routes = () => {
             <BrowserRouter>
                 <Rotas>
                     <Route path='/Conectavel' element={<HomePage/>} />
-                    <Route path='/Cadastro' exact element={<CadastroPage/>} />
-                    <Route path='/Login' exact element={<LoginPage/>} />
-                    <Route path='/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
-                    <Route path='/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
-                    <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
+                    <Route path='/Conectavel/Cadastro' exact element={<CadastroPage/>} />
+                    <Route path='/Conectavel/Login' exact element={<LoginPage/>} />
+                    <Route path='/Conectavel/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
+                    <Route path='/Conectavel/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
+                    <Route path='/Conectavel/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                 </Rotas>
             </BrowserRouter>
         </>
