@@ -70,7 +70,7 @@ const FormDiv = styled.div`
   a {
     color: var(--azul_secundario);
     text-decoration: none;
-    display: block;
+   
   }
 
   .center-text {

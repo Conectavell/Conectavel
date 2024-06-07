@@ -64,7 +64,7 @@ const FormDiv = styled.div`
   a {
     color: var(--azul_secundario);
     text-decoration: none;
-    display: block;
+    
   }
   .ckeckbox-input {
     margin: 5px;
@@ -194,4 +194,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-  
