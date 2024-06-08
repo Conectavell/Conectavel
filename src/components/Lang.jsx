@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import br from '../assets/br.png'
 import en from '../assets/en.png'
-import jp from '../assets/jp.jpg'
 
 
 const LangBox = styled.a`
@@ -19,25 +18,15 @@ const LangBox = styled.a`
 const Lang = () => {
     const [lang, setLang] = useState("pt-br")
     const [src, setSrc] = useState(br)
-    const [textoAlternativo, setTextoAlternativo] = useState(["pt-br","en-us","ja"])
-    const [linguagem,setLinguagem] = useState([br, en, jp])
-    const [count, setCount] = useState(0)
 
-    const mudarLingua = () => {
-        setCount(count + 1)
-        if(count == linguagem.length){
-            setCount(0)
-        }
-    }
 
     return (
         <LangBox>
             <img
                 onClick={
                     () => {
-                        mudarLingua()
-                        setLang(textoAlternativo[count]);
-                        setSrc(linguagem[count]);
+                        setLang(lang === "pt-br" ? "en" : "pt-br")
+                        setSrc(src === br ? en : br)
                     }}
                 src={src} alt={`Bandeira ${lang}`} />
         </LangBox>
