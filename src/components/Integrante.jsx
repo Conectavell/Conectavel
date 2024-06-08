@@ -79,10 +79,10 @@ const Integrante = ({ img, nome, funcao, linkedinLink, githubLink, linkedin, git
                         </Row>
                         <div>
                             <Row>
-                                <a href={linkedinLink}> {linkedin} <FaLinkedin color="#175EC6" size={30} /> </a>
+                                <a target='_blank' href={linkedinLink}> {linkedin} <FaLinkedin color="#175EC6" size={30} /> </a>
                             </Row>
                             <Row>
-                                <a href={githubLink}>{github} <FaGithub color='black' size={30} /> </a>
+                                <a target='_blank' href={githubLink}>{github} <FaGithub color='black' size={30} /> </a>
                             </Row>
                         </div>
                     </Info>
@@ -99,10 +99,10 @@ const Integrante = ({ img, nome, funcao, linkedinLink, githubLink, linkedin, git
                         </Row>
                         <div>
                             <Row>
-                                <a href={linkedinLink}><FaLinkedin color="#175EC6" size={30} /> {linkedin}</a>
+                                <a target='_blank' href={linkedinLink}><FaLinkedin color="#175EC6" size={30} /> {linkedin}</a>
                             </Row>
                             <Row>
-                                <a href={githubLink}><FaGithub color='black' size={30} /> {github}</a>
+                                <a target='_blank' href={githubLink}><FaGithub color='black' size={30} /> {github}</a>
                             </Row>
                         </div>
                     </Info>

@@ -68,20 +68,20 @@ const QuemSomosPage = () => {
                         img={bruno}
                         nome="Bruno Carlos"
                         funcao="Front-end | PO"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/bruno-carlos-soares"
+                        linkedin="/in/bruno-carlos-soares"
+                        githubLink="https://github.com/BrunoCSoares"
+                        github="BrunoCSoares"
                     />
                     <Integrante
                         invert={true}
                         img={rafaella}
                         nome="Rafaella Costa"
                         funcao="Front-end | Scrum Master | Social Media"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/rafaella-costa2"
+                        linkedin="/in/rafaella-costa2"
+                        githubLink="https://github.com/Rafaella-Costa2"
+                        github="Rafaella-Costa2"
                     />
                 </Row>
                 <Row>
@@ -89,20 +89,20 @@ const QuemSomosPage = () => {
                         img={pedro}
                         nome="Pedro Xavier"
                         funcao="Fullstack | Financeiro"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/xavier-pedro"
+                        linkedin="/in/xavier-pedro"
+                        githubLink="https://github.com/pedroopon"
+                        github="pedroopon"
                     />
                     <Integrante
                         img={gustavo}
                         invert={true}
                         nome="Gustavo Oliveira"
                         funcao="Fullstack"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/0liverg/"
+                        linkedin="/in/0liverg/"
+                        githubLink="https://github.com/0Iiver79"
+                        github="0Iiver79"
                     />
                 </Row>
                 <Row>
@@ -121,10 +121,10 @@ const QuemSomosPage = () => {
                         invert={true}
                         nome="Julia De Jesus"
                         funcao="Front-end | UI/UX"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/juoliv"
+                        linkedin="/in/juoliv"
+                        githubLink="https://github.com/J0li"
+                        github="J0li"
                     />
                 </Row>
                 <Row>
@@ -133,20 +133,20 @@ const QuemSomosPage = () => {
                         img={kevyn}
                         nome="Kevyn Rodrigues"
                         funcao="Back-end | Social Media"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/kevynrodriguês"
+                        linkedin="/in/kevynrodriguês"
+                        githubLink="https://github.com/kevynProa"
+                        github="kevynProa"
                     />
                     <Integrante
                         img={gabriel}
                         invert={true}
                         nome="Gabriel Amorim"
                         funcao="Back-end | Social Media"
-                        linkedinLink="https://www.linkedin.com/in/devanarodrigues"
-                        linkedin="/in/devanarodrigues"
-                        githubLink="https://github.com/devanarodrigues"
-                        github="devanarodrigues"
+                        linkedinLink="https://www.linkedin.com/in/gabrielfav"
+                        linkedin="/in/gabrielfav"
+                        githubLink="https://github.com/Bieelogrom"
+                        github="Bieelogrom"
                     />
                 </Row>
 
