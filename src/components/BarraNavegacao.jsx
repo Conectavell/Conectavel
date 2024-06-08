@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import { FaBarsStaggered } from "react-icons/fa6";
 import Lang from './Lang';
 import '../styles/navbar.css'
+import { useTranslation } from 'react-i18next';
+import { NavItem } from 'react-bootstrap';
+
 
 
 export const Button = styled.button`
@@ -80,7 +83,8 @@ const BarraNavegacao = () => {
         margin-bottom: 1rem;
     }
     `
-
+    
+    const {t} = useTranslation()
     return (
         <Navbar expand="lg" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
@@ -100,7 +104,7 @@ const BarraNavegacao = () => {
                                         <StyledLink to={
                                             item === "Home" ? "/Conectavel" : item === "Quem somos" ? "/Conectavel/QuemSomos" : `/Conectavel/${item}`
                                         }>
-                                            {item}
+                                            {t(item)}
                                         </StyledLink>
                                     </ListItem>
                                 )
@@ -110,8 +114,8 @@ const BarraNavegacao = () => {
                             </ListItem>
                         </Nav>
                         <div >
-                            <Button>Cadastre-se</Button>
-                            <Login>Login</Login>
+                            <Button >{t("btncadastro")}</Button>
+                            <Login>{t("btnlogin")}</Login>
                             <Lang />
                         </div>
                     </NavSection>
