@@ -1,30 +1,21 @@
 import styled from "styled-components";
 
 const VantagensWrapper = styled.div`
-    height: fit-content;
-    width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     padding: 40px;
     background: #F2F4F8;
     border-radius: 20px;
 `
 
 const T_Vantagens = styled.p`
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 140%;
-    color: #151515;
-    width: 284px;
+    font-size: 26px;
 `
 
 const P_Vantagens = styled.p`
-    font-family: 'Arial';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 19px;
     color: #95979C;
-    line-height: 160%;
     width: 284px;
 `
 

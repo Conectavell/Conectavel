@@ -3,16 +3,18 @@ import PlacaMae from '../assets/Arrumando.jpg'
 import Vantagens from './Vantagens'
 
 const ContratarWrapper = styled.section`
-    height: 100%;
-    width: auto;
-    background: #ffffff;
+    width: 80%;
     display: flex;
     flex-direction: column;
     padding: 24px;
     gap: 28px;
     padding-bottom: 7rem;
     padding-top: 4rem;
-
+    margin: auto;
+    @media (max-width: 992px){
+        width: 100%;
+        padding: 2rem 24px;
+    }
 `
 
 const CimaSection = styled.div`
@@ -20,7 +22,7 @@ const CimaSection = styled.div`
     height: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     @media only screen and (max-width: 1000px){
         flex-direction: column;
@@ -46,28 +48,30 @@ const Sub_heading = styled.p`
     font-size: 24px;
     color: var(--azul_principal);
     
-    @media only screen and (max-width: 1000px){
+    @media (max-width: 992px){
+        font-size: 20px;
         text-align: center;
+        width: 100%;
     }
     `
 
 const Heading = styled.h2`
     font-weight: 400;
-    color: #151515;
     font-size: 48px;
     line-height: 140%;
     width: 90%;
-
-    @media only screen and (max-width: 1000px){
-        font-size: 3rem;
+    
+    @media (max-width: 992px){
+        line-height: 130%;
+        font-size: 38px;
         width: 100%;
         text-align: center;
     }
 `
 
 const ImgTopo = styled.div`
-    width: 500px;
-    height: 281.16px;
+    width: 25vw;
+    height: 40vh;
     background: url(${PlacaMae});
     background-position: center;
     background-size: cover;
@@ -95,6 +99,8 @@ const BaixoSection = styled.div`
 
 
 function ContrateMelhorProfissional() {
+    const { innerWidth: width, innerHeight: height } = window
+    
     return (
         <ContratarWrapper>
             <CimaSection>
@@ -102,11 +108,14 @@ function ContrateMelhorProfissional() {
                     <Sub_heading>CONTRATE O MELHOR PROFISSIONAL</Sub_heading>
                     <Heading>Contrate o melhor profissional de eletrônica da cidade.</Heading>
                 </Title>
-                <ImgTopo />
+                {
+                    width > 992 ? <ImgTopo /> : ''
+                }
+                
             </CimaSection>
             <BaixoSection>
                 <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks." />
-                <Vantagens titulo="Profissionalismo e conhecimento" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
+                <Vantagens titulo="Profissionalismo" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
                 <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço." />
             </BaixoSection>
         </ContratarWrapper>
