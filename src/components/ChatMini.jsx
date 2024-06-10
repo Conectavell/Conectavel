@@ -27,16 +27,19 @@ const ChatMiniInfos = styled.div`
     flex-direction: column;
 `
 
-const ChatMiniNome = styled.p`
+export const ChatMiniNome = styled.p`
     font-size: 12px;
-    font-weight: 500;
+    font-weight: bold;
     color: #222222;
+    margin: 0
 
     ${props => props.descricao && css`
         font-weight: 400;
-        rgba(73, 69, 79, 0.8);
+        color: rgba(73, 69, 79, 0.8);
     `}
 `
+
+
 
 const ChatMiniMensagem = styled.p
 
