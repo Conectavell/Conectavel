@@ -5,9 +5,13 @@ import LoginPage from './pages/LoginPage'
 import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
 import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
+
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
+
+import ClienteOrcamento from './pages/ClienteOrcamento'
+
 
 const Routes = () => {
 
@@ -25,6 +29,9 @@ const Routes = () => {
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
+                    
+                    <Route path='/Conectavel/orcamento' exact element={<ClienteOrcamento/>} />
+
                 </Rotas>
                     
 
