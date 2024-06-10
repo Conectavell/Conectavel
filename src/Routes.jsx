@@ -34,13 +34,7 @@ const Routes = () => {
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
 
-                    <Route path='/Conectavel' element={<HomePage/>} />
-                    <Route path='/Cadastro' exact element={<CadastroPage/>} />
-                    <Route path='/Login' exact element={<LoginPage/>} />
-                    <Route path='/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
-                    <Route path='/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
-                    <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
-                    <Route path='/Conectavel/Orcamento' exact element={<ClienteOrcamento/>} />
+                    <Route path='/Conectavel/orcamento' element={<ClienteOrcamento/>} />
 
                 </Rotas>
                     
