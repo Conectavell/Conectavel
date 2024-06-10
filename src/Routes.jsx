@@ -19,8 +19,6 @@ const Routes = () => {
         <>
             <BrowserRouter>
                 <Rotas>
-
-
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/cadastro' exact element={<CadastroPage />} />
                     <Route path='/Conectavel/login' element={<LoginPage />} />
@@ -29,12 +27,9 @@ const Routes = () => {
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
-
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
-
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
-
-                    <Route path='/Conectavel/orcamento' element={<ClienteOrcamento/>} />
+                    <Route path='/Conectavel/orcamento' exact element={<ClienteOrcamento/>} />
 
                 </Rotas>
                     
