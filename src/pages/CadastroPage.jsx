@@ -183,7 +183,7 @@ const CadastroPage = () => {
 
           <div className="button_container">
             <button className="button_selec">Cliente</button>
-            <button className="button_selec">Prestador de Serviço</button>
+            <button className="button_selec">Profissional</button>
           </div>
 
           <form action="">
