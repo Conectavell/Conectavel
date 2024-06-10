@@ -144,7 +144,7 @@ function Footer() {
                     </DivOpcaoFooter>
                 </LadoDireito_footer>
             </DivFooter>
-            <OpcaoFooter final>Copyright @ 2024 CircuSustain</OpcaoFooter>
+            <OpcaoFooter final>Copyright @ 2024 Conectável</OpcaoFooter>
         </FooterWrapper>
 
     );

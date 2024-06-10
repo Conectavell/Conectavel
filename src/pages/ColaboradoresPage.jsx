@@ -6,6 +6,7 @@ import martinha from '../assets/martinha.png'
 import aurora from '../assets/aurora.png'
 import debora from '../assets/debora.png'
 import gabriel from '../assets/gabriel.png'
+import Footer from '../components/Footer'
 
 const ColaboradoresPage = () => {
     const Sub_heading = styled.p`
@@ -106,6 +107,7 @@ const ColaboradoresPage = () => {
                     </Row>
                 </Col>
             </Box>
+            <Footer/>
         </>
     )
 }
