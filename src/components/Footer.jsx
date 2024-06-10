@@ -12,8 +12,8 @@ const FooterWrapper = styled.footer`
     align-items: center;
     justify-content: center;
     padding-top: 2rem;
-    background: linear-gradient(180deg, rgba(176, 217, 255, 0.2604) -34.62%, rgba(119, 221, 119, 0.62) 80.41%, rgba(44, 184, 123, 0.62) 99.92%), #175EC6;
-    background-blend-mode: color, normal;
+    background: linear-gradient(90deg, #175EC6 0%, rgba(33, 150, 243, 0.5) 100%), #175EC6;
+
 `
 
 const LadoEsquerdo_footer = styled.div`
@@ -50,7 +50,8 @@ const LadoDireito_footer = styled.div`
     width: 40%;
     height: 133px;
     display: flex;
-    gap: 14px;
+    flex-direction: row;
+    gap: 3rem;
 
     @media only screen and (max-width: 1000px){
         flex-direction: column;
@@ -82,8 +83,6 @@ const CircuSustain = styled.div`
 const DivOpcaoFooter = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
 `
 
 const DivLogo = styled.div`
@@ -109,14 +108,6 @@ const DivFooter = styled.div`
         gap: 10px;
     }
 `
-
-const LinhaFinal = styled.div`
-    width: 80%;
-    height: 1px;
-    background-color: #0000002a;
-    border-radius: 50px;
-`
-
 
 function Footer() {
     return (
@@ -153,11 +144,11 @@ function Footer() {
                     </DivOpcaoFooter>
                 </LadoDireito_footer>
             </DivFooter>
-            <LinhaFinal></LinhaFinal>
-            <OpcaoFooter final>Copyright @ 2024 CircuSustain</OpcaoFooter>
+            <OpcaoFooter final>Copyright @ 2024 Conectável</OpcaoFooter>
         </FooterWrapper>
 
     );
 }
 
 export default Footer
+

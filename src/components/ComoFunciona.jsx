@@ -17,6 +17,18 @@ export const SectionTitle = styled.section`
         text-align: center;
     }
 `
+const Heading_text = styled.h2`  
+    width: 100%;
+    font-size: 48px;
+    font-weight: 400;
+    
+    @media (max-width: 992px){
+        line-height: 100%;
+        font-size: 38px;
+        width: 100%;
+        text-align: center;
+    }
+    `
 
 export const TitleCenter = styled.h2`
     font-size: 3em;
@@ -31,17 +43,16 @@ export const TitleCenter = styled.h2`
 const ComoFunciona = () => {
     const { innerWidth: width, innerHeight: height } = window
 
-
     return (
         <Box>
             <SectionTitle>
                 <Sub_heading>COMO FUNCIONA </Sub_heading>
-                <TitleCenter>
+                <Heading_text>
                     Como acessar nosso{width > 768 ? <br /> : ''}  serviço
-                </TitleCenter>
+                </Heading_text>
             </SectionTitle>
 
-            <Detail style={{ textAlign: 'center', margin: '1rem auto' }}>Para clientes</Detail>
+            <Detail style={{ textAlign: 'center', margin: '1rem auto', color: 'var(--azul_principal' }}>Para clientes</Detail>
             <Step
                 titulo1="Crie sua conta"
                 titulo2="Selecione um profissional"
@@ -49,7 +60,7 @@ const ComoFunciona = () => {
                 text1="Preencha todas as informações para garantir seu serviço."
                 text2="Indique o serviço desejado e busque pelo profissional adequado."
                 text3="Antes de contratar você pode tirar suas dúvidas com o profissional pelo chat." />
-            <Detail style={{ textAlign: 'center', margin: '1rem auto' }}>Para profissionais</Detail>
+            <Detail style={{ textAlign: 'center', margin: '1rem auto',color: 'var(--azul_principal' }}>Para profissionais</Detail>
             <Step
                 titulo1="Crie sua conta"
                 titulo2="Escolha um plano"
