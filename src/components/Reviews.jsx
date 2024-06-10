@@ -4,14 +4,14 @@ import { BsFillStarFill, BsExclamationCircle } from "react-icons/bs";
 const Review = styled.div`
     background: #ffffff;
     height: fit-content;
-    width: fit-content;
+    width: 32%;
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 34px;
     border-radius: 20px;
-    @media only screen and (max-width: 1000px){
-        width: 70vw;
+    @media (max-width: 992px){
+        width: 100%;
     }
 `
 
@@ -23,7 +23,7 @@ const ImageBox = styled.div`
 `
 
 const Image = styled.div`
-    background: #1053D4;
+    background: var(--azul_principal);
     width: 70px;
     height: 70px;
     border-radius: 6px;
