@@ -9,12 +9,12 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Lang from './Lang';
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
-import { NavItem } from 'react-bootstrap';
 
 
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     padding: .8rem 1rem;
+    text-decoration: none;
     border: none;
     outline: none;
     border-radius: 1.5rem;
@@ -55,9 +55,10 @@ const BarraNavegacao = () => {
         transition: all .3s linear;
 }
 `
-    const Login = styled.button`
+    const Login = styled(Link)`
     border-radius: 1.5rem;
     padding: .8rem 1rem;
+    text-decoration: none;
     border: none;
     outline: none;
     cursor: pointer;
@@ -114,8 +115,8 @@ const BarraNavegacao = () => {
                             </ListItem>
                         </Nav>
                         <div >
-                            <Button >{t("btncadastro")}</Button>
-                            <Login>{t("btnlogin")}</Login>
+                            <Button to="/Conectavel/cadastro">{t("btncadastro")}</Button>
+                            <Login to="/Conectavel/login" >{t("btnlogin")}</Login>
                             <Lang />
                         </div>
                     </NavSection>

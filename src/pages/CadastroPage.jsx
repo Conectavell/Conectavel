@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import Input from "../components/Input";
@@ -211,7 +210,7 @@ const CadastroPage = () => {
               </span>
             </div>
 
-            <Button>Cadastrar</Button>
+            <Button onClick={()=> navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
           </form>
           <div className="center-text">
             <br />
