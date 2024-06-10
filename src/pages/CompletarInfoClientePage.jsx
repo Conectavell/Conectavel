@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Box = styled.div`
@@ -110,6 +111,7 @@ const A = styled.div`
 `/**/
 
 const CompletarInfoClientePage = () => {
+  const navigate = useNavigate();
 
   return(
     <Box>
@@ -117,50 +119,50 @@ const CompletarInfoClientePage = () => {
             <Titulo>Complete suas informações</Titulo>
             <PutMaior>
                 <Put>
-                    <label for="Nacionalidade"><Paragrafo>Nacionalidade</Paragrafo></label>
+                    <label htmlFor="Nacionalidade"><Paragrafo>Nacionalidade</Paragrafo></label>
                     <CaixaPut type="text" name="Nacionalidade" id="Nacionalidade" placeholder="Selecione" />
                 </Put>
                 <Put>
-                    <label for="cpfcnpj"><Paragrafo>CPF / CNPJ</Paragrafo></label>
+                    <label htmlFor="cpfcnpj"><Paragrafo>CPF / CNPJ</Paragrafo></label>
                     <CaixaPut type="text" name="cpfcnpj" id="cpfcnpj" placeholder="000.000.000-00" />
                 </Put>
                 <Put>
-                    <label for="cep"><Paragrafo>CEP</Paragrafo></label>
+                    <label htmlFor="cep"><Paragrafo>CEP</Paragrafo></label>
                     <CaixaPut type="text" name="cep" id="cep" placeholder="XXXXX-XXX" />
                 </Put>
                 <Put>
-                    <label for="numero"><Paragrafo>Número</Paragrafo></label>
+                    <label htmlFor="numero"><Paragrafo>Número</Paragrafo></label>
                     <CaixaPut type="text" name="numero" id="numero" placeholder="Digíte o número do endereço" />
                 </Put>
                 <Put>
-                    <label for="complemento"><Paragrafo>Complemento</Paragrafo></label>
+                    <label htmlFor="complemento"><Paragrafo>Complemento</Paragrafo></label>
                     <CaixaPut type="text" name="complemento" id="complemento" placeholder="Digite o complemento" />
                 </Put>
             </PutMaior>
             <PutMenor>
                 <Col1>
                     <Put>
-                        <label for="celular"><Paragrafo>Celular</Paragrafo></label>
+                        <label htmlFor="celular"><Paragrafo>Celular</Paragrafo></label>
                         <InputCol1 type="text" name="celular" id="celular" placeholder="(XX) X XXXX-XXXX" />
                     </Put>
                     <Put>
-                        <label for="estadoCivil"><Paragrafo>Estado civil</Paragrafo></label>
+                        <label htmlFor="estadoCivil"><Paragrafo>Estado civil</Paragrafo></label>
                         <InputCol1 type="text" name="estadoCivil" id="estadoCivil" placeholder="Selecione" />
                     </Put>
                 </Col1>
                 <Col2>
                     <Put>
-                        <label for="dataNasc"><Paragrafo>Data de nascimento</Paragrafo></label>
+                        <label htmlFor="dataNasc"><Paragrafo>Data de nascimento</Paragrafo></label>
                         <InputCol2 type="text" name="dataNasc" id="dataNasc" placeholder="dd/mm/aaaa" />
                     </Put>
                     <Put>
-                        <label for="sexo"><Paragrafo>Sexo</Paragrafo></label>
+                        <label htmlFor="sexo"><Paragrafo>Sexo</Paragrafo></label>
                         <InputCol2 type="text" name="sexo" id="sexo" placeholder="Selecione" />
                     </Put   >
                 </Col2>
             </PutMenor>
             <Bot>
-                <Btn>Enviar informações</Btn>
+                <Btn onClick={()=> navigate("/Conectavel/perfilcliente")}>Enviar informações</Btn>
             </Bot>
         </Area>
         <A href="#">Deixar para Depois</A>
