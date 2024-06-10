@@ -5,9 +5,13 @@ import LoginPage from './pages/LoginPage'
 import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
 import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
+
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
+
+import ClienteOrcamento from './pages/ClienteOrcamento'
+
 
 const Routes = () => {
 
@@ -15,6 +19,7 @@ const Routes = () => {
         <>
             <BrowserRouter>
                 <Rotas>
+
 
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/cadastro' exact element={<CadastroPage />} />
@@ -28,6 +33,15 @@ const Routes = () => {
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
+
+                    <Route path='/Conectavel' element={<HomePage/>} />
+                    <Route path='/Cadastro' exact element={<CadastroPage/>} />
+                    <Route path='/Login' exact element={<LoginPage/>} />
+                    <Route path='/PreencherCliente' exact element={<CompletarInfoClientePage/>} />
+                    <Route path='/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
+                    <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
+                    <Route path='/Conectavel/Orcamento' exact element={<ClienteOrcamento/>} />
+
                 </Rotas>
                     
 
