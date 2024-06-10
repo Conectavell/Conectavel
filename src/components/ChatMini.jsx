@@ -10,6 +10,7 @@ const ChatMiniWrapper = styled.div`
     align-items: center;
     padding: 12px;
     gap: 12px;
+    cursor: pointer;
 `
 
 const ChatMiniIMG = styled.img`
