@@ -1,0 +1,16 @@
+.caontainer{
+    width: 75vw;
+}
+
+.container__img{
+    width: 80%;
+    margin: auto;
+}
+@media (max-width: 992px){
+    .container{
+        width: 100vw !important;
+    }
+    .container__img{
+        width: 75vw;
+    }
+}
