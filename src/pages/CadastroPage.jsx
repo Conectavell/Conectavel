@@ -13,12 +13,10 @@ const ContainerDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 `;
 // Div do lado Esquerdo com a logo.
 const LogoDiv = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,23 +38,20 @@ const LogoDiv = styled.div`
 const FormDiv = styled.div`
   background-color: #ffffff;
   width: 100%;
-  height: 100%;
   border-radius: 0px 0px 0px 100px;
-  min-height: 100vh;
 
   // Interatividade na tela.
 
   .form-container {
     padding: 0% 10% 10% 10%;
-    max-width: 700px;
     margin: 0 auto;
   }
 
   h2 {
-    color: var(--laranja);
+    font-weight: 600;
     text-align: center;
-    font-size: 60px;
-    margin-bottom: 40px;
+    font-size: 48px;
+    margin-bottom: 20px;
     margin-top: -73px;
   }
 
@@ -69,12 +64,11 @@ const FormDiv = styled.div`
   a {
     color: var(--azul_secundario);
     text-decoration: none;
-   
   }
 
   .center-text {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 5px;
   }
 
@@ -107,11 +101,10 @@ const FormDiv = styled.div`
   .button_selec {
     background-color: #ffffff;
     color: #131922;
-    padding: 20px 60px 20px 60px;
+    padding: .7rem ;
     border-radius: 15px;
     border: solid var(--azul_principal);
     font-size: 17px;
-    margin-bottom: 20px;
     flex-grow: 1;
   }
 
@@ -145,7 +138,12 @@ const FormDiv = styled.div`
 
   @media (max-width: 1100px) {
     h2 {
+      margin-top: 0;
       font-size: 62px;
+    }
+    .arrow_button{
+      margin-top: 0;
+    margin-left: 0;
     }
   }
   @media (max-width: 682px) {
@@ -210,23 +208,23 @@ const CadastroPage = () => {
               </span>
             </div>
 
-            <Button onClick={()=> navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
+            <Button onClick={() => navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
           </form>
           <div className="center-text">
             <br />
             <span
-              style={{ fontSize: "30px", display: "block", marginTop: "-18px" }}
+              style={{ fontSize: "20px", display: "block", marginTop: "-28px" }}
             >
               Ou
             </span>
           </div>
           <div style={{ display: "flex", gap: "28px" }}>
             <ButtonLogin>
-              <img src={Google_logo} alt="Google Icon" />
+              <img src={Google_logo} width={40} alt="Google Icon" />
               <span>Cadastrar com Google</span>
             </ButtonLogin>
             <ButtonLogin>
-              <img src={Facebook_logo} alt="Facebook Icon" />
+              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
               <span>Cadastrar com Facebook</span>
             </ButtonLogin>
           </div>

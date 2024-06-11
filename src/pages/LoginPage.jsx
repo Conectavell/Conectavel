@@ -50,10 +50,10 @@ const FormDiv = styled.div`
   }
 
   h2 {
-    color: var(--laranja);
+    font-weight: 600;
     text-align: center;
-    font-size: 75px;
-    margin-bottom: 40px;
+    font-size: 48px;
+    margin-bottom: 20px;
   }
   .justify-between {
     display: flex;
@@ -69,6 +69,7 @@ const FormDiv = styled.div`
   .ckeckbox-input {
     margin: 5px;
     text-align: center;
+    cursor: pointer;
   }
 
   .center-text {
@@ -110,6 +111,10 @@ const FormDiv = styled.div`
   @media (max-width: 1100px) {
     h2 {
       font-size: 62px;
+    }
+    .arrow_button{
+      margin-top: 0;
+    margin-left: 0;
     }
   }
   @media (max-width: 682px) {
@@ -161,9 +166,9 @@ const LoginPage = () => {
                 <input className="ckeckbox-input" type="checkbox" name="" />
                 <label htmlFor="">Lembrar senha</label>
               </div>
-              <a href="http://">Esqueceu sua senha?</a>
+              <a href="#">Esqueceu sua senha?</a>
             </div>
-            <Button>Entrar</Button>
+            <Button onClick={()=> navigate("/Conectavel/perfilprestador")} >Entrar</Button>
           </form>
           <div className="center-text">
             <span>
@@ -172,18 +177,18 @@ const LoginPage = () => {
             </span>
             <br />
             <span
-              style={{ fontSize: "30px", display: "block", marginTop: "20px" }}
+              style={{ fontSize: "20px", display: "block", marginTop: "20px" }}
             >
               Ou
             </span>
           </div>
           <div style={{ display: "flex", gap: "28px" }}>
             <ButtonLogin>
-              <img src={Google_logo} alt="Google Icon" />
+              <img src={Google_logo} width={40} alt="Google Icon" />
               <span>Entrar com Google</span>
             </ButtonLogin>
             <ButtonLogin>
-              <img src={Facebook_logo} alt="Facebook Icon" />
+              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
               <span>Entrar com Facebook</span>
             </ButtonLogin>
           </div>
