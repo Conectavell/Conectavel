@@ -5,8 +5,9 @@ import Qualidades from './Qualidades'
 import { Button } from './BarraNavegacao'
 
 const Box = styled.div`
-    width: 100%;
+    width: 100vw;
     background-color: var(--azul_principal);
+    height: auto;
     margin: auto;
     padding-top: 0;
     padding-bottom: 0;
@@ -24,8 +25,8 @@ const Box = styled.div`
         display: flex;
         flex-direction: row;
         position: absolute;
-        left: 50vw;
-        top: 30vh;
+        left: 50%;
+        top: 30%;
     }
     .button{
         padding: 1.3rem 3rem;
@@ -37,7 +38,6 @@ const Box = styled.div`
     
     @media (max-width: 992px){
         padding: 1rem .5rem;
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -56,6 +56,7 @@ const Box = styled.div`
         }
         .button{
             margin-top: 1rem;
+            display: block;
         }
     }
 `

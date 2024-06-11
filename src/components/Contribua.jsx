@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Carrosel from "./Carrosel";
 
 const ContribuaWrapper = styled.section`
-    height: 100%;
     width: 100%;
     background: var(--verde_principal);
 `
@@ -23,11 +22,17 @@ const Content = styled.div`
         gap: 24px;
         padding: 2rem 0rem;
         height: 80vh;
-    }
-`
+        }
+        `
 const ContainerCarrosel = styled.div`
         display: flex;
         justify-content: center;
+
+        p{
+            margin: auto;
+            width: 60%;
+            font-size: 1.2em;
+        }
 `
 
 const SubHeading = styled.p`
