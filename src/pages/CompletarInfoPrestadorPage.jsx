@@ -10,7 +10,7 @@ import { BotaoEditar,WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrap
 const CompletarInfoPrestadorPage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar tipoUsuario={"profissional"} />
       <SectionWrapper>
         <ChatLateral>
           <ChatLateralH1>Chat</ChatLateralH1>

@@ -71,8 +71,8 @@ export const Informacoes = styled.div`
 `
 
 export const InfoPrincipais = styled.div`
-  width: 393px;
-  height: 623px;
+  width: 786px;
+  height: 417px;
   border-radius: 10px;
   background: #FFFFFF;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -80,11 +80,9 @@ export const InfoPrincipais = styled.div`
   bottom: 100px;
   left: 150px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding: 12px;
-  gap: 18px;
 
   ${props => props.infoSecundaria && css`
         width: 313px;
@@ -108,11 +106,11 @@ export const FotoPrincipalPerfil = styled.img`
 `
 
 export const ItensInfo = styled.div`
-  width: 100%;
+  width: 333px;
   height: 190px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   border-radius: 5px;
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -121,6 +119,36 @@ export const ItensInfo = styled.div`
   ${props => props.Sobre && css`
         height: 124px;
     `}
+
+  ${props => props.ClienteOrcamentos && css`
+    width: 313px;
+    height: 341px;
+    border-radius: 10px;
+  `}
+
+  ${props => props.MeusOrcamentos && css`
+    width: 100%;
+    height: 53px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    
+    p{
+      font-size: 12px;
+      margin: 0;
+      color: #222222;
+      padding: 10px;
+    }
+  `}
+
+  ${props => props.MinhasAvaliacoes && css`
+      height: 138.6px;
+      width: 100%;
+      border-radius: 10px;
+  `}
 `
 
 export const ItemInfo = styled.div`
@@ -132,6 +160,12 @@ export const ItemInfo = styled.div`
 export const WrapperItemInfo = styled.div`
   display: flex;
   flex-direction: column;
+  
+  p{
+    margin: 0;
+    font-size: 12px;
+    color: #222222;
+  }
 `
 
 export const BotaoEditar = styled.button`
@@ -155,143 +189,28 @@ export const BotaoEditar = styled.button`
   }
 `
 
+export const FotoEInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: fit-content;
+  height: 100%;
+`
+
+
 export const Textos = styled.p`
         font-size: 16px;
         color: #000000;
         margin: 0
 `
 
-export const Habilidades = styled.div`
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-
-    p{
-      margin: 0;
-    }
+export const BotaoOrcamentos = styled.button`
+  height: 100%;
+  width: 53.89px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #175EC6;
+  border: none;
 `
-
-export const HabilidadesBox = styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 10px;
-    align-items: center;
-    
-
-`
-
-export const ItemHabilidade = styled.div`
-    width: fit-content;
-    height: 30px;
-    border-radius: 30px;
-    border: #CECECE 1px solid;
-    padding: 5px;
-
-    p{
-      font-size: 14px;
-      color: #49454F;
-      font-weight: 500;
-    }
-`
-
-export const DatalhesProfissionais = styled.div`
-    height: 80px;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    padding: 0px 67px;
-    
-
-    p{
-      font-size: 12px;
-      margin: 0;
-    }
-`
-
-export const ExperienciaWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-`
-
-export const TextoExperiencia = styled.p`
-    font-size: 12px;
-    font-weight: 500;
-    margin: 0;
-
-    ${props => props.Desc && css`
-        color: #49454F;
-    `}
-
-    ${props => props.NomeUsuario && css`
-    font-size: 13.29px;
-        color: #413B89;
-    `}
-
-    ${props => props.SeeAll && css`
-        font-size: 12px;
-        color: #06208E;
-        cursor: pointer
-    `}
-`
-
-export const BoxExperiencia = styled.div`
-width: 100%;
-height: 53px;
-border-radius: 10px;
-border: 1px solid rgba(0, 0, 0, 0.15);
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-display: flex;
-`
-
-export const BoxExperienciaInter = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-`
-
-export const BoxDireita = styled.div`
-      width: 53px;
-      height: 100%;
-      background: #175EC6;
-      background: ${props => props.$primary ? "#175EC6" : "#FB8C00"};
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-
-`
-
-export const AvaliacoesWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`
-
-export const AvaliacoesDiv = styled.div`
-  width: 100%;
-  height: 138.6px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  gap: 10px;
-`
-
-export const EstrelasDiv = styled.div`
-      width: 100%;
-      height: 23px;
-      display: flex;
-      gap: 5px;
-`
-
-
