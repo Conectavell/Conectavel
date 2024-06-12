@@ -9,7 +9,6 @@ import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
-import PerfilClientePage from './pages/PerfilClientePage'
 
 import PerfilClientePage from './pages/PerfilClientePage'
 
