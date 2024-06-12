@@ -9,6 +9,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Lang from './Lang';
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
+import SelectLang from './SelectLang';
 
 
 
@@ -84,8 +85,8 @@ const BarraNavegacao = () => {
         margin-bottom: 1rem;
     }
     `
-    
-    const {t} = useTranslation()
+
+    const { t } = useTranslation()
     return (
         <Navbar expand="xl" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
@@ -117,7 +118,10 @@ const BarraNavegacao = () => {
                         <div >
                             <Button to="/Conectavel/cadastro">{t("btncadastro")}</Button>
                             <Login to="/Conectavel/login" >{t("btnlogin")}</Login>
-                            <Lang />
+
+                            <SelectLang /> {/*lang substituido */}
+
+                            {/* <Lang /> */}
                         </div>
                     </NavSection>
                 </Navbar.Collapse>
