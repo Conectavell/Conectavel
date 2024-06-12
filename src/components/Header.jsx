@@ -59,7 +59,6 @@ const Heading_text = styled.h2`
     }
     `
 export const Detail = styled.p`  
-    color: var(--verde_principal);
     font-size: 20px;
     margin-bottom: 1rem;
     margin-top: 1rem;
