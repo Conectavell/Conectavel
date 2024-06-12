@@ -8,6 +8,7 @@ import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
+import PerfilClientePage from './pages/PerfilClientePage'
 
 const Routes = () => {
 
@@ -26,6 +27,7 @@ const Routes = () => {
 
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
+                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                 </Rotas>
