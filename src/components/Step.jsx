@@ -7,6 +7,7 @@ const Box = styled.div`
     border: 1px solid var(--verde_principal);
     border-radius: 12px;
     margin-bottom: 2rem;
+    text-align: center;
     .step{
         border: 1px solid var(--verde_principal);
         border-radius: 90px;

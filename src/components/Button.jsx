@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const Button = styled.div`
-  padding: 10px;
+  padding: 8px;
   background-color: var(--azul_principal);
   border-radius: 10px;
   color: #ffffff;
   text-align: center;
   margin: 20px 0;
-  font-size: 25px;
+  font-size: 22px;
   cursor: pointer;
+  transition: all .3s ease-in-out;
 
   &:hover {
     background-color: var(--laranja);
-    font-weight: bold;
-   
-
   }
 
 

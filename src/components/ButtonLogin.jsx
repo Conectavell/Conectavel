@@ -5,22 +5,21 @@ export const ButtonLogin = styled.button`
   border-radius: 10px;
   color: var(--preto);
   border: 1px solid #d2d2d2;
-  padding: 36px;
+  padding: .5rem 1rem ;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
   font-size: 16px;
-  height: 30px;
-  margin-top: 20px;
   flex-basis: 50%;
-
+  
   img {
-    margin-right: 15px;
+    /* margin-right: 15px; */
     
-  }
-  @media (max-width: 1100px){
-    span{
+    }
+    @media (max-width: 1100px){
+      justify-content: center;
+      span{
       display: none;
     }
 }

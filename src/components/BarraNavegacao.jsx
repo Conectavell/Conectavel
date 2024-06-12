@@ -87,7 +87,7 @@ const BarraNavegacao = () => {
     
     const {t} = useTranslation()
     return (
-        <Navbar expand="lg" className='navbar' style={{ marginBottom: '2rem' }}>
+        <Navbar expand="xl" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
                     <img width={60} src={logo} />
