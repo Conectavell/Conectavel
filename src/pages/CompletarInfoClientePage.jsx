@@ -5,7 +5,7 @@ import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { FotoEInfos, BotaoEditar, WrapperItemInfo, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, BotaoOrcamentos } from '../styles/InfoClientePageStyle';
+import { FotoEInfos, BotaoEditar, WrapperItemInfo, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, BotaoOrcamentos, DivEstrelas, DivUsuarioAvaliado } from '../styles/InfoClientePageStyle';
 
 
 const CompletarInfoClientePage = () => {
@@ -77,12 +77,31 @@ const CompletarInfoClientePage = () => {
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
                   <ItensInfo MinhasAvaliacoes>
-    
+                    <DivUsuarioAvaliado>
+                      <p>Gabriela  D. Souza </p>
+                      <DivEstrelas>
+                        <FaStar size={22} color='orange' />
+                        <FaStar size={22} color='orange' />
+                        <FaStar size={22} color='orange' />
+                        <FaStar size={22} color='orange' />
+                        <FaStar size={22} />
+                      </DivEstrelas>
+                    </DivUsuarioAvaliado>
+                    <small>Uma ótima cliente! </small>
                   </ItensInfo>
                 </WrapperItemInfo>
+                <p>Veja todas as avaliações -</p>
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
+          <ItensInfo NovoServico>
+            <div>
+              <p>Novo serviço<br></br>Solicitar reparo</p>
+             
+            </div>
+
+            <BotaoOrcamentos />
+          </ItensInfo>
         </PerfilPrestador>
       </SectionWrapper>
     </>

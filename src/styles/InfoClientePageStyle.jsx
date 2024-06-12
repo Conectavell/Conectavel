@@ -93,9 +93,12 @@ export const InfoPrincipais = styled.div`
   @media screen and (max-width: 1000px) {
     box-shadow: 0px 2.85px 4.27px 0px rgba(0, 0, 0, 0.15);
     width: 95%;
+    height: fit-content;
+    gap: 10px;
     position: relative;
     bottom: 100px;
     left: 0px;
+    flex-direction: column;
   } 
 `
 
@@ -103,6 +106,11 @@ export const FotoPrincipalPerfil = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 50px;
+
+  &:hover{
+    filter: grayscale(100%);
+    cursor: pointer;
+  }
 `
 
 export const ItensInfo = styled.div`
@@ -116,6 +124,8 @@ export const ItensInfo = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 
+
+
   ${props => props.Sobre && css`
         height: 124px;
     `}
@@ -124,6 +134,16 @@ export const ItensInfo = styled.div`
     width: 313px;
     height: 341px;
     border-radius: 10px;
+
+    p{
+      color: #06208E;
+      font-size: 12px;
+    }
+
+    
+     @media screen and (max-width: 1000px) {
+        width: 100%;
+     }
   `}
 
   ${props => props.MeusOrcamentos && css`
@@ -135,6 +155,8 @@ export const ItensInfo = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px;
+
+    
     
     p{
       font-size: 12px;
@@ -144,11 +166,62 @@ export const ItensInfo = styled.div`
     }
   `}
 
+  ${props => props.NovoServico && css`
+    width: 532px;
+    height: 53px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    left: 25%;
+    bottom: 75px;
+    
+    p{
+      font-size: 12px;
+      margin: 0;
+      color: #222222;
+      padding: 10px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        left: 0%;
+     }
+
+  `}
+
   ${props => props.MinhasAvaliacoes && css`
       height: 138.6px;
       width: 100%;
       border-radius: 10px;
+      gap: 10px;
+
+      p{
+        font-size: 13px;
+        color: #413B89;
+        font-weight: 500;
+      }
+
+      small{
+        font-size: 13px;
+        color: #49454F;
+      }
   `}
+`
+
+export const DivUsuarioAvaliado = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const DivEstrelas = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  gap: 5px;
 `
 
 export const ItemInfo = styled.div`
@@ -164,7 +237,6 @@ export const WrapperItemInfo = styled.div`
   p{
     margin: 0;
     font-size: 12px;
-    color: #222222;
   }
 `
 
@@ -197,6 +269,9 @@ export const FotoEInfos = styled.div`
   gap: 12px;
   width: fit-content;
   height: 100%;
+
+ 
+
 `
 
 
