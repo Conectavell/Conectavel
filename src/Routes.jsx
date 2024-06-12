@@ -11,6 +11,7 @@ import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
 import PerfilClientePage from './pages/PerfilClientePage'
 
+import PerfilClientePage from './pages/PerfilClientePage'
 
 const Routes = () => {
 
@@ -27,7 +28,8 @@ const Routes = () => {
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
-                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
+                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
+
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
