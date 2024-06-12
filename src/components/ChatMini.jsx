@@ -31,12 +31,13 @@ export const ChatMiniNome = styled.p`
     font-size: 12px;
     font-weight: bold;
     color: #222222;
-    margin: 0
+    margin: 0;
 
     ${props => props.descricao && css`
         font-weight: 400;
         color: rgba(73, 69, 79, 0.8);
     `}
+
 `
 
 

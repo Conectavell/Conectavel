@@ -5,7 +5,7 @@ import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
+import { BotaoEditar,WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
 
 const CompletarInfoPrestadorPage = () => {
   return (
@@ -30,16 +30,37 @@ const CompletarInfoPrestadorPage = () => {
               <FotoPrincipalPerfil src={Kemilly} />
               <ItensInfo>
                 <ItemInfo>
-                  <ChatMiniNome>Seu Nome</ChatMiniNome>
-                  <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
+                  <WrapperItemInfo>
+                    <ChatMiniNome>Seu Nome</ChatMiniNome>
+                    <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
+                  </WrapperItemInfo>
+                  <WrapperItemInfo>
+                    <BotaoEditar>
+                      Editar
+                    </BotaoEditar>
+                  </WrapperItemInfo>
                 </ItemInfo>
                 <ItemInfo>
-                  <ChatMiniNome>E-mail</ChatMiniNome>
-                  <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
+                  <WrapperItemInfo>
+                    <ChatMiniNome>E-mail</ChatMiniNome>
+                    <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
+                  </WrapperItemInfo>
+                  <WrapperItemInfo>
+                    <BotaoEditar>
+                      Editar
+                    </BotaoEditar>
+                  </WrapperItemInfo>
                 </ItemInfo>
                 <ItemInfo>
-                  <ChatMiniNome>Celular</ChatMiniNome>
-                  <ChatMiniNome descricao>+91 49652845732</ChatMiniNome>
+                  <WrapperItemInfo>
+                    <ChatMiniNome>Celular</ChatMiniNome>
+                    <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
+                  </WrapperItemInfo>
+                  <WrapperItemInfo>
+                    <BotaoEditar>
+                      Editar
+                    </BotaoEditar>
+                  </WrapperItemInfo>
                 </ItemInfo>
               </ItensInfo>
               <ItensInfo Sobre>
@@ -47,7 +68,7 @@ const CompletarInfoPrestadorPage = () => {
                 <ChatMiniNome descricao>Lorem ipsum dolor sit amet consectetur. Erat auctor a aliquam vel congue luctus. Leo diam cras neque mauris ac arcu elit ipsum dolor sit amet consectetur.</ChatMiniNome>
               </ItensInfo>
               <Habilidades>
-                <ChatMiniNome descricao>Habilidades em</ChatMiniNome>
+                <ChatMiniNome>Habilidades em</ChatMiniNome>
                 <HabilidadesBox>
                   <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
                   <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>

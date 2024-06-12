@@ -15,6 +15,10 @@ export const ChatLateral = styled.div`
   border: 2px #EBEBEE solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  } 
 `
 
 export const ChatLateralH1 = styled.h1`
@@ -24,7 +28,7 @@ export const ChatLateralH1 = styled.h1`
 
 export const ChatLateralChats = styled.div`
   width: 100%;
-  height: 100%;
+  height: 500px;
   padding-top: 12px;
   display: flex;
   flex-direction: column;
@@ -58,7 +62,12 @@ export const Informacoes = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 12px
+  gap: 12px;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  } 
 `
 
 export const InfoPrincipais = styled.div`
@@ -81,6 +90,14 @@ export const InfoPrincipais = styled.div`
         height: 542px;
         bottom: 50px;
     `}
+
+  @media screen and (max-width: 1000px) {
+    box-shadow: 0px 2.85px 4.27px 0px rgba(0, 0, 0, 0.15);
+    width: 95%;
+    position: relative;
+    bottom: 100px;
+    left: 0px;
+  } 
 `
 
 export const FotoPrincipalPerfil = styled.img`
@@ -107,7 +124,34 @@ export const ItensInfo = styled.div`
 
 export const ItemInfo = styled.div`
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export const WrapperItemInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const BotaoEditar = styled.button`
+  width: fit-content;
+  height: fit-content;
+  border-radius: 51.77px;
+  color: #1F1F1F;
+  font-size: 12px;
+  padding: 3px;
+  border: none;
+  background: #F0EFFA;
+  opacity: 0;
+
+  @media screen and (max-width: 1000px) {
+    opacity: 1;
+  } 
+
+  &:hover{
+    cursor: pointer;
+    background: darkgray;
+  }
 `
 
 export const Textos = styled.p`
@@ -131,9 +175,11 @@ export const HabilidadesBox = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.2px;
+    gap: 3px;
     padding: 10px;
+    align-items: center;
     
+
 `
 
 export const ItemHabilidade = styled.div`
