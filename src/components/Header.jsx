@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import headerImage from '../assets/headerImage.png'
+import { useTranslation } from 'react-i18next'
 
 const Box = styled.header`
     width: 80%;
@@ -84,14 +85,15 @@ const Image = styled.div`
 `
 
 const Header = () => {
+    const { t } = useTranslation()
     return (
         <>
-            <Box> 
+            <Box>
                 <Sub_heading>
-                    UM CICLO QUE SE RENOVA
+                    {t("header.subtitle")}
                 </Sub_heading>
-                <Heading_text>Conserte seus equipamentos com qualidade</Heading_text>
-                <Detail >Obtenha rentabilidade e contribua para o descarte eletrônico correto</Detail>
+                <Heading_text>{t("header.title")}</Heading_text>
+                <Detail >{t("header.text")}</Detail>
 
                 <Image >
                     <img src={headerImage} />
