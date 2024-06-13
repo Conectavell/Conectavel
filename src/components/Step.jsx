@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 const Box = styled.div`
@@ -49,21 +50,23 @@ const Texto = styled.p`
 
 const Step = ({ titulo1, titulo2, titulo3, text1, text2, text3 }) => {
     const { innerWidth: width, innerHeight: height } = window
+    const { t } = useTranslation()
+
     
     return (
         <Box>
             <Content>
-                <p className='step'>Passo 1</p>
+                <p className='step'>{t("comoAcessar.clientes.passo1.step")}</p>
                 <h4 className='title'>{titulo1}</h4>
                 <Texto>{text1}</Texto>
             </Content>
             <Content style={width > 768 ? { borderLeft: '1px solid var(--verde_principal)' } : { borderTop: '1px solid var(--verde_principal)' }}>
-                <p className='step'>Passo 2</p>
+                <p className='step'>{t("comoAcessar.clientes.passo2.step")}</p>
                 <h4 className='title'>{titulo2}</h4>
                 <Texto>{text2}</Texto>
             </Content>
             <Content style={width > 768 ? { borderLeft: '1px solid var(--verde_principal)' } : { borderTop: '1px solid var(--verde_principal)' }}>
-                <p className='step'>Passo 3</p>
+                <p className='step'>{t("comoAcessar.clientes.passo3.step")}</p>
                 <h4 className='title'>{titulo3}</h4>
                 <Texto>{text3}</Texto>
             </Content>

@@ -1,12 +1,10 @@
 import styled from "styled-components";
+import FormCadastro from "../components/FormCadastro";
+import { useContext, useState } from "react";
+import FormCompletarInfoPrestador from "../components/FormCompletarInfoPrestador";
 import logo_conectavel from "../assets/logo_conectavel.svg";
-import Input from "../components/Input";
-import { Button } from "../components/Button";
-import { Link, useNavigate } from "react-router-dom";
-import Google_logo from "../assets/Google_logo.svg";
-import { ButtonLogin } from "../components/ButtonLogin";
-import Facebook_logo from "../assets/Facebook_logo.svg";
-import Arrow_button from "../assets/Arrow_button.svg";
+import CadastroContext from "../context/CadastroContext";
+import Steper from "../components/Steper";
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
@@ -32,20 +30,28 @@ const LogoDiv = styled.div`
     }
   }
 `;
-
-// Div do lado Direito com as informaçoes de login/cadastro.
-
 const FormDiv = styled.div`
   background-color: #ffffff;
   width: 100%;
+  height: 100vh;
   border-radius: 0px 0px 0px 100px;
-
+  overflow: hidden;
+  padding: 0 5rem;
+  
+  
   // Interatividade na tela.
-
+  
   .form-container {
     padding: 0% 10% 10% 10%;
-    margin: 0 auto;
+    /* padding-top: 50%; */
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+    height: 95vh;
   }
+
 
   h2 {
     font-weight: 600;
@@ -154,83 +160,31 @@ const FormDiv = styled.div`
   }
 `;
 
-const StyledLink = styled(Link)`
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-`;
 
 const CadastroPage = () => {
-  const navigate = useNavigate();
+  const {completarInfo, setCompletarInfo} = useContext(CadastroContext)
+
   return (
-    <ContainerDiv>
-      <LogoDiv>
-        <div>
-          <img src={logo_conectavel} alt="Logo e Slogan" />
-        </div>
-      </LogoDiv>
-
-      <FormDiv>
-        <button onClick={() => navigate(-1)} className="arrow_button">
-          <img src={Arrow_button} alt="Botão Voltar" />
-        </button>
-
-        <div className="form-container">
-          <h2>Cadastre-se</h2>
-
-          <div className="button_container">
-            <button className="button_selec">Cliente</button>
-            <button className="button_selec">Profissional</button>
+    <>
+      <ContainerDiv>
+        <LogoDiv>
+          <div>
+            <img src={logo_conectavel} alt="Logo e Slogan" />
           </div>
+        </LogoDiv>
+        <FormDiv>
+          {
+            completarInfo ? <FormCompletarInfoPrestador /> : <FormCadastro />
+          }
 
-          <form action="">
-            <Input
-              name="Nome completo"
-              label="Nome completo"
-              placeholder="Digite seu Nome aqui"
-            />
-            <Input
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-            />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-            />
-            <div className="center-text">
-              <span>
-                Já possui uma conta? &nbsp;
-                <StyledLink to="/Conectavel/Login">Entrar</StyledLink>
-              </span>
-            </div>
+        <Steper/>
+        </FormDiv>
 
-            <Button onClick={() => navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
-          </form>
-          <div className="center-text">
-            <br />
-            <span
-              style={{ fontSize: "20px", display: "block", marginTop: "-28px" }}
-            >
-              Ou
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: "28px" }}>
-            <ButtonLogin>
-              <img src={Google_logo} width={40} alt="Google Icon" />
-              <span>Cadastrar com Google</span>
-            </ButtonLogin>
-            <ButtonLogin>
-              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
-              <span>Cadastrar com Facebook</span>
-            </ButtonLogin>
-          </div>
-        </div>
-      </FormDiv>
-    </ContainerDiv>
+      </ContainerDiv>
+
+
+    </>
+
   );
 };
 
