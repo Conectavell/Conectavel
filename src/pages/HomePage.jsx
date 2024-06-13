@@ -16,7 +16,7 @@ const HomePage = () => {
       <NosEscolher />
       <ContrateMelhorProfissional />
       <Contribua />
-      <Colaboradores />
+      {/* <Colaboradores /> EM DESENVOLVIMENTO*/} 
       <Footer />
     </>
   )
