@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
-import Input from "../components/Input";
 import { Button } from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
+import { useState } from "react";
+import { InputDiv } from '../components/Input'
+import axios from 'axios';
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
@@ -108,6 +110,11 @@ const FormDiv = styled.div`
     flex-grow: 1;
   }
 
+  .button_selec:focus{
+    background-color: var(--azul_principal);
+    color: #ffffff;
+  }
+
   .button_selec:hover {
     background-color: var(--azul_principal);
     cursor: pointer;
@@ -162,6 +169,39 @@ const StyledLink = styled(Link)`
 
 const CadastroPage = () => {
   const navigate = useNavigate();
+  const [tipoPerfil, setTipoPerfil] = useState('');
+  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [emailUsuario, setEmailUsuario] = useState('');
+  const [senhaUsuario, setSenhaUsuario] = useState('')
+
+
+  const realizarCadastro = (tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario) => {
+    if (tipoPerfil == 1) {
+      navigate("/Conectavel/preenchercliente", {
+          state: {
+          tipoPerfil:tipoPerfil,
+          nomeUsuario:nomeUsuario,
+          emailUsuario:emailUsuario,
+          senhaUsuario:senhaUsuario
+        }
+      })
+    } else {
+      navigate("/Conectavel/preencherprestador", {
+          state: {
+          tipoPerfil,
+          nomeUsuario,
+          emailUsuario,
+          senhaUsuario
+        }
+      })
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    realizarCadastro(tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario)
+  }
+
   return (
     <ContainerDiv>
       <LogoDiv>
@@ -178,29 +218,51 @@ const CadastroPage = () => {
         <div className="form-container">
           <h2>Cadastre-se</h2>
 
-          <div className="button_container">
-            <button className="button_selec">Cliente</button>
-            <button className="button_selec">Profissional</button>
-          </div>
+          <form method="post" onSubmit={handleSubmit}>
+            <div className="button_container">
+              <button className="button_selec" type="button" value={1} onClick={(e) => setTipoPerfil(e.target.value)}>Cliente</button>
+              <button className="button_selec" type="button" value={2} onClick={(e) => setTipoPerfil(e.target.value)}>Profissional</button>
+            </div>
 
-          <form action="">
-            <Input
-              name="Nome completo"
-              label="Nome completo"
-              placeholder="Digite seu Nome aqui"
-            />
-            <Input
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-            />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-            />
+            <InputDiv>
+              <label>Nome completo</label>
+              <input
+                type='text'
+                name="Nome completo"
+                placeholder="Digite seu Nome aqui"
+                value={nomeUsuario}
+                required
+                onChange={(e) => setNomeUsuario(e.target.value)}
+              />
+            </InputDiv>
+
+            <InputDiv>
+              <label>E-mail</label>
+              <input
+                name="email"
+                label="E-mail"
+                placeholder="Digite seu e-mail aqui"
+                type="email"
+                value={emailUsuario}
+                required
+                onChange={(e) => setEmailUsuario(e.target.value)}
+              />
+            </InputDiv>
+
+            <InputDiv>
+              <label>Senha</label>
+              <input
+                name="senha"
+                label="Senha"
+                placeholder="Digite sua senha aqui"
+                type="password"
+                value={senhaUsuario}
+                required
+                onChange={(e) => setSenhaUsuario(e.target.value)}
+
+              />
+            </InputDiv>
+
             <div className="center-text">
               <span>
                 Já possui uma conta? &nbsp;
@@ -208,7 +270,7 @@ const CadastroPage = () => {
               </span>
             </div>
 
-            <Button onClick={() => navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
+            <Button type='submit'>Cadastrar</Button>
           </form>
           <div className="center-text">
             <br />

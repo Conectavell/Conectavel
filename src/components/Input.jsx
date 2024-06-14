@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InputDiv = styled.div`
+export const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -18,13 +18,13 @@ const InputDiv = styled.div`
   }
 `;
 
-const Input = ({ name, label, placeholder, type = "text" }) => {
-  return (
-    <InputDiv>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} placeholder={placeholder} />
-    </InputDiv>
-  );
-};
+// const Input = ({ name, label, placeholder, type = "text" }) => {
+//   return (
+//     <InputDiv>
+//       <label htmlFor={name}>{label}</label>
+//       <input type={type} name={name} placeholder={placeholder} />
+//     </InputDiv>
+//   );
+// };
 
-export default Input;
+// export default Input;

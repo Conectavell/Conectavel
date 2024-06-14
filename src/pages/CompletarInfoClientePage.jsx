@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { useLocation } from "react-router-dom";
+import { useState } from 'react';
+import { IMaskInput } from "react-imask";
+import axios from 'axios';
 
 const Box = styled.div`
   background-color: var(--azul_principal);
@@ -50,7 +54,7 @@ const PutMaior = styled.div`
   gap: 10px;
   margin-bottom: 10px;
 `/**/
-const CaixaPut = styled.input`
+const CaixaPut = styled(IMaskInput)`
   box-sizing: border-box;
   border: solid 1px;
   border-radius: 10px;
@@ -80,7 +84,7 @@ align-items: center;
   width: 100%;
 }
 `/**/
-const InputCol1 = styled.input`
+const InputCol1 = styled(IMaskInput)`
   box-sizing: border-box;
   border: solid 1px;
   border-radius: 10px;
@@ -135,57 +139,104 @@ const A = styled.div`
 `/**/
 
 const CompletarInfoClientePage = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location)
+
+  const [nacionalidadeUsuario, setNacionalidadeUsuario] = useState('');
+  const [identidadeUsuario, setIdentidadeUsuario] = useState('');
+  const [cepUsuario, setCepUsuario] = useState('');
+  const [numeroUsuario, setNumeroUsuario] = useState('');
+  const [complementoUsuario, setComplementoUsuario] = useState('');
+  const [celularUsuario, setCelularUsuario] = useState('');
+  const [estadoCivilUsuario, setEstadoCivilUsuario] = useState('');
+  const [dataNascimentoUsuario, setDataNascimentoUsuario] = useState('');
+  const [sexoUsuario, setSexoUsuario] = useState('')
+
+
+
+  const completarCadastro = (perfil,nome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) => {
+    axios.post('http://localhost:8080/api/v1/usuario', {
+      tipoDePerfilUsuario:`${perfil}`,
+      nomeUsuario:`${nome}`,
+      emailUsuario:`${email}`,
+      senhaUsuario:`${senha}`,
+      nacionalidadeUsuario:`${nacionalidade}`,
+      cpfUsuario:`${identidade}`,
+      cepUsuario:`${cep}`,
+      numeroUsuario:`${numero}`,
+      complementoUsuario:`${complemento}`,
+      celularUsuario:`${celular}`,
+      estadoCivilUsuario:`${estado}`,
+      dataNascimentoUsuario:`${data}`,
+      sexoUsuario:`${sexo}`
+    }, {
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
+  }})
+    .then(function (response){
+      console.log(response)
+    })
+    .catch(function (error){
+      console.log(error)
+    })
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    completarCadastro(location.state.tipoPerfil, location.state.nomeUsuario, location.state.emailUsuario, location.state.senhaUsuario, nacionalidadeUsuario, identidadeUsuario, cepUsuario, numeroUsuario, complementoUsuario, celularUsuario, estadoCivilUsuario, dataNascimentoUsuario, sexoUsuario);
+  }
 
   return(
     <Box>
-        <Area>
+        <Area onSubmit={handleSubmit}>
             <Titulo>Complete suas informações</Titulo>
                 <Put>
                     <label htmlFor="Nacionalidade"><Paragrafo>Nacionalidade</Paragrafo></label>
-                    <CaixaPut required type="text" name="Nacionalidade" id="Nacionalidade" placeholder="Selecione" />
+                    <CaixaPut required type="text" name="Nacionalidade" id="Nacionalidade" placeholder="Selecione" value={nacionalidadeUsuario} onChange={(e) => setNacionalidadeUsuario(e.target.value)}/>
                 </Put>
                 <Put>
                     <label htmlFor="cpfcnpj"><Paragrafo>CPF / CNPJ</Paragrafo></label>
-                    <CaixaPut required type="text" name="cpfcnpj" id="cpfcnpj" placeholder="000.000.000-00" />
+                    <CaixaPut required type="text" name="cpfcnpj" id="cpfcnpj" placeholder="000.000.000-00" mask="000.000.000-00" value={identidadeUsuario} onChange={(e) => setIdentidadeUsuario(e.target.value)}/>
                 </Put>
                 <Put>
                     <label htmlFor="cep"><Paragrafo>CEP</Paragrafo></label>
-                    <CaixaPut required type="text" name="cep" id="cep" placeholder="XXXXX-XXX" />
+                    <CaixaPut required type="text" name="cep" id="cep" placeholder="XXXXX-XXX" mask="00000-000" value={cepUsuario} onChange={(e) => setCepUsuario(e.target.value)}/>
                 </Put>
                 <Put>
                     <label htmlFor="numero"><Paragrafo>Número</Paragrafo></label>
-                    <CaixaPut required type="text" name="numero" id="numero" placeholder="Digíte o número do endereço" />
+                    <CaixaPut required type="text" name="numero" id="numero" placeholder="Digíte o número do endereço" value={numeroUsuario} onChange={(e) => setNumeroUsuario(e.target.value)}/>
                 </Put>
                 <Put>
                     <label htmlFor="complemento"><Paragrafo>Complemento</Paragrafo></label>
-                    <CaixaPut required type="text" name="complemento" id="complemento" placeholder="Digite o complemento" />
+                    <CaixaPut required type="text" name="complemento" id="complemento" placeholder="Digite o complemento" value={complementoUsuario} onChange={(e) => setComplementoUsuario(e.target.value)}/>
                 </Put>
             <PutMenor>
                 <Col>
                     <Put>
                         <label htmlFor="celular"><Paragrafo>Celular</Paragrafo></label>
-                        <InputCol1 required type="text" name="celular" id="celular" placeholder="(XX) X XXXX-XXXX" />
+                        <InputCol1 required type="text" name="celular" id="celular" placeholder="(XX) X XXXX-XXXX" mask="(00)00000-0000" value={celularUsuario} onChange={(e) => setCelularUsuario(e.target.value)}/>
                     </Put>
                     <Put>
                         <label htmlFor="estadoCivil"><Paragrafo>Estado civil</Paragrafo></label>
-                        <InputCol1 required type="text" name="estadoCivil" id="estadoCivil" placeholder="Selecione" />
+                        <InputCol1 required type="text" name="estadoCivil" id="estadoCivil" placeholder="Selecione" value={estadoCivilUsuario} onChange={(e) => setEstadoCivilUsuario(e.target.value)}/>
                     </Put>
                 </Col>
                 <Col>
                     <Put>
                         <label htmlFor="dataNasc"><Paragrafo>Data de nascimento</Paragrafo></label>
-                        <InputCol1 required type="text" name="dataNasc" id="dataNasc" placeholder="dd/mm/aaaa" />
+                        <InputCol1 required type="date" name="dataNasc" id="dataNasc" placeholder="dd/mm/aaaa" value={dataNascimentoUsuario} onChange={(e) => setDataNascimentoUsuario(e.target.value)}/>
                     </Put>
                     <Put>
                         <label htmlFor="sexo"><Paragrafo>Sexo</Paragrafo></label>
-                        <InputCol1 required type="text" name="sexo" id="sexo" placeholder="Selecione" />
+                        <InputCol1 required type="text" name="sexo" id="sexo" placeholder="Selecione" value={sexoUsuario} onChange={(e) => setSexoUsuario(e.target.value)}/>
                     </Put   >
                 </Col>
             </PutMenor>
-                <Btn type='submit' onClick={()=> navigate("/Conectavel/perfilcliente")}>Enviar informações</Btn>
+                <Btn type='submit'>Enviar informações</Btn>
         </Area>
-        <A onClick={()=> navigate("/Conectavel/perfilcliente")} href="#">Deixar para Depois</A>
+        <A onClick={()=> navigate("/Conectavel/perfilcliente")}>Deixar para Depois</A>
     </Box>
 )
 }

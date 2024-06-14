@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Button = styled.div`
+export const Button = styled.button`
+  width: 100%;
+  border: none;
   padding: 8px;
   background-color: var(--azul_principal);
   border-radius: 10px;
