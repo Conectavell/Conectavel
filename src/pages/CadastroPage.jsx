@@ -5,12 +5,14 @@ import FormCompletarInfoPrestador from "../components/FormCompletarInfoPrestador
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import CadastroContext from "../context/CadastroContext";
 import Steper from "../components/Steper";
+import FormCadastroProfissional from "../components/FormCadastroProfissional";
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 `;
 // Div do lado Esquerdo com a logo.
 const LogoDiv = styled.div`
@@ -33,40 +35,17 @@ const LogoDiv = styled.div`
 const FormDiv = styled.div`
   background-color: #ffffff;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border-radius: 0px 0px 0px 100px;
-  overflow: hidden;
-  padding: 0 5rem;
-  
-  
-  // Interatividade na tela.
-  
-  .form-container {
-    padding: 0% 10% 10% 10%;
-    /* padding-top: 50%; */
-    margin: auto;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    /* overflow-y: scroll; */
-    height: 95vh;
-  }
-
 
   h2 {
     font-weight: 600;
     text-align: center;
-    font-size: 48px;
+    font-size: 40px;
     margin-bottom: 20px;
-    margin-top: -73px;
   }
 
-  .justify-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 35px;
-  }
+  
   a {
     color: var(--azul_secundario);
     text-decoration: none;
@@ -130,7 +109,7 @@ const FormDiv = styled.div`
       border-radius: unset;
       position: relative;
     }
-    .arrow_button {
+    /* .arrow_button {
       position: absolute;
     }
     .form-container {
@@ -139,30 +118,25 @@ const FormDiv = styled.div`
     .justify-between {
       flex-direction: column;
       gap: 8px;
-    }
+    } */
   }
 
-  @media (max-width: 1100px) {
+   @media (max-width: 1100px) {
     h2 {
-      margin-top: 0;
-      font-size: 62px;
+      font-size: 34px;
     }
     .arrow_button{
       margin-top: 0;
     margin-left: 0;
     }
   }
-  @media (max-width: 682px) {
-    h2 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-  }
 `;
 
 
 const CadastroPage = () => {
-  const {completarInfo, setCompletarInfo} = useContext(CadastroContext)
+  const { completarInfo, setCompletarInfo, infoPessoal } = useContext(CadastroContext)
+  const [infoTrabalho, setInfoTrabalho] = useState(false);
+
 
   return (
     <>
@@ -173,11 +147,19 @@ const CadastroPage = () => {
           </div>
         </LogoDiv>
         <FormDiv>
-          {
+          {/* {
             completarInfo ? <FormCompletarInfoPrestador /> : <FormCadastro />
+            } */}
+          {
+            infoPessoal ?
+
+              <FormCadastroProfissional form="pessoal"/>
+              :
+              <FormCadastroProfissional form="experiencias"/>
           }
 
-        <Steper/>
+
+          {/* <Steper /> */}
         </FormDiv>
 
       </ContainerDiv>

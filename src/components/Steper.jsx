@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Stepper from '@mui/joy/Stepper';
 import Step, { stepClasses } from '@mui/joy/Step';
 import StepIndicator, { stepIndicatorClasses } from '@mui/joy/StepIndicator';
 import Typography, { typographyClasses } from '@mui/joy/Typography';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRounded';
+import CadastroContext from '../context/CadastroContext';
 
 const Steper = () => {
-    const [infoTrabalho, setInfoTrabalho] = React.useState(false);
-    const [infoPessoais, setInfoPessoais] = React.useState(false)
+    const {infoTrabalho, setInfoTrabalho, infoPessoal, setInfoPessoal} = useContext(CadastroContext)
+
     return (
 
         <Stepper
             orientation="horizontal"
-            sx={{
+            sx={{padding: '0 3rem',
                 '--Stepper-horizontalGap': '2.5rem',
                 '--StepIndicator-size': '2.5rem',
                 '--Step-gap': '1rem',
@@ -46,11 +47,11 @@ const Steper = () => {
             <Step
                 indicator={
                     <StepIndicator variant="solid" color="success">
-                        <StepIndicator variant="solid" color={infoPessoais ? 'success' : 'primary'}>
-                            {infoPessoais ? (
-                                <CheckRoundedIcon onClick={() => setInfoPessoais(!infoPessoais)} />
+                        <StepIndicator variant="solid" color={infoPessoal ? 'success' : 'primary'}>
+                            {infoPessoal ? (
+                                <CheckRoundedIcon onClick={() => setInfoPessoal(!infoPessoal)} />
                             ) : (
-                                <AppRegistrationRoundedIcon onClick={() => setInfoPessoais(!infoPessoais)} />
+                                <AppRegistrationRoundedIcon onClick={() => setInfoPessoal(!infoPessoal)} />
                             )}
                         </StepIndicator>
                     </StepIndicator>
