@@ -22,7 +22,7 @@ const Input = ({ name, label, placeholder, type = "text" }) => {
   return (
     <InputDiv>
       <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} placeholder={placeholder} />
+      <input required={true} type={type} name={name} placeholder={placeholder} />
     </InputDiv>
   );
 };

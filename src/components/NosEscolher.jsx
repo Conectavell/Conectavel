@@ -3,7 +3,6 @@ import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
 import { Button } from './BarraNavegacao'
-import { useTranslation } from 'react-i18next'
 
 const Box = styled.div`
     width: 100vw;
@@ -77,15 +76,13 @@ const Heading_text = styled.h2`
 
 const NosEscolher = () => {
     const { innerWidth: width, innerHeight: height } = window
-    const { t } = useTranslation()
-
 
     return (
         <Box>
             <Sub_heading style={{ color: 'var(--laranja)' }}>
-                {t("nosEscolher.subtitle")}
+                PORQUE NOS ESCOLHER
             </Sub_heading>
-            <Heading_text >{t("nosEscolher.title")}</Heading_text>
+            <Heading_text >Serviço confiável e de qualidade</Heading_text>
 
             <div className="row">
                 {
@@ -94,21 +91,21 @@ const NosEscolher = () => {
 
                 <div className="left">
                     <div className="qualidades">
-                        <Qualidades title={t("nosEscolher.valores.valor1.title")} text={t("nosEscolher.valores.valor1.text")} />
-                        <Qualidades title={t("nosEscolher.valores.valor3.title")} text={t("nosEscolher.valores.valor3.text")} />
+                        <Qualidades title="Seguro" text="Receba sua tecnologia de volta em ótimo estado" />
+                        <Qualidades title="Sustentável" text="Como profissional, você possui recursos para descartar corretamente eletrônicos" />
                         {
-                            width > 992 ? <Button className='button'>{t("nosEscolher.btncomecar")}</Button> : ''
+                            width > 992 ? <Button className='button'>Começar agora</Button> : ''
                         }
 
                     </div>
                     <div className="qualidades">
-                        <Qualidades title={t("nosEscolher.valores.valor2.title")} text={t("nosEscolher.valores.valor2.text")} />
-                        <Qualidades title={t("nosEscolher.valores.valor4.title")} text={t("nosEscolher.valores.valor4.text")} />
+                        <Qualidades title="Confiável" text="Alta tecnologia para garantir a segurança dos seus dados" />
+                        <Qualidades title="Flexível" text="Como profissional, você pode escolher quais serviços você deseja assumir" />
                     </div>
                 </div>
             </div>
             {
-                width > 992 ? '' : <Button className='button'>{t("nosEscolher.btncomecar")}</Button>
+                width > 992 ? '' : <Button className='button'>Começar agora</Button>
             }
         </Box >
     )

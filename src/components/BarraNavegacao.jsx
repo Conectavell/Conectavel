@@ -15,8 +15,6 @@ import SelectLang from './SelectLang';
 
 export const Button = styled(Link)`
     padding: .8rem 1rem;
-    text-align: center;
-    /* width: 300px; */
     text-decoration: none;
     border: none;
     outline: none;
@@ -87,14 +85,9 @@ const BarraNavegacao = () => {
         margin-bottom: 1rem;
     }
     `
-    const Block = styled.div`
-        width: auto;
-        display: flex;
-        align-items: center; 
-    `
 
-const { t } = useTranslation()
-return (
+    const { t } = useTranslation()
+    return (
         <Navbar expand="xl" className='navbar' style={{ marginBottom: '2rem' }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
@@ -106,27 +99,30 @@ return (
                 </Navbar.Toggle>
                 <Navbar.Collapse id="navbarScroll">
                     <NavSection>
-                        <Nav style={{ margin: 'auto', }} className="me-auto my-2 my-xl-0">
+                        <Nav style={{ margin: 'auto', }} className="me-auto my-2 my-lg-0">
                             {navItems.map((item, index) => {
                                 return (
                                     <ListItem key={index}>
                                         <StyledLink to={
                                             item === "Home" ? "/Conectavel" : item === "Quem somos" ? "/Conectavel/QuemSomos" : `/Conectavel/${item}`
                                         }>
-                                            {t(`navbar.${item}`)}
+                                            {t(item)}
                                         </StyledLink>
                                     </ListItem>
                                 )
                             })}
                             <ListItem>
-                                {t("navbar.Serviços")}
+                                Serviços
                             </ListItem>
                         </Nav>
-                        <Block >
-                            <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
-                            <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
-                            <SelectLang /> 
-                        </Block>
+                        <div >
+                            <Button to="/Conectavel/cadastro">{t("btncadastro")}</Button>
+                            <Login to="/Conectavel/login" >{t("btnlogin")}</Login>
+
+                            <SelectLang /> {/*lang substituido */}
+
+                            {/* <Lang /> */}
+                        </div>
                     </NavSection>
                 </Navbar.Collapse>
             </Container>
