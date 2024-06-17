@@ -13,7 +13,6 @@ import Footer from '../components/Footer'
 import './Nosso-negocio.svg'
 import './Cores.svg'
 import './Cell_PhoneApp.svg'
-import './logo_conectavel.svg'
 
 
 
@@ -211,7 +210,7 @@ const QuemSomosPage = () => {
                 </tittles>
 
                 <imgs>
-                    <img src={Nosso - negocio.svg} alt="Nosso negocio" />
+                    <img src={Nosso-negocio.svg} alt="Nosso negocio" />
                 </imgs>
 
             </NossoNegocio>
