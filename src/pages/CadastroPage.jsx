@@ -1,18 +1,18 @@
 import styled from "styled-components";
+import FormCadastro from "../components/FormCadastro";
+import { useContext, useState } from "react";
+import FormCompletarInfoPrestador from "../components/FormCompletarInfoPrestador";
 import logo_conectavel from "../assets/logo_conectavel.svg";
-import Input from "../components/Input";
-import { Button } from "../components/Button";
-import { Link, useNavigate } from "react-router-dom";
-import Google_logo from "../assets/Google_logo.svg";
-import { ButtonLogin } from "../components/ButtonLogin";
-import Facebook_logo from "../assets/Facebook_logo.svg";
-import Arrow_button from "../assets/Arrow_button.svg";
+import CadastroContext from "../context/CadastroContext";
+import Steper from "../components/Steper";
+import FormCadastroProfissional from "../components/FormCadastroProfissional";
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 `;
 // Div do lado Esquerdo com a logo.
 const LogoDiv = styled.div`
@@ -32,35 +32,20 @@ const LogoDiv = styled.div`
     }
   }
 `;
-
-// Div do lado Direito com as informaçoes de login/cadastro.
-
 const FormDiv = styled.div`
   background-color: #ffffff;
   width: 100%;
+  height: 100%;
   border-radius: 0px 0px 0px 100px;
-
-  // Interatividade na tela.
-
-  .form-container {
-    padding: 0% 10% 10% 10%;
-    margin: 0 auto;
-  }
 
   h2 {
     font-weight: 600;
     text-align: center;
-    font-size: 48px;
+    font-size: 40px;
     margin-bottom: 20px;
-    margin-top: -73px;
   }
 
-  .justify-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 35px;
-  }
+  
   a {
     color: var(--azul_secundario);
     text-decoration: none;
@@ -124,7 +109,7 @@ const FormDiv = styled.div`
       border-radius: unset;
       position: relative;
     }
-    .arrow_button {
+    /* .arrow_button {
       position: absolute;
     }
     .form-container {
@@ -133,104 +118,55 @@ const FormDiv = styled.div`
     .justify-between {
       flex-direction: column;
       gap: 8px;
-    }
+    } */
   }
 
-  @media (max-width: 1100px) {
+   @media (max-width: 1100px) {
     h2 {
-      margin-top: 0;
-      font-size: 62px;
+      font-size: 34px;
     }
     .arrow_button{
       margin-top: 0;
     margin-left: 0;
     }
   }
-  @media (max-width: 682px) {
-    h2 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-  }
 `;
 
-const StyledLink = styled(Link)`
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-`;
 
 const CadastroPage = () => {
-  const navigate = useNavigate();
+  const { completarInfo, setCompletarInfo, infoPessoal } = useContext(CadastroContext)
+  const [infoTrabalho, setInfoTrabalho] = useState(false);
+
+
   return (
-    <ContainerDiv>
-      <LogoDiv>
-        <div>
-          <img src={logo_conectavel} alt="Logo e Slogan" />
-        </div>
-      </LogoDiv>
-
-      <FormDiv>
-        <button onClick={() => navigate(-1)} className="arrow_button">
-          <img src={Arrow_button} alt="Botão Voltar" />
-        </button>
-
-        <div className="form-container">
-          <h2>Cadastre-se</h2>
-
-          <div className="button_container">
-            <button className="button_selec">Cliente</button>
-            <button className="button_selec">Profissional</button>
+    <>
+      <ContainerDiv>
+        <LogoDiv>
+          <div>
+            <img src={logo_conectavel} alt="Logo e Slogan" />
           </div>
+        </LogoDiv>
+        <FormDiv>
+          {/* {
+            completarInfo ? <FormCompletarInfoPrestador /> : <FormCadastro />
+            } */}
+          {
+            infoPessoal ?
 
-          <form action="">
-            <Input
-              name="Nome completo"
-              label="Nome completo"
-              placeholder="Digite seu Nome aqui"
-            />
-            <Input
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-            />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-            />
-            <div className="center-text">
-              <span>
-                Já possui uma conta? &nbsp;
-                <StyledLink to="/Conectavel/Login">Entrar</StyledLink>
-              </span>
-            </div>
+              <FormCadastroProfissional form="pessoal"/>
+              :
+              <FormCadastroProfissional form="experiencias"/>
+          }
 
-            <Button onClick={() => navigate("/Conectavel/preenchercliente")}>Cadastrar</Button>
-          </form>
-          <div className="center-text">
-            <br />
-            <span
-              style={{ fontSize: "20px", display: "block", marginTop: "-28px" }}
-            >
-              Ou
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: "28px" }}>
-            <ButtonLogin>
-              <img src={Google_logo} width={40} alt="Google Icon" />
-              <span>Cadastrar com Google</span>
-            </ButtonLogin>
-            <ButtonLogin>
-              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
-              <span>Cadastrar com Facebook</span>
-            </ButtonLogin>
-          </div>
-        </div>
-      </FormDiv>
-    </ContainerDiv>
+
+          {/* <Steper /> */}
+        </FormDiv>
+
+      </ContainerDiv>
+
+
+    </>
+
   );
 };
 

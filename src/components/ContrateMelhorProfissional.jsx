@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import PlacaMae from '../assets/Arrumando.jpg'
 import Vantagens from './Vantagens'
-import { useTranslation } from "react-i18next";
 
 const ContratarWrapper = styled.section`
     width: 80%;
@@ -101,15 +100,13 @@ const BaixoSection = styled.div`
 
 function ContrateMelhorProfissional() {
     const { innerWidth: width, innerHeight: height } = window
-    const { t } = useTranslation()
-
     
     return (
         <ContratarWrapper>
             <CimaSection>
                 <Title>
-                    <Sub_heading>{t("contrateMelhorProfissional.subtitle")}</Sub_heading>
-                    <Heading>{t("contrateMelhorProfissional.subtitle")}</Heading>
+                    <Sub_heading>CONTRATE O MELHOR PROFISSIONAL</Sub_heading>
+                    <Heading>Contrate o melhor profissional de eletrônica da cidade.</Heading>
                 </Title>
                 {
                     width > 992 ? <ImgTopo /> : ''
@@ -117,9 +114,9 @@ function ContrateMelhorProfissional() {
                 
             </CimaSection>
             <BaixoSection>
-                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade1.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade1.text")} />
-                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade2.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade2.text")} />
-                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade3.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade3.text")} />
+                <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks." />
+                <Vantagens titulo="Profissionalismo" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
+                <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço." />
             </BaixoSection>
         </ContratarWrapper>
     );
