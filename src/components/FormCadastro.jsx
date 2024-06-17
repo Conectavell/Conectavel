@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
-import Input from "../components/Input";
+import { InputDiv } from "../components/Input";
 import { Button } from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Google_logo from "../assets/Google_logo.svg";
