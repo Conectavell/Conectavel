@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useLocation } from "react-router-dom";
 import { useState } from 'react';
 import { IMaskInput } from "react-imask";
+import Modal from '../components/ModalCadastro'
 import axios from 'axios';
 
 const Box = styled.div`
@@ -152,8 +153,6 @@ const CompletarInfoClientePage = () => {
   const [dataNascimentoUsuario, setDataNascimentoUsuario] = useState('');
   const [sexoUsuario, setSexoUsuario] = useState('')
 
-
-
   const completarCadastro = (perfil,nome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) => {
     axios.post('http://localhost:8080/api/v1/usuario', {
       tipoDePerfilUsuario:`${perfil}`,
@@ -186,7 +185,10 @@ const CompletarInfoClientePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     completarCadastro(location.state.tipoPerfil, location.state.nomeUsuario, location.state.emailUsuario, location.state.senhaUsuario, nacionalidadeUsuario, identidadeUsuario, cepUsuario, numeroUsuario, complementoUsuario, celularUsuario, estadoCivilUsuario, dataNascimentoUsuario, sexoUsuario);
+    setOpenModal(true)
   }
+
+  const [openModal, setOpenModal] = useState(false)
 
   return(
     <Box>
@@ -237,6 +239,7 @@ const CompletarInfoClientePage = () => {
                 <Btn type='submit'>Enviar informações</Btn>
         </Area>
         <A onClick={()=> navigate("/Conectavel/perfilcliente")}>Deixar para Depois</A>
+        <Modal isOpen={openModal}/>
     </Box>
 )
 }
