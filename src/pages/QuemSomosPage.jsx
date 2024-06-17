@@ -11,6 +11,9 @@ import julia from '../assets/julia.png'
 import gustavo from '../assets/gustavo.png'
 import Footer from '../components/Footer'
 import './Nosso-negocio.svg'
+import './Cores.svg'
+import './Cell_PhoneApp.svg'
+import './logo_conectavel.svg'
 
 
 
@@ -185,7 +188,7 @@ const QuemSomosPage = () => {
                 </tittles>
 
                 <imgs>
-                    <img src="Cores.svg" alt="Identidade Visual" />
+                    <img src={Cores.svg} alt="Identidade Visual" />
                 </imgs>
 
                 <texts>
@@ -208,19 +211,31 @@ const QuemSomosPage = () => {
                 </tittles>
 
                 <imgs>
-                <img src={Nosso-negocio.svg} alt="Nosso negocio" />
+                    <img src={Nosso - negocio.svg} alt="Nosso negocio" />
                 </imgs>
 
             </NossoNegocio>
 
-            <img src="Cores.svg" alt="" />
+            <VisaoFuturo>
 
-        </div >
+                <tittles>
+                    <h3>E não para por aí</h3>
+                    <h2>Futuros passos</h2>
+                </tittles>
 
-        </d >
+                <texts>
+                    <p>Um aplicativo para dispositiveis moveis, tanto para o sistema android como IOS</p>
+                </texts>
 
-    <Footer />
+                <imgs>
+                    <img src={Cell_PhoneApp.svg} alt="Aplicativos Mobile" />
+                </imgs>
+
+            </VisaoFuturo>
+
+            <Footer />
         </>
+
     )
 }
 
