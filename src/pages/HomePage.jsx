@@ -10,14 +10,14 @@ import BarraNavegacao from '../components/BarraNavegacao'
 const HomePage = () => {
   return (
     <>
-      <BarraNavegacao />
+      <BarraNavegacao  cor="azul"/>
       <Header />
       <ComoFunciona />
       <NosEscolher />
       <ContrateMelhorProfissional />
       <Contribua />
       <Colaboradores />
-      <Footer />
+      <Footer cor="azul"/>
     </>
   )
 }

@@ -10,10 +10,10 @@ const QuemSomosPage = () => {
 
     return (
         <>
-            <BarraNavegacao />
+            <BarraNavegacao cor="azul" />
             <Equipe />
             <FaleConosco/>
-            <Footer />
+            <Footer cor="azul"/>
         </>
     )
 }
