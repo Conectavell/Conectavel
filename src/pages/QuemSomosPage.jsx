@@ -10,6 +10,7 @@ import kevyn from '../assets/kevyn.png'
 import julia from '../assets/julia.png'
 import gustavo from '../assets/gustavo.png'
 import Footer from '../components/Footer'
+import './Nosso-negocio.svg'
 
 
 
@@ -25,7 +26,7 @@ const QuemSomosPage = () => {
     }
 
 `
-    const Heading_text = styled.h2`  
+    const Heading_text = styled.h2`
     width: 100%;
     font-size: 48px;
     font-weight: 400;
@@ -52,7 +53,30 @@ const QuemSomosPage = () => {
             flex-direction: column;
             gap: 1rem;
         }
-`
+            `
+
+    function IdentVisual() {
+        const IdVisual = styled.div`
+    margin: 0;
+    `
+    }
+
+    const NossoNegocio = styled.div`
+        `
+
+    const VisaoFuturo = styled.div`
+        `
+
+    const tittles = styled.div`
+        `
+
+    const texts = styled.p`
+        `
+
+    const imgs = styled.img`
+    margin: 0;
+    `
+
     return (
         <>
             <BarraNavegacao />
@@ -152,7 +176,50 @@ const QuemSomosPage = () => {
 
 
             </BoxEquipe>
-            <Footer/>
+
+            <IdVisual>
+
+                <tittles>
+                    <h3>nossas escolhas</h3>
+                    <H2>Identidade visual</H2>
+                </tittles>
+
+                <imgs>
+                    <img src="Cores.svg" alt="Identidade Visual" />
+                </imgs>
+
+                <texts>
+                    <h3>Poppis</h3>
+                    <p>Design acolhedor, sua visualização proporciona um acolhimento ao usuário</p>
+                </texts>
+
+                <texts>
+                    <h3>Quantico</h3>
+                    <p>Design moderno, sua forma demonstrar algo tecnológico e moderno</p>
+                </texts>
+
+            </IdVisual>
+
+            <NossoNegocio>
+
+                <tittles>
+                    <h3>nossas escolhas</h3>
+                    <H2>Nosso negócio</H2>
+                </tittles>
+
+                <imgs>
+                <img src={Nosso-negocio.svg} alt="Nosso negocio" />
+                </imgs>
+
+            </NossoNegocio>
+
+            <img src="Cores.svg" alt="" />
+
+        </div >
+
+        </d >
+
+    <Footer />
         </>
     )
 }

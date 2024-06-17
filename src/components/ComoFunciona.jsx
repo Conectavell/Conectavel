@@ -17,7 +17,7 @@ export const SectionTitle = styled.section`
         text-align: center;
     }
 `
-const Heading_text = styled.h2`  
+const Heading_text = styled.h2`
     width: 100%;
     font-size: 48px;
     font-weight: 400;
@@ -60,7 +60,7 @@ const ComoFunciona = () => {
                 text1="Preencha todas as informações para garantir seu serviço."
                 text2="Indique o serviço desejado e busque pelo profissional adequado."
                 text3="Antes de contratar você pode tirar suas dúvidas com o profissional pelo chat." />
-            <Detail style={{ textAlign: 'center', margin: '1rem auto',color: 'var(--azul_principal' }}>Para profissionais</Detail>
+            <Detail style={{ textAlign: 'center', margin: '1rem auto', color: 'var(--azul_principal' }}>Para profissionais</Detail>
             <Step
                 titulo1="Crie sua conta"
                 titulo2="Escolha um plano"

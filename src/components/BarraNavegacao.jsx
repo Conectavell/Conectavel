@@ -126,7 +126,7 @@ const BarraNavegacao = () => {
     )
 }
 
-export default BarraNavegacao
+export default BarraNavegacao;
 
 
 

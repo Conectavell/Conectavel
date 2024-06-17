@@ -46,7 +46,7 @@ export const Sub_heading = styled.p`
 
 `
 
-const Heading_text = styled.h2`  
+const Heading_text = styled.h2`
     width: 100%;
     font-size: 48px;
     font-weight: 400;
@@ -58,7 +58,7 @@ const Heading_text = styled.h2`
         text-align: center;
     }
     `
-export const Detail = styled.p`  
+export const Detail = styled.p`
     color: var(--verde_principal);
     font-size: 20px;
     margin-bottom: 1rem;
@@ -87,7 +87,7 @@ const Image = styled.div`
 const Header = () => {
     return (
         <>
-            <Box> 
+            <Box>
                 <Sub_heading>
                     UM CICLO QUE SE RENOVA
                 </Sub_heading>

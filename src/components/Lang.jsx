@@ -12,7 +12,7 @@ const LangBox = styled.a`
     
     img{
         cursor: pointer;
-        width: 25px !important; 
+        width: 25px !important;
         margin: 0 .3rem;
     }
 `
@@ -23,8 +23,8 @@ const Lang = () => {
 
 
     const [src, setSrc] = useState(br)
-    const [textoAlternativo, setTextoAlternativo] = useState(["pt","ja","en"])
-    const [linguagem,setLinguagem] = useState([br, en, jp])
+    const [textoAlternativo, setTextoAlternativo] = useState(["pt", "ja", "en"])
+    const [linguagem, setLinguagem] = useState([br, en, jp])
     const [count, setCount] = useState(0)
 
     const handleChangeLanguage = (value) => {
@@ -39,7 +39,7 @@ const Lang = () => {
             return newCount;
         });
     };
-      
+
 
 
     return (
@@ -54,4 +54,4 @@ const Lang = () => {
     )
 }
 
-export default Lang
+export default Lang;

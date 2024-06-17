@@ -13,7 +13,6 @@ export const Button = styled.div`
   &:hover {
     background-color: var(--laranja);
     font-weight: bold;
-   
 
   }
 
