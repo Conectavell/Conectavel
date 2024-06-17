@@ -10,7 +10,6 @@ import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
 import PerfilClientePage from './pages/PerfilClientePage'
-import FormCompletarInfoPrestador from './components/FormCompletarInfoPrestador'
 
 const Routes = () => {
 
@@ -20,7 +19,6 @@ const Routes = () => {
                 <Rotas>
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
-                    {/* <Route path='/Conectavel/cadastro' element={<FormCompletarInfoPrestador />} /> */}
                     <Route path='/Conectavel/login' element={<LoginPage />} />
                     {/* <Route path='/Conectavel/preenchercliente' element={<CompletarInfoClientePage />} /> */}
                     <Route path='/Conectavel/preencherprestador' element={<CompletarInfoPrestadorPage />} />
