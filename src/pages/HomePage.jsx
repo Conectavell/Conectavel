@@ -16,6 +16,8 @@ const HomePage = () => {
       <NosEscolher />
       <ContrateMelhorProfissional />
       <Contribua />
+      {/* <Colaboradores /> EM DESENVOLVIMENTO*/} 
+      <Footer />
       <Colaboradores />
       <Footer cor="azul"/>
     </>
