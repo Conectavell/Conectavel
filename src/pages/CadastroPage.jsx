@@ -93,6 +93,11 @@ const FormDiv = styled.div`
     flex-grow: 1;
   }
 
+  .button_selec:focus{
+    background-color: var(--azul_principal);
+    color: #ffffff;
+  }
+
   .button_selec:hover {
     background-color: var(--azul_principal);
     cursor: pointer;
