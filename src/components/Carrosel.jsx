@@ -7,8 +7,6 @@ import { useTranslation } from 'react-i18next';
 //
 
 const Carrosel = () => {
-    const { t } = useTranslation()
-
     return (
         <Carousel interval={4000} className='text-center container '  data-bs-theme="light">
             <Carousel.Item >
@@ -17,7 +15,7 @@ const Carrosel = () => {
                     src={descarte1}
                     alt="First slide"
                 />
-                <p className=' mt-2 text-light' >{t("contribua.slides.slide1.text")} </p>
+                <p className=' mt-2 text-light' >Quando o lixo eletrônico entra em contato com a natureza, desencadeia uma série de impactos ambientais significativos. </p>
             </Carousel.Item>
             <Carousel.Item>
                 <img
@@ -27,7 +25,7 @@ const Carrosel = () => {
                     height={525}
                     alt="Second slide"
                 />
-                <p className=' mt-2 text-light'>{t("contribua.slides.slide2.text")} </p>
+                <p className=' mt-2 text-light'>Os componentes tóxicos presentes nos dispositivos eletrônicos, como chumbo, mercúrio e cádmio, contaminam o solo, comprometendo a qualidade dos ecossistemas. </p>
             </Carousel.Item>
             <Carousel.Item>
                 <img
@@ -35,7 +33,7 @@ const Carrosel = () => {
                     src={descarte3}
                     alt="Third slide"
                 />
-                <p className=' m-auto mt-2 text-light'> {t("contribua.slides.slide3.text")} </p>
+                <p className=' m-auto mt-2 text-light'> Essa contaminação afeta a biodiversidade, causando danos à flora e à fauna, e também representa uma ameaça à saúde humana através da cadeia alimentar. </p>
             </Carousel.Item>
         </Carousel>
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { Detail, Sub_heading } from './Header'
 import Step from './Step'
-import { useTranslation } from 'react-i18next'
 //
+
 export const Box = styled.header`
     width: 80%;
     margin: auto;
@@ -43,34 +43,32 @@ export const TitleCenter = styled.h2`
 
 const ComoFunciona = () => {
     const { innerWidth: width, innerHeight: height } = window
-    const { t } = useTranslation()
-
 
     return (
         <Box>
             <SectionTitle>
-                <Sub_heading>{t("comoAcessar.subtitle")} </Sub_heading>
+                <Sub_heading>COMO FUNCIONA </Sub_heading>
                 <Heading_text>
-                    {t("comoAcessar.title")}
+                    Como acessar nosso{width > 768 ? <br /> : ''}  serviço
                 </Heading_text>
             </SectionTitle>
 
-            <Detail style={{ textAlign: 'center', margin: '1rem auto', color: 'var(--azul_principal' }}>{t("comoAcessar.clientes.title")}</Detail>
+            <Detail style={{ textAlign: 'center', margin: '1rem auto', color: 'var(--azul_principal' }}>Para clientes</Detail>
             <Step
-                titulo1={t("comoAcessar.clientes.passo1.title")}
-                titulo2={t("comoAcessar.clientes.passo2.title")}
-                titulo3={t("comoAcessar.clientes.passo3.title")}
-                text1={t("comoAcessar.clientes.passo1.text")}
-                text2={t("comoAcessar.clientes.passo2.text")}
-                text3={t("comoAcessar.clientes.passo3.text")}  />
-            <Detail style={{ textAlign: 'center', margin: '1rem auto',color: 'var(--azul_principal' }}>{t("comoAcessar.profissionais.title")}</Detail>
+                titulo1="Crie sua conta"
+                titulo2="Selecione um profissional"
+                titulo3="Contrate"
+                text1="Preencha todas as informações para garantir seu serviço."
+                text2="Indique o serviço desejado e busque pelo profissional adequado."
+                text3="Antes de contratar você pode tirar suas dúvidas com o profissional pelo chat." />
+            <Detail style={{ textAlign: 'center', margin: '1rem auto',color: 'var(--azul_principal' }}>Para profissionais</Detail>
             <Step
-                titulo1={t("comoAcessar.profissionais.passo1.title")}
-                titulo2={t("comoAcessar.profissionais.passo2.title")}
-                titulo3={t("comoAcessar.profissionais.passo3.title")}
-                text1={t("comoAcessar.profissionais.passo1.text")}
-                text2={t("comoAcessar.profissionais.passo2.text")}
-                text3={t("comoAcessar.profissionais.passo3.text")}  />
+                titulo1="Crie sua conta"
+                titulo2="Escolha um plano"
+                titulo3="Ofereça seus serviços"
+                text1="Preencha todas as informações e aguarde nossa análise."
+                text2="Para desfrutar dos nossos serviços é necessário realizar a assinatura."
+                text3="No seu perfil você pode exibir suas experiências anteriores para atrair clientes." />
 
         </Box>
     )

@@ -5,7 +5,7 @@ import Maps from './Maps'
 
 const Box = styled.section`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: auto;
     background-color: var(--verde_secundario);
     padding: 2rem 0;
@@ -58,7 +58,7 @@ const Heading_text = styled.h2`
 
 const Mapa = styled.div`
         width: 70%;
-        height: 30.5rem;
+        height: 80vh;
         background-color: var(--azul_principal);
         border-radius: 10px;
         overflow: hidden;
@@ -84,7 +84,7 @@ const PontosColeta = () => {
             <Heading_text>
                 {
                     company === "samsung" ? "Samsung Recicla"
-                        : company === "abree" ? "ABREE"
+                        : company === "ab'ree" ? "ABREE"
                             : company === "green" ? "Green Eletron"
                                 : "Veja todos"
                 }

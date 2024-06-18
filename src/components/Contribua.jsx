@@ -70,15 +70,13 @@ const Heading = styled.h2`
 `
 
 function Section5() {
-    const { t } = useTranslation()
-
 
     return (
         <ContribuaWrapper>
             <Content>
                 <Topo>
-                    <SubHeading>{t("contribua.subtitle")}</SubHeading>
-                    <Heading>{t("contribua.title")}</Heading>
+                    <SubHeading>CONTRIBUA</SubHeading>
+                    <Heading>O descarte correto transforma</Heading>
                 </Topo>
                 <ContainerCarrosel>
                     <Carrosel />

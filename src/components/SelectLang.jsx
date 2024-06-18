@@ -1,3 +1,6 @@
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useState } from 'react';
 import pt from '../assets/br.png'
 import en from '../assets/en.png'
@@ -9,45 +12,30 @@ import { useTranslation } from 'react-i18next';
 //
 
 export default function SelectLang() {
-    const { t } = useTranslation()
-    const [lang, setLang] = useState({
-        lang: 'pt'
-    })
+    const [lang, setLang] = useState('pt');
 
-    const handleChange = (event, newValue) => {
-        i18n.changeLanguage(newValue)
-        lang.lang = newValue
-        console.log(lang)
+    const handleChange = (event) => {
+        setLang(event.target.value);
     };
 
-
     return (
-        <>
-
+        <FormControl sx={{
+            m: 0, padding: 0, minWidth: 120, '.MuiOutlinedInput-notchedOutline': { borderStyle: 'none' }, '& .MuiSelect-select': {
+                padding: 0,
+                color: '#fff',
+                fontSize: '.9em',
+            }
+        }}>
             <Select
-                indicator={<KeyboardArrowDown />}
-                sx={{
-                    width: 100, color: "white", fontSize: '1.1em',
-                    [`& .${selectClasses.indicator}`]: {
-                        transition: '0.2s',
-                        [`&.${selectClasses.expanded}`]: {
-                            transform: 'rotate(-180deg)',
-                        },
-                    }, background: 'transparent', "&:hover": {
-                        backgroundColor: "transparent",color: '#fff'
-                    }
-                }}
-
-                // startDecorator={<Lang />}
-                size="sm"
-                variant="plain"
-                placeholder={t("navbar.lang")}
-                onChange={handleChange}>
-                <Option value="pt"><img style={{ marginRight: '.3rem' }} width={25} src={pt} alt="Bandeira do Brasil" /> PT-BR</Option>
-                <Option value="en"><img style={{ marginRight: '.3rem' }} width={25} src={en} alt="Bandeira do USA" /> EN</Option>
+                value={lang}
+                onChange={handleChange}
+                defaultValue={lang}
+            >
+                <MenuItem value="pt"><img style={{marginRight: '.3rem'}} width={25} src={pt} alt="Bandeira do Brasil" /> PT-BR</MenuItem>
+                <MenuItem value="en"><img style={{marginRight: '.3rem'}} width={25} src={en} alt="Bandeira do USA" /> EN</MenuItem>
             </Select>
-        </>
 
+
+        </FormControl>
     );
 }
-

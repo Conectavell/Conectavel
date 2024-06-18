@@ -63,15 +63,13 @@ const Reviews = styled.div`
 `
 
 function Colaboradores() {
-    const { t } = useTranslation()
-    
     return (
         <Seção>
             <Content>
                 <Sub_heading>
-                    {t("colaboradores.subtitle")}
+                    COLABORADORES
                 </Sub_heading>
-                <Heading_text>{t("colaboradores.title")}</Heading_text>
+                <Heading_text>O que falam do nosso serviço</Heading_text>
                 <Reviews>
                     <Review nome="Walter Anderson" opiniao_title="Faulty Wiring in My Kitchen." data="March 15, 2023" />
                     <Review nome="Susan Torres" opiniao_title="Circuit Breaker Tripping" data="April 5, 2023" />
