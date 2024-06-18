@@ -4,7 +4,7 @@ import descarte3 from '../assets/descarte3.png'
 import descarte4 from '../assets/descarte4.png'
 import "../styles/carrossel.css"
 import { useTranslation } from 'react-i18next';
-
+//
 
 const Carrosel = () => {
     const { t } = useTranslation()

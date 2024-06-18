@@ -5,10 +5,8 @@ import i18n from 'i18next';
 import Select, { selectClasses } from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import Lang from './Lang';
-import { FormControl, InputLabel } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-
+//
 
 export default function SelectLang() {
     const { t } = useTranslation()

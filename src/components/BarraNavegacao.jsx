@@ -6,12 +6,11 @@ import logotipo from '../assets/logotipo.png'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBarsStaggered } from "react-icons/fa6";
-import Lang from './Lang';
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
 import SelectLang from './SelectLang';
 
-
+//
 
 export const Button = styled(Link)`
     padding: .8rem 1rem;

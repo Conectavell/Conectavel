@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Detail, Sub_heading } from './Header'
 import Step from './Step'
 import { useTranslation } from 'react-i18next'
-
+//
 export const Box = styled.header`
     width: 80%;
     margin: auto;

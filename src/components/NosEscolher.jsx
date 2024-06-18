@@ -4,7 +4,7 @@ import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
 import { Button } from './BarraNavegacao'
 import { useTranslation } from 'react-i18next'
-
+//
 const Box = styled.div`
     width: 100vw;
     background-color: var(--azul_principal);
