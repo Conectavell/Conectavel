@@ -1,8 +1,9 @@
-import { useContext, } from 'react'
+import { useContext, useEffect, } from 'react'
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import CadastroContext from '../context/CadastroContext'
+import axios from "axios";
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -17,6 +18,9 @@ export const FormCadastro = styled.form`
     width: 100%;
     padding: 1rem 0;
 
+    &::-webkit-scrollbar{
+        width: 0;
+    }
     .submit{
         transition: .3s ease-in-out;
         background-color: var(--azul_principal);
@@ -37,19 +41,35 @@ const InputsPessoais = ({ show }) => {
         complementoUsuario, setComplementoUsuario,
         celularUsuario, setCelularUsuario,
         dataNascimentoUsuario, setDataNascimentoUsuario,
-        sexoUsuario, setSexoUsuario
+        sexoUsuario, setSexoUsuario,
+        logradouro, setLogradouro,
+        bairro, setBairro,
+        estado, setEstado,
+        cidade, setCidade
     } = useContext(CadastroContext)
 
+    async function getCEP() {
+        const baseURL = `https://viacep.com.br/ws/${cepUsuario}/json/`
+        const res = await axios.get(baseURL)
+        const data = await res.data
+        console.log(data.logradouro)
+        setLogradouro(data.logradouro)
+        setBairro(data.bairro)
+        setEstado(data.uf)
+        setCidade(data.localidade)
+        setCepUsuario(data.cep)
+    }
 
     return (
-        <FormCadastro style={{ overflow: "hidden", display: `${show ? "" : "none"}` }}>
+        <FormCadastro style={{ overflow: "scroll", height: '80vh', display: `${show ? "" : "none"}` }}>
             <Box
                 sx={{
                     width: "90%",
                     margin: "auto",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "1rem"
+                    gap: "1rem",
+
                 }}>
                 <h2>Complete suas informações</h2>
 
@@ -71,15 +91,72 @@ const InputsPessoais = ({ show }) => {
                     label="CEP"
                     {...register("cep", { required: "First Name is required." })}
                     error={Boolean(errors.firstName)}
-                    type='number'
+                    type='text'
                     fullWidth
                     required={true}
+                    onBlur={() => getCEP(cepUsuario)}
                     value={cepUsuario}
                     onChange={e => {
                         setCepUsuario(e.target.value)
                         console.log(cepUsuario)
                     }}
                     id="fullWidth" />
+
+                <TextField
+                    label="Logradouro"
+                    {...register("logradouro", { required: "First Name is required." })}
+                    error={Boolean(errors.firstName)}
+                    type='text'
+                    fullWidth
+                    required={true}
+                    placeholder="Placeholder"
+                    value={logradouro ? logradouro : ""}
+                    onChange={e => {
+                        setLogradouro(e.target.value)
+                        console.log(logradouro)
+                    }}
+                    id="fullWidth" />
+                <TextField
+                    label="Bairro"
+                    {...register("bairro", { required: "First Name is required." })}
+                    error={Boolean(errors.firstName)}
+                    type='text'
+                    fullWidth
+                    required={true}
+                    value={bairro ? bairro : ""}
+                    onChange={e => {
+                        setBairro(e.target.value)
+                        console.log(bairro)
+                    }}
+                    id="fullWidth" />
+
+                <BoxInputPequeno sx={{ margin: "auto", }}>
+                    <TextField
+                        label="Estado"
+                        {...register("estado", { required: "First Name is required." })}
+                        error={Boolean(errors.firstName)}
+                        type='text'
+                        style={{ width: "48%" }}
+                        required={true}
+                        value={estado ? estado : ""}
+                        onChange={e => {
+                            setEstado(e.target.value)
+                            console.log(estado)
+                        }}/>
+                    <TextField
+                        label="Cidade"
+                        {...register("cidade", { required: "First Name is required." })}
+                        error={Boolean(errors.firstName)}
+                        type='text'
+                        style={{ width: "48%" }}
+                        required={true}
+                        value={cidade ? cidade : ""}
+                        onChange={e => {
+                            setCidade(e.target.value)
+                            console.log(cidade)
+                        }}/>
+                </BoxInputPequeno>
+
                 <TextField
                     label="Complemento"
                     {...register("complemento", { required: "First Name is required." })}

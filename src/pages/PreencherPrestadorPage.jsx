@@ -37,12 +37,13 @@ const PreencherPrestadorPage = () => {
         celularUsuario,
         dataNascimentoUsuario,
         sexoUsuario,
-        nextTab, setNextTab
+        nextTab, setNextTab,
+        
     } = useContext(CadastroContext)
 
     return (
         <ConectavelLogo>
-            <Box sx={{ width: '90%',margin:"auto" }}>
+            <Box sx={{ width: '90%', margin: "auto" }}>
 
                 {
                     nextTab === 0 ?
@@ -53,7 +54,10 @@ const PreencherPrestadorPage = () => {
                                 <Button
                                     disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
                                     style={{ width: "90%", margin: "1rem auto" }}
-                                    onClick={() => setNextTab(1)}
+                                    onClick={() => {
+                                        setNextTab(1)
+                                        setFill(false)
+                                    }}
                                     variant="contained">Continuar</Button>
                             </BoxBars>
                         </>

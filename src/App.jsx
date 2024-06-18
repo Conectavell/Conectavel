@@ -18,6 +18,10 @@ function App() {
   const [experienciaUsuario, setExperienciaUsuario] = useState('')
   const [habilidadesUsuario, setHabilidadesUsuario] = useState('')
   const [nextTab, setNextTab] = useState(0)
+  const [logradouro, setLogradouro] = useState("")
+  const [bairro, setBairro] = useState("")
+  const [estado, setEstado] = useState("")
+  const [cidade, setCidade] = useState("")
 
 
   return (
@@ -35,7 +39,11 @@ function App() {
       sobreUsuario, setSobreUsuario,
       experienciaUsuario, setExperienciaUsuario,
       habilidadesUsuario, setHabilidadesUsuario,
-      nextTab, setNextTab
+      nextTab, setNextTab,
+      logradouro, setLogradouro,
+      bairro, setBairro,
+      estado, setEstado,
+      cidade, setCidade
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
         <Routes />
