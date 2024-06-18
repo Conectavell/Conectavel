@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Carrosel from "./Carrosel";
 import { useTranslation } from "react-i18next";
-
 const ContribuaWrapper = styled.section`
     width: 100%;
     background: var(--verde_principal);

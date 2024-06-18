@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import br from '../assets/br.png'
+import en from '../assets/en.png'
+import jp from '../assets/jp.jpg'
+import { useTranslation } from "react-i18next";
+
 
 const LangBox = styled.a`
     text-decoration: none;

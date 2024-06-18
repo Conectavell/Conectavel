@@ -2,7 +2,6 @@ import styled from "styled-components";
 import PlacaMae from '../assets/Arrumando.jpg'
 import Vantagens from './Vantagens'
 import { useTranslation } from "react-i18next";
-
 const ContratarWrapper = styled.section`
     width: 80%;
     display: flex;
