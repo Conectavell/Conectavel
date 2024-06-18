@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Review from './Reviews'
-
+import { useTranslation } from 'react-i18next'
+//
 const Seção = styled.section`
     margin: auto;
     background: #F2F4F8;

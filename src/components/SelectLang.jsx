@@ -4,6 +4,12 @@ import Select from '@mui/material/Select';
 import { useState } from 'react';
 import pt from '../assets/br.png'
 import en from '../assets/en.png'
+import i18n from 'i18next';
+import Select, { selectClasses } from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import { useTranslation } from 'react-i18next';
+//
 
 export default function SelectLang() {
     const [lang, setLang] = useState('pt');

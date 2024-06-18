@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
+import { Button } from './BarraNavegacao'
+import { useTranslation } from 'react-i18next'
+//
 import { Link } from 'react-router-dom'
 // import { Button } from './BarraNavegacao'
 
