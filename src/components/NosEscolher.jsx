@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
-import { Link } from 'react-router-dom'
-// import { Button } from './BarraNavegacao'
+import { Button } from './BarraNavegacao'
+import { useTranslation } from 'react-i18next'
 
 const Box = styled.div`
     width: 100vw;
@@ -21,11 +21,20 @@ const Box = styled.div`
     }
     .row img{
         width: 30vw;
-        display: block;
+    }
+    .left{
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        left: 50%;
+        top: 30%;
     }
     .button{
         padding: 1.3rem 3rem;
         border-radius: 100px;
+    }
+    .qualidades{
+        width: 20vw;
     }
     
     @media (max-width: 992px){
@@ -39,23 +48,18 @@ const Box = styled.div`
             gap: 0;
             align-items: center;
         }
+        .left{
+            flex-direction: column;
+            position: unset;
+        }
+        .qualidades{
+            width: 90vw;
+        }
         .button{
             margin-top: 1rem;
             display: block;
         }
     }
-
-    @media (max-width: 1284px){
-    min-height: 100vh;
-
-        img{
-            width: 30vw;
-        }}
-
-    @media (max-width: 1170px){
-        img{
-        display: none;
-    }}
 `
 const Heading_text = styled.h2`  
     width: 100%;
@@ -70,72 +74,41 @@ const Heading_text = styled.h2`
         text-align: center;
     }
 `
-const Button = styled(Link)`
-    padding: .8rem 1rem;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    border-radius: 1.5rem;
-    cursor: pointer;
-    background-color: var(--laranja);
-    
-    color: white;
-    transition: all .3s linear;
-    font-weight: 600;
-    &:hover{
-        background-color: var(--verde_principal);
-    }
-    `
 
-const Container = styled.div`
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    `
-const ContainerLeft = styled.div`
-        display: flex;
-        flex-direction: row;
-
-        @media (max-width: 992px){
-            flex-direction: column;
-        }
-        `
-const ContainerQualidades = styled.div`
-    width: 22vw;
-    @media (max-width: 992px){
-            width: 90vw;
-        }
-`
 const NosEscolher = () => {
     const { innerWidth: width, innerHeight: height } = window
+    const { t } = useTranslation()
+
 
     return (
         <Box>
             <Sub_heading style={{ color: 'var(--laranja)' }}>
-                PORQUE NOS ESCOLHER
+                {t("nosEscolher.subtitle")}
             </Sub_heading>
-            <Heading_text >Serviço confiável e de qualidade</Heading_text>
+            <Heading_text >{t("nosEscolher.title")}</Heading_text>
 
-            <Container >
-                <img src={escolher} />
+            <div className="row">
+                {
+                    width > 992 ? <img src={escolher} /> : ''
+                }
 
-                <ContainerLeft>
-                    <ContainerQualidades>
-                        <Qualidades title="Seguro" text="Receba sua tecnologia de volta em ótimo estado" />
-                        <Qualidades title="Sustentável" text="Como profissional, você possui recursos para descartar corretamente eletrônicos" />
+                <div className="left">
+                    <div className="qualidades">
+                        <Qualidades title={t("nosEscolher.valores.valor1.title")} text={t("nosEscolher.valores.valor1.text")} />
+                        <Qualidades title={t("nosEscolher.valores.valor3.title")} text={t("nosEscolher.valores.valor3.text")} />
                         {
-                            width > 992 ? <Button className='button'>Começar agora</Button> : ''
+                            width > 992 ? <Button className='button'>{t("nosEscolher.btncomecar")}</Button> : ''
                         }
 
-                    </ContainerQualidades>
-                    <ContainerQualidades>
-                        <Qualidades title="Confiável" text="Alta tecnologia para garantir a segurança dos seus dados" />
-                        <Qualidades title="Flexível" text="Como profissional, você pode escolher quais serviços você deseja assumir" />
-                    </ContainerQualidades>
-                </ContainerLeft>
-            </Container>
+                    </div>
+                    <div className="qualidades">
+                        <Qualidades title={t("nosEscolher.valores.valor2.title")} text={t("nosEscolher.valores.valor2.text")} />
+                        <Qualidades title={t("nosEscolher.valores.valor4.title")} text={t("nosEscolher.valores.valor4.text")} />
+                    </div>
+                </div>
+            </div>
             {
-                width > 992 ? '' : <Button className='button'>Começar agora</Button>
+                width > 992 ? '' : <Button className='button'>{t("nosEscolher.btncomecar")}</Button>
             }
         </Box >
     )

@@ -1,11 +1,119 @@
 {
     "translation": {
-        "btncadastro": "Cadastre-se",
-        "btnlogin": "Login",   
-        "Home": "Home",
-        "Serviços": "Serviços",
-        "Colaboradores": "Colaboradores",
-        "Descarte": "Descarte",
-        "Quem somos": "Quem somos"
+        "navbar": {
+            "Home": "Home",
+            "Serviços": "Serviços",
+            "Colaboradores": "Colaboradores",
+            "Descarte": "Descarte",
+            "Quem somos": "Quem somos",
+            "btncadastro": "Cadastre-se",
+            "btnlogin": "Login",
+            "lang": "Idioma"
+        },
+        "header": {
+            "title": "Conserte seus equipamentos com qualidade",
+            "subtitle": "UM CICLO QUE SE RENOVA",
+            "text": "Obtenha rentabilidade e contribua para o descarte eletrônico correto"
+        },
+        "comoAcessar": {
+            "title": "Como acessar nosso serviço",
+            "subtitle": "COMO FUNCIONA",
+            "clientes": {
+                "title": "Para clientes",
+                "passo1": {
+                    "step": "Passo 01",
+                    "title": "Crie sua conta",
+                    "text": "Preencha todas as informações para garantir seu serviço."
+                },
+                "passo2": {
+                    "step": "Passo 02",
+                    "title": "Selecione um profissional",
+                    "text": "Indique o serviço desejado e busque pelo profissional adequado."
+                },
+                "passo3": {
+                    "step": "Passo 03",
+                    "title": "Contrate",
+                    "text": "Antes de contratar você pode tirar suas dúvidas com o profissional pelo chat."
+                }
+            },
+            "profissionais": {
+                "title": "Para profissionais",
+                "passo1": {
+                    "step": "Passo 01",
+                    "title": "Crie sua conta",
+                    "text": "Preencha todas as informações para garantir seu serviço."
+                },
+                "passo2": {
+                    "step": "Passo 02",
+                    "title": "Escolha um plano",
+                    "text": "Para desfrutar dos nossos serviços é necessário realizar a assinatura."
+                },
+                "passo3": {
+                    "step": "Passo 03",
+                    "title": "Ofereça seus serviços",
+                    "text": "No seu perfil você pode exibir suas experiências anteriores para atrair clientes."
+                }
+            }
+        },
+        "nosEscolher": {
+            "title": "Serviço confiável e de qualidade",
+            "subtitle": "PORQUE NOS ESCOLHER",
+            "valores": {
+                "valor1": {
+                    "title": "Seguro",
+                    "text": "Receba sua tecnologia de volta em ótimo estado"
+                },
+                "valor2": {
+                    "title": "Confiável",
+                    "text": "Alta tecnologia para garantir a segurança dos seus dados"
+                },
+                "valor3": {
+                    "title": "Sustentável",
+                    "text": "Como profissional, você possui recursos para descartar corretamente eletrônicos"
+                },
+                "valor4": {
+                    "title": "Flexível",
+                    "text": "Como profissional, você pode escolher quais serviços você deseja assumir"
+                }
+            },
+            "btncomecar": "Começar"
+        },
+        "contrateMelhorProfissional": {
+            "title": "Contrate o melhor profissional de eletrônica da cidade.",
+            "subtitle": "CONTRATE O MELHOR PROFISSIONAL",
+            "qualidades": {
+                "qualidade1": {
+                    "title": "Agilidade",
+                    "text": "Contrate o serviço desejado com poucos clicks."
+                },
+                "qualidade2": {
+                    "title": "Profissionalismo",
+                    "text": "Nos certificamos de analisar de maneira eficiente perfis de profissionais."
+                },
+                "qualidade3": {
+                    "title": "Qualidade",
+                    "text": "Selecionamos profissionais que irão te entregar efetivamente seu serviço."
+                }
+            }
+        },
+        "contribua": {
+            "title": "O descarte correto transforma",
+            "subtitle": "CONTRIBUA",
+            "slides": {
+                "slide1": {
+                    "text": "Quando o lixo eletrônico entra em contato com a natureza, desencadeia uma série de impactos ambientais significativos. "
+                },
+                "slide2": {
+                    "text": "Os componentes tóxicos presentes nos dispositivos eletrônicos, como chumbo, mercúrio e cádmio, contaminam o solo, comprometendo a qualidade dos ecossistemas."
+                },
+                "slide3": {
+                    "text": "Essa contaminação afeta a biodiversidade, causando danos à flora e à fauna, e também representa uma ameaça à saúde humana através da cadeia alimentar."
+                }
+            }
+        },
+        "colaboradores":{
+            "title": "O que falam do nosso serviço",
+            "subtitle": "COLABORADORES"
+        }
     }
 }

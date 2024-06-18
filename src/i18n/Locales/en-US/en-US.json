@@ -56,7 +56,7 @@
             }
         },
         "nosEscolher": {
-            "title": "A qualified and a secure servicee",
+            "title": "A qualified and a secure service",
             "subtitle": "WHY CHOOSE US",
             "valores": {
                 "valor1": {
@@ -114,6 +114,6 @@
         "colaboradores": {
             "title": "What they say about our service",
             "subtitle": "COLLABORATORS"
-        }    
+        }
     }
 }
