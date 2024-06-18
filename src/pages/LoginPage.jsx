@@ -7,6 +7,7 @@ import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
+import Input from '../components/Input'
 
 
 const ContainerDiv = styled.div`
