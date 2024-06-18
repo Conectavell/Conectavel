@@ -19,7 +19,6 @@ const BarraNavegacao = ({ cor }) => {
     const Button = styled(Link)`
     padding: .8rem 1rem;
     text-align: center;
-    /* width: 300px; */
     text-decoration: none;
     border: none;
     outline: none;
