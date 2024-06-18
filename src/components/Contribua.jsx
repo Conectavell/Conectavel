@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Carrosel from "./Carrosel";
 import { useTranslation } from "react-i18next";
-//
 const ContribuaWrapper = styled.section`
     width: 100%;
     background: var(--verde_principal);
@@ -70,13 +69,15 @@ const Heading = styled.h2`
 `
 
 function Section5() {
+    const { t } = useTranslation()
+
 
     return (
         <ContribuaWrapper>
             <Content>
                 <Topo>
-                    <SubHeading>CONTRIBUA</SubHeading>
-                    <Heading>O descarte correto transforma</Heading>
+                    <SubHeading>{t("contribua.subtitle")}</SubHeading>
+                    <Heading>{t("contribua.title")}</Heading>
                 </Topo>
                 <ContainerCarrosel>
                     <Carrosel />

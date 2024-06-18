@@ -1,5 +1,119 @@
 {
     "translation": {
-        "btncadastro": "Register"       
+        "navbar": {
+            "Home": "Home",
+            "Serviços": "Services",
+            "Colaboradores": "Partnerships",
+            "Descarte": "Discart",
+            "Quem somos": "About Us",
+            "btncadastro": "Sign Up",
+            "btnlogin": "Login",
+            "lang": "Langu..."
+        },
+        "header": {
+            "title": "Repair your equipaments with quality",
+            "subtitle": "A CONTINUOUS CYCLE",
+            "text": "Obtain rentability and contribute to the correct discart of electronics"
+        },
+        "comoAcessar": {
+            "title": "How to access our services",
+            "subtitle": "HOW IT WORKS",
+            "clientes": {
+                "title": "For customers",
+                "passo1": {
+                    "step": "Step 1",
+                    "title": "Create your account",
+                    "text": "Fill all the information and receive your service."
+                },
+                "passo2": {
+                    "step": "Step 2",
+                    "title": "Choose a professional",
+                    "text": "By the needed service, search for the ideal professional."
+                },
+                "passo3": {
+                    "step": "Step 3",
+                    "title": "Contact",
+                    "text": "You can ask your questions with the professional by the chat before contact them."
+                }
+            },
+            "profissionais": {
+                "title": "FOR THE PROFESSIONALS",
+                "passo1": {
+                    "step": "Step 1",
+                    "title": "Create your account",
+                    "text": "Fill all the information and receive your service."
+                },
+                "passo2": {
+                    "step": "Step 2",
+                    "title": "Select a plan",
+                    "text": "To have the additional itens you can do a subscripition."
+                },
+                "passo3": {
+                    "step": "Step 3",
+                    "title": "Give your services",
+                    "text": "In your profile, you can show your experiences to "
+                }
+            }
+        },
+        "nosEscolher": {
+            "title": "A qualified and a secure service",
+            "subtitle": "WHY CHOOSE US",
+            "valores": {
+                "valor1": {
+                    "title": "Security",
+                    "text": "Get back your electronics in a good condition."
+                },
+                "valor2": {
+                    "title": "Safe",
+                    "text": "High tecnology to ensure your safety."
+                },
+                "valor3": {
+                    "title": "Sustaintability",
+                    "text": "You have sources to dispose correctly the electronics."
+                },
+                "valor4": {
+                    "title": "Adaptive",
+                    "text": "If you are a professional, you can choose the services you want to to take."
+                }
+            },
+            "btncomecar": "Start"
+        },
+        "contrateMelhorProfissional": {
+            "title": "Sign with the best professional from your city",
+            "subtitle": "SIGN WITH THE BEST PROFESSIONAL",
+            "qualidades": {
+                "qualidade1": {
+                    "title": "Agility",
+                    "text": "Contract the desired service in a few steps. "
+                },
+                "qualidade2": {
+                    "title": "Professionalism",
+                    "text": "We  analyse with eficiency and care the professional profiles."
+                },
+                "qualidade3": {
+                    "title": "Quality",
+                    "text": "We provide great professionals to submit your service."
+                }
+            }
+        },
+        "contribua": {
+            "title": "Disposing correctly transform",
+            "subtitle": "HELP",
+            "slides": {
+                "slide1": {
+                    "text": "When the e-waste is disposed in the nature, it impact a lot of negatives ways  "
+                },
+                "slide2": {
+                    "text": "The toxic components presents in the electronics like lead, mercury and cadmium polluting the ground, affecting the ecosystems quality."
+                },
+                "slide3": {
+                    "text": "This contamination impacts the biodiversity, causing damages in the flora and fauna, and being a risk to human health by the food chain."
+                }
+            }
+        },
+        "colaboradores": {
+            "title": "What they say about our service",
+            "subtitle": "COLLABORATORS"
+        }
     }
 }

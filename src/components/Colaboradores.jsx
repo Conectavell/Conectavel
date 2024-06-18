@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Review from './Reviews'
 import { useTranslation } from 'react-i18next'
-//
 const Seção = styled.section`
     margin: auto;
     background: #F2F4F8;
@@ -63,13 +62,15 @@ const Reviews = styled.div`
 `
 
 function Colaboradores() {
+    const { t } = useTranslation()
+    
     return (
         <Seção>
             <Content>
                 <Sub_heading>
-                    COLABORADORES
+                    {t("colaboradores.subtitle")}
                 </Sub_heading>
-                <Heading_text>O que falam do nosso serviço</Heading_text>
+                <Heading_text>{t("colaboradores.title")}</Heading_text>
                 <Reviews>
                     <Review nome="Walter Anderson" opiniao_title="Faulty Wiring in My Kitchen." data="March 15, 2023" />
                     <Review nome="Susan Torres" opiniao_title="Circuit Breaker Tripping" data="April 5, 2023" />
