@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import fotoPerfil from '../assets/fotoPerfil.png';
 
 function Chat() {
 
@@ -18,7 +19,7 @@ function Chat() {
   }
 `;
 
-const Img2 = styled.img`
+const FotoPerfil = styled.img`
   aspect-ratio: 1;
   object-fit: auto;
   object-position: center;
@@ -26,17 +27,17 @@ const Img2 = styled.img`
   align-self: start;
 `;
 
-const Div5 = styled.div`
+const Conteudo = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Div6 = styled.div`
+const Nome = styled.div`
   color: rgba(34, 34, 34, 0.9);
   font-family: Poppins, sans-serif;
 `;
 
-const Div7 = styled.div`
+const Comentario = styled.div`
   color: var(--Inactive-State-Color, rgba(73, 69, 79, 0.8));
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: "dlig" on;
@@ -47,14 +48,14 @@ const Div7 = styled.div`
   return (
 
     <Feedback>
-          <Img2
+          <FotoPerfil
             loading="lazy"
-            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/aa3f4fb956d1a7dd04858431b459ba81a0f400557053c5e99742f1ed26c7bd2b?apiKey=1aeb7b0691c842979fcde7487ae78091&"
+            srcSet={fotoPerfil}
           />
-          <Div5>
-            <Div6>John Doe</Div6>
-            <Div7>Muito obrigada pelo reparo!</Div7>
-          </Div5>
+          <Conteudo>
+            <Nome>John Doe</Nome>
+            <Comentario>Muito obrigada pelo reparo!</Comentario>
+          </Conteudo>
         </Feedback>
 
 

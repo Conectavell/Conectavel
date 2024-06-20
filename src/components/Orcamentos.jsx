@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import fotoPerfil from '../assets/fotoPerfil.png';
 
 function Orcamentos() {
 
@@ -96,13 +97,13 @@ const Descricao = styled.div`
   font: 600 12px Poppins, sans-serif;
 `;
 
-const Div28 = styled.div`
+const Section02 = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: 400;
 `;
 
-const Div29 = styled.div`
+const DescricaoServico = styled.div`
   display: flex;
   gap: 11px;
   font-size: 13px;
@@ -140,23 +141,23 @@ const Div32 = styled.div`
   }
 `;
 
-const Div33 = styled.div`
+const Valores = styled.div`
   display: flex;
   gap: 5px;
 `;
 
-const Div34 = styled.div`
+const ValorTexto = styled.div`
   color: #000;
   font-family: Poppins, sans-serif;
   flex-grow: 1;
 `;
 
-const Div35 = styled.div`
+const Valor = styled.div`
   color: #175ec6;
   font-family: Poppins, sans-serif;
 `;
 
-const Div36 = styled.div`
+const Status = styled.div`
   color: #175ec6;
   font-family: Poppins, sans-serif;
   margin-top: 18px;
@@ -177,26 +178,26 @@ const Div36 = styled.div`
             <BntPerfil>Ver perfil</BntPerfil>
             <Img6
               loading="lazy"
-              srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&"
+              srcSet={fotoPerfil}
             />
             <ContentPerfil>
               <Nome>Lucas Bonfim</Nome>
               <Descricao>Conserto eletrodomésticos e dispositivos móveis</Descricao>
             </ContentPerfil>
           </Div23>
-          <Div28>
-            <Div29>
+          <Section02>
+            <DescricaoServico>
               <Div30>Serviço:</Div30>
               <Div31>Manutenção</Div31>
-            </Div29>
+            </DescricaoServico>
             <Div32>
-              <Div33>
-                <Div34>Valor:</Div34>
-                <Div35>R$ 93</Div35>
-              </Div33>
-              <Div36>Concluído</Div36>
+              <Valores>
+                <ValorTexto>Valor:</ValorTexto>
+                <Valor>R$ 93</Valor>
+              </Valores>
+              <Status>Concluído</Status>
             </Div32>
-          </Div28>
+          </Section02>
         </Orcamento>
 
 

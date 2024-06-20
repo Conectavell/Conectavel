@@ -47,17 +47,7 @@ align-items: center;
 }
 `;
   return (
-
-    // <>
-    // <NavPerfil/>
-    // <ChatPerfil/>
-    // <Orcamentos/>
-
     
-    // </>
-
-    
-
     <MainContainer>
       <NavPerfil />
       <ContentContainer>
@@ -73,16 +63,3 @@ align-items: center;
 }
 
 export default ClienteOrcamento
-
-
-// const ClienteOrcamento = () => {
-//     return (
-//     <>
-//     <NavPerfil/>
-//     <ChatPerfil/>
-//     <Orcamentos/>
-//     </>
-//     )
-//   }
-  
-//   export default ClienteOrcamento
