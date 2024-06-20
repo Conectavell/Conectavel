@@ -12,6 +12,7 @@ import DescartePage from './pages/DescartePage'
 
 import ClienteOrcamento from './pages/ClienteOrcamento'
 
+import ChatProfissional from './pages/ChatProfissional'
 
 const Routes = () => {
 
@@ -42,6 +43,8 @@ const Routes = () => {
                     <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                     <Route path='/Conectavel/Orcamento' exact element={<ClienteOrcamento/>} />
 
+
+                    <Route path='/Conectavel/ChatProfissional' exact element={<ChatProfissional/>} />
                 </Rotas>
                     
 
