@@ -1,9 +1,10 @@
-import React from 'react'
 
-const CompletarInfoClientePage = () => {
-  return (
-    <div>CompletarInfoClientePage</div>
-  )
-}
 
-export default CompletarInfoClientePage
+// const CompletarInfoClientePage = () => {
+
+//   return(
+   
+// )
+// }
+
+// export default CompletarInfoClientePage

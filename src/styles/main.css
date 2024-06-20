@@ -8,6 +8,7 @@
   --verde_secundario: #77DD77;
   --laranja: #FB8C00;
   --preto: #131922;
+  --cinza: #4D5959;
 }
 * {
   padding: 0;
@@ -39,4 +40,7 @@ body{
 
 .carousel-indicators{
   position: inherit !important;
+}
+.scroll{
+  overflow: hidden;
 }
