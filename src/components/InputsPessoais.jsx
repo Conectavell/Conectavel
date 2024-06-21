@@ -1,12 +1,11 @@
-import { useContext, } from 'react'
-import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { Box } from '@mui/material'
 import styled from 'styled-components'
-import CadastroContext from '../context/CadastroContext'
 import InputsIdentidade from './InputsIdentidade'
 import InputCep from './InputCep'
 import { InputBairro, InputCidade, InputComplemento, InputEstado, InputLogradouro, InputNumeroEndereco } from './InputsEndereco'
 import InputCelular from './InputCelular'
 import InputSexo from './InputSexo'
+import InputDataNascimento from './InputDataNascimento'
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -36,12 +35,6 @@ export const FormCadastro = styled.form`
 `
 
 const InputsPessoais = ({ show }) => {
-    const {
-        celularUsuario, setCelularUsuario,
-        dataNascimentoUsuario, setDataNascimentoUsuario,
-        sexoUsuario, setSexoUsuario,
-    } = useContext(CadastroContext)
-
 
     return (
         <FormCadastro style={{ overflow: "scroll", height: '80vh', display: `${show ? "" : "none"}` }}>
@@ -57,34 +50,24 @@ const InputsPessoais = ({ show }) => {
                 <h2>Complete suas informações</h2>
 
                 <InputsIdentidade />
-                <InputCep/>
-                <InputLogradouro/>
-                <InputBairro/>
+                <InputCep />
+                <InputLogradouro />
+                <InputBairro />
 
                 <BoxInputPequeno sx={{ margin: "auto", }}>
-                    <InputEstado/>
-                    <InputCidade/>
+                    <InputEstado />
+                    <InputCidade />
                 </BoxInputPequeno>
+                <InputComplemento />
 
-                <InputComplemento/>
 
                 <BoxInputPequeno sx={{ margin: "auto", }}>
 
-                    <InputNumeroEndereco/>
-                   <InputCelular/>
-                    <InputSexo/>
+                    <InputNumeroEndereco />
+                    <InputCelular />
+                    <InputSexo />
+                    <InputDataNascimento />
 
-                    <TextField
-                        InputProps={{ inputProps: { min: 0, max: "9999-12-31" } }}
-                        type='date'
-                        required={true}
-                        style={{ width: "48%" }}
-                        value={dataNascimentoUsuario}
-                        onChange={e => {
-                            setDataNascimentoUsuario(e.target.value)
-                            // console.log(dataNascimentoUsuario)
-                        }}
-                        fullWidth id="fullWidth" />
                 </BoxInputPequeno>
             </Box>
         </FormCadastro>
