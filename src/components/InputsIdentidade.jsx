@@ -20,7 +20,7 @@ const InputsIdentidade = () => {
                     value={tipoIdentidade}
                     onChange={e => {
                         setTipoIdentidade(e.target.value)
-                        console.log(tipoIdentidade)
+                        // console.log(tipoIdentidade)
                     }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

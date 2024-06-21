@@ -56,7 +56,7 @@ function App() {
       senhaUsuario, setSenhaUsuario
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
-        <Routes />
+      <Routes />
       </ExpandedNavContext.Provider>
     </CadastroContext.Provider>
   )

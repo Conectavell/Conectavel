@@ -31,7 +31,7 @@ const InputCep = () => {
                 value={cepUsuario}
                 onChange={e => {
                     setCepUsuario(e.target.value)
-                    console.log(cepUsuario)
+                    // console.log(cepUsuario)
                 }}
                 onBlur={() => getCEP(cepUsuario)}
                 disabled={false}

@@ -45,36 +45,50 @@ const PreencherPrestadorPage = () => {
         senhaUsuario,
         sobrenomeUsuario,
         bairro,
-        estadoUsuario
+        estado,
+        logradouro,
+
     } = useContext(CadastroContext)
-    
+
 
     function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
+            "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
+            "tipoDePerfilUsuario": `${tipoPerfil}`,
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
-            "sexoUsuario": `${sexoUsuario === "feminino" ? "F" : sexoUsuario === "masculino" ? "M" : "O"}`,
-            "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
-            "tipoDePerfilUsuario": `${tipoPerfil}`,
+            "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
             "sobreUsuario": `${sobreUsuario}`,
             "experienciaUsuario": `${experienciaUsuario}`,
-            // enderecoDto: {
-            //     cep: codPostal,
-            //     logradouro: logradouro,
-            //     bairro: bairro,
-            //     complemento: complement,
-            //     numero: numero,
-            //     uf: uf,
-    }})
+            "enderecoDto": {
+                "cep": `${cepUsuario}`,
+                "logradouro": `${logradouro}`,
+                "bairro": `${bairro}`,
+                "complemento": `${complementoUsuario}`,
+                "numero": `${numeroUsuario}`,
+                "uf": `${estado}`
+            },
+        })
             .then(function (response) {
                 console.log(response)
+                alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })
             .catch(function (error) {
-                console.log(error)
+                if (error.response) {
+                    if (error.response.status === 401) {
+                        alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                    } else {
+                        alert(`Erro: ${ error.response.status } - ${ error.response.data }`);
+                    }
+                } else if (error.request) {
+                    alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+                } else {
+                    alert(`Erro: ${ error.message }`);
+                }
             })
     }
 

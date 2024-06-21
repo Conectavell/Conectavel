@@ -52,7 +52,7 @@ const InputsProfissional = ({ show }) => {
                     value={sobreUsuario}
                     onChange={e => {
                         setSobreUsuario(e.target.value)
-                        console.log(sobreUsuario)
+                        // console.log(sobreUsuario)
                     }}
                 />
                 <TextField
@@ -65,7 +65,7 @@ const InputsProfissional = ({ show }) => {
                     value={experienciaUsuario}
                     onChange={e => {
                         setExperienciaUsuario(e.target.value)
-                        console.log(experienciaUsuario)
+                        // console.log(experienciaUsuario)
                     }}
                     id="fullWidth" />
                 <TextField
@@ -78,7 +78,7 @@ const InputsProfissional = ({ show }) => {
                     value={habilidadesUsuario}
                     onChange={e => {
                         setHabilidadesUsuario(e.target.value)
-                        console.log(habilidadesUsuario)
+                        // console.log(habilidadesUsuario)
                     }}
                     id="fullWidth" />
 
@@ -97,7 +97,7 @@ const InputsProfissional = ({ show }) => {
                         value={nacionalidadeUsuario}
                         onChange={e => {
                             setNacionalidadeUsuario(e.target.value)
-                            console.log(nacionalidadeUsuario)
+                            // console.log(nacionalidadeUsuario)
                         }}>
                         <MenuItem value="BR">Brasileira</MenuItem>
                         <MenuItem value="ES">Estadunidente</MenuItem>

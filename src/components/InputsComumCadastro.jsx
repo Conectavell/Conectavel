@@ -74,17 +74,15 @@ const InputsComumCadastro = () => {
                 }}
             >
                 <h2>Cadastre-se</h2>
-
                 <ToggleButtonGroup
-
                     color="primary"
                     value={tipoPerfil}
                     exclusive
                     onChange={handleChange}
                     aria-label="Platform">
 
-                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="cliente">Cliente</ToggleButton>
-                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="profissional">Profissional</ToggleButton>
+                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="1">Cliente</ToggleButton>
+                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="2">Profissional</ToggleButton>
                 </ToggleButtonGroup>
 
                 <TextField
@@ -97,7 +95,7 @@ const InputsComumCadastro = () => {
                     value={nomeUsuario}
                     onChange={e => {
                         setNomeUsuario(e.target.value)
-                        console.log(nomeUsuario)
+                        // console.log(nomeUsuario)
                     }}
                 />
                 <TextField
@@ -107,7 +105,7 @@ const InputsComumCadastro = () => {
                     fullWidth required={true}
                     id="fullWidth"
                     error={Boolean(errors.firstName)}
-                    value={sobrenomeUsuario}
+                    // value={sobrenomeUsuario}
                     onChange={e => {
                         setSobrenomeUsuario(e.target.value)
                         console.log(sobrenomeUsuario)
@@ -123,7 +121,7 @@ const InputsComumCadastro = () => {
                     value={emailUsuario}
                     onChange={e => {
                         setEmailUsuario(e.target.value)
-                        console.log(emailUsuario)
+                        // console.log(emailUsuario)
                     }}
                 />
                 <FormControl variant="outlined">
@@ -134,7 +132,7 @@ const InputsComumCadastro = () => {
                         value={senhaUsuario}
                         onChange={e => {
                             setSenhaUsuario(e.target.value)
-                            console.log(senhaUsuario)
+                            // console.log(senhaUsuario)
                         }}
                         id="outlined-adornment-password"
                         type={showPassword ? 'text' : 'password'}
