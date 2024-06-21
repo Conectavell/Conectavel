@@ -47,6 +47,7 @@ const PreencherPrestadorPage = () => {
         bairro,
         estadoUsuario
     } = useContext(CadastroContext)
+    
 
     function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
@@ -59,17 +60,16 @@ const PreencherPrestadorPage = () => {
             "sexoUsuario": `${sexoUsuario === "feminino" ? "F" : sexoUsuario === "masculino" ? "M" : "O"}`,
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": `${tipoPerfil}`,
-            "enderecoDto": null,
-            // "enderecoDto": {
-            //     "cep": `${cepUsuario}`,
-            //     "logradouro":`${cepUsuario}`,
-            //     "bairro":`${bairro}`,
-            //     "complemento":`${complementoUsuario}`,
-            //     "uf":`${estadoUsuario}`,
-            // },
             "sobreUsuario": `${sobreUsuario}`,
-            "experienciaUsuario": `${experienciaUsuario}`
-        })
+            "experienciaUsuario": `${experienciaUsuario}`,
+            // enderecoDto: {
+            //     cep: codPostal,
+            //     logradouro: logradouro,
+            //     bairro: bairro,
+            //     complemento: complement,
+            //     numero: numero,
+            //     uf: uf,
+    }})
             .then(function (response) {
                 console.log(response)
             })
