@@ -2,11 +2,11 @@ import { useContext, } from 'react'
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import CadastroContext from '../context/CadastroContext'
-import ReactInputMask from 'react-input-mask'
 import InputsIdentidade from './InputsIdentidade'
 import InputCep from './InputCep'
 import { InputBairro, InputCidade, InputComplemento, InputEstado, InputLogradouro, InputNumeroEndereco } from './InputsEndereco'
 import InputCelular from './InputCelular'
+import InputSexo from './InputSexo'
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -72,28 +72,7 @@ const InputsPessoais = ({ show }) => {
 
                     <InputNumeroEndereco/>
                    <InputCelular/>
-
-                    <FormControl
-                        style={{ width: "48%" }}>
-                        <InputLabel
-                            required={true}
-                            id="demo-simple-select-label"
-
-                        >Sexo</InputLabel>
-                        <Select
-                            label="Sexo"
-                            required={true}
-                            value={sexoUsuario}
-                            onChange={e => {
-                                setSexoUsuario(e.target.value)
-                                // console.log(sexoUsuario)
-                            }}
-                        >
-                            <MenuItem value="feminino">Feminino</MenuItem>
-                            <MenuItem value="masculino">Masculino</MenuItem>
-                            <MenuItem value="outro">Outro</MenuItem>
-                        </Select>
-                    </FormControl>
+                    <InputSexo/>
 
                     <TextField
                         InputProps={{ inputProps: { min: 0, max: "9999-12-31" } }}
