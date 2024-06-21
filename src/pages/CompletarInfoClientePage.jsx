@@ -6,6 +6,7 @@ import { useContext } from "react"
 import axios from "axios"
 import { useForm } from "react-hook-form"
 import { useLocation } from "react-router-dom"
+import InputsIdentidade from "../components/InputsIdentidade"
 // inputs para cadastrar o cliente
 
 const CompletarInfoClientePage = () => {
@@ -70,20 +71,7 @@ const CompletarInfoClientePage = () => {
                     }}>
                     <h2>Complete suas informações</h2>
 
-                    <TextField
-                        label="CPF/CNPJ"
-                        {...register("identidadeUsuario", { required: "CPF/CNPJ is required." })}
-                        type='number'
-                        fullWidth required={true}
-                        id="fullWidth"
-                        error={Boolean(errors.identidadeUsuario)}
-
-                        value={identidadeUsuario}
-                        onChange={e => {
-                            setIdentidadeUsuario(e.target.value)
-                            console.log(identidadeUsuario)
-                        }}
-                    />
+                    <InputsIdentidade/>
                     <TextField
                         label="CEP"
                         {...register("cepUsuario", { required: "CEP is required." })}
