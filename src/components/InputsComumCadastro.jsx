@@ -1,9 +1,10 @@
-import { Box, Button, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import CadastroContext from '../context/CadastroContext';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -16,6 +17,14 @@ const FormCadastro = styled.form`
     }
 `
 const InputsComumCadastro = () => {
+    const { register, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const { tipoPerfil, setTipoPerfil,
+        nomeUsuario, setNomeUsuario,
+        emailUsuario, setEmailUsuario,
+        senhaUsuario, setSenhaUsuario,
+        sobrenomeUsuario, setSobrenomeUsuario,
+    } = useContext(CadastroContext)
 
     const realizarCadastro = (tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario) => {
         if (tipoPerfil === "cliente") {
@@ -39,25 +48,22 @@ const InputsComumCadastro = () => {
         }
     }
 
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         realizarCadastro(tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario)
     }
-
-    const { register, formState: { errors } } = useForm();
-    const navigate = useNavigate();
-    const { tipoPerfil, setTipoPerfil,
-        nomeUsuario, setNomeUsuario,
-        emailUsuario, setEmailUsuario,
-        senhaUsuario, setSenhaUsuario } = useContext(CadastroContext)
-
     const handleChange = (event, perfil) => {
         setTipoPerfil(perfil)
-    };
+    }
 
     return (
         <FormCadastro action="post" onSubmit={handleSubmit}>
-
             <Box
                 sx={{
                     width: "90%",
@@ -75,14 +81,14 @@ const InputsComumCadastro = () => {
                     value={tipoPerfil}
                     exclusive
                     onChange={handleChange}
-                    aria-label="Platform"
-                >
+                    aria-label="Platform">
+
                     <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="cliente">Cliente</ToggleButton>
                     <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="profissional">Profissional</ToggleButton>
                 </ToggleButtonGroup>
 
                 <TextField
-                    label="Nome completo"
+                    label="Primeiro nome"
                     {...register("nome", { required: "First Name is required." })}
                     type='text'
                     fullWidth required={true}
@@ -92,6 +98,19 @@ const InputsComumCadastro = () => {
                     onChange={e => {
                         setNomeUsuario(e.target.value)
                         console.log(nomeUsuario)
+                    }}
+                />
+                <TextField
+                    label="Sobrenome"
+                    {...register("sobrenome", { required: "First Name is required." })}
+                    type='text'
+                    fullWidth required={true}
+                    id="fullWidth"
+                    error={Boolean(errors.firstName)}
+                    value={sobrenomeUsuario}
+                    onChange={e => {
+                        setSobrenomeUsuario(e.target.value)
+                        console.log(sobrenomeUsuario)
                     }}
                 />
                 <TextField
@@ -107,19 +126,32 @@ const InputsComumCadastro = () => {
                         console.log(emailUsuario)
                     }}
                 />
-                <TextField
-                    label="Senha"
-                    {...register("senha", { required: "First Name is required." })}
-                    error={Boolean(errors.firstName)}
-                    type='password'
-                    fullWidth
-                    required={true}
-                    value={senhaUsuario}
-                    onChange={e => {
-                        setSenhaUsuario(e.target.value)
-                        console.log(senhaUsuario)
-                    }}
-                    id="fullWidth" />
+                <FormControl variant="outlined">
+                    <InputLabel
+                        required={true}
+                        htmlFor="outlined-adornment-password">Senha</InputLabel>
+                    <OutlinedInput
+                        value={senhaUsuario}
+                        onChange={e => {
+                            setSenhaUsuario(e.target.value)
+                            console.log(senhaUsuario)
+                        }}
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end">
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Senha"
+                    />
+                </FormControl>
                 <Button type='submit' variant="contained">Cadastrar</Button>
             </Box>
         </FormCadastro>

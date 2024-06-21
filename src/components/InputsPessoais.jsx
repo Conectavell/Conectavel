@@ -1,9 +1,10 @@
-import { useContext,  } from 'react'
+import { useContext, useState, } from 'react'
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import CadastroContext from '../context/CadastroContext'
 import axios from "axios";
+import ReactInputMask from 'react-input-mask'
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -47,6 +48,7 @@ const InputsPessoais = ({ show }) => {
         estado, setEstado,
         cidade, setCidade
     } = useContext(CadastroContext)
+    const [tipoIdentidade, setTipoIdentidade] = useState('')
 
     async function getCEP() {
         const baseURL = `https://viacep.com.br/ws/${cepUsuario}/json/`
@@ -73,22 +75,81 @@ const InputsPessoais = ({ show }) => {
                 }}>
                 <h2>Complete suas informações</h2>
 
-                <TextField
-                    label="CPF/CNPJ"
-                    InputProps={{ inputProps: { maxLength: 14 } }}
-                    // {...register("cpf", { required: "First Name is required." })}
-                    // error={Boolean(errors.firstName)}
-                    type='numeric'
-                    fullWidth required={true}
-                    id="fullWidth"
+                <FormControl>
+                    <InputLabel
+                        required={true}
+                        id="demo-simple-select-label"
+                    >Identidade</InputLabel>
+                    <Select
+                        label="Identidade"
+                        {...register("sexo", { required: "First Name is required." })}
+                        error={Boolean(errors.firstName)}
+                        required={true}
+                        value={tipoIdentidade}
+                        onChange={e => {
+                            setTipoIdentidade(e.target.value)
+                            console.log(tipoIdentidade)
+                        }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                    >
+                        <MenuItem value="cpf">CPF</MenuItem>
+                        <MenuItem value="cnpj">CNPJ</MenuItem>
+                    </Select>
+                </FormControl>
 
-                    value={identidadeUsuario}
-                    onChange={e => {
-                        setIdentidadeUsuario(e.target.value)
-                        console.log(identidadeUsuario)
-                    }}
-                />
-                <TextField
+                {
+                    tipoIdentidade === "" ? "" : tipoIdentidade === "cpf" ?
+                        (
+                            <ReactInputMask
+                                mask="999.999.999-99"
+                                value={identidadeUsuario}
+                                onChange={e => {
+                                    setIdentidadeUsuario(e.target.value)
+                                    console.log(identidadeUsuario)
+                                }}
+                                disabled={false}
+                                maskChar=" "
+                            >
+                                {() => (
+                                    <TextField
+                                        label="CPF"
+                                        InputProps={{ inputProps: { max: 14 } }}
+                                        type='text'
+                                        fullWidth required={true}
+                                        id="fullWidth"
+
+
+                                    />
+                                )}
+                            </ReactInputMask>
+
+                        )
+                        : (
+                            <ReactInputMask
+                                mask="99.999.999/9999-99"
+                                value={identidadeUsuario}
+                                onChange={e => {
+                                    setIdentidadeUsuario(e.target.value)
+                                    console.log(identidadeUsuario)
+                                }}
+                                disabled={false}
+                                maskChar=" "
+                            >
+                                {() => (
+                                    <TextField
+                                        label="CNPJ"
+                                        InputProps={{ inputProps: { max: 18 } }}
+                                        type='text'
+                                        fullWidth required={true}
+                                        id="fullWidth"
+                                    />
+                                )}
+                            </ReactInputMask>
+                        )
+                }
+
+                {/* <TextField
                     label="CEP"
                     InputProps={{ inputProps: { min: 0, max: 8 } }}
                     {...register("cep", { required: "First Name is required." })}
@@ -102,7 +163,28 @@ const InputsPessoais = ({ show }) => {
                         setCepUsuario(e.target.value)
                         console.log(cepUsuario)
                     }}
-                    id="fullWidth" />
+                    id="fullWidth" /> */}
+                <ReactInputMask
+                    mask="99999-999"
+                    value={cepUsuario}
+                    onChange={e => {
+                        setCepUsuario(e.target.value)
+                        console.log(cepUsuario)
+                    }}
+                    onBlur={() => getCEP(cepUsuario)}
+                    disabled={false}
+                    maskChar=" "
+                >
+                    {() => (
+                        <TextField
+                            label="CEP"
+                            InputProps={{ inputProps: { min: 0, max: 9 } }}
+                            type='text'
+                            fullWidth
+                            required={true}
+                            id="fullWidth" />
+                    )}
+                </ReactInputMask>
 
                 <TextField
                     label="Logradouro"
@@ -144,7 +226,7 @@ const InputsPessoais = ({ show }) => {
                         onChange={e => {
                             setEstado(e.target.value)
                             console.log(estado)
-                        }}/>
+                        }} />
                     <TextField
                         label="Cidade"
                         {...register("cidade", { required: "First Name is required." })}
@@ -156,7 +238,7 @@ const InputsPessoais = ({ show }) => {
                         onChange={e => {
                             setCidade(e.target.value)
                             console.log(cidade)
-                        }}/>
+                        }} />
                 </BoxInputPequeno>
 
                 <TextField
@@ -186,7 +268,7 @@ const InputsPessoais = ({ show }) => {
                             console.log(numeroUsuario)
                         }}
                         variant="outlined" />
-                    <TextField
+                    {/* <TextField
                         label="Celular"
                         InputProps={{ inputProps: { min: 0, max: 11 } }}
                         required={true} {...register("celular", { required: "First Name is required." })}
@@ -199,13 +281,35 @@ const InputsPessoais = ({ show }) => {
                             setCelularUsuario(e.target.value)
                             console.log(celularUsuario)
                         }}
-                        variant="outlined" />
+                        variant="outlined" /> */}
+                    <ReactInputMask
+                        mask="(99) 99999-9999"
+                        value={celularUsuario}
+                        onChange={e => {
+                            setCelularUsuario(e.target.value)
+                            console.log(celularUsuario)
+                        }}
+                        disabled={false}
+                        maskChar=" "
+                    >
+                        {() => (
+                            <TextField
+                                label="Celular"
+                                InputProps={{ inputProps: { min: 0, max: 11 } }}
+                                error={Boolean(errors.firstName)}
+                                type='text'
+                                style={{ width: "48%" }}
+                                id="outlined-basic"
+                                variant="outlined"
+                            />
+                        )}
+                    </ReactInputMask>
 
                     <FormControl
                         style={{ width: "48%" }}>
                         <InputLabel
                             required={true}
-                            // id="demo-simple-select-label"
+                        // id="demo-simple-select-label"
 
                         >Sexo</InputLabel>
                         <Select
@@ -218,8 +322,8 @@ const InputsPessoais = ({ show }) => {
                                 setSexoUsuario(e.target.value)
                                 console.log(sexoUsuario)
                             }}
-                            // labelId="demo-simple-select-label"
-                            // id="demo-simple-select"
+                        // labelId="demo-simple-select-label"
+                        // id="demo-simple-select"
                         >
                             <MenuItem value="feminino">Feminino</MenuItem>
                             <MenuItem value="masculino">Masculino</MenuItem>

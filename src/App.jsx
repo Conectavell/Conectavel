@@ -24,6 +24,7 @@ function App() {
   const [cidade, setCidade] = useState("")
   const [tipoPerfil, setTipoPerfil] = useState('');
   const [nomeUsuario, setNomeUsuario] = useState('');
+  const [sobrenomeUsuario, setSobrenomeUsuario] = useState('');
   const [emailUsuario, setEmailUsuario] = useState('');
   const [senhaUsuario, setSenhaUsuario] = useState('')
 
@@ -50,6 +51,7 @@ function App() {
       cidade, setCidade,
       tipoPerfil, setTipoPerfil,
       nomeUsuario, setNomeUsuario,
+      sobrenomeUsuario, setSobrenomeUsuario,
       emailUsuario, setEmailUsuario,
       senhaUsuario, setSenhaUsuario
     }}>

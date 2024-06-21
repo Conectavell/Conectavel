@@ -42,23 +42,26 @@ const PreencherPrestadorPage = () => {
         tipoPerfil,
         nomeUsuario,
         emailUsuario,
-        senhaUsuario
+        senhaUsuario,
+        sobrenomeUsuario
     } = useContext(CadastroContext)
 
-    function cadastrar(perfil, nome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) {
-        console.log(data)
+    function cadastrar(perfil, nome, sobrenome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) {
+        console.log(celularUsuario)
         console.log(dataNascimentoUsuario)
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nomeUsuario": `${nome}`,
-            "sobrenomeUsuario": `${nome}`,
+            "sobrenomeUsuario": `${sobrenome}`,
             "emailUsuario": `${email}`,
             "senhaUsuario": `${senha}`,
             "cpfUsuario": `${identidade}`,
-            "dataNascimentoUsuario":`${dataNascimentoUsuario}` ,
-            "sexoUsuario": `${sexoUsuario === "feminino" ? "F" : sexoUsuario === "masculino" ? "M" : "O" }`,
+            "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
+            "sexoUsuario": `${sexoUsuario === "feminino" ? "F" : sexoUsuario === "masculino" ? "M" : "O"}`,
             "nacionalidadeUsuario": `${nacionalidade}`,
             "tipoDePerfilUsuario": `${perfil}`,
-            "enderecoDto": null
+            "enderecoDto": null,
+            "sobreUsuario": `${sobreUsuario}`,
+            "experienciaUsuario": `${experienciaUsuario}`
         })
             .then(function (response) {
                 console.log(response)
@@ -85,7 +88,7 @@ const PreencherPrestadorPage = () => {
                                         setNextTab(1)
                                         setFill(false)
                                     }}
-                                    
+
                                     variant="contained">Continuar</Button>
                             </BoxBars>
                         </>
@@ -99,27 +102,10 @@ const PreencherPrestadorPage = () => {
                                 <Button
                                     disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
                                     style={{ width: "90%", margin: "1rem auto" }}
-                                    // onClick={() => console.log(
-                                    //     "logado",
-                                    //     nacionalidadeUsuario,
-                                    //     identidadeUsuario,
-                                    //     cepUsuario,
-                                    //     numeroUsuario,
-                                    //     complementoUsuario,
-                                    //     celularUsuario,
-                                    //     dataNascimentoUsuario,
-                                    //     sexoUsuario,
-                                    //     sobreUsuario,
-                                    //     experienciaUsuario,
-                                    //     habilidadesUsuario,
-                                    //     tipoPerfil,
-                                    //     nomeUsuario,
-                                    //     emailUsuario,
-                                    //     senhaUsuario
-                                    // )}
                                     onClick={() => cadastrar(
                                         tipoPerfil,
                                         nomeUsuario,
+                                        sobrenomeUsuario,
                                         emailUsuario,
                                         senhaUsuario,
                                         nacionalidadeUsuario,
