@@ -10,9 +10,9 @@ import kevyn from '../assets/kevyn.png'
 import julia from '../assets/julia.png'
 import gustavo from '../assets/gustavo.png'
 import Footer from '../components/Footer'
-import './Nosso-negocio.svg'
-import './Cores.svg'
-import './Cell_PhoneApp.svg'
+import '../assets/negocio.svg'
+import '../assets/Cores.svg'
+import '../assets/Cell_PhoneApp.svg'
 
 
 
