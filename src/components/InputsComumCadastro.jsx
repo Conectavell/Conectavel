@@ -6,6 +6,7 @@ import styled from "styled-components";
 import CadastroContext from '../context/CadastroContext';
 import InputSenha from './InputSenha';
 import SelectPerfil from './SelectPerfil';
+import { InputPrimeiroNome, InputSobrenome } from './InputsNome';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -50,28 +51,8 @@ const InputsComumCadastro = () => {
                 <h2>Cadastre-se</h2>
 
                 <SelectPerfil />
-                <TextField
-                    label="Primeiro nome"
-                    type='text'
-                    fullWidth required={true}
-                    id="fullWidth"
-                    value={nomeUsuario}
-                    onChange={e => {
-                        setNomeUsuario(e.target.value)
-                        // console.log(nomeUsuario)
-                    }}
-                />
-                <TextField
-                    label="Sobrenome"
-                    type='text'
-                    fullWidth required={true}
-                    id="fullWidth"
-                    // value={sobrenomeUsuario}
-                    onChange={e => {
-                        setSobrenomeUsuario(e.target.value)
-                        console.log(sobrenomeUsuario)
-                    }}
-                />
+                <InputPrimeiroNome/>
+                <InputSobrenome/>
                 <TextField
                     label="E-mail"
                     type='email'
