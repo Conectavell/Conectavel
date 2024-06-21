@@ -43,23 +43,30 @@ const PreencherPrestadorPage = () => {
         nomeUsuario,
         emailUsuario,
         senhaUsuario,
-        sobrenomeUsuario
+        sobrenomeUsuario,
+        bairro,
+        estadoUsuario
     } = useContext(CadastroContext)
 
-    function cadastrar(perfil, nome, sobrenome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) {
-        console.log(celularUsuario)
-        console.log(dataNascimentoUsuario)
+    function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
-            "nomeUsuario": `${nome}`,
-            "sobrenomeUsuario": `${sobrenome}`,
-            "emailUsuario": `${email}`,
-            "senhaUsuario": `${senha}`,
-            "cpfUsuario": `${identidade}`,
+            "nomeUsuario": `${nomeUsuario}`,
+            "sobrenomeUsuario": `${sobrenomeUsuario}`,
+            "emailUsuario": `${emailUsuario}`,
+            "senhaUsuario": `${senhaUsuario}`,
+            "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
             "sexoUsuario": `${sexoUsuario === "feminino" ? "F" : sexoUsuario === "masculino" ? "M" : "O"}`,
-            "nacionalidadeUsuario": `${nacionalidade}`,
-            "tipoDePerfilUsuario": `${perfil}`,
+            "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
+            "tipoDePerfilUsuario": `${tipoPerfil}`,
             "enderecoDto": null,
+            // "enderecoDto": {
+            //     "cep": `${cepUsuario}`,
+            //     "logradouro":`${cepUsuario}`,
+            //     "bairro":`${bairro}`,
+            //     "complemento":`${complementoUsuario}`,
+            //     "uf":`${estadoUsuario}`,
+            // },
             "sobreUsuario": `${sobreUsuario}`,
             "experienciaUsuario": `${experienciaUsuario}`
         })
@@ -102,21 +109,7 @@ const PreencherPrestadorPage = () => {
                                 <Button
                                     disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
                                     style={{ width: "90%", margin: "1rem auto" }}
-                                    onClick={() => cadastrar(
-                                        tipoPerfil,
-                                        nomeUsuario,
-                                        sobrenomeUsuario,
-                                        emailUsuario,
-                                        senhaUsuario,
-                                        nacionalidadeUsuario,
-                                        identidadeUsuario,
-                                        cepUsuario,
-                                        numeroUsuario,
-                                        complementoUsuario,
-                                        celularUsuario,
-                                        dataNascimentoUsuario,
-                                        sexoUsuario
-                                    )}
+                                    onClick={cadastrar}
                                     variant="contained">Enviar informações</Button>
                             </BoxBars>
                         </>
