@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Button = styled.div`
+export const Button = styled.button`
+  width: 100%;
+  border: none;
   padding: 8px;
   background-color: var(--azul_principal);
   border-radius: 10px;
@@ -10,6 +12,9 @@ export const Button = styled.div`
   font-size: 22px;
   cursor: pointer;
   transition: all .3s ease-in-out;
+  width: 100%;
+  outline: none;
+  border: none;
 
   &:hover {
     background-color: var(--laranja);

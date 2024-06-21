@@ -6,17 +6,19 @@ import logotipo from '../assets/logotipo.png'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBarsStaggered } from "react-icons/fa6";
-import Lang from './Lang';
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
 import SelectLang from './SelectLang';
 
 
+//
 
-export const Button = styled(Link)`
+const BarraNavegacao = ({ cor }) => {
+    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+
+    const Button = styled(Link)`
     padding: .8rem 1rem;
     text-align: center;
-    /* width: 300px; */
     text-decoration: none;
     border: none;
     outline: none;
@@ -27,11 +29,9 @@ export const Button = styled(Link)`
     transition: all .3s linear;
     font-weight: 600;
     &:hover{
-        background-color: var(--verde_principal);
+        background-color: ${cor === "azul" ? "var(--verde_principal)" : "var(--azul_principal)"};
     }
     `
-const BarraNavegacao = () => {
-    const navItems = ['Home', 'Colaboradores', 'Descarte', 'Quem somos']
 
     const ListItem = styled.p`
     list-style-type: none;
@@ -93,9 +93,14 @@ const BarraNavegacao = () => {
         align-items: center; 
     `
 
-const { t } = useTranslation()
-return (
-        <Navbar expand="xl" className='navbar' style={{ marginBottom: '2rem' }}>
+    const { t } = useTranslation()
+    return (
+        <Navbar expand="xl" className='navbar' style={{
+            marginBottom: '2rem',
+            backgroundColor: cor === "azul"
+                ? "var(--azul_principal)"
+                : "var(--verde_principal)"
+        }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
                     <img width={60} src={logo} />
@@ -125,7 +130,7 @@ return (
                         <Block >
                             <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
                             <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
-                            <SelectLang /> 
+                            <SelectLang />
                         </Block>
                     </NavSection>
                 </Navbar.Collapse>
@@ -135,7 +140,6 @@ return (
 }
 
 export default BarraNavegacao
-
 
 
 

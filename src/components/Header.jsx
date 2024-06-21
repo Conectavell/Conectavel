@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import headerImage from '../assets/headerImage.png'
 import { useTranslation } from 'react-i18next'
-
 const Box = styled.header`
     width: 80%;
     margin: auto;
