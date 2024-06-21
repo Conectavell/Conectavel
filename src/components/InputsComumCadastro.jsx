@@ -7,6 +7,7 @@ import CadastroContext from '../context/CadastroContext';
 import InputSenha from './InputSenha';
 import SelectPerfil from './SelectPerfil';
 import { InputPrimeiroNome, InputSobrenome } from './InputsNome';
+import InputEmail from './InputEmail';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -20,11 +21,7 @@ const FormCadastro = styled.form`
 `
 const InputsComumCadastro = () => {
     const navigate = useNavigate();
-    const { tipoPerfil, setTipoPerfil,
-        nomeUsuario, setNomeUsuario,
-        emailUsuario, setEmailUsuario,
-        sobrenomeUsuario, setSobrenomeUsuario,
-    } = useContext(CadastroContext)
+    const { tipoPerfil } = useContext(CadastroContext)
 
 
     const realizarCadastro = () => {
@@ -46,24 +43,13 @@ const InputsComumCadastro = () => {
                     display: "flex",
                     flexDirection: "column",
                     gap: "1rem"
-                }}
-            >
+                }}>
                 <h2>Cadastre-se</h2>
 
                 <SelectPerfil />
-                <InputPrimeiroNome/>
-                <InputSobrenome/>
-                <TextField
-                    label="E-mail"
-                    type='email'
-                    fullWidth required={true}
-                    id="fullWidth"
-                    value={emailUsuario}
-                    onChange={e => {
-                        setEmailUsuario(e.target.value)
-                        // console.log(emailUsuario)
-                    }}
-                />
+                <InputPrimeiroNome />
+                <InputSobrenome />
+                <InputEmail />
                 <InputSenha />
                 <Button type='submit' variant="contained">Cadastrar</Button>
             </Box>
