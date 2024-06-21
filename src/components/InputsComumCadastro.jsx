@@ -1,7 +1,6 @@
-import { Box, Button, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
-import { useForm } from 'react-hook-form';
+import { Box, Button } from '@mui/material'
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import CadastroContext from '../context/CadastroContext';
 import InputSenha from './InputSenha';
@@ -27,7 +26,6 @@ const InputsComumCadastro = () => {
     const realizarCadastro = () => {
         tipoPerfil === "1" ? navigate("/Conectavel/preencherCliente") : navigate("/Conectavel/preencherPrestador")
     }
-
     const handleSubmit = (e) => {
         console.log(tipoPerfil)
         e.preventDefault()

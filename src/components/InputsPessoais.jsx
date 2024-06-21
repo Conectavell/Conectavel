@@ -5,6 +5,7 @@ import CadastroContext from '../context/CadastroContext'
 import ReactInputMask from 'react-input-mask'
 import InputsIdentidade from './InputsIdentidade'
 import InputCep from './InputCep'
+import { InputBairro, InputCidade, InputComplemento, InputEstado, InputLogradouro, InputNumeroEndereco } from './InputsEndereco'
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -35,15 +36,9 @@ export const FormCadastro = styled.form`
 
 const InputsPessoais = ({ show }) => {
     const {
-        numeroUsuario, setNumeroUsuario,
-        complementoUsuario, setComplementoUsuario,
         celularUsuario, setCelularUsuario,
         dataNascimentoUsuario, setDataNascimentoUsuario,
         sexoUsuario, setSexoUsuario,
-        logradouro, setLogradouro,
-        bairro, setBairro,
-        estado, setEstado,
-        cidade, setCidade
     } = useContext(CadastroContext)
 
 
@@ -62,79 +57,19 @@ const InputsPessoais = ({ show }) => {
 
                 <InputsIdentidade />
                 <InputCep/>
-
-                <TextField
-                    label="Logradouro"
-                    type='text'
-                    fullWidth
-                    required={true}
-                    placeholder="Placeholder"
-                    value={logradouro ? logradouro : ""}
-                    onChange={e => {
-                        setLogradouro(e.target.value)
-                        // console.log(logradouro)
-                    }}
-                    id="fullWidth" />
-                <TextField
-                    label="Bairro"
-                    type='text'
-                    fullWidth
-                    required={true}
-                    value={bairro ? bairro : ""}
-                    onChange={e => {
-                        setBairro(e.target.value)
-                        // console.log(bairro)
-                    }}
-                    id="fullWidth" />
+                <InputLogradouro/>
+                <InputBairro/>
 
                 <BoxInputPequeno sx={{ margin: "auto", }}>
-                    <TextField
-                        label="Estado"
-                        type='text'
-                        style={{ width: "48%" }}
-                        required={true}
-                        value={estado ? estado : ""}
-                        onChange={e => {
-                            setEstado(e.target.value)
-                            // console.log(estado)
-                        }} />
-                    <TextField
-                        label="Cidade"
-                        type='text'
-                        style={{ width: "48%" }}
-                        required={true}
-                        value={cidade ? cidade : ""}
-                        onChange={e => {
-                            setCidade(e.target.value)
-                            // console.log(cidade)
-                        }} />
+                    <InputEstado/>
+                    <InputCidade/>
                 </BoxInputPequeno>
 
-                <TextField
-                    label="Complemento"
-                    fullWidth
-                    required={true}
-                    value={complementoUsuario}
-                    onChange={e => {
-                        setComplementoUsuario(e.target.value)
-                        // console.log(complementoUsuario)
-                    }}
-                    id="fullWidth" />
+                <InputComplemento/>
 
                 <BoxInputPequeno sx={{ margin: "auto", }}>
-                    <TextField
-                        label="Número do endereço"
-                        required={true}
-                        type='number'
-                        style={{ width: "48%" }}
-                        id="outlined-basic"
-                        value={numeroUsuario}
-                        onChange={e => {
-                            setNumeroUsuario(e.target.value)
-                            // console.log(numeroUsuario)
-                        }}
-                        variant="outlined" />
 
+                    <InputNumeroEndereco/>
                     <ReactInputMask
                         mask="(99) 99999-9999"
                         value={celularUsuario}
