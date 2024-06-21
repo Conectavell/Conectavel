@@ -6,27 +6,12 @@ import InputsPessoais from '../components/InputsPessoais';
 import InputsProfissional from '../components/InputsProfissional';
 import ConectavelLogo from '../components/ConectavelLogo';
 import axios from 'axios';
+import Tabs, { BoxBars } from '../components/Tabs';
 // condicional de inputs cadastro profissional
 
-const Bar = styled.div`
-    border-radius: 3px;
-    width: 43.5%;
-    height: 15px;
-    background-color: ${(props) => props.fill ? "var(--azul_principal)" : "transparent"} ;
-    border: 2px solid var(--azul_principal);
-    cursor: pointer;
-    margin: 1rem 0;
-`
-export const BoxBars = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-`
+
 
 const PreencherPrestadorPage = () => {
-    const [fill, setFill] = useState(true)
     const { sobreUsuario,
         experienciaUsuario,
         habilidadesUsuario,
@@ -47,9 +32,8 @@ const PreencherPrestadorPage = () => {
         bairro,
         estado,
         logradouro,
-
+        setFill
     } = useContext(CadastroContext)
-
 
     function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
@@ -128,16 +112,7 @@ const PreencherPrestadorPage = () => {
                             </BoxBars>
                         </>
                 }<>
-                    <BoxBars>
-                        <Bar fill={fill} onClick={() => {
-                            setNextTab(0)
-                            setFill(true)
-                        }} />
-                        <Bar fill={!fill} onClick={() => {
-                            setNextTab(1)
-                            setFill(false)
-                        }} />
-                    </BoxBars>
+                    <Tabs/>
                 </>
             </Box>
 

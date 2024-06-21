@@ -28,6 +28,9 @@ function App() {
   const [emailUsuario, setEmailUsuario] = useState('');
   const [senhaUsuario, setSenhaUsuario] = useState('')
 
+  const [fill, setFill] = useState(true)
+
+
 
   return (
     // Aplicação dos Providers dos contextos
@@ -53,7 +56,9 @@ function App() {
       nomeUsuario, setNomeUsuario,
       sobrenomeUsuario, setSobrenomeUsuario,
       emailUsuario, setEmailUsuario,
-      senhaUsuario, setSenhaUsuario
+      senhaUsuario, setSenhaUsuario,
+      fill, setFill
+
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
       <Routes />
