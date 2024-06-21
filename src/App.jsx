@@ -27,7 +27,6 @@ function App() {
   const [sobrenomeUsuario, setSobrenomeUsuario] = useState('');
   const [emailUsuario, setEmailUsuario] = useState('');
   const [senhaUsuario, setSenhaUsuario] = useState('')
-
   const [fill, setFill] = useState(true)
 
 

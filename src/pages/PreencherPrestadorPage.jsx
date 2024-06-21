@@ -1,6 +1,5 @@
 import { Box, Button } from '@mui/material'
-import styled from 'styled-components';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import CadastroContext from '../context/CadastroContext';
 import InputsPessoais from '../components/InputsPessoais';
 import InputsProfissional from '../components/InputsProfissional';
@@ -9,12 +8,10 @@ import axios from 'axios';
 import Tabs, { BoxBars } from '../components/Tabs';
 // condicional de inputs cadastro profissional
 
-
-
 const PreencherPrestadorPage = () => {
     const { sobreUsuario,
         experienciaUsuario,
-        habilidadesUsuario,
+        // habilidadesUsuario,
         nacionalidadeUsuario,
         identidadeUsuario,
         cepUsuario,
@@ -24,7 +21,6 @@ const PreencherPrestadorPage = () => {
         dataNascimentoUsuario,
         sexoUsuario,
         nextTab, setNextTab,
-        tipoPerfil,
         nomeUsuario,
         emailUsuario,
         senhaUsuario,
@@ -66,12 +62,12 @@ const PreencherPrestadorPage = () => {
                     if (error.response.status === 401) {
                         alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
                     } else {
-                        alert(`Erro: ${ error.response.status } - ${ error.response.data }`);
+                        alert(`Erro: ${error.response.status} - ${error.response.data}`);
                     }
                 } else if (error.request) {
                     alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
                 } else {
-                    alert(`Erro: ${ error.message }`);
+                    alert(`Erro: ${error.message}`);
                 }
             })
     }
@@ -79,43 +75,40 @@ const PreencherPrestadorPage = () => {
     return (
         <ConectavelLogo>
             <Box sx={{ width: '90%', margin: "auto" }}>
+                {nextTab === 0 ?
+                    <>
+                        <InputsPessoais show={true} />
+                        <InputsProfissional show={false} />
+                        <BoxBars>
+                            <Button
+                                disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
+                                style={{ width: "90%", margin: "1rem auto" }}
+                                onClick={() => {
+                                    setNextTab(1)
+                                    setFill(false)
+                                }}
 
-                {
-                    nextTab === 0 ?
-                        <>
-                            <InputsPessoais show={true} />
-                            <InputsProfissional show={false} />
-                            <BoxBars>
-                                <Button
-                                    disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
-                                    style={{ width: "90%", margin: "1rem auto" }}
-                                    onClick={() => {
-                                        setNextTab(1)
-                                        setFill(false)
-                                    }}
+                                variant="contained">Continuar</Button>
+                        </BoxBars>
+                    </>
+                    :
+                    <>
+                        <InputsPessoais show={false} />
+                        <InputsProfissional show={true} />
 
-                                    variant="contained">Continuar</Button>
-                            </BoxBars>
-                        </>
-                        :
-                        <>
-                            <InputsPessoais show={false} />
-                            <InputsProfissional show={true} />
-
-                            <BoxBars>
-                                {/* botão que envia todos os dados */}
-                                <Button
-                                    disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
-                                    style={{ width: "90%", margin: "1rem auto" }}
-                                    onClick={cadastrar}
-                                    variant="contained">Enviar informações</Button>
-                            </BoxBars>
-                        </>
+                        <BoxBars>
+                            {/* botão que envia todos os dados */}
+                            <Button
+                                disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
+                                style={{ width: "90%", margin: "1rem auto" }}
+                                onClick={cadastrar}
+                                variant="contained">Enviar informações</Button>
+                        </BoxBars>
+                    </>
                 }<>
-                    <Tabs/>
+                    <Tabs />
                 </>
             </Box>
-
         </ConectavelLogo>
     )
 }

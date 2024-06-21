@@ -1,10 +1,10 @@
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { Box, Button, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import CadastroContext from '../context/CadastroContext';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import InputSenha from './InputSenha';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -17,58 +17,23 @@ const FormCadastro = styled.form`
     }
 `
 const InputsComumCadastro = () => {
-    const { register, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const { tipoPerfil, setTipoPerfil,
         nomeUsuario, setNomeUsuario,
         emailUsuario, setEmailUsuario,
-        senhaUsuario, setSenhaUsuario,
         sobrenomeUsuario, setSobrenomeUsuario,
     } = useContext(CadastroContext)
 
-    // const realizarCadastro = (tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario) => {
-    //     if (tipoPerfil === 2) {
-    //         navigate("/Conectavel/preencherprestador",
-    //             // {
-    //                 //     state: {
-    //                     //         tipoPerfil: tipoPerfil,
-    //                     //         nomeUsuario: nomeUsuario,
-    //                     //         emailUsuario: emailUsuario,
-    //                     //         senhaUsuario: senhaUsuario
-    //                     //     }
-    //                     // }
-    //                 )
-    //             } else {
-    //         navigate("/Conectavel/preencherprestador",
-    //         // navigate("/Conectavel/preenchercliente", 
-    //         //     {
-    //         //     state: {
-    //         //         tipoPerfil,
-    //         //         nomeUsuario,
-    //         //         emailUsuario,
-    //         //         senhaUsuario
-    //         //     }
-    //         // }
-    //     )
-    //     }
-    // }
 
     const realizarCadastro = () =>{
         tipoPerfil === "1" ? navigate("/Conectavel/preencherCliente") : navigate("/Conectavel/preencherPrestador")
     }
-
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    }
+    
     const handleSubmit = (e) => {
         console.log(tipoPerfil)
         e.preventDefault()
         realizarCadastro()
     }
-    
 
     return (
         <FormCadastro action="post" onSubmit={handleSubmit}>
@@ -91,18 +56,15 @@ const InputsComumCadastro = () => {
                         console.log(tipoPerfil)
                     }}
                     aria-label="Platform">
-
                     <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="1">Cliente</ToggleButton>
                     <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="2">Profissional</ToggleButton>
                 </ToggleButtonGroup>
 
                 <TextField
                     label="Primeiro nome"
-                    {...register("nome", { required: "First Name is required." })}
                     type='text'
                     fullWidth required={true}
                     id="fullWidth"
-                    error={Boolean(errors.firstName)}
                     value={nomeUsuario}
                     onChange={e => {
                         setNomeUsuario(e.target.value)
@@ -111,11 +73,9 @@ const InputsComumCadastro = () => {
                 />
                 <TextField
                     label="Sobrenome"
-                    {...register("sobrenome", { required: "First Name is required." })}
                     type='text'
                     fullWidth required={true}
                     id="fullWidth"
-                    error={Boolean(errors.firstName)}
                     // value={sobrenomeUsuario}
                     onChange={e => {
                         setSobrenomeUsuario(e.target.value)
@@ -124,43 +84,16 @@ const InputsComumCadastro = () => {
                 />
                 <TextField
                     label="E-mail"
-                    {...register("email", { required: "First Name is required." })}
                     type='email'
                     fullWidth required={true}
                     id="fullWidth"
-                    error={Boolean(errors.firstName)}
                     value={emailUsuario}
                     onChange={e => {
                         setEmailUsuario(e.target.value)
                         // console.log(emailUsuario)
                     }}
                 />
-                <FormControl variant="outlined">
-                    <InputLabel
-                        required={true}
-                        htmlFor="outlined-adornment-password">Senha</InputLabel>
-                    <OutlinedInput
-                        value={senhaUsuario}
-                        onChange={e => {
-                            setSenhaUsuario(e.target.value)
-                            // console.log(senhaUsuario)
-                        }}
-                        id="outlined-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end">
-                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                        label="Senha"
-                    />
-                </FormControl>
+                <InputSenha/>
                 <Button type='submit' variant="contained">Cadastrar</Button>
             </Box>
         </FormCadastro>
