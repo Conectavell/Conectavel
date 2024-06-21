@@ -49,6 +49,7 @@ const InputsComumCadastro = () => {
                 <InputSobrenome />
                 <InputEmail />
                 <InputSenha />
+                
                 <Button type='submit' variant="contained">Cadastrar</Button>
             </Box>
         </FormCadastro>

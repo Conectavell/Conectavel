@@ -9,7 +9,8 @@ import Tabs, { BoxBars } from '../components/Tabs';
 // condicional de inputs cadastro profissional
 
 const PreencherPrestadorPage = () => {
-    const { sobreUsuario,
+    const {
+        sobreUsuario,
         experienciaUsuario,
         // habilidadesUsuario,
         nacionalidadeUsuario,

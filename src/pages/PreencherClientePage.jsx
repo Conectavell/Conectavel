@@ -7,7 +7,8 @@ import axios from 'axios'
 
 
 const PreencherClientePage = () => {
-    const { sobreUsuario,
+    const {
+        sobreUsuario,
         experienciaUsuario,
         nacionalidadeUsuario,
         identidadeUsuario,
@@ -24,7 +25,6 @@ const PreencherClientePage = () => {
         bairro,
         estado,
         logradouro,
-
     } = useContext(CadastroContext)
 
     function cadastrar() {
