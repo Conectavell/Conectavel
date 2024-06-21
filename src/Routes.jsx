@@ -9,7 +9,7 @@ import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
 import PerfilClientePage from './pages/PerfilClientePage'
 import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
-import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
+import PreencherClientePage from './pages/PreencherClientePage'
 
 const Routes = () => {
 
@@ -22,7 +22,7 @@ const Routes = () => {
 
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
                     <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
-                    <Route path='/Conectavel/preenchercliente' element={<CompletarInfoClientePage />} />
+                    <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
 
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />

@@ -26,26 +26,35 @@ const InputsComumCadastro = () => {
         sobrenomeUsuario, setSobrenomeUsuario,
     } = useContext(CadastroContext)
 
-    const realizarCadastro = (tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario) => {
-        if (tipoPerfil === "cliente") {
-            navigate("/Conectavel/preenchercliente", {
-                state: {
-                    tipoPerfil: tipoPerfil,
-                    nomeUsuario: nomeUsuario,
-                    emailUsuario: emailUsuario,
-                    senhaUsuario: senhaUsuario
-                }
-            })
-        } else {
-            navigate("/Conectavel/preencherprestador", {
-                state: {
-                    tipoPerfil,
-                    nomeUsuario,
-                    emailUsuario,
-                    senhaUsuario
-                }
-            })
-        }
+    // const realizarCadastro = (tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario) => {
+    //     if (tipoPerfil === 2) {
+    //         navigate("/Conectavel/preencherprestador",
+    //             // {
+    //                 //     state: {
+    //                     //         tipoPerfil: tipoPerfil,
+    //                     //         nomeUsuario: nomeUsuario,
+    //                     //         emailUsuario: emailUsuario,
+    //                     //         senhaUsuario: senhaUsuario
+    //                     //     }
+    //                     // }
+    //                 )
+    //             } else {
+    //         navigate("/Conectavel/preencherprestador",
+    //         // navigate("/Conectavel/preenchercliente", 
+    //         //     {
+    //         //     state: {
+    //         //         tipoPerfil,
+    //         //         nomeUsuario,
+    //         //         emailUsuario,
+    //         //         senhaUsuario
+    //         //     }
+    //         // }
+    //     )
+    //     }
+    // }
+
+    const realizarCadastro = () =>{
+        tipoPerfil === "1" ? navigate("/Conectavel/preencherCliente") : navigate("/Conectavel/preencherPrestador")
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -55,12 +64,11 @@ const InputsComumCadastro = () => {
         event.preventDefault();
     }
     const handleSubmit = (e) => {
-        e.preventDefault();
-        realizarCadastro(tipoPerfil, nomeUsuario, emailUsuario, senhaUsuario)
+        console.log(tipoPerfil)
+        e.preventDefault()
+        realizarCadastro()
     }
-    const handleChange = (event, perfil) => {
-        setTipoPerfil(perfil)
-    }
+    
 
     return (
         <FormCadastro action="post" onSubmit={handleSubmit}>
@@ -78,7 +86,10 @@ const InputsComumCadastro = () => {
                     color="primary"
                     value={tipoPerfil}
                     exclusive
-                    onChange={handleChange}
+                    onChange={(e)=> {
+                        setTipoPerfil(e.target.value)
+                        console.log(tipoPerfil)
+                    }}
                     aria-label="Platform">
 
                     <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="1">Cliente</ToggleButton>

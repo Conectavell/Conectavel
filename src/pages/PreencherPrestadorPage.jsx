@@ -17,7 +17,7 @@ const Bar = styled.div`
     cursor: pointer;
     margin: 1rem 0;
 `
-const BoxBars = styled.div`
+export const BoxBars = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -54,7 +54,7 @@ const PreencherPrestadorPage = () => {
     function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
-            "tipoDePerfilUsuario": `${tipoPerfil}`,
+            "tipoDePerfilUsuario": 2,
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
