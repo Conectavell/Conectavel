@@ -132,8 +132,6 @@ const PerfilClientePage = () => {
                 Novo serviço<br></br>Solicitar reparo
               </p>
               <BotaoOrcamentos
-                
-              
                 onClick={() => setShowTiposServicos((state) => !state)}
               />
             </ItensInfo>
