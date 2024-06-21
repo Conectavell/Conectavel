@@ -6,6 +6,7 @@ import ReactInputMask from 'react-input-mask'
 import InputsIdentidade from './InputsIdentidade'
 import InputCep from './InputCep'
 import { InputBairro, InputCidade, InputComplemento, InputEstado, InputLogradouro, InputNumeroEndereco } from './InputsEndereco'
+import InputCelular from './InputCelular'
 // inputs para o profissional, q pede dados pessoais para o cadastro
 
 export const BoxInputPequeno = styled.div`
@@ -70,28 +71,7 @@ const InputsPessoais = ({ show }) => {
                 <BoxInputPequeno sx={{ margin: "auto", }}>
 
                     <InputNumeroEndereco/>
-                    <ReactInputMask
-                        mask="(99) 99999-9999"
-                        value={celularUsuario}
-                        onChange={e => {
-                            setCelularUsuario(e.target.value)
-                            // console.log(celularUsuario)
-                        }}
-                        disabled={false}
-                        maskChar=" "
-                    >
-                        {() => (
-                            <TextField
-                                label="Celular"
-                                required={true}
-                                InputProps={{ inputProps: { min: 0, max: 11 } }}
-                                type='text'
-                                style={{ width: "48%" }}
-                                id="outlined-basic"
-                                variant="outlined"
-                            />
-                        )}
-                    </ReactInputMask>
+                   <InputCelular/>
 
                     <FormControl
                         style={{ width: "48%" }}>
