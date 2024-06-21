@@ -1,4 +1,4 @@
-import { useContext, useEffect, } from 'react'
+import { useContext,  } from 'react'
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -75,11 +75,12 @@ const InputsPessoais = ({ show }) => {
 
                 <TextField
                     label="CPF/CNPJ"
-                    {...register("cpf", { required: "First Name is required." })}
-                    type='number'
+                    InputProps={{ inputProps: { maxLength: 14 } }}
+                    // {...register("cpf", { required: "First Name is required." })}
+                    // error={Boolean(errors.firstName)}
+                    type='numeric'
                     fullWidth required={true}
                     id="fullWidth"
-                    error={Boolean(errors.firstName)}
 
                     value={identidadeUsuario}
                     onChange={e => {
@@ -89,9 +90,10 @@ const InputsPessoais = ({ show }) => {
                 />
                 <TextField
                     label="CEP"
+                    InputProps={{ inputProps: { min: 0, max: 8 } }}
                     {...register("cep", { required: "First Name is required." })}
                     error={Boolean(errors.firstName)}
-                    type='text'
+                    type='number'
                     fullWidth
                     required={true}
                     onBlur={() => getCEP(cepUsuario)}
@@ -186,6 +188,7 @@ const InputsPessoais = ({ show }) => {
                         variant="outlined" />
                     <TextField
                         label="Celular"
+                        InputProps={{ inputProps: { min: 0, max: 11 } }}
                         required={true} {...register("celular", { required: "First Name is required." })}
                         error={Boolean(errors.firstName)}
                         type='number'
@@ -202,21 +205,21 @@ const InputsPessoais = ({ show }) => {
                         style={{ width: "48%" }}>
                         <InputLabel
                             required={true}
-                            id="demo-simple-select-label"
+                            // id="demo-simple-select-label"
 
                         >Sexo</InputLabel>
                         <Select
                             label="Sexo"
-                            {...register("sexo", { required: "First Name is required." })}
-                            error={Boolean(errors.firstName)}
+                            // {...register("sexo", { required: "First Name is required." })}
+                            // error={Boolean(errors.firstName)}
                             required={true}
                             value={sexoUsuario}
                             onChange={e => {
                                 setSexoUsuario(e.target.value)
                                 console.log(sexoUsuario)
                             }}
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
+                            // labelId="demo-simple-select-label"
+                            // id="demo-simple-select"
                         >
                             <MenuItem value="feminino">Feminino</MenuItem>
                             <MenuItem value="masculino">Masculino</MenuItem>
@@ -225,9 +228,10 @@ const InputsPessoais = ({ show }) => {
                     </FormControl>
 
                     <TextField
+                        InputProps={{ inputProps: { min: 0, max: "9999-12-31" } }}
                         type='date'
-                        {...register("dataNascimento", { required: "First Name is required." })}
-                        error={Boolean(errors.firstName)}
+                        // {...register("dataNascimento", { required: "First Name is required." })}
+                        // error={Boolean(errors.firstName)}
                         required={true}
                         style={{ width: "48%" }}
                         value={dataNascimentoUsuario}

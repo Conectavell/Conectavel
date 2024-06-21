@@ -1,8 +1,9 @@
 import { Box, Button, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import CadastroContext from '../context/CadastroContext';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -45,10 +46,10 @@ const InputsComumCadastro = () => {
 
     const { register, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    const [tipoPerfil, setTipoPerfil] = useState('');
-    const [nomeUsuario, setNomeUsuario] = useState('');
-    const [emailUsuario, setEmailUsuario] = useState('');
-    const [senhaUsuario, setSenhaUsuario] = useState('')
+    const { tipoPerfil, setTipoPerfil,
+        nomeUsuario, setNomeUsuario,
+        emailUsuario, setEmailUsuario,
+        senhaUsuario, setSenhaUsuario } = useContext(CadastroContext)
 
     const handleChange = (event, perfil) => {
         setTipoPerfil(perfil)
@@ -69,15 +70,15 @@ const InputsComumCadastro = () => {
                 <h2>Cadastre-se</h2>
 
                 <ToggleButtonGroup
-                
+
                     color="primary"
                     value={tipoPerfil}
                     exclusive
                     onChange={handleChange}
                     aria-label="Platform"
                 >
-                    <ToggleButton style={{margin:"1rem", border: "4px solid var(--azul_principal)",padding:".8rem 0rem",width:"100%", borderRadius: "10px"}} value="cliente">Cliente</ToggleButton>
-                    <ToggleButton style={{margin:"1rem", border: "4px solid var(--azul_principal)",padding:".8rem 0rem",width:"100%", borderRadius: "10px"}} value="profissional">Profissional</ToggleButton>
+                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="cliente">Cliente</ToggleButton>
+                    <ToggleButton style={{ margin: "1rem", border: "4px solid var(--azul_principal)", padding: ".8rem 0rem", width: "100%", borderRadius: "10px" }} value="profissional">Profissional</ToggleButton>
                 </ToggleButtonGroup>
 
                 <TextField

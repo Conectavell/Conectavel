@@ -99,9 +99,9 @@ const InputsProfissional = ({ show }) => {
                             setNacionalidadeUsuario(e.target.value)
                             console.log(nacionalidadeUsuario)
                         }}>
-                        <MenuItem value="feminino">Brasileira</MenuItem>
-                        <MenuItem value="masculino">Estadunidente</MenuItem>
-                        <MenuItem value="outro">Outros</MenuItem>
+                        <MenuItem value="BR">Brasileira</MenuItem>
+                        <MenuItem value="ES">Estadunidente</MenuItem>
+                        {/* <MenuItem value="outro">Outros</MenuItem> */}
                     </Select>
                 </FormControl>
 

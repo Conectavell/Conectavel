@@ -22,6 +22,10 @@ function App() {
   const [bairro, setBairro] = useState("")
   const [estado, setEstado] = useState("")
   const [cidade, setCidade] = useState("")
+  const [tipoPerfil, setTipoPerfil] = useState('');
+  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [emailUsuario, setEmailUsuario] = useState('');
+  const [senhaUsuario, setSenhaUsuario] = useState('')
 
 
   return (
@@ -43,7 +47,11 @@ function App() {
       logradouro, setLogradouro,
       bairro, setBairro,
       estado, setEstado,
-      cidade, setCidade
+      cidade, setCidade,
+      tipoPerfil, setTipoPerfil,
+      nomeUsuario, setNomeUsuario,
+      emailUsuario, setEmailUsuario,
+      senhaUsuario, setSenhaUsuario
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
         <Routes />
