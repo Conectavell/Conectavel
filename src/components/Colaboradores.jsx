@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Review from './Reviews'
 import { useTranslation } from 'react-i18next'
-
 const Seção = styled.section`
     margin: auto;
     background: #F2F4F8;
@@ -26,7 +25,7 @@ const Sub_heading = styled.p`
 `
 
 
-const Heading_text = styled.h2`  
+const Heading_text = styled.h2`
     width: 100%;
     font-size: 48px;
     line-height: 140%;

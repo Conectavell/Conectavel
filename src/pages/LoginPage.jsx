@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import Input from "../components/Input";
@@ -8,6 +7,7 @@ import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
+
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
@@ -133,6 +133,8 @@ const StyledLink = styled(Link)`
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  
+
   return (
     <ContainerDiv>
       <LogoDiv>

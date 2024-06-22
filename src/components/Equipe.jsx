@@ -1,4 +1,4 @@
-import BarraNavegacao from '../components/BarraNavegacao'
+import React from 'react'
 import styled from 'styled-components'
 import Integrante from '../components/Integrante'
 import ana from '../assets/ana.png'
@@ -9,11 +9,8 @@ import gabriel from '../assets/gabrielA.png'
 import kevyn from '../assets/kevyn.png'
 import julia from '../assets/julia.png'
 import gustavo from '../assets/gustavo.png'
-import Footer from '../components/Footer'
 
-
-
-const QuemSomosPage = () => {
+const Equipe = () => {
     const Sub_heading = styled.p`
     font-size: 24px;
     font-weight: 400;
@@ -53,10 +50,9 @@ const QuemSomosPage = () => {
             gap: 1rem;
         }
 `
+    
     return (
         <>
-            <BarraNavegacao />
-
             <Sub_heading>
                 QUEM SOMOS
             </Sub_heading>
@@ -152,12 +148,8 @@ const QuemSomosPage = () => {
 
 
             </BoxEquipe>
-
-            <Footer />
-
         </>
-
     )
 }
 
-export default QuemSomosPage
+export default Equipe

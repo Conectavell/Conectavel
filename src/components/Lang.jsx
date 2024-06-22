@@ -1,4 +1,10 @@
 import styled from 'styled-components'
+import br from '../assets/br.png'
+import en from '../assets/en.png'
+import jp from '../assets/jp.jpg'
+import { useTranslation } from "react-i18next";
+import { useState } from 'react';
+
 
 const LangBox = styled.a`
     text-decoration: none;
@@ -6,12 +12,38 @@ const LangBox = styled.a`
     
     img{
         cursor: pointer;
-        width: 25px !important; 
+        width: 25px !important;
         margin: 0 .3rem;
     }
 `
 
-const Lang = ({src}) => {
+
+const Lang = () => {
+    // const { i18n } = useTranslation();
+
+
+
+    const [src, setSrc] = useState(br)
+    // const [textoAlternativo, setTextoAlternativo] = useState(["pt", "ja", "en"])
+    // const [linguagem, setLinguagem] = useState([br, en, jp])
+    // const [count, setCount] = useState(0)
+
+    // const handleChangeLanguage = (value) => {
+    //     i18n.changeLanguage(value);
+    // };
+
+    // const mudarLingua = () => {
+    //     setCount(prevCount => {
+    //         const newCount = (prevCount + 1) % linguagem.length;
+    //         setSrc(linguagem[newCount]);
+    //         handleChangeLanguage(textoAlternativo[newCount]);
+    //         return newCount;
+    //     });
+    // };
+
+
+
+
     return (
         <LangBox>
             <img src={src} alt='' />
@@ -19,4 +51,4 @@ const Lang = ({src}) => {
     )
 }
 
-export default Lang
+export default Lang;

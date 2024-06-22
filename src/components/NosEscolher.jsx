@@ -2,9 +2,28 @@ import styled from 'styled-components'
 import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
-import { Button } from './BarraNavegacao'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
+
+
+const Button = styled(Link)`
+    padding: .8rem 1rem;
+    text-align: center;
+    /* width: 300px; */
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    background-color: var(--laranja);
+    color: white;
+    transition: all .3s linear;
+    font-weight: 600;
+    &:hover{
+        background-color: var(--verde_principal);
+    }
+    `
 const Box = styled.div`
     width: 100vw;
     background-color: var(--azul_principal);
