@@ -4,6 +4,9 @@
     margin-top: 0;
     padding: 0;
 }
+.background{
+    background-color: var(--azul_principal);
+}
 
 .navbar__container {
     display: flex;
