@@ -3,6 +3,7 @@ import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
 
+
 function App() {
   const [expand, setExpand] = useState(false)
   const [completarInfo, setCompletarInfo] = useState(false)

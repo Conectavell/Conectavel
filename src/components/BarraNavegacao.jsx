@@ -139,7 +139,7 @@ const BarraNavegacao = ({ cor }) => {
     )
 }
 
-export default BarraNavegacao
+export default BarraNavegacao;
 
 
 
