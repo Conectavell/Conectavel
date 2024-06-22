@@ -5,7 +5,7 @@ import FormCompletarInfoPrestador from "../components/FormCompletarInfoPrestador
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import CadastroContext from "../context/CadastroContext";
 import Steper from "../components/Steper";
-import FormCadastroProfissional from "../components/FormCadastroProfissional";
+import FormCadastroProfissional from "../components/FormCadastro";
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);

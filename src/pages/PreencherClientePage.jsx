@@ -1,12 +1,15 @@
 import { Box, Button } from '@mui/material'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ConectavelLogo from '../components/ConectavelLogo'
 import InputsPessoais from '../components/InputsPessoais'
 import CadastroContext from '../context/CadastroContext'
 import axios from 'axios'
+import Modal from '../components/ModalCadastro'
 
 
 const PreencherClientePage = () => {
+    const [openModal, setOpenModal] = useState(false)
+
     const {
         sobreUsuario,
         experienciaUsuario,
@@ -51,7 +54,7 @@ const PreencherClientePage = () => {
         })
             .then(function (response) {
                 console.log(response)
-                alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
+                setOpenModal(true)
             })
             .catch(function (error) {
                 if (error.response) {
@@ -70,6 +73,8 @@ const PreencherClientePage = () => {
             })
     }
 
+
+
     return (
         <>
             <ConectavelLogo>
@@ -84,6 +89,7 @@ const PreencherClientePage = () => {
                     </Box>
                 </Box>
             </ConectavelLogo>
+            <Modal isOpen={openModal}/>
         </>
     )
 }

@@ -141,13 +141,19 @@ const LoginPage = () => {
   const [senhaUsuario, setSenhaUsuario] = useState('');
 
   const realizarLogin = (emailUsuario, senhaUsuario) => {
-    axios.post("http://localhost:8080/API/login", {
+    axios.post("http://localhost:8080/API/Login", {
       email: `${emailUsuario}`,
       senha: `${senhaUsuario}`
     }).then(function (response) {
-      console.log("Tudo certo!")
-      sessionStorage.setItem('idUsuario', response.data)
-      navigate("/Conectavel/perfilprestador")
+      const { idUsuario, idTipoPerfil } = response.data;
+      sessionStorage.setItem('idUsuario', idUsuario)
+      if (idTipoPerfil == 1) {
+        navigate("/Conectavel/perfilcliente")
+      } else if (idTipoPerfil == 2) {
+        navigate("/Conectavel/perfilprestador")
+      } else if (idTipoPerfil == 3) {
+        alert("Em desenvolvimento")
+      }
     })
       .catch(function (error) {
         if (error.response) {
