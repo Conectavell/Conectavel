@@ -1,14 +1,33 @@
-import React from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
-import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { FotoEInfos, BotaoEditar, WrapperItemInfo, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, BotaoOrcamentos, DivEstrelas, DivUsuarioAvaliado } from '../styles/InfoClientePageStyle';
+import {
+  FotoEInfos,
+  BotaoEditar,
+  WrapperItemInfo,
+  SectionWrapper,
+  ChatLateral,
+  ChatLateralH1,
+  ChatLateralChats,
+  PerfilPrestador,
+  BannerPerfil,
+  Informacoes,
+  InfoPrincipais,
+  FotoPrincipalPerfil,
+  ItensInfo,
+  ItemInfo,
+  BotaoOrcamentos,
+  DivEstrelas,
+  DivUsuarioAvaliado,
+} from "../styles/InfoClientePageStyle";
 
+import { Button } from "../components/Button";
+import { useState } from 'react';
 
 const PerfilClientePage = () => {
+  const [showTiposServicos, setShowTiposServicos] = useState(false);
   return (
     <>
       <Navbar tipoUsuario={"cliente"} />
@@ -16,10 +35,26 @@ const PerfilClientePage = () => {
         <ChatLateral>
           <ChatLateralH1>Chat</ChatLateralH1>
           <ChatLateralChats>
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
+            <ChatMini
+              foto={Kemilly}
+              nome={"Sarah Doe"}
+              descricao={"Muito obrigada pelo reparo!"}
+            />
+            <ChatMini
+              foto={Kemilly}
+              nome={"Sarah Doe"}
+              descricao={"Muito obrigada pelo reparo!"}
+            />
+            <ChatMini
+              foto={Kemilly}
+              nome={"Sarah Doe"}
+              descricao={"Muito obrigada pelo reparo!"}
+            />
+            <ChatMini
+              foto={Kemilly}
+              nome={"Sarah Doe"}
+              descricao={"Muito obrigada pelo reparo!"}
+            />
           </ChatLateralChats>
         </ChatLateral>
         <PerfilPrestador>
@@ -37,9 +72,7 @@ const PerfilClientePage = () => {
                       <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
-                      <BotaoEditar>
-                        Editar
-                      </BotaoEditar>
+                      <BotaoEditar>Editar</BotaoEditar>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
@@ -48,9 +81,7 @@ const PerfilClientePage = () => {
                       <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
-                      <BotaoEditar>
-                        Editar
-                      </BotaoEditar>
+                      <BotaoEditar>Editar</BotaoEditar>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
@@ -59,9 +90,7 @@ const PerfilClientePage = () => {
                       <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
-                      <BotaoEditar>
-                        Editar
-                      </BotaoEditar>
+                      <BotaoEditar>Editar</BotaoEditar>
                     </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
@@ -78,12 +107,12 @@ const PerfilClientePage = () => {
                   <p>Avaliação de trabalhadores</p>
                   <ItensInfo MinhasAvaliacoes>
                     <DivUsuarioAvaliado>
-                      <p>Gabriela  D. Souza </p>
+                      <p>Gabriela D. Souza </p>
                       <DivEstrelas>
-                        <FaStar size={22} color='orange' />
-                        <FaStar size={22} color='orange' />
-                        <FaStar size={22} color='orange' />
-                        <FaStar size={22} color='orange' />
+                        <FaStar size={22} color="orange" />
+                        <FaStar size={22} color="orange" />
+                        <FaStar size={22} color="orange" />
+                        <FaStar size={22} color="orange" />
                         <FaStar size={22} />
                       </DivEstrelas>
                     </DivUsuarioAvaliado>
@@ -94,18 +123,60 @@ const PerfilClientePage = () => {
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
-          <ItensInfo NovoServico>
-            <div>
-              <p>Novo serviço<br></br>Solicitar reparo</p>
-             
-            </div>
-
-            <BotaoOrcamentos />
-          </ItensInfo>
+          <div className="servico-container">
+            <ItensInfo NovoServico>
+              <p>
+                Novo serviço<br></br>Solicitar reparo
+              </p>
+              <BotaoOrcamentos
+                onClick={() => setShowTiposServicos((state) => !state)}
+              />
+            </ItensInfo>
+            {showTiposServicos && (
+              <div className="container">
+                <div className="Container-servico">
+                  <p id="P_container">Tipo de Serviço</p>
+                  <label htmlFor="reparo">
+                    <input 
+                      type="checkbox"
+                      id="reparo"
+                      name="tipoServico"
+                      value="reparo"
+                    />
+                    <div className="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label htmlFor="manutencao">
+                    <input
+                      type="checkbox"
+                      id="manutencao"
+                      name="tipoServico"
+                      value="manutencao"
+                      
+                    />
+                    <div className="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label htmlFor="Instalação">
+                    <input
+                      type="checkbox"
+                      id="Instalação"
+                      name="tipoServico"
+                      value="Instalação"
+                    />
+                    <div className="checkmark"></div>
+                    Instalação
+                  </label>
+                  
+                </div>
+                <Button>Buscar</Button>
+              </div>
+            )}
+          </div>
         </PerfilPrestador>
       </SectionWrapper>
     </>
-  )
-}
+  );
+};
 
 export default PerfilClientePage;

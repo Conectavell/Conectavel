@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import { Button } from "../components/Button";
@@ -133,7 +132,7 @@ const StyledLink = styled(Link)`
 `;
 
 const LoginPage = () => {
-
+  const navigate = useNavigate();
   
 
   return (
