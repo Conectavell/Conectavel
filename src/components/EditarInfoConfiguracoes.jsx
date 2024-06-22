@@ -1,8 +1,15 @@
 import { Button, FormControl, TextField } from '@mui/material'
 import styled from 'styled-components'
 
-const EditarInfoConfiguracoes = () => {
-    const Container = styled.div`
+
+const ContainerButtons = styled.div`
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    `
+
+const Container = styled.div`
         width: 70%;
         /* height: 70vh; */
         box-shadow: 0 0  10px #00000051;
@@ -15,14 +22,8 @@ const EditarInfoConfiguracoes = () => {
     }
         
     `
-
-    const ContainerButtons = styled.div`
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    `
-
+const EditarInfoConfiguracoes = () => {
+    
     return (
         <Container>
             <h2>Edite suas informações</h2>

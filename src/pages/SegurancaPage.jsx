@@ -1,8 +1,10 @@
-import Footer from '../components/Footer'
+import React from 'react'
 import NavbarConfiguracoes from '../components/NavbarConfiguracoes'
+import styled from 'styled-components'
 import TrocarFotoConfiguracoes from '../components/TrocarFotoConfiguracoes'
 import EditarInfoConfiguracoes from '../components/EditarInfoConfiguracoes'
-import styled from 'styled-components'
+import Footer from '../components/Footer'
+import AlterarSenhaConfiguracoes from '../components/AlterarSenhaConfiguracoes'
 
 const Box = styled.div`
     display: flex;
@@ -16,19 +18,18 @@ const Box = styled.div`
     }
 `
 
-const ConfiguracoesPage = () => {
-    
-    
+const SegurancaPage = () => {
     return (
         <>
             <NavbarConfiguracoes />
             <Box>
-                <TrocarFotoConfiguracoes />
-                <EditarInfoConfiguracoes />
+                {/* <TrocarFotoConfiguracoes /> */}
+                {/* <EditarInfoConfiguracoes /> */}
+                <AlterarSenhaConfiguracoes/>
             </Box>
             <Footer cor="azul" />
         </>
     )
 }
 
-export default ConfiguracoesPage
+export default SegurancaPage

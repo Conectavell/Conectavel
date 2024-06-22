@@ -13,6 +13,7 @@ import ClienteOrcamento from './pages/ClienteOrcamento'
 
 import PerfilClientePage from './pages/PerfilClientePage'
 import ConfiguracoesPage from './pages/ConfiguracoesPage'
+import SegurancaPage from './pages/SegurancaPage'
 
 const Routes = () => {
 
@@ -37,6 +38,7 @@ const Routes = () => {
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
                     <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
+                    <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
                     
 
                 </Rotas>
