@@ -9,6 +9,11 @@ const EditarInfoConfiguracoes = () => {
         border-radius: 10px;
         padding: 1rem;
         text-align: center;
+
+        @media (max-width:992px){
+            width: 90%;
+    }
+        
     `
 
     const ContainerButtons = styled.div`

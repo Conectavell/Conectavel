@@ -14,6 +14,9 @@ const TrocarFotoConfiguracoes = () => {
         justify-content: space-evenly;
         flex-direction: column;
         align-items: center;
+        @media (max-width:992px){
+            width: 90%;
+    }
     `
 
     const Imagem = styled.div`
@@ -26,6 +29,10 @@ const TrocarFotoConfiguracoes = () => {
         display: flex;
         justify-content: center;
         align-items: center;
+        @media (max-width:992px){
+            width: 70%;
+            height: 55%;
+    }
     `
 
     return (
@@ -36,7 +43,7 @@ const TrocarFotoConfiguracoes = () => {
                     imagem
                 </Imagem>
 
-                <Button variant="contained">Trocar foto</Button>
+                <Button sx={{width:"80%"}} variant="contained">Trocar foto</Button>
             </Box>
         </>
     )
