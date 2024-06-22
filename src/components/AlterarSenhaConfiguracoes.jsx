@@ -5,12 +5,15 @@ import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, Outli
 
 const Container = styled.div`
     width: 70vw;
-    height: 55vh;
+    min-height: 35vh;
     background-color: white;
     box-shadow: 0 0  10px #00000051;
     border-radius: 10px;
     padding: 1rem;
     text-align: center;
+    @media (max-width:992px){
+        width: 90vw;
+    }
 `
 const ContainerButtons = styled.div`
         width: 100%;

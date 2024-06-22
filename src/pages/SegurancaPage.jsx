@@ -5,11 +5,14 @@ import TrocarFotoConfiguracoes from '../components/TrocarFotoConfiguracoes'
 import EditarInfoConfiguracoes from '../components/EditarInfoConfiguracoes'
 import Footer from '../components/Footer'
 import AlterarSenhaConfiguracoes from '../components/AlterarSenhaConfiguracoes'
+import ApagarContaConfiguracoes from '../components/ApagarContaConfiguracoes'
 
 const Box = styled.div`
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     margin: 2rem 0;
 
     @media (max-width:992px){
@@ -26,6 +29,7 @@ const SegurancaPage = () => {
                 {/* <TrocarFotoConfiguracoes /> */}
                 {/* <EditarInfoConfiguracoes /> */}
                 <AlterarSenhaConfiguracoes/>
+                <ApagarContaConfiguracoes/>
             </Box>
             <Footer cor="azul" />
         </>
