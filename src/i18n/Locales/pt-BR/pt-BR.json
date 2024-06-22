@@ -1,5 +1,6 @@
 {
     "translation": {
+
         "navbar": {
             "Home": "Home",
             "Serviços": "Serviços",
@@ -114,6 +115,15 @@
         "colaboradores":{
             "title": "O que falam do nosso serviço",
             "subtitle": "COLABORADORES"
-        }
+        },
+
+        "btncadastro": "Cadastre-se",
+        "btnlogin": "Login",
+        "Home": "Home",
+        "Serviços": "Serviços",
+        "Colaboradores": "Colaboradores",
+        "Descarte": "Descarte",
+        "Quem somos": "Quem somos"
+
     }
 }

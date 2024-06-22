@@ -25,7 +25,7 @@ const Sub_heading = styled.p`
 `
 
 
-const Heading_text = styled.h2`  
+const Heading_text = styled.h2`
     width: 100%;
     font-size: 48px;
     line-height: 140%;

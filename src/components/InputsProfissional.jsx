@@ -1,8 +1,9 @@
 import { useContext } from 'react'
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import CadastroContext from '../context/CadastroContext'
+// inputs para o profissional, q pede habilidades, experiencia, etc
 
 const FormCadastro = styled.form`
     overflow-y: scroll;
@@ -21,22 +22,16 @@ const FormCadastro = styled.form`
     }
 `
 
-const InputsProfissional = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { setInfoPessoal, setValue } = useContext(CadastroContext)
-
-    const onSubmit = (data) => {
-        console.log(data)
-    }
-
-    // const [age, setAge] = React.useState('');
-    // const handleChange = (event) => {
-    //     setAge(event.target.value);
-    // };
+const InputsProfissional = ({ show }) => {
+    const { register, formState: { errors } } = useForm();
+    const { nacionalidadeUsuario, setNacionalidadeUsuario,
+        sobreUsuario, setSobreUsuario,
+        experienciaUsuario, setExperienciaUsuario,
+        habilidadesUsuario, setHabilidadesUsuario,
+    } = useContext(CadastroContext)
 
     return (
-        <FormCadastro style={{ overflow: "hidden" }} onSubmit={handleSubmit(onSubmit)}>
-
+        <FormCadastro style={{ overflow: "hidden", display: `${show ? "" : "none"}` }}>
             <Box
                 sx={{
                     width: "90%",
@@ -54,6 +49,11 @@ const InputsProfissional = () => {
                     fullWidth required={true}
                     id="fullWidth"
                     error={Boolean(errors.firstName)}
+                    value={sobreUsuario}
+                    onChange={e => {
+                        setSobreUsuario(e.target.value)
+                        // console.log(sobreUsuario)
+                    }}
                 />
                 <TextField
                     label="Experiência profissional"
@@ -62,6 +62,11 @@ const InputsProfissional = () => {
                     type='text'
                     fullWidth
                     required={true}
+                    value={experienciaUsuario}
+                    onChange={e => {
+                        setExperienciaUsuario(e.target.value)
+                        // console.log(experienciaUsuario)
+                    }}
                     id="fullWidth" />
                 <TextField
                     label="Habilidades"
@@ -70,6 +75,11 @@ const InputsProfissional = () => {
                     type='text'
                     fullWidth
                     required={true}
+                    value={habilidadesUsuario}
+                    onChange={e => {
+                        setHabilidadesUsuario(e.target.value)
+                        // console.log(habilidadesUsuario)
+                    }}
                     id="fullWidth" />
 
                 <FormControl>
@@ -84,20 +94,19 @@ const InputsProfissional = () => {
                         required={true}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                    // value={age}
-                    // onChange={handleChange}
-                    >
-                        <MenuItem value="feminino">Brasileira</MenuItem>
-                        <MenuItem value="masculino">Estadunidente</MenuItem>
-                        <MenuItem value="outro">Outros</MenuItem>
+                        value={nacionalidadeUsuario}
+                        onChange={e => {
+                            setNacionalidadeUsuario(e.target.value)
+                            // console.log(nacionalidadeUsuario)
+                        }}>
+                        <MenuItem value="BR">Brasileira</MenuItem>
+                        <MenuItem value="ES">Estadunidente</MenuItem>
+                        {/* <MenuItem value="outro">Outros</MenuItem> */}
                     </Select>
                 </FormControl>
 
-                {/* <Button  className='submit' onClick={()=>setValue(0)} variant="contained">Voltar</Button> */}
-                <Button type='submit' className='submit' variant="contained">Enviar informações</Button>
             </Box>
         </FormCadastro>
-
     )
 }
 

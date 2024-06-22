@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container';
+import React, { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../styles/NavbarPerfis.css"
@@ -11,8 +12,10 @@ import BemVindo from './BemVindo';
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 import { PiUsersThree } from 'react-icons/pi';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import CadastroContext from '../context/CadastroContext';
 
 const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
+    const context = useContext(CadastroContext)
     const { innerWidth: width, innerHeight: height } = window
 
 
@@ -38,7 +41,7 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
                             width > 992 ?
                                 ''
                                 :
-                                <Nav.Link className='navbar__container__collapse__text' ><BemVindo usuario={usuario} /></Nav.Link>
+                                <Nav.Link className='navbar__container__collapse__text' ><BemVindo usuario={context.nomeUsuario} /></Nav.Link>
                         }
                         {usuario === "profissional" ?
                             <>
@@ -55,7 +58,7 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={usuario} />
+                        <BemVindo usuario={context.nomeUsuario} />
                         : ''
                 }
             </Container>

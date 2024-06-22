@@ -18,6 +18,10 @@ export const Button = styled.button`
 
   &:hover {
     background-color: var(--laranja);
+
+    font-weight: bold;
+
+
   }
 
 

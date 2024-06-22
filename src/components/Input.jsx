@@ -31,11 +31,11 @@ export const InputS = styled.input`
   }
 `
 
-const Input = ({ name, label, placeholder, type}) => {
+const Input = ({ name, label, placeholder, type, mudanca}) => {
   return (
     <InputDiv>
       <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} placeholder={placeholder} />
+      <input type={type} name={name} placeholder={placeholder} onChange={mudanca}/>
     </InputDiv>
   );
 };
