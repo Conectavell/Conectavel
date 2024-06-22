@@ -12,6 +12,7 @@ import ClienteOrcamento from './pages/ClienteOrcamento'
 
 
 import PerfilClientePage from './pages/PerfilClientePage'
+import ConfiguracoesPage from './pages/ConfiguracoesPage'
 
 const Routes = () => {
 
@@ -32,6 +33,11 @@ const Routes = () => {
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
+
+                    {/* ------------ telas de configuracoes do usuario ------------ */}
+
+                    <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
+                    
 
                 </Rotas>
 
