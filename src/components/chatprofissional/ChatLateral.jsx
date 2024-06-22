@@ -4,15 +4,31 @@ import Cliente2 from '../../assets/Cliente2.jpg'
 import Cliente3 from '../../assets/Cliente3.jpg'
 
 // Styled components
-export const ContainerChat = styled.section` 
-background: #fafafa; width: 100%;
-max-width: 313px; height: 532px; 
-border-radius: 10px; 
-border: 2px solid #d8d5d5; 
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.1); 
-padding: 0; 
-margin: 0; // Centraliza o container position: relative; left: 20px; top: 90px; overflow-y: auto; // Responsividade @media (max-width: 768px) { height: 100%; // Ajusta a altura para ocupar toda a tela em dispositivos móveis max-width: 80%; // Permite que o container ocupe toda a largura em dispositivos móveis box-shadow: none; // Remove a sombra em dispositivos móveis para simplificar o design border-radius: 12px; };
-`
+// Styled components
+export const ContainerChat = styled.section`
+  background: #fafafa;
+  width: 100%;
+  max-width: 313px;
+  height: 532px;
+  border-radius: 10px;
+  border: 2px solid #d8d5d5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0; // Centraliza o container
+  position: relative;
+  left: 20px;
+  top: 90px;
+  overflow-y: auto;
+
+  // Responsividade
+  @media (max-width: 768px) {
+    height: 100%; // Ajusta a altura para ocupar toda a tela em dispositivos móveis
+    max-width: 80%; // Permite que o container ocupe toda a largura em dispositivos móveis
+    box-shadow: none; // Remove a sombra em dispositivos móveis para simplificar o design
+    border-radius: 12px;
+  }
+`;
+
 export const BlockChat = styled.div`
 display: flex;
 align-items: center;
@@ -25,16 +41,10 @@ box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
 cursor: pointer;
 transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
-&
+&:hover
 {
 transform: translateY(-5px);
 box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.1);
-}
-
-&
-{
-transform: translateY(0);
-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 h6{

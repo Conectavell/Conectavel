@@ -18,8 +18,6 @@ left: 40px;
 margin: 20px auto;
 top: 70px;
 
-css
-Copiar código
 h1 {
     margin-top: 20px;
     padding: 0;
@@ -48,8 +46,6 @@ flex-direction: column;
 align-items: start;
 margin: 16px;
 
-css
-Copiar código
 p {
     padding: 0;
     margin: 10px;
@@ -83,8 +79,7 @@ transform: translateY( 0px);
 box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
-css
-Copiar código
+
 &:active {
 transform: translateY(0);
 box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
