@@ -1,4 +1,7 @@
+import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import logo_conectavel from "../assets/logo_conectavel.svg";
 import { Button } from "../components/Button";
 import { Link, useLocation } from "react-router-dom";
@@ -7,6 +10,7 @@ import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
 import Input from '../components/Input'
+import axios from 'axios'
 
 
 const ContainerDiv = styled.div`
@@ -133,7 +137,44 @@ const StyledLink = styled(Link)`
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  
+  const [emailUsuario, setEmailUsuario] = useState('');
+  const [senhaUsuario, setSenhaUsuario] = useState('');
+
+  const realizarLogin = (emailUsuario, senhaUsuario) => {
+    axios.post("http://localhost:8080/API/Login", {
+      email: `${emailUsuario}`,
+      senha: `${senhaUsuario}`
+    }).then(function (response) {
+      const { idUsuario, idTipoPerfil } = response.data;
+      sessionStorage.setItem('idUsuario', idUsuario)
+      if (idTipoPerfil == 1) {
+        navigate("/Conectavel/perfilcliente")
+      } else if (idTipoPerfil == 2) {
+        navigate("/Conectavel/perfilprestador")
+      } else if (idTipoPerfil == 3) {
+        alert("Em desenvolvimento")
+      }
+    })
+      .catch(function (error) {
+        if (error.response) {
+          if (error.response.status === 401) {
+            alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+          } else {
+            alert(`Erro: ${error.response.status} - ${error.response.data}`);
+          }
+        } else if (error.request) {
+          alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+        } else {
+          alert(`Erro: ${error.message}`);
+        }
+      })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //alert(`${emailUsuario} e ${senhaUsuario}`)
+    realizarLogin(emailUsuario, senhaUsuario)
+  }
 
   return (
     <ContainerDiv>
@@ -150,18 +191,22 @@ const LoginPage = () => {
 
         <div className="form-container">
           <h2>Entrar</h2>
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <Input
               name="email"
               label="E-mail"
               placeholder="Digite seu e-mail aqui"
               type="email"
+              required
+              mudanca={(e) => setEmailUsuario(e.target.value)}
             />
             <Input
               name="senha"
               label="Senha"
               placeholder="Digite sua senha aqui"
               type="password"
+              required
+              mudanca={(e) => setSenhaUsuario(e.target.value)}
             />
             <div className="justify-between">
               <div>
@@ -170,7 +215,7 @@ const LoginPage = () => {
               </div>
               <a href="#">Esqueceu sua senha?</a>
             </div>
-            <Button onClick={()=> navigate("/Conectavel/perfilprestador")} >Entrar</Button>
+            <Button type="submit" >Entrar</Button>
           </form>
           <div className="center-text">
             <span>
