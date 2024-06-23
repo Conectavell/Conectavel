@@ -88,26 +88,3 @@ export default Community
 
 
 
-// import React from 'react';
-// import CommunityItem from './CommunityItem';
-// import Chat from './Chat';
-// import ChatItem from './ChatItem';
-
-// const Community = () => {
-
-//     const community = styled.div`
-//     padding: 20px;
-// `;
-
-
-
-//     return (
-//         <div className="community">
-//             <h2>Comunidade</h2>
-//             <ChatItem />
-            
-//         </div>
-//     );
-// };
-
-// export default Community;

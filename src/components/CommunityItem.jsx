@@ -67,37 +67,3 @@ const Comentario = styled.div`
 
 
 
-// import React from 'react';
-// import styled from 'styled-components';
-
-// const CommunityItem = () => {
-
-// const CommunityItemImage = styled.img`
-// width: 40px;
-// height: 40px;
-// margin-right: 10px;
-// `;
-
-// const CommunityItemTitle = styled.h3`
-// font-weight: bold;
-// margin-bottom: 5px;
-// `;
-
-// const CommunityItemText = styled.p`
-// font-size: 14px;
-// color: #666;
-// `;
-
-//   return (
-//     <div className="community-item">
-//       <img src="/user.svg" alt="Usuário" />
-//       <div>
-//         <h3>John Doe</h3>
-//         <p>Troco cooler por SSD!</p>
-//       </div>
-//       <p>Preço: a combinar</p>
-//     </div>
-//   );
-// };
-
-// export default CommunityItem;
