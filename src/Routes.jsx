@@ -11,6 +11,7 @@ import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
 
 import ClienteOrcamento from './pages/ClienteOrcamento'
+import Comunidade from './pages/Comunidade'
 
 
 const Routes = () => {
@@ -41,6 +42,8 @@ const Routes = () => {
                     <Route path='/PreencherPrestador' exact element={<CompletarInfoPrestadorPage/>} />
                     <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                     <Route path='/Conectavel/Orcamento' exact element={<ClienteOrcamento/>} />
+                    <Route path='/Conectavel/comunidade' exact element={<Comunidade/>} />
+
 
                 </Rotas>
                     
