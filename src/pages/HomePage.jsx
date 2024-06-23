@@ -6,7 +6,7 @@ import Colaboradores from '../components/Colaboradores'
 import ContrateMelhorProfissional from '../components/ContrateMelhorProfissional'
 import Contribua from '../components/Contribua'
 import BarraNavegacao from '../components/BarraNavegacao'
-
+import Grid from '../components/Grid'
 const HomePage = () => {
   return (
     <>

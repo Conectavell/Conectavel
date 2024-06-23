@@ -70,7 +70,7 @@ const Home = () => {
                   <div className="icon">
                     <i className="fa fa-users" />
                   </div>
-                  <Link to="/Conectavel/PageAdmin/tbusuarios" className="small-box-footer">Administrar <i className="fas fa-arrow-circle-right" /></Link>
+                  <Link to="/Conectavel/PageAdmin/usuarios" className="small-box-footer">Administrar <i className="fas fa-arrow-circle-right" /></Link>
                 </div>
               </div>
               {/* ./col */}

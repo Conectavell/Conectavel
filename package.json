@@ -33,6 +33,7 @@
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.23.1",
     "react-swipeable-views-utils": "^0.14.0",
+    "react-toastify": "^10.0.5",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {

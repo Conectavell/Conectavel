@@ -16,6 +16,7 @@ import PreencherClientePage from './pages/PreencherClientePage'
 
 {/* Import Administração */}
 import PageAdmin from './pages/PageAdmin'
+import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
 
 const Routes = () => {
 
@@ -44,6 +45,7 @@ const Routes = () => {
 
                     {/* Rotas Administração */}
                     <Route path='/Conectavel/PageAdmin' exact element={<PageAdmin/>} />
+                    <Route path='/Conectavel/PageAdmin/usuarios' exact element={<PaginaTbUsuarios/>} />
                 </Rotas>
 
 
