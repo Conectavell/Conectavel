@@ -152,7 +152,7 @@ const LoginPage = () => {
       } else if (idTipoPerfil == 2) {
         navigate("/Conectavel/perfilprestador")
       } else if (idTipoPerfil == 3) {
-        alert("Em desenvolvimento")
+        navigate("/Conectavel/PageAdmin")
       }
     })
       .catch(function (error) {
