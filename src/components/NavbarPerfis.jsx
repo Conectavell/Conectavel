@@ -58,7 +58,7 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={context.nomeUsuario} />
+                        <BemVindo usuario={context.nome} />
                         : ''
                 }
             </Container>

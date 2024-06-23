@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
@@ -6,9 +6,12 @@ import Kemilly from '../assets/kemilly.png';
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { FotoEInfos, BotaoEditar, WrapperItemInfo, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, BotaoOrcamentos, DivEstrelas, DivUsuarioAvaliado } from '../styles/InfoClientePageStyle';
-
+import CadastroContext from '../context/CadastroContext';
 
 const PerfilClientePage = () => {
+  const context = useContext(CadastroContext)
+
+  
   return (
     <>
       <Navbar tipoUsuario={"cliente"} />
@@ -34,7 +37,7 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${context.nome} ${context.sobrenome}`}</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
                       <BotaoEditar>
@@ -45,7 +48,7 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
+                      <ChatMiniNome descricao>{context.email}</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
                       <BotaoEditar>
@@ -56,7 +59,7 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
+                      <ChatMiniNome descricao>{context.celular}</ChatMiniNome>
                     </WrapperItemInfo>
                     <WrapperItemInfo>
                       <BotaoEditar>
