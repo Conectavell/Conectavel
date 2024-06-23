@@ -13,6 +13,9 @@ import PerfilClientePage from './pages/PerfilClientePage'
 import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
 import PreencherClientePage from './pages/PreencherClientePage'
 
+import ConfiguracoesPage from './pages/ConfiguracoesPage'
+import SegurancaPage from './pages/SegurancaPage'
+
 const Routes = () => {
 
     return (
@@ -30,10 +33,16 @@ const Routes = () => {
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
-                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />                 
+                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
+
+                    {/* ------------ telas de configuracoes do usuario ------------ */}
+
+                    <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
+                    <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
+                    
 
                 </Rotas>
 

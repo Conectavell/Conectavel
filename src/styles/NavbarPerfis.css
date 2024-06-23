@@ -3,6 +3,7 @@
     border-radius: 0;
     margin-top: 0;
     padding: 0;
+    background-color: var(--azul_principal);
 }
 .background{
     background-color: var(--azul_principal);
@@ -27,7 +28,7 @@
     transition: .3s ease-in-out;
 }
 .navbar__container__collapse__text:hover{
-    color: var(--verde_secundario);
+    color: var(--laranja);
 }
 .navbar__container__collapse__content{
     display: flex;
