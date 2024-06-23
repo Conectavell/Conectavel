@@ -23,7 +23,7 @@ const Carrosel = () => {
                     className=" d-block container__img"
                     src={descarte4}
                     style={{border: "5px solid var(--verde_secundario)", overflow: 'hidden'}}
-                    height={525}
+                    // height={525}
                     alt="Second slide"
                 />
                 <p className=' mt-2 text-light'>{t("contribua.slides.slide2.text")} </p>
