@@ -19,6 +19,7 @@
     "@mui/material": "^5.15.18",
     "@mui/x-date-pickers": "^7.7.0",
     "@react-google-maps/api": "^2.19.3",
+    "admin-lte": "^4.0.0-beta1",
     "axios": "^1.7.2",
     "gh-pages": "^6.1.1",
     "i18next": "^23.11.5",
