@@ -41,7 +41,7 @@ const BarraNavegacao = ({ cor }) => {
     color: white;
     cursor: pointer;
 
-    @media (max-width: 992px) {
+    @media (max-width:  1200px) {
         margin: .5rem auto;
     }
     &:hover{
@@ -82,7 +82,7 @@ const BarraNavegacao = ({ cor }) => {
     flex-direction: row;
     margin: auto;
     width: 100%;
-    @media (max-width: 992px) {
+    @media (max-width:  1200px) {
         flex-direction: column;
         margin-bottom: 1rem;
     }
@@ -139,8 +139,7 @@ const BarraNavegacao = ({ cor }) => {
     )
 }
 
-export default BarraNavegacao
-
+export default BarraNavegacao;
 
 
 

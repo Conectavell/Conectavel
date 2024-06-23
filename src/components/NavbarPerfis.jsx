@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container';
+import React, { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../styles/NavbarPerfis.css"
@@ -11,8 +12,11 @@ import BemVindo from './BemVindo';
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 import { PiUsersThree } from 'react-icons/pi';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import CadastroContext from '../context/CadastroContext';
+import { RiHome2Line } from 'react-icons/ri';
 
 const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
+    const context = useContext(CadastroContext)
     const { innerWidth: width, innerHeight: height } = window
 
 
@@ -23,7 +27,7 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
     // usuario="cliente"
 
     return (
-        <Navbar expand="lg" className="navbar-perfil">
+        <Navbar expand="lg" className="navbar-perfil background">
             <Container className='navbar__container'>
                 <Navbar.Brand href="#home">
                     <img width={70} src={logo} alt="" />
@@ -34,11 +38,12 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className='navbar__container__collapse' id="basic-navbar-nav">
                     <Nav className="me-auto navbar__container__collapse__content">
+                        <Nav.Link className='navbar__container__collapse__text' ><RiHome2Line  size={25} /></Nav.Link>
                         {
                             width > 992 ?
                                 ''
                                 :
-                                <Nav.Link className='navbar__container__collapse__text' ><BemVindo usuario={usuario} /></Nav.Link>
+                                <Nav.Link className='navbar__container__collapse__text' ><BemVindo usuario={context.nomeUsuario} /></Nav.Link>
                         }
                         {usuario === "profissional" ?
                             <>
@@ -48,14 +53,13 @@ const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
 
                         <Nav.Link className='navbar__container__collapse__text' ><AiOutlineSetting size={25} /> Configurações</Nav.Link>
                         <Nav.Link className='navbar__container__collapse__text' ><BiRecycle size={25} /> Descarte</Nav.Link>
-                        <Nav.Link className='navbar__container__collapse__text' ><VscBellDot size={25} /></Nav.Link>
 
 
                     </Nav>
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={usuario} />
+                        <BemVindo usuario={context.nomeUsuario} />
                         : ''
                 }
             </Container>
