@@ -46,7 +46,6 @@ const Box = styled.div`
         flex-direction: row;
     }
     .button1{
-        background-color: red !important;
         padding: 1.3rem 3rem;
         border-radius: 100px;
     }
