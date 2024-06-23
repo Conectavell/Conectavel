@@ -47,7 +47,7 @@ const useUsuario = () => {
           });
           console.log(data);
         })
-        .catch(error => console.error('Error fetching user data:', error));
+        .catch(error => console.error('Erro em encontrar dados do usuário:', error));
     }
   }, []);
 
