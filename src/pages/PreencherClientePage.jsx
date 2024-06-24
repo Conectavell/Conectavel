@@ -1,6 +1,5 @@
 import { Box, Button } from '@mui/material'
 import { useContext, useState } from 'react'
-import { useContext } from 'react'
 import ConectavelLogo from '../components/ConectavelLogo'
 import InputsPessoais from '../components/InputsPessoais'
 import CadastroContext from '../context/CadastroContext'
@@ -13,7 +12,6 @@ const PreencherClientePage = () => {
 
 
 
-const PreencherClientePage = () => {
     const {
         sobreUsuario,
         experienciaUsuario,
@@ -94,9 +92,10 @@ const PreencherClientePage = () => {
                     </Box>
                 </Box>
             </ConectavelLogo>
-            <Modal isOpen={openModal}/>
+            <Modal isOpen={openModal} />
         </>
     )
 }
+
 
 export default PreencherClientePage

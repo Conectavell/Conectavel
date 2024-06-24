@@ -14,7 +14,6 @@ const PreencherPrestadorPage = () => {
     const [openModal, setOpenModal] = useState(false)
 // condicional de inputs cadastro profissional
 
-const PreencherPrestadorPage = () => {
     const {
         sobreUsuario,
         experienciaUsuario,
