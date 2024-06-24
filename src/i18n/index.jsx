@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import PTBR from './Locales/pt-BR/pt-BR.json'
 import JA from './Locales/ja/ja.json'
 import EN from './Locales/en-US/en-US.json'
-//
+
 /*
 COMO FAZER A TRADUÇÃO :
 1. Criar pasta com nome abreviando localização (pt-BR, ja, ko) na pasta Locales (ela tem um icone diferente);

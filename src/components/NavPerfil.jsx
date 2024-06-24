@@ -16,7 +16,7 @@ const Header = styled.header`
   background-color: #175ec6;
   display: flex;
   width: 100vw;
-  height: 100px
+  height: 100px;
   gap: 20px;
   justify-content:space-between;
   padding: 14px 50px;

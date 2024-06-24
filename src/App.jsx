@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
+import axios from 'axios'
 
 function App() {
   const [expand, setExpand] = useState(false)
@@ -29,7 +30,13 @@ function App() {
   const [senhaUsuario, setSenhaUsuario] = useState('')
   const [fill, setFill] = useState(true)
 
-
+  if ((sessionStorage.getItem('idUsuario')) != null) {
+    const ID = sessionStorage.getItem('idUsuario');
+    fetch(`http://localhost:8080/API/getUsuario/${ID}`).then(res => res.json()).then(data => {
+      setNomeUsuario(data.nomeUsuario)
+      setEmailUsuario(data.emailUsuario)
+    })
+  }
 
   return (
     // Aplicação dos Providers dos contextos

@@ -1,3 +1,7 @@
+import { ChatMiniNome } from '../components/ChatMini'
+import Navbar from '../components/NavbarPerfis';
+import ChatMini from '../components/ChatMini';
+import Kemilly from '../assets/kemilly.png';
 import React, { useState } from "react";
 import { ChatMiniNome } from "../components/ChatMini";
 import Navbar from "../components/NavbarPerfis";
@@ -26,6 +30,7 @@ import {
 } from "../styles/InfoClientePageStyle";
 
 import { Button } from "../components/Button";
+import { useState } from 'react';
 import { Height } from "@mui/icons-material";
 import MedalStar from "../assets/MedalStar.svg";
 
@@ -139,6 +144,7 @@ const PerfilClientePage = () => {
               <div className="container">
                 <div className="Container-servico">
                   <p id="P_container">Tipo de Serviço</p>
+                  <label htmlFor="reparo">
                   <label for="reparo">
                     <input 
                       type="checkbox"
@@ -146,6 +152,10 @@ const PerfilClientePage = () => {
                       name="tipoServico"
                       value="reparo"
                     />
+                    <div className="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label htmlFor="manutencao">
                     <div class="checkmark"></div>
                     Reparo
                   </label>
@@ -157,6 +167,10 @@ const PerfilClientePage = () => {
                       value="manutencao"
                       
                     />
+                    <div className="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label htmlFor="Instalação">
                     <div class="checkmark"></div>
                     Manutenção
                   </label>
@@ -167,6 +181,7 @@ const PerfilClientePage = () => {
                       name="tipoServico"
                       value="Instalação"
                     />
+                    <div className="checkmark"></div>
                     <div class="checkmark"></div>
                     Instalação
                   </label>

@@ -5,6 +5,9 @@
     padding: 0;
     background-color: var(--azul_principal);
 }
+.background{
+    background-color: var(--azul_principal);
+}
 
 .navbar__container {
     display: flex;

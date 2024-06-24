@@ -6,6 +6,12 @@ import InputsProfissional from '../components/InputsProfissional';
 import ConectavelLogo from '../components/ConectavelLogo';
 import axios from 'axios';
 import Tabs, { BoxBars } from '../components/Tabs';
+import Modal from '../components/ModalCadastro'
+import { useState } from 'react';
+// condicional de inputs cadastro profissional
+
+const PreencherPrestadorPage = () => {
+    const [openModal, setOpenModal] = useState(false)
 // condicional de inputs cadastro profissional
 
 const PreencherPrestadorPage = () => {
@@ -56,6 +62,7 @@ const PreencherPrestadorPage = () => {
         })
             .then(function (response) {
                 console.log(response)
+                setOpenModal(true)
                 alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })
             .catch(function (error) {
@@ -110,6 +117,7 @@ const PreencherPrestadorPage = () => {
                     <Tabs />
                 </>
             </Box>
+            <Modal isOpen={openModal}/>
         </ConectavelLogo>
     )
 }

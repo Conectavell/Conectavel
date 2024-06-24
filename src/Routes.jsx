@@ -22,7 +22,6 @@ const Routes = () => {
             <BrowserRouter>
                 <Rotas>
                     <Route path='/Conectavel' element={<HomePage />} />
-                    <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
                     <Route path='/Conectavel/login' element={<LoginPage />} />
 
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />

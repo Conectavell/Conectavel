@@ -15,6 +15,7 @@ const QuemSomosPage = () => {
             <FaleConosco/>
             <Footer cor="azul"/>
         </>
+
     )
 }
 

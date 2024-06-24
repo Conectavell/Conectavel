@@ -24,7 +24,7 @@ const CimaSection = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
@@ -37,7 +37,7 @@ const Title = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         width: 100%;
     }
 `
@@ -78,7 +78,7 @@ const ImgTopo = styled.div`
     border-radius: 20px;
     margin-top: 2rem;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         width: 100%;
     }
 `
@@ -90,7 +90,7 @@ const BaixoSection = styled.div`
     justify-content: center;
     gap: 30px;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1156px){
         flex-direction: column;
         align-items: center;
     }

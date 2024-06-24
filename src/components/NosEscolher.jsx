@@ -27,15 +27,15 @@ const Button = styled(Link)`
 const Box = styled.div`
     width: 100vw;
     background-color: var(--azul_principal);
-    height: auto;
     margin: auto;
-    padding-top: 0;
-    padding-bottom: 0;
     padding: 3% 10%;
+    padding-bottom: 5rem;
     position: relative;
     .row{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
         gap: 4rem;
     }
     .row img{
@@ -44,16 +44,19 @@ const Box = styled.div`
     .left{
         display: flex;
         flex-direction: row;
-        position: absolute;
-        left: 50%;
-        top: 30%;
     }
-    .button{
+    .button1{
         padding: 1.3rem 3rem;
         border-radius: 100px;
     }
+    .button2{
+        padding: 1.3rem 3rem;
+        border-radius: 100px;
+        display: none;
+    }
     .qualidades{
         width: 20vw;
+        /* height: auto; */
     }
     
     @media (max-width: 992px){
@@ -74,9 +77,15 @@ const Box = styled.div`
         .qualidades{
             width: 90vw;
         }
-        .button{
+        .button2{
             margin-top: 1rem;
             display: block;
+        }
+        .button1{
+            display: none;
+        }
+        img{
+            display: none;
         }
     }
 `
@@ -107,28 +116,32 @@ const NosEscolher = () => {
             <Heading_text >{t("nosEscolher.title")}</Heading_text>
 
             <div className="row">
-                {
-                    width > 992 ? <img src={escolher} /> : ''
-                }
+                {/* {
+                    width > 992 ?  : ''
+                } */}
+                <img src={escolher} />
 
                 <div className="left">
                     <div className="qualidades">
                         <Qualidades title={t("nosEscolher.valores.valor1.title")} text={t("nosEscolher.valores.valor1.text")} />
                         <Qualidades title={t("nosEscolher.valores.valor3.title")} text={t("nosEscolher.valores.valor3.text")} />
-                        {
-                            width > 992 ? <Button className='button'>{t("nosEscolher.btncomecar")}</Button> : ''
-                        }
+                        {/* {
+                            width > 992 ? : ''
+                        } */}
 
+                        <Button className='button1'>{t("nosEscolher.btncomecar")}</Button>
                     </div>
                     <div className="qualidades">
                         <Qualidades title={t("nosEscolher.valores.valor2.title")} text={t("nosEscolher.valores.valor2.text")} />
                         <Qualidades title={t("nosEscolher.valores.valor4.title")} text={t("nosEscolher.valores.valor4.text")} />
                     </div>
                 </div>
+
             </div>
-            {
+            {/* {
                 width > 992 ? '' : <Button className='button'>{t("nosEscolher.btncomecar")}</Button>
-            }
+            } */}
+            <Button className='button2'>{t("nosEscolher.btncomecar")}</Button>
         </Box >
     )
 }
