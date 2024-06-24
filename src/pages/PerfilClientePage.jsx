@@ -2,7 +2,7 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import {
@@ -24,12 +24,15 @@ import {
   DivEstrelas,
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
+import CadastroContext from '../context/CadastroContext';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext)
+
   return (
     <>
-      <Navbar tipoUsuario={"cliente"} />
+      <Navbar />
       <SectionWrapper>
         <ChatLateral>
           <ChatLateralH1>Chat</ChatLateralH1>
@@ -68,29 +71,22 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
-                    </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
+                      <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
+                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
-                    </WrapperItemInfo>
+
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
+                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
-                    </WrapperItemInfo>
+
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -136,7 +132,7 @@ const PerfilClientePage = () => {
                 <div className="Container-servico">
                   <p id="P_container">Tipo de Serviço</p>
                   <label htmlFor="reparo">
-                    <input 
+                    <input
                       type="checkbox"
                       id="reparo"
                       name="tipoServico"
@@ -155,7 +151,7 @@ const PerfilClientePage = () => {
                       id="manutencao"
                       name="tipoServico"
                       value="manutencao"
-                      
+
                     />
                     <div className="checkmark"></div>
                     Manutenção
@@ -175,7 +171,7 @@ const PerfilClientePage = () => {
                     <div class="checkmark"></div>
                     Instalação
                   </label>
-                  
+
                 </div>
                 <Button>Buscar</Button>
               </div>

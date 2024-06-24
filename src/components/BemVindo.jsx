@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import kemilly from '../assets/kemilly.png'
 import pedro from '../assets/pedroAlves.png'
 import styled from 'styled-components'
+import CadastroContext from '../context/CadastroContext'
 
 const BemVindo = ({ usuario }) => {
     const { innerWidth: width, innerHeight: height } = window
-
+    const { nomeUsuario, sobrenomeUsuario, tipoPerfil } = useContext(CadastroContext)
 
     const Container = styled.div`
     border-radius: 10px;
@@ -50,14 +51,14 @@ const BemVindo = ({ usuario }) => {
     return (
         <>
             <Container>
-                <img src={usuario === "profissional" ? pedro : kemilly} width={45} alt="" />
+                <img src={tipoPerfil === 2 ? pedro : kemilly} width={45} alt="" />
 
                 <Details>
                     {
                         width > 992 ? <p>Bem vindo de volta,</p>
                             : ''
                     }
-                    <Nome>{usuario === "profissional" ? "Pedro Alves" : "Kemilly Vitoria"} </Nome>
+                    <Nome>{nomeUsuario + " " + sobrenomeUsuario} </Nome>
                 </Details>
             </Container>
         </>

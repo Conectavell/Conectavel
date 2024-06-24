@@ -29,12 +29,23 @@ function App() {
   const [emailUsuario, setEmailUsuario] = useState('');
   const [senhaUsuario, setSenhaUsuario] = useState('')
   const [fill, setFill] = useState(true)
+  const [idUsuario, setIdUsuario] = useState('')
 
   if ((sessionStorage.getItem('idUsuario')) != null) {
     const ID = sessionStorage.getItem('idUsuario');
+    
     fetch(`http://localhost:8080/API/getUsuario/${ID}`).then(res => res.json()).then(data => {
       setNomeUsuario(data.nomeUsuario)
       setEmailUsuario(data.emailUsuario)
+      console.log(emailUsuario)
+      setSobrenomeUsuario(data.sobrenomeUsuario)
+      setEmailUsuario(data.emailUsuario)
+      setSenhaUsuario(data.senhaUsuario)
+      setExperienciaUsuario(data.experienciaUsuario)
+      setHabilidadesUsuario(data.habilidadesUsuario)
+      setSobreUsuario(data.sobreUsuario)
+      setIdUsuario(ID)
+      setTipoPerfil(data.tipoPerfil)
     })
   }
 
@@ -63,7 +74,7 @@ function App() {
       sobrenomeUsuario, setSobrenomeUsuario,
       emailUsuario, setEmailUsuario,
       senhaUsuario, setSenhaUsuario,
-      fill, setFill
+      fill, setFill, idUsuario
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>

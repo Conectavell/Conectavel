@@ -26,6 +26,7 @@
 .navbar__container__collapse__text{
     color: white;
     transition: .3s ease-in-out;
+    text-decoration: none;
 }
 .navbar__container__collapse__text:hover{
     color: var(--laranja);
