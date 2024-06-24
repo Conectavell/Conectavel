@@ -10,6 +10,8 @@ import Modal from '../components/ModalCadastro'
 const PreencherClientePage = () => {
     const [openModal, setOpenModal] = useState(false)
 
+
+
     const {
         sobreUsuario,
         experienciaUsuario,
@@ -37,6 +39,7 @@ const PreencherClientePage = () => {
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
+            "celularUsuario":`${celularUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
@@ -55,6 +58,7 @@ const PreencherClientePage = () => {
             .then(function (response) {
                 console.log(response)
                 setOpenModal(true)
+                alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })
             .catch(function (error) {
                 if (error.response) {
@@ -89,9 +93,10 @@ const PreencherClientePage = () => {
                     </Box>
                 </Box>
             </ConectavelLogo>
-            <Modal isOpen={openModal}/>
+            <Modal isOpen={openModal} />
         </>
     )
 }
+
 
 export default PreencherClientePage

@@ -30,7 +30,7 @@ export const InputSobrenome = () => {
                 type='text'
                 fullWidth required={true}
                 id="fullWidth"
-                // value={sobrenomeUsuario}
+                value={sobrenomeUsuario}
                 onChange={e => {
                     setSobrenomeUsuario(e.target.value)
                     console.log(sobrenomeUsuario)
