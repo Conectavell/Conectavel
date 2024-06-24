@@ -32,6 +32,8 @@ const PreencherClientePage = () => {
 
 
     function cadastrar() {
+
+
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": 1,
