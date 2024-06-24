@@ -1,7 +1,6 @@
 .navbar{
     width: 80%;
     margin: auto;
-    background-color: var(--azul_principal);
     margin-top: 1rem;
     border-radius:20px;
     display: flex;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const InputDiv = styled.div`
+
+export const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -18,11 +19,23 @@ const InputDiv = styled.div`
   }
 `;
 
-const Input = ({ name, label, placeholder, type = "text" }) => {
+export const InputS = styled.input`
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var(--azul_principal);
+
+  label {
+    color: var(--cinza);
+  }
+`
+
+const Input = ({ name, label, placeholder, type}) => {
   return (
     <InputDiv>
       <label htmlFor={name}>{label}</label>
-      <input required={true} type={type} name={name} placeholder={placeholder} />
+      <input type={type} name={name} placeholder={placeholder} />
     </InputDiv>
   );
 };

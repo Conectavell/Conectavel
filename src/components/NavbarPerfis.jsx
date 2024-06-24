@@ -12,7 +12,7 @@ import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 import { PiUsersThree } from 'react-icons/pi';
 import { FaBarsStaggered } from 'react-icons/fa6';
 
-const NavbarPerfis = ({ usuario = "profissional" }) => {
+const NavbarPerfis = (props, { usuario = props.tipoUsuario }) => {
     const { innerWidth: width, innerHeight: height } = window
 
 
