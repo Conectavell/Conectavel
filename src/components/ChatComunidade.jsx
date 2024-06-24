@@ -7,6 +7,7 @@ import CommunityItem from "../components/CommunityItem"
 function ChatComunidade() {
 
     const Div = styled.div`
+    width: 100%;
   align-self: center;
   display: flex;
   margin-top: 18px;
@@ -20,10 +21,10 @@ function ChatComunidade() {
 
 
 const ChatsP = styled.div`
-width: 35vw;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
-  border-color: rgba(235, 235, 238, 1);
+width: 33vw;
+border-radius: 10px;
+box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+border-color: rgba(235, 235, 238, 1);
   border-style: solid;
   border-width: 2px;
   background-color: #fff;
@@ -32,7 +33,11 @@ width: 35vw;
   flex-direction: column;
   font-size: 12px;
   font-weight: 400;
-  padding: 21px 16px 80px;
+  padding: 1rem;
+  @media (max-width: 1200px) {
+    width: 90vw;
+    flex-wrap: wrap;
+  }
 `;
 
 const Div3 = styled.div`
@@ -46,6 +51,9 @@ const Div3 = styled.div`
      
       <ChatsP>
         <Div3>Chat</Div3>
+        <CommunityItem texto="Negócio fechado."/>
+        <CommunityItem texto="Negócio fechado."/>
+        <CommunityItem texto="Negócio fechado."/>
         <CommunityItem texto="Negócio fechado."/>
         <CommunityItem texto="Consigo ir buscar no domingo"/>
         
