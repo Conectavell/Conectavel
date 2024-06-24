@@ -37,7 +37,7 @@ const EditarInfoConfiguracoes = () => {
         nomeUsuario, setNomeUsuario,
         emailUsuario, setEmailUsuario,
         sobrenomeUsuario, setSobrenomeUsuario,
-        idUsuario,
+        idUsuario, tipoPerfil
     } = useContext(CadastroContext)
     const [novoEmail, setNovoEmail] = useState("")
 
@@ -118,42 +118,50 @@ const EditarInfoConfiguracoes = () => {
                     }}
                     disabled={editarPerfil ? false : true}
                 />
-                <TextField
-                    label="Conte-nos sobre você"
-                    type='text'
-                    fullWidth required={true}
-                    id="fullWidth"
-                    value={sobreUsuario}
-                    onChange={e => {
-                        setSobreUsuario(e.target.value)
-                        // console.log(sobreUsuario)
-                    }}
-                    disabled={editarPerfil ? false : true}
-                />
-                <TextField
-                    label="Habilidades"
-                    type='text'
-                    fullWidth
-                    required={true}
-                    value={habilidadesUsuario}
-                    onChange={e => {
-                        setHabilidadesUsuario(e.target.value)
-                        // console.log(habilidadesUsuario)
-                    }}
-                    disabled={editarPerfil ? false : true}
-                    id="fullWidth" />
-                <TextField
-                    disabled={editarPerfil ? false : true}
-                    label="Experiência profissional"
-                    type='text'
-                    fullWidth
-                    required={true}
-                    value={experienciaUsuario}
-                    onChange={e => {
-                        setExperienciaUsuario(e.target.value)
-                        // console.log(experienciaUsuario)
-                    }}
-                    id="fullWidth" />
+
+                {
+                    tipoPerfil === 2 ? (
+                        <>
+
+                            <TextField
+                                label="Conte-nos sobre você"
+                                type='text'
+                                fullWidth required={true}
+                                id="fullWidth"
+                                value={sobreUsuario}
+                                onChange={e => {
+                                    setSobreUsuario(e.target.value)
+                                    // console.log(sobreUsuario)
+                                }}
+                                disabled={editarPerfil ? false : true}
+                            />
+                            <TextField
+                                label="Habilidades"
+                                type='text'
+                                fullWidth
+                                required={true}
+                                value={habilidadesUsuario}
+                                onChange={e => {
+                                    setHabilidadesUsuario(e.target.value)
+                                    // console.log(habilidadesUsuario)
+                                }}
+                                disabled={editarPerfil ? false : true}
+                                id="fullWidth" />
+                            <TextField
+                                disabled={editarPerfil ? false : true}
+                                label="Experiência profissional"
+                                type='text'
+                                fullWidth
+                                required={true}
+                                value={experienciaUsuario}
+                                onChange={e => {
+                                    setExperienciaUsuario(e.target.value)
+                                    // console.log(experienciaUsuario)
+                                }}
+                                id="fullWidth" />
+                        </>
+                    ): ''
+            }
                 <ContainerButtons>
                     <Button onClick={() => setEditarPerfil(!editarPerfil)} variant='contained'>{editarPerfil ? "Cancelar" : "Editar perfil"}</Button>
                     <Button disabled={editarPerfil ? false : true} variant="contained" onClick={() => atualizarInformacoes()}>Enviar</Button>
