@@ -41,7 +41,7 @@ const Routes = () => {
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
 
-                    <Route path='/Conectavel/ChatProfissional' exact element={<ChatProfissional/>} />
+                    <Route path='/Conectavel/chatprofissional' exact element={<ChatProfissional/>} />
 
                     {/* Rotas Administração */}
                     <Route path='/Conectavel/PageAdmin' exact element={<PageAdmin/>} />
