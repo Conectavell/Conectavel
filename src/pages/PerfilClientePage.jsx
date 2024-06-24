@@ -2,6 +2,8 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
+import React, { useState } from "react";
+import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import {
   FotoEInfos,
@@ -22,9 +24,6 @@ import {
   DivEstrelas,
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
-
-import { Button } from "../components/Button";
-import { useState } from 'react';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
@@ -147,6 +146,10 @@ const PerfilClientePage = () => {
                     Reparo
                   </label>
                   <label htmlFor="manutencao">
+                    <div class="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label for="manutencao">
                     <input
                       type="checkbox"
                       id="manutencao"
@@ -158,6 +161,10 @@ const PerfilClientePage = () => {
                     Manutenção
                   </label>
                   <label htmlFor="Instalação">
+                    <div class="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label for="Instalação">
                     <input
                       type="checkbox"
                       id="Instalação"
@@ -165,6 +172,7 @@ const PerfilClientePage = () => {
                       value="Instalação"
                     />
                     <div className="checkmark"></div>
+                    <div class="checkmark"></div>
                     Instalação
                   </label>
                   
