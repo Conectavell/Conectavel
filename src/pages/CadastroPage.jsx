@@ -1,3 +1,5 @@
+import ConectavelLogo from "../components/ConectavelLogo";
+import InputsComumCadastro from "../components/InputsComumCadastro";
 import styled from "styled-components";
 import FormCadastro from "../components/FormCadastro";
 import { useContext, useState } from "react";

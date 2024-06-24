@@ -2,6 +2,12 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
+import React, { useState } from "react";
+import { ChatMiniNome } from "../components/ChatMini";
+import Navbar from "../components/NavbarPerfis";
+import ChatMini from "../components/ChatMini";
+import Kemilly from "../assets/kemilly.png";
+import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import {
   FotoEInfos,
@@ -25,6 +31,8 @@ import {
 
 import { Button } from "../components/Button";
 import { useState } from 'react';
+import { Height } from "@mui/icons-material";
+import MedalStar from "../assets/MedalStar.svg";
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
@@ -137,6 +145,7 @@ const PerfilClientePage = () => {
                 <div className="Container-servico">
                   <p id="P_container">Tipo de Serviço</p>
                   <label htmlFor="reparo">
+                  <label for="reparo">
                     <input 
                       type="checkbox"
                       id="reparo"
@@ -147,6 +156,10 @@ const PerfilClientePage = () => {
                     Reparo
                   </label>
                   <label htmlFor="manutencao">
+                    <div class="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label for="manutencao">
                     <input
                       type="checkbox"
                       id="manutencao"
@@ -158,6 +171,10 @@ const PerfilClientePage = () => {
                     Manutenção
                   </label>
                   <label htmlFor="Instalação">
+                    <div class="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label for="Instalação">
                     <input
                       type="checkbox"
                       id="Instalação"
@@ -165,6 +182,7 @@ const PerfilClientePage = () => {
                       value="Instalação"
                     />
                     <div className="checkmark"></div>
+                    <div class="checkmark"></div>
                     Instalação
                   </label>
                   
