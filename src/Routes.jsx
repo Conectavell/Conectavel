@@ -2,8 +2,6 @@ import { BrowserRouter, Route, Routes as Rotas } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CadastroPage from './pages/CadastroPage'
 import LoginPage from './pages/LoginPage'
-// import CompletarInfoClientePage from './pages/CompletarInfoClientePage'
-import CompletarInfoPrestadorPage from './pages/CompletarInfoPrestadorPage'
 import PerfilPrestadorPage from './pages/PerfilPrestadorPage'
 import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
@@ -12,6 +10,8 @@ import ClienteOrcamento from './pages/ClienteOrcamento'
 
 
 import PerfilClientePage from './pages/PerfilClientePage'
+import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
+import PreencherClientePage from './pages/PreencherClientePage'
 import ConfiguracoesPage from './pages/ConfiguracoesPage'
 import SegurancaPage from './pages/SegurancaPage'
 
@@ -24,8 +24,11 @@ const Routes = () => {
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
                     <Route path='/Conectavel/login' element={<LoginPage />} />
-                    {/* <Route path='/Conectavel/preenchercliente' element={<CompletarInfoClientePage />} /> */}
-                    <Route path='/Conectavel/preencherprestador' element={<CompletarInfoPrestadorPage />} />
+
+                    <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
+                    <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
+                    <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
+
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 

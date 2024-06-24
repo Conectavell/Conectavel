@@ -1,3 +1,5 @@
+import ConectavelLogo from "../components/ConectavelLogo";
+import InputsComumCadastro from "../components/InputsComumCadastro";
 import styled from "styled-components";
 import FormCadastro from "../components/FormCadastro";
 import { useContext, useState } from "react";
@@ -139,37 +141,12 @@ const FormDiv = styled.div`
 
 
 const CadastroPage = () => {
-  const { completarInfo, setCompletarInfo, infoPessoal } = useContext(CadastroContext)
-  const [infoTrabalho, setInfoTrabalho] = useState(false);
-
 
   return (
     <>
-      <ContainerDiv>
-        <LogoDiv>
-          <div>
-            <img src={logo_conectavel} alt="Logo e Slogan" />
-          </div>
-        </LogoDiv>
-        <FormDiv>
-          {/* {
-            completarInfo ? <FormCompletarInfoPrestador /> : <FormCadastro />
-            } */}
-          {
-            infoPessoal ?
-
-              <FormCadastroProfissional form="pessoal"/>
-              :
-              <FormCadastroProfissional form="experiencias"/>
-          }
-
-
-          {/* <Steper /> */}
-        </FormDiv>
-
-      </ContainerDiv>
-
-
+      <ConectavelLogo>
+          <InputsComumCadastro />
+      </ConectavelLogo>
     </>
 
   );
