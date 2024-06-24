@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import  { useContext } from 'react';
+import { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../styles/NavbarPerfis.css"
@@ -23,10 +23,10 @@ const NavbarPerfis = () => {
     return (
         <Navbar expand="lg" className="navbar-perfil background">
             <Container className='navbar__container'>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand>
                     <Link to="/Conectavel">
-                    <img width={70} src={logo} alt="" />
-                    <img width={129} src={logotipo} alt="" />
+                        <img width={70} src={logo} alt="" />
+                        <img width={129} src={logotipo} alt="" />
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -34,12 +34,12 @@ const NavbarPerfis = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className='navbar__container__collapse' id="basic-navbar-nav">
                     <Nav className="me-auto navbar__container__collapse__content">
-                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line  size={25} /></Link></Nav.Link>
+                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
                         {
                             width > 992 ?
                                 ''
                                 :
-                                <Nav.Link> <Link className='navbar__container__collapse__text'><BemVindo  /></Link></Nav.Link>
+                                <Nav.Link> <Link className='navbar__container__collapse__text'><BemVindo /></Link></Nav.Link>
                         }
                         {tipoPerfil === 2 ?
                             <>
@@ -47,7 +47,7 @@ const NavbarPerfis = () => {
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/comunidade"><PiUsersThree size={25} /> Comunidade</Link></Nav.Link>
                             </> : ""}
 
-                        <Nav.Link><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes"><AiOutlineSetting size={25}  /> Configurações</Link></Nav.Link>
+                        <Nav.Link><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes"><AiOutlineSetting size={25} /> Configurações</Link></Nav.Link>
                         <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/descarte"><BiRecycle size={25} /> Descarte</Link></Nav.Link>
 
 
@@ -55,7 +55,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo  />
+                        <BemVindo />
                         : ''
                 }
             </Container>

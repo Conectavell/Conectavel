@@ -1,15 +1,21 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
-import { BsMoonStarsFill } from "react-icons/bs";
+import { BsMoonStarsFill, BsPersonVcardFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { BotaoEditar,WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
+import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
 import CadastroContext from '../context/CadastroContext';
+import { IoBagRemoveSharp } from 'react-icons/io5';
 
 const PerfilPrestadorPage = () => {
   const context = useContext(CadastroContext)
+  const {
+    nomeUsuario, sobrenomeUsuario,
+    emailUsuario, celularUsuario,
+    sobreUsuario, experienciaUsuario
+  } = useContext(CadastroContext)
 
   return (
     <>
@@ -35,40 +41,29 @@ const PerfilPrestadorPage = () => {
                 <ItemInfo>
                   <WrapperItemInfo>
                     <ChatMiniNome>Seu Nome</ChatMiniNome>
-                    <ChatMiniNome descricao>{context.nomeUsuario}</ChatMiniNome>
+                    <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
                   </WrapperItemInfo>
-                  <WrapperItemInfo>
-                    <BotaoEditar>
-                      Editar
-                    </BotaoEditar>
-                  </WrapperItemInfo>
+
                 </ItemInfo>
                 <ItemInfo>
                   <WrapperItemInfo>
                     <ChatMiniNome>E-mail</ChatMiniNome>
-                    <ChatMiniNome descricao>{context.emailUsuario}</ChatMiniNome>
+                    <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                   </WrapperItemInfo>
-                  <WrapperItemInfo>
-                    <BotaoEditar>
-                      Editar
-                    </BotaoEditar>
-                  </WrapperItemInfo>
+
                 </ItemInfo>
                 <ItemInfo>
                   <WrapperItemInfo>
                     <ChatMiniNome>Celular</ChatMiniNome>
-                    <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
-                  </WrapperItemInfo>
-                  <WrapperItemInfo>
-                    <BotaoEditar>
-                      Editar
-                    </BotaoEditar>
+                    <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
                   </WrapperItemInfo>
                 </ItemInfo>
               </ItensInfo>
               <ItensInfo Sobre>
-                <Textos>Sobre Kemilly Teixeira</Textos>
-                <ChatMiniNome descricao>Lorem ipsum dolor sit amet consectetur. Erat auctor a aliquam vel congue luctus. Leo diam cras neque mauris ac arcu elit ipsum dolor sit amet consectetur.</ChatMiniNome>
+                <Textos>Sobre</Textos>
+                <ChatMiniNome descricao>
+                  {sobreUsuario}
+                </ChatMiniNome>
               </ItensInfo>
               <Habilidades>
                 <ChatMiniNome>Habilidades em</ChatMiniNome>
@@ -82,10 +77,12 @@ const PerfilPrestadorPage = () => {
                 </HabilidadesBox>
               </Habilidades>
             </InfoPrincipais>
+
+            
             <InfoPrincipais infoSecundaria>
               <DatalhesProfissionais>
                 <p>Detalhes profissionais</p>
-                <BsMoonStarsFill size={54} />
+                <BsPersonVcardFill color="gray" size={40} />
               </DatalhesProfissionais>
               <ExperienciaWrapper>
                 <TextoExperiencia>
@@ -94,13 +91,15 @@ const PerfilPrestadorPage = () => {
                 <BoxExperiencia>
                   <BoxExperienciaInter>
                     <TextoExperiencia>
-                      7 Anos
+                      {experienciaUsuario}
                     </TextoExperiencia>
                     <TextoExperiencia Desc>
                       de total experiência
                     </TextoExperiencia>
                   </BoxExperienciaInter>
-                  <BoxDireita $primary />
+                  <BoxDireita $primary >
+                    <IoBagRemoveSharp size={'1.5em'} color="white" />
+                  </BoxDireita>
                 </BoxExperiencia>
               </ExperienciaWrapper>
               <ExperienciaWrapper>
@@ -116,7 +115,9 @@ const PerfilPrestadorPage = () => {
                       De 34 clientes
                     </TextoExperiencia>
                   </BoxExperienciaInter>
-                  <BoxDireita />
+                  <BoxDireita >
+                    <FaStar size={'1.5em'} color="white" />
+                  </BoxDireita>
                 </BoxExperiencia>
               </ExperienciaWrapper>
               <AvaliacoesWrapper>

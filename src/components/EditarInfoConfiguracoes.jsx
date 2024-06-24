@@ -1,9 +1,6 @@
-import { Button, FormControl, FormGroup, TextField } from '@mui/material'
+import { Button, FormGroup, TextField } from '@mui/material'
 import styled from 'styled-components'
-import { InputPrimeiroNome, InputSobrenome } from './InputsNome'
-import { InputHabilidades } from './InputsInformacoesProfissonal'
-import InputEmail from './InputEmail'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import axios from 'axios'
 
@@ -160,8 +157,8 @@ const EditarInfoConfiguracoes = () => {
                                 }}
                                 id="fullWidth" />
                         </>
-                    ): ''
-            }
+                    ) : ''
+                }
                 <ContainerButtons>
                     <Button onClick={() => setEditarPerfil(!editarPerfil)} variant='contained'>{editarPerfil ? "Cancelar" : "Editar perfil"}</Button>
                     <Button disabled={editarPerfil ? false : true} variant="contained" onClick={() => atualizarInformacoes()}>Enviar</Button>
