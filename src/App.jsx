@@ -45,6 +45,7 @@ function App() {
       setHabilidadesUsuario(data.habilidadesUsuario)
       setSobreUsuario(data.sobreUsuario)
       setIdUsuario(ID)
+      setTipoPerfil(data.tipoPerfil)
     })
   }
 
