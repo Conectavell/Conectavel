@@ -4,6 +4,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
 import CadastroContext from '../context/CadastroContext'
 import axios from 'axios'
+import ModalPersonalizado from './ModalPersonalizado'
 
 const Container = styled.div`
     width: 70vw;
@@ -30,6 +31,8 @@ const AlterarSenhaConfiguracoes = () => {
     const [novaSenha, setNovaSenha] = useState('')
     const [confirmarNovaSenha, setConfirmarNovaSenha] = useState('')
     const [showPassword, setShowPassword] = useState(false);
+    const [openModal, setOpenModal] = useState(false)
+
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
@@ -52,7 +55,7 @@ const AlterarSenhaConfiguracoes = () => {
                     setConfirmarNovaSenha('')
                 })
                 .then(() => window.location.reload())
-                .then(alert('Senha alterada com sucesso!'))
+                .then(setOpenModal(true))
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 401) {
@@ -168,6 +171,8 @@ const AlterarSenhaConfiguracoes = () => {
                         } variant='contained' onClick={() => atualizarSenha()}>Enviar alteração</Button>
                     </ContainerButtons>
                 </Box>
+                <ModalPersonalizado isOpen={openModal} text="Senha alterada com sucesso!" />
+
             </Container>
         </>
     )

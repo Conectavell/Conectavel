@@ -6,6 +6,7 @@ import { Accordion, Card, useAccordionButton } from "react-bootstrap";
 import styled from "styled-components";
 import CadastroContext from "../context/CadastroContext";
 import { useNavigate } from "react-router-dom";
+import ModalPersonalizado from "./ModalPersonalizado";
 
 const DetailText = styled.div`
     display: flex;
@@ -31,6 +32,8 @@ const ContainerButtons = styled.div`
 
 const AccordionApagarConta = () => {
     const { idUsuario, senhaUsuario } = useContext(CadastroContext)
+    const [openModal, setOpenModal] = useState(false)
+
     const navigate = useNavigate()
 
     function CustomToggle({ children, eventKey }) {
@@ -60,8 +63,8 @@ const AccordionApagarConta = () => {
                 "idUsuario": `${idUsuario}`
             })
                 // .then(res => console.log(res))
-                .then(alert('Sua conta foi deletada com sucesso!'))
-                .then(() => navigate("/Conectavel"))
+                // .then(alert('Sua conta foi deletada com sucesso!'))
+                .then(setOpenModal(true))
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 401) {
@@ -123,7 +126,7 @@ const AccordionApagarConta = () => {
                     </Accordion.Collapse>
                 </Card>
             </Accordion>
-
+            <ModalPersonalizado isOpen={openModal} rota="/" button textButton="Fechar" text="Conta deletada com sucesso!" />
 
         </>
     )
