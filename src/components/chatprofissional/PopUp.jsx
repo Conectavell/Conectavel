@@ -4,21 +4,18 @@ import styled from 'styled-components'
 export const PopDadContainer = styled.div`
 border: 2px solid #d8d5d5;
 border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.1);
-max-width: 300px;
-width: 100%;
-max-height: 90%;
-height: 360px;
+box-shadow: 0 0px 8px rgba(0, 0, 0, 0.241);
+/* max-width: 300px; */
+width: 22%;
+/* max-height: 90%; */
+height: 30%;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-position: relative;
-left: 40px;
 margin: 20px auto;
-top: 70px;
 
-h1 {
+h2 {
     margin-top: 20px;
     padding: 0;
     font-family: "Poppins", sans-serif;
@@ -27,11 +24,8 @@ h1 {
     color: #222222;
 }
 
-@media (max-width: 600px) {
-    width: 90%;
-    h1 {
-        font-size: 16px;
-    }
+@media (max-width: 1200px) {
+    width: 90vw;
 }
 `;
 
@@ -39,22 +33,21 @@ export const PopSonContainer = styled.div`
 border: 2px solid #d8d5d5;
 border-radius: 10px;
 width: 90%;
-max-width: 280px;
+/* max-width: 280px; */
 height: auto;
 display: flex;
 flex-direction: column;
 align-items: start;
 margin: 16px;
+padding: .5rem;
 
 p {
     padding: 0;
-    margin: 10px;
     font-family: "Poppins", sans-serif;
     font-size: 13px;
 }
 h2, h3, h4 {
     padding: 0;
-    margin: 10px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 }
@@ -62,14 +55,14 @@ h4 {
     font-weight: 600;
 }
 button {
-    width: 90%;
+    width: 100%;
+    margin: .5rem 0;
     padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: #175EC6;
     color: #fff;
     position: relative;
-    left: 14px;
     font-family: "Poppins", sans-serif;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -90,11 +83,12 @@ color: #49454fea;
 }
 .alterblue{
 color: #0068D5;
+font-size: .8em;
+font-weight: 400;
 }
 
 @media (max-width: 600px) {
     h2, h3, h4 {
-        margin: 5px;
         font-size: 14px;
     }
     button {
@@ -105,29 +99,29 @@ color: #0068D5;
 `;
 
 const PopUp = () => {
-return (
-<PopDadContainer>
-<h1>Chamados</h1>
-<PopSonContainer>
-<h4>
-<span className='alterblue'>Sarah Doe</span>
-</h4>
-<p>
-Serviço: <span className='higlight'>Manutenção</span>
-</p>
-<p>
-Prazo: <span className='higlight'>6-14 dias uteis</span>
-</p>
-<h3>
-Valor: <span className='alterblue'>R$93,00</span>
-</h3>
-<button type="submit">Avaliar</button>
-<h2>
-Status: <span className='alterblue'>Aceito</span>
-</h2>
-</PopSonContainer>
-</PopDadContainer>
-)
+    return (
+        <PopDadContainer>
+            <h2>Chamados</h2>
+            <PopSonContainer>
+                <h4>
+                    <span className='alterblue'>Sarah Doe</span>
+                </h4>
+                <p>
+                    Serviço: <span className='higlight'>Manutenção</span>
+                </p>
+                <p>
+                    Prazo: <span className='higlight'>6-14 dias uteis</span>
+                </p>
+                <h5>
+                    Valor: <span className='alterblue'>R$93,00</span>
+                </h5>
+                <button type="submit">Avaliar</button>
+                <h5>
+                    Status: <span className='alterblue'>Aceito</span>
+                </h5>
+            </PopSonContainer>
+        </PopDadContainer>
+    )
 }
 
 export default PopUp;
