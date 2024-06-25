@@ -15,7 +15,6 @@ import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
 import PreencherClientePage from './pages/PreencherClientePage'
 
 {/* Import Administração */}
-import PageAdmin from './pages/PageAdmin'
 import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
 
 const Routes = () => {
@@ -44,8 +43,7 @@ const Routes = () => {
                     <Route path='/Conectavel/ChatProfissional' exact element={<ChatProfissional/>} />
 
                     {/* Rotas Administração */}
-                    <Route path='/Conectavel/PageAdmin' exact element={<PageAdmin/>} />
-                    <Route path='/Conectavel/PageAdmin/usuarios' exact element={<PaginaTbUsuarios/>} />
+                    <Route path='/Conectavel/tbusuarios' exact element={<PaginaTbUsuarios/>} />
                 </Rotas>
 
 
