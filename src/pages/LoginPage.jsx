@@ -149,8 +149,10 @@ const LoginPage = () => {
       sessionStorage.setItem('idUsuario', idUsuario)
       if (idTipoPerfil == 1) {
         navigate("/Conectavel/perfilcliente")
+        window.location.reload()
       } else if (idTipoPerfil == 2) {
         navigate("/Conectavel/perfilprestador")
+        window.location.reload()
       } else if (idTipoPerfil == 3) {
         alert("Em desenvolvimento")
       }
@@ -172,7 +174,6 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //alert(`${emailUsuario} e ${senhaUsuario}`)
     realizarLogin(emailUsuario, senhaUsuario)
   }
 

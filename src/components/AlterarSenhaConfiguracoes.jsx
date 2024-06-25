@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
+import CadastroContext from '../context/CadastroContext'
+import axios from 'axios'
+import ModalPersonalizado from './ModalPersonalizado'
 
 const Container = styled.div`
     width: 70vw;
@@ -23,30 +26,68 @@ const ContainerButtons = styled.div`
     `
 
 const AlterarSenhaConfiguracoes = () => {
+    const { senhaUsuario, setSenhaUsuario, idUsuario } = useContext(CadastroContext)
+    const [senhaAntiga, setSenhaAntiga] = useState('')
+    const [novaSenha, setNovaSenha] = useState('')
+    const [confirmarNovaSenha, setConfirmarNovaSenha] = useState('')
     const [showPassword, setShowPassword] = useState(false);
+    const [openModal, setOpenModal] = useState(false)
+
+
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    // const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     }
 
+    function atualizarSenha() {
+
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarSenha`, null, {
+                params: {
+                    "novaSenha": `${novaSenha}`
+                }
+            })
+                .then(res => console.log(res))
+                .then(setSenhaUsuario(novaSenha))
+                .then(() => {
+                    setSenhaAntiga('')
+                    setNovaSenha('')
+                    setConfirmarNovaSenha('')
+                })
+                .then(() => window.location.reload())
+                .then(setOpenModal(true))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+        }
+
+    }
     return (
         <>
 
             <Container>
                 <h2>Segurança</h2>
 
-                <Box sx={{display: "flex", flexDirection:"column", gap: "1rem"}}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                     <FormControl fullWidth variant="outlined">
                         <InputLabel
                             required={true}
                             htmlFor="outlined-adornment-password">Senha antiga</InputLabel>
                         <OutlinedInput
-                            // value={senhaUsuario}
-                            // onChange={e => {
-                            //     setSenhaUsuario(e.target.value)
-                            //     // console.log(senhaUsuario)
-                            // }}
+                            value={senhaAntiga}
+                            onChange={e => {
+                                setSenhaAntiga(e.target.value)
+                                // console.log(senhaUsuario)
+                            }}
                             id="outlined-adornment-password"
                             type={showPassword ? 'text' : 'password'}
                             endAdornment={
@@ -61,7 +102,7 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Senha antiga"
                         />
                     </FormControl>
 
@@ -71,11 +112,11 @@ const AlterarSenhaConfiguracoes = () => {
                             required={true}
                             htmlFor="outlined-adornment-password">Nova senha</InputLabel>
                         <OutlinedInput
-                            // value={senhaUsuario}
-                            // onChange={e => {
-                            //     setSenhaUsuario(e.target.value)
-                            //     // console.log(senhaUsuario)
-                            // }}
+                            value={novaSenha}
+                            onChange={e => {
+                                setNovaSenha(e.target.value)
+                                // console.log(senhaUsuario)
+                            }}
                             id="outlined-adornment-password"
                             type={showPassword ? 'text' : 'password'}
                             endAdornment={
@@ -90,21 +131,20 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Nova senha"
                         />
                     </FormControl>
-
 
                     <FormControl fullWidth variant="outlined">
                         <InputLabel
                             required={true}
                             htmlFor="outlined-adornment-password">Confirme a senha</InputLabel>
                         <OutlinedInput
-                            // value={senhaUsuario}
-                            // onChange={e => {
-                            //     setSenhaUsuario(e.target.value)
-                            //     // console.log(senhaUsuario)
-                            // }}
+                            value={confirmarNovaSenha}
+                            onChange={e => {
+                                setConfirmarNovaSenha(e.target.value)
+                                // console.log(senhaUsuario)
+                            }}
                             id="outlined-adornment-password"
                             type={showPassword ? 'text' : 'password'}
                             endAdornment={
@@ -119,15 +159,20 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Confirme a senha"
                         />
                     </FormControl>
 
                     <ContainerButtons>
-                    {/* <Button variant='contained'>Alterar senha</Button> */}
-                    <Button disabled variant='contained'>Enviar alteração</Button>
-                </ContainerButtons>
+                        {/* <Button variant='contained'>Alterar senha</Button> */}
+                        <Button disabled={
+                            senhaUsuario === senhaAntiga && novaSenha === confirmarNovaSenha && (novaSenha && confirmarNovaSenha) !== ''
+                                ? false : true
+                        } variant='contained' onClick={() => atualizarSenha()}>Enviar alteração</Button>
+                    </ContainerButtons>
                 </Box>
+                <ModalPersonalizado isOpen={openModal} text="Senha alterada com sucesso!" />
+
             </Container>
         </>
     )
