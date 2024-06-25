@@ -52,6 +52,7 @@ const AlterarSenhaConfiguracoes = () => {
                     setConfirmarNovaSenha('')
                 })
                 .then(() => window.location.reload())
+                .then(alert('Senha alterada com sucesso!'))
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 401) {
@@ -98,7 +99,7 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Senha antiga"
                         />
                     </FormControl>
 
@@ -127,7 +128,7 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Nova senha"
                         />
                     </FormControl>
 
@@ -155,7 +156,7 @@ const AlterarSenhaConfiguracoes = () => {
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            label="Senha"
+                            label="Confirme a senha"
                         />
                     </FormControl>
 

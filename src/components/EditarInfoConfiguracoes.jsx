@@ -34,7 +34,8 @@ const EditarInfoConfiguracoes = () => {
         nomeUsuario, setNomeUsuario,
         emailUsuario, setEmailUsuario,
         sobrenomeUsuario, setSobrenomeUsuario,
-        idUsuario, tipoPerfil
+        idUsuario, tipoPerfil,
+        setSenhaUsuario, setTipoPerfil
     } = useContext(CadastroContext)
     const [novoEmail, setNovoEmail] = useState("")
     const [novoNome, setNovoNome] = useState("")
@@ -52,6 +53,18 @@ const EditarInfoConfiguracoes = () => {
         novaHabilidade.length ? atualizarHabilidades() : ''
         novoSobre.length ? atualizarSobre() : ''
 
+        fetch(`http://localhost:8080/API/getUsuario/${idUsuario}`).then(res => res.json()).then(data => {
+            setNomeUsuario(data.nomeUsuario)
+            setEmailUsuario(data.emailUsuario)
+            setSobrenomeUsuario(data.sobrenomeUsuario)
+            setEmailUsuario(data.emailUsuario)
+            setSenhaUsuario(data.senhaUsuario)
+            setExperienciaUsuario(data.experienciaUsuario)
+            setHabilidadesUsuario(data.habilidadeUsuario)
+            setSobreUsuario(data.sobreUsuario)
+            setTipoPerfil(data.tipoPerfil)
+          })
+
         setEditarPerfil(!editarPerfil)
     }
 
@@ -64,7 +77,7 @@ const EditarInfoConfiguracoes = () => {
                     "novoEmail": `${novoEmail}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setEmailUsuario(novoEmail))
         } catch (error) {
             if (error.response) {
@@ -89,7 +102,7 @@ const EditarInfoConfiguracoes = () => {
                     "novoNome": `${novoNome}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setNomeUsuario(novoNome))
         } catch (error) {
             if (error.response) {
@@ -115,7 +128,7 @@ const EditarInfoConfiguracoes = () => {
                     "novoSobrenome": `${novoSobrenome}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setSobrenomeUsuario(novoSobrenome))
         } catch (error) {
             if (error.response) {
@@ -141,7 +154,7 @@ const EditarInfoConfiguracoes = () => {
                     "novoSobre": `${novoSobre}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setSobreUsuario(novoSobre))
         } catch (error) {
             if (error.response) {
@@ -167,7 +180,7 @@ const EditarInfoConfiguracoes = () => {
                     "novaExperiencia": `${novaExperiencia}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setExperienciaUsuario(novaExperiencia))
         } catch (error) {
             if (error.response) {
@@ -193,7 +206,7 @@ const EditarInfoConfiguracoes = () => {
                     "novaHabilidade": `${novaHabilidade}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setHabilidadesUsuario(novaHabilidade))
         } catch (error) {
             if (error.response) {
@@ -296,8 +309,6 @@ const EditarInfoConfiguracoes = () => {
                                 required={true}
                                 value={editarPerfil && focused ? novaHabilidade : habilidadesUsuario}
                                 placeholder={focused ? habilidadesUsuario : novaHabilidade}
-                                // value={editarPerfil && focused ? novaHabilidade : habilidadesUsuario}
-                                // placeholder={focused ? habilidadesUsuario : novaHabilidade}
                                 onChange={e => {
                                     setNovaHabilidade(e.target.value)
                                     // console.log(habilidadesUsuario)

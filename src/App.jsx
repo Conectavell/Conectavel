@@ -37,13 +37,11 @@ function App() {
     fetch(`http://localhost:8080/API/getUsuario/${ID}`).then(res => res.json()).then(data => {
       setNomeUsuario(data.nomeUsuario)
       setEmailUsuario(data.emailUsuario)
-      // console.log(emailUsuario)
       setSobrenomeUsuario(data.sobrenomeUsuario)
       setEmailUsuario(data.emailUsuario)
       setSenhaUsuario(data.senhaUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
       setHabilidadesUsuario(data.habilidadeUsuario)
-      // console.log(habilidadesUsuario)
       setSobreUsuario(data.sobreUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)

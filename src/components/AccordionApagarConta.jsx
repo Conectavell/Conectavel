@@ -1,8 +1,11 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material"
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useState } from "react";
 import { Accordion, Card, useAccordionButton } from "react-bootstrap";
 import styled from "styled-components";
+import CadastroContext from "../context/CadastroContext";
+import { useNavigate } from "react-router-dom";
 
 const DetailText = styled.div`
     display: flex;
@@ -27,12 +30,14 @@ const ContainerButtons = styled.div`
 
 
 const AccordionApagarConta = () => {
+    const { idUsuario, senhaUsuario } = useContext(CadastroContext)
+    const navigate = useNavigate()
 
     function CustomToggle({ children, eventKey }) {
         const decoratedOnClick = useAccordionButton(eventKey)
         return (
             <Button
-            className="mt-3 mt-md-0"
+                className="mt-3 mt-md-0"
                 color="error"
                 variant="contained"
                 onClick={decoratedOnClick}>
@@ -43,12 +48,34 @@ const AccordionApagarConta = () => {
 
 
     const [showPassword, setShowPassword] = useState(false);
+    const [confirmarSenha, setConfirmarSenha] = useState('')
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    // const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     }
 
+    function deletarConta() {
+        try {
+            axios.delete(`http://localhost:8080/API/usuarios/${idUsuario}`, {
+                "idUsuario": `${idUsuario}`
+            })
+                // .then(res => console.log(res))
+                .then(alert('Sua conta foi deletada com sucesso!'))
+                .then(() => navigate("/Conectavel"))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+        }
+    }
     return (
         <>
 
@@ -69,11 +96,11 @@ const AccordionApagarConta = () => {
                                     required={true}
                                     htmlFor="outlined-adornment-password">Digite sua senha para confirmar</InputLabel>
                                 <OutlinedInput
-                                    // value={senhaUsuario}
-                                    // onChange={e => {
-                                    //     setSenhaUsuario(e.target.value)
-                                    //     // console.log(senhaUsuario)
-                                    // }}
+                                    value={confirmarSenha}
+                                    onChange={e => {
+                                        setConfirmarSenha(e.target.value)
+                                        console.log(confirmarSenha)
+                                    }}
                                     id="outlined-adornment-password"
                                     type={showPassword ? 'text' : 'password'}
                                     endAdornment={
@@ -84,8 +111,6 @@ const AccordionApagarConta = () => {
                                                 onMouseDown={handleMouseDownPassword}
                                                 edge="end">
                                                 {showPassword ? <VisibilityOff /> : <Visibility />}
-
-
                                             </IconButton>
                                         </InputAdornment>
                                     }
@@ -93,7 +118,7 @@ const AccordionApagarConta = () => {
                                 />
                             </FormControl>
 
-                            <Button disabled sx={{ margin: "1rem 0" }} fullWidth color="error" variant="contained">Deletar minha conta permanentemente</Button>
+                            <Button disabled={confirmarSenha !== senhaUsuario ? true : false} sx={{ margin: "1rem 0" }} onClick={() => deletarConta()} fullWidth color="error" variant="contained">Deletar minha conta permanentemente</Button>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
