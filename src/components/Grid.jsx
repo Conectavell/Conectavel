@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaCog } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 import Modal from './Modal';
 import axios from 'axios';
-
 
 const Container = styled.div`
     width: 100%;
@@ -48,23 +46,24 @@ export const Td = styled.td`
         ${(props) => props.onlyweb && "display: none"}
     }
 `;
+
 const Grid = () => {
-    const [usuario, setUsuario] = useState([
-        {
-            id: 1,
-            nome: "Gabriel",
-            sobrenome: "Silva",
-            email: "Gabriel@gmail.com",
-            senha: "14092003.k",
-            datanascimento: "14/09/2003",
-            cpf: "123.456.789-00",
-            perfil: "Usuário",
-        }
-    ]);
-
+    const [usuario, setUsuario] = useState([]);
     const [onedit, setOnEdit] = useState(null);
-
     const [openModal, setOpenModal] = useState(false);
+
+    useEffect(() => {
+        const fetchUsuarios = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/API/Login");
+                setUsuario(response.data);
+            } catch (error) {
+                console.error("Erro ao buscar usuários", error);
+            }
+        };
+
+        fetchUsuarios();
+    }, []);
 
     return (
         <Container>
@@ -98,7 +97,7 @@ const Grid = () => {
                     ))}
                 </Tbody>
             </Table>
-            <Modal isOpen={openModal} isClose = {() => setOpenModal(!openModal)}>
+            <Modal isOpen={openModal} isClose={() => setOpenModal(!openModal)}>
                 {/* children */}
                 {/*<p>oi eu sou o children</p>*/}
             </Modal>

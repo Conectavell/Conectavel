@@ -55,6 +55,8 @@ export const Button = styled.button`
     background-color: #2c73d2;
     color: white;
     height: 42px;
+    position: relative;
+    top: 27px;
 `;
 
 export const Label = styled.label`
@@ -66,7 +68,6 @@ const Formulario = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Adicione aqui a lógica para buscar os usuários com base nos filtros
         console.log("Buscando usuários...");
     };
 
@@ -77,7 +78,7 @@ const Formulario = () => {
                     <Label>ID</Label>
                     <Input name="id" type="number" />
                 </InputArea>
-                <InputArea>
+                {/*<InputArea>
                     <Label>Nome</Label>
                     <Input name="nome" />
                 </InputArea>
@@ -100,7 +101,7 @@ const Formulario = () => {
                 <InputArea>
                     <Label>CPF</Label>
                     <Input name="cpf" />
-                </InputArea>
+                </InputArea>*/}
                 <InputArea>
                     <Label>Tipo de Perfil</Label>
                     <Select name="perfil">
@@ -108,10 +109,8 @@ const Formulario = () => {
                         <option value="profissional">Profissional</option>
                     </Select>
                 </InputArea>
+                                <Button type="submit">BUSCAR</Button>
             </FieldsContainer>
-            <ButtonContainer>
-                <Button type="submit">BUSCAR</Button>
-            </ButtonContainer>
         </FormContainer>
     );
 };
