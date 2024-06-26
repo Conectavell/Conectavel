@@ -5,6 +5,9 @@ import CardMenu from "../components/CardMenus";
 import Arrow_Laranja from "../assets/Arrow_Laranja.svg";
 import ChatLateral from "../components/ChatLateral";
 import { IoIosArrowBack } from "react-icons/io";
+import lucas from '../assets/lucas.png'
+import brunoo from '../assets/brunoo.png'
+import leonardo from '../assets/leonardo.png'
 
 const CardsMenu = styled.div`
   display: flex;
@@ -101,20 +104,21 @@ const SelecionarPrestador = () => {
               avaliacoes={4.3}
             />
             <CardMenu
+
               nome={"Lucas Bonfim"}
-              foto={pedroAlves}
+              foto={lucas}
               descricao={"Especialista em Reparo de computador."}
               avaliacoes={4.2}
             />
             <CardMenu
               nome={"Bruno Ferreira"}
-              foto={pedroAlves}
+              foto={brunoo}
               descricao={"Especialista em Reparo de computador."}
               avaliacoes={4.6}
             />
             <CardMenu
               nome={"Leonardo Tavares"}
-              foto={pedroAlves}
+              foto={leonardo}
               descricao={"Especialista em Reparo de computador."}
               avaliacoes={4.4}
             />

@@ -38,6 +38,7 @@ const ProfileImage = styled.img`
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
+  border-radius: 10px;
 `;
 
 const Name = styled.h3`
