@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Carrosel from "./Carrosel";
 import { useTranslation } from "react-i18next";
+
 const ContribuaWrapper = styled.section`
     width: 100%;
     background: var(--verde_principal);
@@ -21,7 +22,6 @@ const Content = styled.div`
         width: 100%;
         gap: 24px;
         padding: 2rem 0rem;
-        height: 80vh;
         }
         `
 const ContainerCarrosel = styled.div`

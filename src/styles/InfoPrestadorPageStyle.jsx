@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 
 export const SectionWrapper = styled.section`
   width: 100%;
-  height: fit-content;
+  /* height: fit-content; */
   padding: 12px;
   display: flex;
   gap: 12px;
@@ -28,7 +28,7 @@ export const ChatLateralH1 = styled.h1`
 
 export const ChatLateralChats = styled.div`
   width: 100%;
-  height: 500px;
+  /* height: 500px; */
   padding-top: 12px;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@ export const BannerPerfil = styled.div`
 
 export const Informacoes = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   gap: 12px;
 
@@ -72,7 +72,7 @@ export const Informacoes = styled.div`
 
 export const InfoPrincipais = styled.div`
   width: 393px;
-  height: 623px;
+  /* height: 623px; */
   border-radius: 10px;
   background: #FFFFFF;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -109,7 +109,7 @@ export const FotoPrincipalPerfil = styled.img`
 
 export const ItensInfo = styled.div`
   width: 100%;
-  height: 190px;
+  /* height: 190px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,32 +163,37 @@ export const Textos = styled.p`
 
 export const Habilidades = styled.div`
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     overflow: auto;
 
     p{
       margin: 0;
     }
+    &::-webkit-scrollbar{
+      width: 0;
+    }
 `
 
 export const HabilidadesBox = styled.div`
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    flex-wrap: wrap;
+    gap: 5px;
     padding: 10px;
-    align-items: center;
+    /* align-items: center; */
+    
     
 
 `
 
 export const ItemHabilidade = styled.div`
     width: fit-content;
-    height: 30px;
+    /* height: 30px; */
     border-radius: 30px;
     border: #CECECE 1px solid;
-    padding: 5px;
+    padding: 3px;
 
     p{
       font-size: 14px;
@@ -199,17 +204,21 @@ export const ItemHabilidade = styled.div`
 
 export const DatalhesProfissionais = styled.div`
     height: 80px;
+    border-radius: 7px;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
-    padding: 0px 67px;
+    justify-content: space-between;
+    /* padding: 0px 67px; */
+    padding: 1rem;
     
 
     p{
       font-size: 12px;
       margin: 0;
+      font-weight: 600;
     }
 `
 
@@ -243,7 +252,6 @@ export const TextoExperiencia = styled.p`
 
 export const BoxExperiencia = styled.div`
 width: 100%;
-height: 53px;
 border-radius: 10px;
 border: 1px solid rgba(0, 0, 0, 0.15);
 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -260,6 +268,9 @@ export const BoxExperienciaInter = styled.div`
 
 export const BoxDireita = styled.div`
       width: 53px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100%;
       background: #175EC6;
       background: ${props => props.$primary ? "#175EC6" : "#FB8C00"};

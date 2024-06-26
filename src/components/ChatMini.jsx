@@ -39,11 +39,6 @@ export const ChatMiniNome = styled.p`
     `}
 
 `
-
-
-
-const ChatMiniMensagem = styled.p
-
 const ChatMini = (props) => {
     return (
         <ChatMiniWrapper>
