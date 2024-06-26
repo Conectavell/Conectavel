@@ -82,6 +82,7 @@ const Box = styled.div`
 `
 
 const SelecionarPrestador = () => {
+  
   return (
     <>
       <Navbar tipoUsuario={"cliente"} />

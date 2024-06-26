@@ -13,6 +13,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { useContext } from 'react';
 import CadastroContext from '../context/CadastroContext';
 import Deslogar from './Deslogar';
+import logoFundoAzul from '../assets/logoFundoAzul.png'
 
 
 //
@@ -109,7 +110,7 @@ const BarraNavegacao = ({ cor }) => {
         }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
-                    <img width={60} src={logo} />
+                    <img width={60} src={cor === "azul" ? logo : logoFundoAzul }/>
                     <img width={119} src={logotipo} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">

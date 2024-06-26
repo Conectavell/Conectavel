@@ -18,7 +18,7 @@ export const ContainerChat = styled.section`
   border-color: rgba(0, 0, 0, 0.15);
   border-style: solid;
   border-width: 1px;
-  margin: 1rem auto;
+  margin: 0 auto;
   overflow-y: auto;
 
   // Responsividade

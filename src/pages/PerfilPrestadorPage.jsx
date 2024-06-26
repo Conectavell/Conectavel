@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
-import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
 import { BsPersonVcardFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
+import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
 import CadastroContext from '../context/CadastroContext';
 import { IoBagRemoveSharp } from 'react-icons/io5';
+import ChatLateral from '../components/ChatLateral';
 
 const PerfilPrestadorPage = () => {
   const {
@@ -16,19 +16,20 @@ const PerfilPrestadorPage = () => {
     sobreUsuario, experienciaUsuario
   } = useContext(CadastroContext)
 
+  const names = [
+    'Manutenção de vídeo games',
+    'Manutenção de celulares e telefones',
+    'Manutenção de televisores',
+    'Manutenção de aparelhos domésticos',
+    'Manutenção de computadores',
+  ]
+
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-          </ChatLateralChats>
-        </ChatLateral>
+        <ChatLateral valueWidth={"30%"}/>
+
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
@@ -67,12 +68,15 @@ const PerfilPrestadorPage = () => {
               <Habilidades>
                 <ChatMiniNome>Habilidades em</ChatMiniNome>
                 <HabilidadesBox>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
+
+                  {
+                    names.map((hab, index) => {
+                      return (
+                        <ItemHabilidade key={index}><p>{hab}</p></ItemHabilidade>
+
+                      )
+                    })
+                  }
                 </HabilidadesBox>
               </Habilidades>
             </InfoPrincipais>
@@ -89,11 +93,9 @@ const PerfilPrestadorPage = () => {
                 </TextoExperiencia>
                 <BoxExperiencia>
                   <BoxExperienciaInter>
-                    <TextoExperiencia>
-                      {experienciaUsuario}
-                    </TextoExperiencia>
+                    
                     <TextoExperiencia Desc>
-                      de total experiência
+                      {experienciaUsuario ? experienciaUsuario : '-------'}
                     </TextoExperiencia>
                   </BoxExperienciaInter>
                   <BoxDireita $primary >
