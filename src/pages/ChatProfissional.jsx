@@ -13,7 +13,8 @@ const ChatProfissional = () => {
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  margin-top: 1rem;
   @media (max-width: 1200px){
     flex-direction: column;
   }

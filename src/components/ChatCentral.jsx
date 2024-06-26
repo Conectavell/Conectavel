@@ -20,7 +20,7 @@ const ChatContainer = styled.div`
   border-width: 1px;
   display: flex;
   flex-direction: column;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
   padding: 0 .5rem;
 
   @media (max-width: 1200px) {
