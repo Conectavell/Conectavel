@@ -3,7 +3,6 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
-import React, { useContext, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import {
@@ -26,6 +25,7 @@ import {
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
+import { Button } from '@mui/material';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
@@ -143,10 +143,10 @@ const PerfilClientePage = () => {
                     Reparo
                   </label>
                   <label htmlFor="manutencao">
-                    <div class="checkmark"></div>
+                    <div className="checkmark"></div>
                     Reparo
                   </label>
-                  <label for="manutencao">
+                  <label htmlFor="manutencao">
                     <input
                       type="checkbox"
                       id="manutencao"
@@ -158,10 +158,10 @@ const PerfilClientePage = () => {
                     Manutenção
                   </label>
                   <label htmlFor="Instalação">
-                    <div class="checkmark"></div>
+                    <div className="checkmark"></div>
                     Manutenção
                   </label>
-                  <label for="Instalação">
+                  <label htmlFor="Instalação">
                     <input
                       type="checkbox"
                       id="Instalação"
@@ -169,7 +169,7 @@ const PerfilClientePage = () => {
                       value="Instalação"
                     />
                     <div className="checkmark"></div>
-                    <div class="checkmark"></div>
+                    <div className="checkmark"></div>
                     Instalação
                   </label>
 
