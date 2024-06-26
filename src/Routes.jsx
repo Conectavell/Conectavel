@@ -50,8 +50,7 @@ const Routes = () => {
                     <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
 
 
-                    {/* <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} /> */}
-                    <Route path='/Conectavel/perfilcliente' element={<PerfilClientePage />} />
+                    <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
                 </Rotas>
