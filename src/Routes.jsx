@@ -9,6 +9,16 @@ import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
 import ClienteAvaliacao from './pages/ClienteAvaliacaoPage'
 import PerfilClientePage from './pages/PerfilClientePage'
+import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
+import ConfiguracoesPage from './pages/ConfiguracoesPage'
+import SegurancaPage from './pages/SegurancaPage'
+import AdminPage from './pages/AdminPage'
+import PreencherClientePage from './pages/PreencherClientePage'
+import Auth from './context/Auth'
+
+function PrivateRoute({ children }) {
+    return Auth() ? <>{children}</> : <Navigate to="/Conectavel" />
+}
 
 const Routes = () => {
 
@@ -27,18 +37,21 @@ const Routes = () => {
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
-                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
+                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
+
+
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
-                    
+                    <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
                     <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
                     <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
-                    
 
-                    <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
+
+                    {/* <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} /> */}
+                    <Route path='/Conectavel/perfilcliente' element={<PerfilClientePage />} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
                 </Rotas>

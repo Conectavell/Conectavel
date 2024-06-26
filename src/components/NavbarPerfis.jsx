@@ -18,7 +18,7 @@ import Deslogar from './Deslogar';
 
 const NavbarPerfis = () => {
     const { innerWidth: width } = window
-    const { tipoPerfil } = useContext(CadastroContext)
+    const { tipoPerfil, nome } = useContext(CadastroContext)
 
 
     return (
@@ -56,7 +56,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={context.nome} />
+                        <BemVindo usuario={nome} />
                         : ''
                 }
                 <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>
