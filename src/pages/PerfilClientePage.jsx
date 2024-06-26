@@ -1,3 +1,4 @@
+import React, { useContext, useState } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
@@ -22,15 +23,24 @@ import {
   DivEstrelas,
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
-
-import { Button } from "../components/Button";
-import { useState } from 'react';
+import CadastroContext from '../context/CadastroContext';
+import { Button, Radio } from '@mui/material';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext)
+
+  const names = [
+    'Manutenção de vídeo games',
+    'Manutenção de celulares e telefones',
+    'Manutenção de televisores',
+    'Manutenção de aparelhos domésticos',
+    'Manutenção de computadores',
+  ]
+
   return (
     <>
-      <Navbar tipoUsuario={"cliente"} />
+      <Navbar />
       <SectionWrapper>
         <ChatLateral>
           <ChatLateralH1>Chat</ChatLateralH1>
@@ -69,29 +79,22 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>Kemilly Teixeira</ChatMiniNome>
-                    </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
+                      <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>siddxd@growthx.com</ChatMiniNome>
+                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
-                    </WrapperItemInfo>
+
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>+91 49652845732a</ChatMiniNome>
+                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-                    <WrapperItemInfo>
-                      <BotaoEditar>Editar</BotaoEditar>
-                    </WrapperItemInfo>
+
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -124,52 +127,37 @@ const PerfilClientePage = () => {
             </InfoPrincipais>
           </Informacoes>
           <div className="servico-container">
-            <ItensInfo NovoServico>
+            <ItensInfo onClick={() => setShowTiposServicos((state) => !state)} NovoServico>
               <p>
                 Novo serviço<br></br>Solicitar reparo
               </p>
               <BotaoOrcamentos
-                onClick={() => setShowTiposServicos((state) => !state)}
+
               />
             </ItensInfo>
             {showTiposServicos && (
               <div className="container">
                 <div className="Container-servico">
                   <p id="P_container">Tipo de Serviço</p>
-                  <label htmlFor="reparo">
-                    <input 
-                      type="checkbox"
-                      id="reparo"
-                      name="tipoServico"
-                      value="reparo"
-                    />
-                    <div className="checkmark"></div>
-                    Reparo
-                  </label>
-                  <label htmlFor="manutencao">
-                    <input
-                      type="checkbox"
-                      id="manutencao"
-                      name="tipoServico"
-                      value="manutencao"
-                      
-                    />
-                    <div className="checkmark"></div>
-                    Manutenção
-                  </label>
-                  <label htmlFor="Instalação">
-                    <input
-                      type="checkbox"
-                      id="Instalação"
-                      name="tipoServico"
-                      value="Instalação"
-                    />
-                    <div className="checkmark"></div>
-                    Instalação
-                  </label>
-                  
+
+                  {
+                    names.map((servico, index) => {
+                      return (
+                        <label htmlFor="reparo" key={index}>
+                          <input
+                            type="checkbox"
+                            id="reparo"
+                            name="tipoServico"
+                            value="reparo"
+                          />
+                          <div className="checkmark"></div>
+                          {servico}
+                        </label>
+                      )
+                    })
+                  }
                 </div>
-                <Button>Buscar</Button>
+                <Button className='mt-3' variant="contained" fullWidth>Buscar</Button>
               </div>
             )}
           </div>

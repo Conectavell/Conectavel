@@ -22,9 +22,10 @@ const LadoEsquerdo_footer_logo = styled.div`
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
-
+    
     @media only screen and (max-width: 1000px){
         width: 100%;
+        align-items: center;
     }
 `
 
@@ -32,7 +33,11 @@ const LadoEsquerdo_footer_redes = styled.div`
     display: flex;
     gap: 34px;
     justify-content: flex-start;
-
+    @media only screen and (max-width: 1000px){
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
 
 `
 
@@ -42,8 +47,9 @@ const LadoDireito_footer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 3rem;
-
+    
     @media only screen and (max-width: 1000px){
+        width: 100%;
         flex-direction: column;
         height: fit-content;
         gap: 2px
@@ -131,7 +137,7 @@ function Footer({ cor }) {
                     </LadoEsquerdo_footer_logo>
 
                     <LadoEsquerdo_footer_redes>
-                        <a href="https://www.linkedin.com/company/circusustain/" target="_blank"><BiLogoLinkedin size={24} color='#fff' /></a>
+                        <a href="https://www.linkedin.com/company/conectavel/" target="_blank"><BiLogoLinkedin size={24} color='#fff' /></a>
                         <a href="https://www.instagram.com/conectavel_/" target="_blank"><BiLogoInstagram size={24} color='#fff' /></a>
                         <a href="https://github.com/Conectavell" target="_blank"><FaGithub size={24} color='#fff' /></a>
 

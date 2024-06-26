@@ -6,6 +6,7 @@ import martinha from '../assets/martinha.png'
 import aurora from '../assets/aurora.png'
 import debora from '../assets/debora.png'
 import gabriel from '../assets/gabriel.png'
+import Parceiros from '../components/Parceiros'
 import Footer from '../components/Footer'
 
 const ColaboradoresPage = () => {
@@ -69,7 +70,7 @@ const ColaboradoresPage = () => {
 
     return (
         <>
-            <BarraNavegacao />
+            <BarraNavegacao cor="azul" />
 
             <Box>
                 <Sub_heading>
@@ -107,6 +108,7 @@ const ColaboradoresPage = () => {
                     </Row>
                 </Col>
             </Box>
+            <Parceiros/>
             <Footer/>
         </>
     )

@@ -1,18 +1,17 @@
 import styled, { css } from 'styled-components'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { Widgets } from '@mui/icons-material';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import img1 from '../assets/imageD1.png';
 import img2 from '../assets/imageD2.png';
 import img3 from '../assets/imageD3.png';
 
 const HeaderWrapper = styled.div`
     width: 100vw;
-    height: 100vh;
     background: #fff;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    padding: 1rem 0 2rem 0;
 `
 
 const TextosTopo = styled.div`
@@ -25,15 +24,24 @@ const TextosTopo = styled.div`
 
 const Titulo = styled.p`
     color: #00796A;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
     letter-spacing: 10%;
     margin: 0;
+    text-align: center;
+    @media (max-width:1200px){
+            font-size: 20px;
+
+        }
 
     ${props => props.TextoDois && css`
         font-family: "Quantico", sans-serif;
-        font-size: 64px;
+        font-size: 48px;
         color: #151515;
+        @media (max-width:1200px){
+            font-size: 32px;
+
+        }
     `}
 `
 
@@ -55,9 +63,14 @@ const ItemList = styled.div`
 `
 
 const Item = styled.div`
-    width: 56px;
-    height: 10px;
+    width: 50px;
+    height: 8px;
     background: ${props => props.Selecionado ? "#000000" : "#7f7f7f"};    
+    @media (max-width: 1200px){
+        width: 40px;
+        height: 5px;
+
+    }
 `
 
 const CarroselImagens = styled.div`
@@ -70,8 +83,8 @@ const CarroselImagens = styled.div`
 `
 
 const ImagensDiv = styled.img`
-        width: 996px;
-        height: 300px;
+        width: 70%;
+        height: 90%;
         object-fit: cover;
 `
 
@@ -83,11 +96,15 @@ const BotaoTrocadorImagem = styled.button`
 `
 
 const TextoFinal = styled.p`
-        font-size: 32px;
+        font-size: 20px;
         font-weight: 500;
         text-align: center;
         width:65%;
         margin: 0;
+        @media (max-width:1200px){
+            font-size: 18px;
+
+        }
 `
 
 
