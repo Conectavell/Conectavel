@@ -3,7 +3,7 @@ import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } fr
 import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext';
 
-const InputSenha = () => {
+const InputSenha = ({fullWidth, sx}) => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
@@ -13,7 +13,7 @@ const InputSenha = () => {
 
     return (
         <>
-            <FormControl variant="outlined">
+            <FormControl sx={sx ?{marginTop: "1rem"}: ''} fullWidth={fullWidth ? true : false} variant="outlined">
                 <InputLabel
                     required={true}
                     htmlFor="outlined-adornment-password">Senha</InputLabel>

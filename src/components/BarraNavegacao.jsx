@@ -9,12 +9,17 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
 import SelectLang from './SelectLang';
+import { FaUserAlt } from 'react-icons/fa';
+import { useContext } from 'react';
+import CadastroContext from '../context/CadastroContext';
+import Deslogar from './Deslogar';
 
 
 //
 
 const BarraNavegacao = ({ cor }) => {
     const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const { tipoPerfil, idUsuario } = useContext(CadastroContext)
 
     const Button = styled(Link)`
     padding: .8rem 1rem;
@@ -128,8 +133,19 @@ const BarraNavegacao = ({ cor }) => {
                             </ListItem>
                         </Nav>
                         <Block >
-                            <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
-                            <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
+                            {
+                                idUsuario ?
+                                    <>
+                                        <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
+                                        <Login to="/Conectavel" ><Deslogar size="1.5rem"/></Login>
+                                    </>
+                                    :
+                                    <>
+                                        <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
+                                        <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
+                                    </>
+                            }
+
                             <SelectLang />
                         </Block>
                     </NavSection>

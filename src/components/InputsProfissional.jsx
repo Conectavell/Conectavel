@@ -3,6 +3,7 @@ import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import CadastroContext from '../context/CadastroContext'
+import { InputHabilidades } from './InputsInformacoesProfissonal'
 // inputs para o profissional, q pede habilidades, experiencia, etc
 
 const FormCadastro = styled.form`
@@ -44,11 +45,9 @@ const InputsProfissional = ({ show }) => {
                 <h2>Complete suas informações</h2>
                 <TextField
                     label="Conte-nos sobre você"
-                    {...register("sobre", { required: "First Name is required." })}
                     type='text'
                     fullWidth required={true}
                     id="fullWidth"
-                    error={Boolean(errors.firstName)}
                     value={sobreUsuario}
                     onChange={e => {
                         setSobreUsuario(e.target.value)
@@ -57,8 +56,6 @@ const InputsProfissional = ({ show }) => {
                 />
                 <TextField
                     label="Experiência profissional"
-                    {...register("experiencia", { required: "First Name is required." })}
-                    error={Boolean(errors.firstName)}
                     type='text'
                     fullWidth
                     required={true}
@@ -68,19 +65,9 @@ const InputsProfissional = ({ show }) => {
                         // console.log(experienciaUsuario)
                     }}
                     id="fullWidth" />
-                <TextField
-                    label="Habilidades"
-                    {...register("habilidades", { required: "First Name is required." })}
-                    error={Boolean(errors.firstName)}
-                    type='text'
-                    fullWidth
-                    required={true}
-                    value={habilidadesUsuario}
-                    onChange={e => {
-                        setHabilidadesUsuario(e.target.value)
-                        // console.log(habilidadesUsuario)
-                    }}
-                    id="fullWidth" />
+                    
+                    <InputHabilidades/>
+                
 
                 <FormControl>
                     <InputLabel
@@ -89,8 +76,6 @@ const InputsProfissional = ({ show }) => {
                     >Nacionalidade</InputLabel>
                     <Select
                         label="Nacionalidade"
-                        {...register("nacionalidade", { required: "First Name is required." })}
-                        error={Boolean(errors.firstName)}
                         required={true}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
