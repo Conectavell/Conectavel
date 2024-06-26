@@ -1,3 +1,4 @@
+import React, { useContext, useState } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';

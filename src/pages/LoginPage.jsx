@@ -156,7 +156,7 @@ const LoginPage = () => {
         navigate("/Conectavel/perfilprestador")
         window.location.reload()
       } else if (idTipoPerfil == 3) {
-        alert("Em desenvolvimento")
+        navigate("/Conectavel/admin")
       }
     })
       .catch(function (error) {
