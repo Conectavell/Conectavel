@@ -32,14 +32,17 @@ const PreencherClientePage = () => {
         logradouro,
     } = useContext(CadastroContext)
 
+
     function cadastrar() {
+
+
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": 1,
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
-            "celularUsuario":`${celularUsuario}`,
+            "celularUsuario": `${celularUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
