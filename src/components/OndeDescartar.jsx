@@ -66,7 +66,30 @@ const ImgsContainer = styled.div`
         color: black;
     }
     @media  (max-width: 1300px){
+        img{
+            width: 320px;
+            height: auto;
+        }
+        div{
+            gap: 100px;
+        }
+        gap: 15px;
+        p{
+            margin-top: -15px;
+        }
+    }
+    @media  (max-width: 990px){
         flex-direction: column;
+        img{
+            width: 360px;
+            height: auto;
+        }
+        div{
+            gap: 20px;
+        }
+        p{
+            margin-top: 15px;
+        }
     }
 `
  
