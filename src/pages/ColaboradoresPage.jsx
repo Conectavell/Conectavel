@@ -12,7 +12,7 @@ const ColaboradoresPage = () => {
 
             <SecaoColaboradores/>
             <Parceiros/>
-            <Footer/>
+            <Footer cor="azul"/>
         </>
     )
 }
