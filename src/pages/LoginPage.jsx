@@ -1,13 +1,19 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import logo_conectavel from "../assets/logo_conectavel.svg";
-import Input from "../components/Input";
 import { Button } from "../components/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Google_logo from "../assets/Google_logo.svg";
 import { ButtonLogin } from "../components/ButtonLogin";
 import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
+import Input from '../components/Input'
+import axios from 'axios'
+import InputSenha from "../components/InputSenha";
+import InputEmail from "../components/InputEmail";
+
 
 const ContainerDiv = styled.div`
   background-color: var(--azul_principal);
@@ -44,16 +50,19 @@ const FormDiv = styled.div`
   min-height: 100vh;
 
   .form-container {
-    padding: 0% 10% 10% 10%;
-    max-width: 700px;
-    margin: 0 auto;
+    /* padding: 0% 10% 10% 10%; */
+    /* max-width: 700px; */
+    width: 80%;
+    margin:auto;
+    
   }
+  
 
   h2 {
-    color: var(--laranja);
+    font-weight: 600;
     text-align: center;
-    font-size: 75px;
-    margin-bottom: 40px;
+    font-size: 48px;
+    margin-bottom: 20px;
   }
   .justify-between {
     display: flex;
@@ -69,6 +78,7 @@ const FormDiv = styled.div`
   .ckeckbox-input {
     margin: 5px;
     text-align: center;
+    cursor: pointer;
   }
 
   .center-text {
@@ -111,6 +121,10 @@ const FormDiv = styled.div`
     h2 {
       font-size: 62px;
     }
+    .arrow_button{
+      margin-top: 0;
+    margin-left: 0;
+    }
   }
   @media (max-width: 682px) {
     h2 {
@@ -128,6 +142,46 @@ const StyledLink = styled(Link)`
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [emailUsuario, setEmailUsuario] = useState('');
+  const [senhaUsuario, setSenhaUsuario] = useState('');
+
+  const realizarLogin = (emailUsuario, senhaUsuario) => {
+    axios.post("http://localhost:8080/API/Login", {
+      email: `${emailUsuario}`,
+      senha: `${senhaUsuario}`
+    }).then(function (response) {
+      const { idUsuario, idTipoPerfil } = response.data;
+      sessionStorage.setItem('idUsuario', idUsuario)
+      if (idTipoPerfil == 1) {
+        navigate("/Conectavel/perfilcliente")
+        window.location.reload()
+      } else if (idTipoPerfil == 2) {
+        navigate("/Conectavel/perfilprestador")
+        window.location.reload()
+      } else if (idTipoPerfil == 3) {
+        navigate("/Conectavel/admin")
+      }
+    })
+      .catch(function (error) {
+        if (error.response) {
+          if (error.response.status === 401) {
+            alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+          } else {
+            alert(`Erro: ${error.response.status} - ${error.response.data}`);
+          }
+        } else if (error.request) {
+          alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+        } else {
+          alert(`Erro: ${error.message}`);
+        }
+      })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    realizarLogin(emailUsuario, senhaUsuario)
+  }
+
   return (
     <ContainerDiv>
       <LogoDiv>
@@ -136,34 +190,28 @@ const LoginPage = () => {
         </div>
       </LogoDiv>
 
-      <FormDiv>
-        <button onClick={() => navigate(-1)} className="arrow_button">
+      <FormDiv style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        {/* <button onClick={() => navigate(-1)} className="arrow_button">
           <img src={Arrow_button} alt="Botão Voltar" />
-        </button>
+        </button> */}
 
         <div className="form-container">
           <h2>Entrar</h2>
-          <form action="">
-            <Input
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-            />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-            />
+          <form onSubmit={handleSubmit}>
+            <InputEmail />
+            <InputSenha sx fullWidth />
             <div className="justify-between">
               <div>
                 <input className="ckeckbox-input" type="checkbox" name="" />
                 <label htmlFor="">Lembrar senha</label>
               </div>
-              <a href="http://">Esqueceu sua senha?</a>
+              <a href="#">Esqueceu sua senha?</a>
             </div>
-            <Button>Entrar</Button>
+            <Button type="submit" >Entrar</Button>
           </form>
           <div className="center-text">
             <span>
@@ -171,21 +219,6 @@ const LoginPage = () => {
               <StyledLink to="/Conectavel/Cadastro">Cadastre-se</StyledLink>
             </span>
             <br />
-            <span
-              style={{ fontSize: "30px", display: "block", marginTop: "20px" }}
-            >
-              Ou
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: "28px" }}>
-            <ButtonLogin>
-              <img src={Google_logo} alt="Google Icon" />
-              <span>Entrar com Google</span>
-            </ButtonLogin>
-            <ButtonLogin>
-              <img src={Facebook_logo} alt="Facebook Icon" />
-              <span>Entrar com Facebook</span>
-            </ButtonLogin>
           </div>
         </div>
       </FormDiv>

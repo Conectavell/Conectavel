@@ -5,7 +5,7 @@ import Maps from './Maps'
 
 const Box = styled.section`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: auto;
     background-color: var(--verde_secundario);
     padding: 2rem 0;
@@ -58,7 +58,7 @@ const Heading_text = styled.h2`
 
 const Mapa = styled.div`
         width: 70%;
-        height: 30.5rem;
+        height: 80vh;
         background-color: var(--azul_principal);
         border-radius: 10px;
         overflow: hidden;
@@ -70,6 +70,16 @@ const Mapa = styled.div`
         @media (max-width: 992px){
             width: 90%;
         }
+    `
+
+const Pontos = styled.div`
+        display: flex;
+        @media (max-width:1200px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
     `
 
 const PontosColeta = () => {
@@ -84,12 +94,17 @@ const PontosColeta = () => {
             <Heading_text>
                 {
                     company === "samsung" ? "Samsung Recicla"
-                        : company === "abree" ? "ABREE"
+                        : company === "ab'ree" ? "ABREE"
                             : company === "green" ? "Green Eletron"
                                 : "Veja todos"
                 }
             </Heading_text>
-
+            <Pontos>
+                <Button onClick={() => setCompany("samsung")}>  Samsung</Button>
+                <Button onClick={() => setCompany("abree")}>  Abree</Button>
+                <Button onClick={() => setCompany("green")}>  GreenEletron</Button>
+                <Button onClick={() => setCompany("todos")}>  Todos</Button>
+            </Pontos>
             <Mapa>
                 <Maps company={company} />
             </Mapa>
@@ -106,12 +121,7 @@ const PontosColeta = () => {
                     </Button>
                     : ''
             }
-            <div>
-                <Button onClick={() => setCompany("samsung")}>  Samsung</Button>
-                <Button onClick={() => setCompany("abree")}>  Abree</Button>
-                <Button onClick={() => setCompany("green")}>  GreenEletron</Button>
-                <Button onClick={() => setCompany("todos")}>  Todos</Button>
-            </div>
+
 
         </Box>
     )

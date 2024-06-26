@@ -14,7 +14,7 @@ const Maps = ({ company }) => {
             <GoogleMap
                 mapContainerStyle={{ width: "100%", height: "100%" }}
                 center={center}
-                zoom={11}>
+                zoom={11.8}>
                 {
                     company === "samsung" ? mapSamsung
                         : company === "abree" ? mapAbree

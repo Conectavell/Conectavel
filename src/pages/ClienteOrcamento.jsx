@@ -1,14 +1,11 @@
-import React from 'react'
 import styled from "styled-components";
-import NavPerfil from "../components/NavPerfil";
-import ChatPerfil from "../components/ChatPerfil";
 import Orcamentos from "../components/Orcamentos";
+import NavbarPerfis from '../components/NavbarPerfis';
+import ChatLateral from '../components/ChatLateral'
 
 
 
 const ClienteOrcamento = () => {
-
-    
 const MainContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -20,50 +17,26 @@ display: flex;
 flex: 1;
 padding: 20px;
 box-sizing: border-box;
-@media (max-width: 991px) {
+justify-content: center;
+align-items: flex-start;
+@media (max-width: 1200px) {
   flex-direction: column;
 }
 `;
-
-const ChatSection = styled.div`
-flex: 0 0 30%;
-display: flex;
-justify-content: center;
-align-items: center;
-@media (max-width: 991px) {
-  flex: 1 1 auto;
-  width: 100%;
-}
-`;
-
 const OrcamentosSection = styled.div`
-flex: 0 0 20% ;
+margin: auto;
 display: flex;
-justify-content: center;
-align-items: center;
-@media (max-width: 991px) {
-  flex: 1 1 auto;
+@media (max-width: 1200px) {
+  margin: auto;
   width: 100%;
 }
 `;
   return (
 
-    // <>
-    // <NavPerfil/>
-    // <ChatPerfil/>
-    // <Orcamentos/>
-
-    
-    // </>
-
-    
-
     <MainContainer>
-      <NavPerfil />
+      <NavbarPerfis  />
       <ContentContainer>
-        <ChatSection>
-          <ChatPerfil />
-        </ChatSection>
+          <ChatLateral valueWidth={"30%"}/>
         <OrcamentosSection>
           <Orcamentos />
         </OrcamentosSection>
