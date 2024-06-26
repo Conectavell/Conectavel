@@ -35,18 +35,18 @@ const Routes = () => {
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
-                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
+                    <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
                 </Rotas>
-
-
             </BrowserRouter>
         </>
     )
 }
+
+
 
 export default Routes
