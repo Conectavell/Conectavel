@@ -1,10 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
 export const PopDadContainer = styled.div`
-border: 2px solid #d8d5d5;
+
 border-radius: 10px;
-box-shadow: 0 0px 8px rgba(0, 0, 0, 0.241);
+box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  border-width: 1px;
 /* max-width: 300px; */
 width: 22%;
 /* max-height: 90%; */
@@ -99,15 +103,17 @@ font-weight: 400;
 `;
 
 const PopUp = () => {
+    const navigate = useNavigate()
+
     return (
         <PopDadContainer>
             <h2>Chamados</h2>
             <PopSonContainer>
                 <h4>
-                    <span className='alterblue'>Sarah Doe</span>
+                    <span className='alterblue'>Kemily Vitoria</span>
                 </h4>
                 <p>
-                    Serviço: <span className='higlight'>Manutenção</span>
+                    Serviço: <span className='higlight'>Manutenção de eletrodomésticos</span>
                 </p>
                 <p>
                     Prazo: <span className='higlight'>6-14 dias uteis</span>
@@ -115,10 +121,7 @@ const PopUp = () => {
                 <h5>
                     Valor: <span className='alterblue'>R$93,00</span>
                 </h5>
-                <button type="submit">Avaliar</button>
-                <h5>
-                    Status: <span className='alterblue'>Aceito</span>
-                </h5>
+                <button onClick={() => navigate('/Conectavel/avaliacaocliente')} type="submit">Avaliar</button>
             </PopSonContainer>
         </PopDadContainer>
     )

@@ -21,8 +21,9 @@ function PrivateRoute({ children }) {
     return Auth() ? <>{children}</> : <Navigate to="/Conectavel" />
 }
 
-{/* Import Administração */}
+{/* Import Administração */ }
 import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
+import SelecionarPrestador from './pages/SelecionarPrestadorPage'
 
 const Routes = () => {
 
@@ -43,13 +44,14 @@ const Routes = () => {
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
                     <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
 
+                    <Route path="/Conectavel/selecionarprofissional" element={<SelecionarPrestador />} />
 
 
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
-                    <Route path='/Conectavel/chatprofissional' exact element={<ChatProfissional/>} />
+                    <Route path='/Conectavel/chatprofissional' exact element={<ChatProfissional />} />
 
-                   
+
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
                     <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
@@ -58,9 +60,9 @@ const Routes = () => {
 
                     <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
-                    
-                                                                     {/* Rotas Administração */}
-                    <Route path='/Conectavel/tbusuarios' exact element={<PaginaTbUsuarios/>} />
+
+                    {/* Rotas Administração */}
+                    <Route path='/Conectavel/tbusuarios' exact element={<PaginaTbUsuarios />} />
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
                 </Rotas>
             </BrowserRouter>

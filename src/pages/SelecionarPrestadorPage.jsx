@@ -1,27 +1,18 @@
-import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/NavbarPerfis";
-import ChatMini from "../components/ChatMini";
-import Kemilly from "../assets/kemilly.png";
-import {
-  ChatLateral,
-  ChatLateralH1,
-  ChatLateralChats,
-} from "../styles/InfoClientePageStyle";
+import pedroAlves from "../assets/pedroAlves.png";
 import CardMenu from "../components/CardMenus";
 import Arrow_Laranja from "../assets/Arrow_Laranja.svg";
-
-const MainContainer = styled.div`
-  display: flex;
-  padding: 10px;
-`;
+import ChatLateral from "../components/ChatLateral";
+import { IoIosArrowBack } from "react-icons/io";
 
 const CardsMenu = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 30px;
-  justify-items: center;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @media (max-width:1200px){
+    justify-content: center;
+  }
 `;
 
 const MenuProfissionais = styled.div`
@@ -31,9 +22,12 @@ const MenuProfissionais = styled.div`
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  width: 100%;
+  width: 76%;
+  height: auto;
+  margin: 0 1rem;
   padding: 23px;
-  margin-top: 150px;
+  /* margin-top: 150px; */
+  flex-wrap: wrap;
 
   h1 {
     font-size: 3rem;
@@ -45,13 +39,12 @@ const MenuProfissionais = styled.div`
     padding: 4px;
     text-align: center;
   }
-`;
 
-const ChatContainer = styled.div`
-  display: flex;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
+  @media (max-width:1200px){
+    width: 90%;
+    justify-content: center;
+    gap: 0;
+  }
 `;
 
 const ButtonReturn = styled.button`
@@ -75,76 +68,59 @@ const ButtonReturn = styled.button`
   }
 `;
 
+const Box = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+  
+  @media (max-width:1200px){
+    align-items: center;
+    flex-direction: column;
+  }
+`
+
 const SelecionarPrestador = () => {
   return (
-    <div>
+    <>
       <Navbar tipoUsuario={"cliente"} />
       <ButtonReturn className="button_return">
-        <img src={Arrow_Laranja} alt="voltar" />
+      <IoIosArrowBack size={54}/>
       </ButtonReturn>
-
-      <MainContainer>
-        <ChatContainer>
-          <ChatLateral>
-            <ChatLateralH1>Chat</ChatLateralH1>
-            <ChatLateralChats>
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Seu Televisor está pronto!"}
-              />
-              <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Ok!"} />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Vou verificar e te falo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Obrigado pela confiança!"}
-              />
-            </ChatLateralChats>
-          </ChatLateral>
-        </ChatContainer>
-
+      <Box>
+          <ChatLateral valueWidth={"20%"} />
         <MenuProfissionais>
-          <h1>Profissionais Disponíveis</h1>
+          <h2>Profissionais Disponíveis</h2>
           <CardsMenu>
             <CardMenu
-              nome={"John Doe"}
-              foto={Kemilly}
+              nome={"Pedro Alves"}
+              foto={pedroAlves}
               descricao={"Especialista em eletrônica."}
-              avaliacoes={1.3}
+              avaliacoes={4.3}
             />
             <CardMenu
-              nome={"Anna Brown"}
-              foto={Kemilly}
+              nome={"Lucas Bonfim"}
+              foto={pedroAlves}
               descricao={"Especialista em Reparo de computador."}
-              avaliacoes={3.2}
+              avaliacoes={4.2}
             />
             <CardMenu
-              nome={"Anna Brown"}
-              foto={Kemilly}
+              nome={"Bruno Ferreira"}
+              foto={pedroAlves}
               descricao={"Especialista em Reparo de computador."}
-              avaliacoes={3.2}
+              avaliacoes={4.6}
             />
             <CardMenu
-              nome={"Anna Brown"}
-              foto={Kemilly}
+              nome={"Leonardo Tavares"}
+              foto={pedroAlves}
               descricao={"Especialista em Reparo de computador."}
-              avaliacoes={3.2}
-            />
-            <CardMenu
-              nome={"Anna Brown"}
-              foto={Kemilly}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={3.2}
+              avaliacoes={4.4}
             />
           </CardsMenu>
         </MenuProfissionais>
-      </MainContainer>
-    </div>
+      </Box>
+    </>
   );
 };
 

@@ -1,18 +1,23 @@
 // Minhas importações
 import styled from 'styled-components';
-import Cliente2 from '../../assets/Cliente2.jpg'
-import Cliente3 from '../../assets/Cliente3.jpg'
+import Cliente2 from '../assets/Cliente2.jpg'
+import Cliente3 from '../assets/Cliente3.jpg'
+import pedroAlves from '../assets/pedroAlves.png'
+
 
 // Styled components
 // Styled components
 export const ContainerChat = styled.section`
-  background: #fafafa;
-  width: 25%;
+  background: #fff;
+  /* width: 100%; */
   /* max-width: 313px; */ 
   /* height: 532px; */
   border-radius: 10px;
-  border: 2px solid #d8d5d5;
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.164);
+  
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  border-width: 1px;
   margin: 1rem auto;
   overflow-y: auto;
 
@@ -102,39 +107,40 @@ export const Block = styled.div`
 `
 
 // Função do componente
-const ChatLateral = () => {
+const ChatLateral = ({valueWidth}) => {
+    const { innerWidth: widthh, innerHeight: height } = window
 
   return (
-    <ContainerChat>
+    <ContainerChat style={widthh > 1200 ?{width: valueWidth} : {width: "90%"}}>
       <HeaderChat>
         <h2>Chat</h2>
       </HeaderChat>
       <BlockChat>
         <Avatar src={Cliente2} alt="User"  />
         <div>
-          <h6>Bruno</h6>
-          <p>Olá, eu me chamo Bruno</p>
+          <h6>Bruno Ferreira</h6>
+          <p>Digitando...</p>
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={Cliente3} alt="User"  />
+        <Avatar src={pedroAlves} alt="User"  />
         <div>
           <h6>Pedro Alves</h6>
-          <p>Olá, eu me chamo Pedro</p>
+          <p>Boa tarde</p>
         </div>
       </BlockChat>
       <BlockChat>
         <Avatar src={Cliente2} alt="User"  />
         <div>
           <h6>Lucas Bonfim</h6>
-          <p>Olá, eu me chamo Lucas</p>
+          <p>Qual equipamento?</p>
         </div>
       </BlockChat>
       <BlockChat>
         <Avatar src={Cliente3} alt="User"  />
         <div>
           <h6>Leonardo Tavares</h6>
-          <p>Olá, eu me chamo Leo...</p>
+          <p>O reparo fica por R$80</p>
         </div>
       </BlockChat>
     </ContainerChat>

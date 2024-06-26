@@ -2,16 +2,22 @@
 import styled from 'styled-components';
 import { BsFillSendFill } from "react-icons/bs";
 import { RiRadioButtonLine } from "react-icons/ri";
-import Usuaria from '../../assets/Usuaria.jpg';
-import Usuario from '../../assets/Usuario.jpg';
+import Usuaria from '../assets/Usuaria.jpg';
+import Usuario from '../assets/Usuario.jpg';
+import pedroAlves from '../assets/pedroAlves.png'
+import kemilly from '../assets/kemilly.png'
+
 
 const ChatContainer = styled.div`
   /* min-width: 634px; */
   width: 40vw;
   /* height: 534px; */
-  border: 2px solid #d8d5d5;
+  
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  border-width: 1px;
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
@@ -198,7 +204,7 @@ const BlockChatMundial = styled.div`
 
 const AvatarChat = styled.img`
   width: 45px;
-  height: 35px;
+  height: 45px;
   background-color: #ccc;
   border-radius: 5px;
   margin-right: 14px;
@@ -219,7 +225,7 @@ const BlockChatMundial2 = styled.div`
 
 const AvatarChat2 = styled.img`
   width: 45px;
-  height: 35px;
+  height: 45px;
   background-color: #ccc;
   border-radius: 5px;
   margin-left: 14px;
@@ -235,7 +241,7 @@ const ChatCentral = () => {
       <ChatContainer>
         <ChatHeader>
           <UserInfo>
-            <UserAvatar src={Usuaria} alt="User" style={{ width: '50px', height: 'auto' }} />
+            <UserAvatar src={kemilly} alt="User" style={{ width: '50px', height: 'auto' }} />
             <div>
               <h2>Kemily Vitoria</h2>
               <UserInfoOnline>
@@ -247,35 +253,31 @@ const ChatCentral = () => {
         </ChatHeader>
         <ChatBody>
           <BlockChatMundial>
-            <AvatarChat src={Usuaria} alt="User" />
+            <AvatarChat src={kemilly} alt="User" />
             <Message>Boa tarde!</Message>
           </BlockChatMundial>
           <BlockChatMundial2>
             <Message sent>Boa tarde! Como posso te ajudar?</Message>
-            <AvatarChat2 src={Usuario} alt="User" />
+            <AvatarChat2 src={pedroAlves} alt="User" />
           </BlockChatMundial2>
           <BlockChatMundial>
-            <AvatarChat src={Usuaria} alt="User" />
+            <AvatarChat src={kemilly} alt="User" />
             <Message>Gostaria de uma manutenção no meu liquidificador</Message>
           </BlockChatMundial>
           <BlockChatMundial2>
             <Message sent>Ok, deseja mais alguma coisa?</Message>
-            <AvatarChat2 src={Usuario} alt="User" />
+            <AvatarChat2 src={pedroAlves} alt="User" />
           </BlockChatMundial2>
           <BlockChatMundial>
-            <AvatarChat src={Usuaria} alt="User" />
+            <AvatarChat src={kemilly} alt="User" />
             <Message>No momento só isso mesmo</Message>
           </BlockChatMundial>
           <BlockChatMundial2>
             <Message sent>Consigo fazer por R$93. Tem interesse?</Message>
-            <AvatarChat2 src={Usuario} alt="User" />
+            <AvatarChat2 src={pedroAlves} alt="User" />
           </BlockChatMundial2>
-          {/* <BlockChatMundial2>
-            <Message sent>Orçamento enviado. Aguardando pagamento</Message>
-            <AvatarChat2 src={Usuario} alt="User" />
-          </BlockChatMundial2> */}
           <BlockChatMundial>
-            <AvatarChat src={Usuaria} alt="User" />
+            <AvatarChat src={kemilly} alt="User" />
             <Message>Negócio fechado!</Message>
           </BlockChatMundial>
         </ChatBody>
