@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
 
 const Box = styled.section`
     width: 100%;
@@ -53,12 +54,12 @@ const ImgsContainer = styled.div`
         transform: translate(-50%, -50%);
         opacity: 0;
     }
-    /*.clicked img{
+    .clicked img{
       filter: brightness(50%);
     }
     .clicked p{
       opacity: 1;
-    }*/
+    }
     h6{
         font-weight: 400;
         font-size: 24px;
@@ -71,29 +72,48 @@ const ImgsContainer = styled.div`
  
 
 const OndeDescartar = () => {
+    const [clicked, setClicked] = useState([false, false, false]);
+
+    const toggleOverlay = (index) => {
+        const newClicked = [...clicked];
+        newClicked[index] = !newClicked[index];
+        setClicked(newClicked);
+    };
+    
+    const handleClickOutside = (event) => {
+        if (event.target.closest('.image-container')) return;
+        setClicked([false, false, false]);
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+          document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     return(
         <Box>
             <p>COLABORE</p>
             <h2>Onde descartar</h2>
             <ImgsContainer>
-                <div onclick="toggleOverlay1(this)">
-                    <img src="src\assets\samsungDescarte.jpg" alt="Sansung Recicla" width="360" height="360" />
+                <div className={`image-container ${clicked[0] ? 'clicked' : ''}`} onClick={() => toggleOverlay(0)}>
+                    <img src="src/assets/samsungDescarte.jpg" alt="Sansung Recicla" width="360" height="360" />
                     <p> O Programa de Reciclagem Samsung Recicla oferece descarte gratuito e ecologicamente correto para produtos eletroeletrônicos e eletrodomésticos de qualquer marca, tais como baterias, celulares, notebooks, refrigeradores, máquinas de lavar e demais produtos quebrados, usados ou sem uso.</p>
                     <h6>Sansung Recicla</h6>
                 </div>
-                <div onclick="toggleOverlay2(this)">
-                    <img src="src\assets\greenEletronDescarte.jpg" alt="Green Eletron" width="360" height="360" className="ge"/>
+                <div className={`image-container ${clicked[1] ? 'clicked' : ''}`} onClick={() => toggleOverlay(1)}>
+                    <img src="src/assets/greenEletronDescarte.jpg" alt="Green Eletron" width="360" height="360" className="ge"/>
                     <p>Green Eletron é uma empresa de logística reversa que disponibiliza pontos de coleta em estabelecimentos e instituições para as pessoas descartarem resíduos eletrônicos de forma voluntária. Ela tem foco em pequenos e médios resíduos.</p>
                     <h6>Green Eletron</h6>
                 </div>
-                <div onclick="toggleOverlay3(this)">
-                    <img src="src\assets\abreeDescarte.jpg" alt="ABREE" width="360" height="360"/>
+                <div className={`image-container ${clicked[2] ? 'clicked' : ''}`} onClick={() => toggleOverlay(2)}>
+                    <img src="src/assets/abreeDescarte.jpg" alt="ABREE" width="360" height="360"/>
                     <p>A ABREE, Associação Brasileira de Reciclagem de Eletroeletrônicos e Eletrodomésticos, foi fundada em 29 de junho de 2011, sendo uma associação sem fins lucrativos, tendo o objetivo de gestão de logística reversa de produtos eletrônicos e eletrodomésticos pós consumo no Brasil.</p>
                     <h6>ABREE</h6>
                 </div>
-                
             </ImgsContainer>
         </Box>
     )
 }
-export default OndeDescartar
+export default OndeDescartar;
