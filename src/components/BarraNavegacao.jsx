@@ -39,6 +39,7 @@ const BarraNavegacao = ({ cor }) => {
     `
 
     const ListItem = styled.p`
+    white-space: nowrap;
     list-style-type: none;
     font-size: .9em;
     font-weight: 500;
