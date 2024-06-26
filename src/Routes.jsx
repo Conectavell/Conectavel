@@ -41,11 +41,9 @@ const Routes = () => {
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
-
-                    <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
-                    <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
-                    
-
+  
+                    <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>}  />
+                    <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>}/>
                     <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />

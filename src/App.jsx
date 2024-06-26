@@ -43,7 +43,8 @@ const useUsuario = () => {
             sobrenome: data.sobrenomeUsuario,
             email: data.emailUsuario,
             foto: data.fotoPerfilPath,
-            celular: data.celularUsuario
+            celular: data.celularUsuario,
+            tipoPerfil: data.tipoPerfil
           });
           console.log(data);
         })

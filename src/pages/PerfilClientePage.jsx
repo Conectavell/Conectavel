@@ -1,4 +1,3 @@
-import React, { useContext, useState } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
@@ -29,7 +28,7 @@ import CadastroContext from '../context/CadastroContext';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext)
+  const context = useContext(CadastroContext)
 
   return (
     <>
@@ -72,20 +71,20 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${context.nome} ${context.sobrenome}`}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{context.emailUsuario ? context.emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
 
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{context.celularUsuario ? context.celularUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
 
                   </ItemInfo>
