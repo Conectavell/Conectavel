@@ -55,7 +55,7 @@ const Grid = () => {
     useEffect(() => {
         const fetchUsuarios = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/API/Login");
+                const response = await axios.get("http://localhost:8080/API/usuarios");
                 setUsuario(response.data);
             } catch (error) {
                 console.error("Erro ao buscar usuários", error);
