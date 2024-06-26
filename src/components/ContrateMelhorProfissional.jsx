@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import PlacaMae from '../assets/Arrumando.jpg'
 import Vantagens from './Vantagens'
-
+import { useTranslation } from "react-i18next";
 const ContratarWrapper = styled.section`
     width: 80%;
     display: flex;
@@ -24,7 +24,7 @@ const CimaSection = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
@@ -37,7 +37,7 @@ const Title = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         width: 100%;
     }
 `
@@ -78,7 +78,7 @@ const ImgTopo = styled.div`
     border-radius: 20px;
     margin-top: 2rem;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1556px){
         width: 100%;
     }
 `
@@ -90,7 +90,7 @@ const BaixoSection = styled.div`
     justify-content: center;
     gap: 30px;
 
-    @media only screen and (max-width: 1000px){
+    @media only screen and (max-width: 1156px){
         flex-direction: column;
         align-items: center;
     }
@@ -100,13 +100,15 @@ const BaixoSection = styled.div`
 
 function ContrateMelhorProfissional() {
     const { innerWidth: width, innerHeight: height } = window
+    const { t } = useTranslation()
+
     
     return (
         <ContratarWrapper>
             <CimaSection>
                 <Title>
-                    <Sub_heading>CONTRATE O MELHOR PROFISSIONAL</Sub_heading>
-                    <Heading>Contrate o melhor profissional de eletrônica da cidade.</Heading>
+                    <Sub_heading>{t("contrateMelhorProfissional.subtitle")}</Sub_heading>
+                    <Heading>{t("contrateMelhorProfissional.subtitle")}</Heading>
                 </Title>
                 {
                     width > 992 ? <ImgTopo /> : ''
@@ -114,9 +116,9 @@ function ContrateMelhorProfissional() {
                 
             </CimaSection>
             <BaixoSection>
-                <Vantagens titulo="Agilidade" texto="Contrate o serviço desejado com poucos clicks." />
-                <Vantagens titulo="Profissionalismo" texto="Nos certificamos de analisar de maneira eficiente perfis de profissionais." />
-                <Vantagens titulo="Qualidade" texto="Selecionamos profissionais que irão te entregar efetivamente seu serviço." />
+                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade1.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade1.text")} />
+                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade2.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade2.text")} />
+                <Vantagens titulo={t("contrateMelhorProfissional.qualidades.qualidade3.title")} texto={t("contrateMelhorProfissional.qualidades.qualidade3.text")} />
             </BaixoSection>
         </ContratarWrapper>
     );

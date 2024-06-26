@@ -1,23 +1,25 @@
 import BarraNavegacao from '../components/BarraNavegacao'
-import NossaEquipe from '../components/NossaEquipe'
 import IdentidadeVisual from '../components/IdentidadeVisual'
 import NossoNegocio from '../components/NossoNegocio'
 import FuturosPassos from '../components/FuturosPassos'
+import Equipe from '../components/Equipe'
+import FaleConosco from '../components/FaleConosco'
 import Footer from '../components/Footer'
 
 
 
 const QuemSomosPage = () => {
-    
     return (
         <>
-            <BarraNavegacao />
-            <NossaEquipe/>
+            <BarraNavegacao cor="azul" />
+            <Equipe />
             <IdentidadeVisual/>
             <NossoNegocio/>
-            <FuturosPassos/>
-            <Footer/>
+             <FuturosPassos/>
+            <FaleConosco/>
+            <Footer cor="azul"/>
         </>
+
     )
 }
 

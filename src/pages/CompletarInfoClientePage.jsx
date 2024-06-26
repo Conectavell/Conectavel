@@ -1,171 +1,178 @@
-import React from 'react'
-import styled from 'styled-components'
-
-const Box = styled.div`
-  background-color: var(--azul_principal);
-  padding: 35px;
-`/**/
-const Area = styled.div`
-  background-color: white;
-  width: 716px;
-  border-radius: 20px;
-  margin: auto;
-  padding: 50px 0 20px;
-`/**/
-const Titulo = styled.h2`
-  font-size: 48px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 15px;
-`/**/
-const Paragrafo = styled.p`
-  font-size: 20px;
-  font-weight: 500;
-  color: #4D5959;
-  margin-bottom: 0;
-`/**/
-const Put = styled.div`
-  display: flex;
-  flex-direction: column;
-  top: -10px;
-`/**/
-const PutMaior = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-`/**/
-const CaixaPut = styled.input`
-  box-sizing: border-box;
-  border: solid 1px;
-  border-radius: 10px;
-  padding-left: 30px;
-  width: 600px;
-  height: 65px;
-  &::placeholder{
-    font-size: 20px;
-}
-`/**/
-const PutMenor = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`/**/
-const Col1 = styled.div`
-  margin-right: 13px;
-  gap: 10px;
-`/**/
-const Col2 = styled.div`
-  gap: 10px;
-`/**/
-const InputCol1 = styled.input`
-  box-sizing: border-box;
-  border: solid 1px;
-  border-radius: 10px;
-  padding-left: 30px;
-  width: 276px;
-  height: 65px;
-  &::placeholder{
-    font-size: 20px;
-}
-
-`/**/
-const InputCol2 = styled.input`
-  box-sizing: border-box;
-  border: solid 1px;
-  border-radius: 10px;
-  padding-left: 30px;
-  width: 305px;
-  height: 65px;
-  &::placeholder{
-    font-size: 20px;
-}
-
-`/**/
-const Bot = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`/**/
-const Btn = styled.button`
-  margin-top: 44px;
-  width: 600px;
-  height: 60px;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--azul_principal);
-  color: white;
-  font-size: 26px;
-  font-weight: 400;
-`/* */
-const A = styled.div`
-  display: block;
-  text-align: center;
-  color: white;
-  font-size: 32px;
-  font-weight: 400;
-  margin: 20px;
-`/**/
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import ConectavelLogo from "../components/ConectavelLogo"
+import { BoxInputPequeno, FormCadastro } from "../components/InputsPessoais"
+import CadastroContext from "../context/CadastroContext"
+import { useContext } from "react"
+import axios from "axios"
+import { useForm } from "react-hook-form"
+import { useLocation } from "react-router-dom"
+import InputsIdentidade from "../components/InputsIdentidade"
+// inputs para cadastrar o cliente
 
 const CompletarInfoClientePage = () => {
+    const { register, formState: { errors } } = useForm();
+    const {
+        identidadeUsuario, setIdentidadeUsuario,
+        cepUsuario, setCepUsuario,
+        numeroUsuario, setNumeroUsuario,
+        complementoUsuario, setComplementoUsuario,
+        celularUsuario, setCelularUsuario,
+        dataNascimentoUsuario, setDataNascimentoUsuario,
+        sexoUsuario, setSexoUsuario,
+    } = useContext(CadastroContext)
 
-  return(
-    <Box>
-        <Area>
-            <Titulo>Complete suas informações</Titulo>
-            <PutMaior>
-                <Put>
-                    <label for="Nacionalidade"><Paragrafo>Nacionalidade</Paragrafo></label>
-                    <CaixaPut type="text" name="Nacionalidade" id="Nacionalidade" placeholder="Selecione" />
-                </Put>
-                <Put>
-                    <label for="cpfcnpj"><Paragrafo>CPF / CNPJ</Paragrafo></label>
-                    <CaixaPut type="text" name="cpfcnpj" id="cpfcnpj" placeholder="000.000.000-00" />
-                </Put>
-                <Put>
-                    <label for="cep"><Paragrafo>CEP</Paragrafo></label>
-                    <CaixaPut type="text" name="cep" id="cep" placeholder="XXXXX-XXX" />
-                </Put>
-                <Put>
-                    <label for="numero"><Paragrafo>Número</Paragrafo></label>
-                    <CaixaPut type="text" name="numero" id="numero" placeholder="Digíte o número do endereço" />
-                </Put>
-                <Put>
-                    <label for="complemento"><Paragrafo>Complemento</Paragrafo></label>
-                    <CaixaPut type="text" name="complemento" id="complemento" placeholder="Digite o complemento" />
-                </Put>
-            </PutMaior>
-            <PutMenor>
-                <Col1>
-                    <Put>
-                        <label for="celular"><Paragrafo>Celular</Paragrafo></label>
-                        <InputCol1 type="text" name="celular" id="celular" placeholder="(XX) X XXXX-XXXX" />
-                    </Put>
-                    <Put>
-                        <label for="estadoCivil"><Paragrafo>Estado civil</Paragrafo></label>
-                        <InputCol1 type="text" name="estadoCivil" id="estadoCivil" placeholder="Selecione" />
-                    </Put>
-                </Col1>
-                <Col2>
-                    <Put>
-                        <label for="dataNasc"><Paragrafo>Data de nascimento</Paragrafo></label>
-                        <InputCol2 type="text" name="dataNasc" id="dataNasc" placeholder="dd/mm/aaaa" />
-                    </Put>
-                    <Put>
-                        <label for="sexo"><Paragrafo>Sexo</Paragrafo></label>
-                        <InputCol2 type="text" name="sexo" id="sexo" placeholder="Selecione" />
-                    </Put   >
-                </Col2>
-            </PutMenor>
-            <Bot>
-                <Btn>Enviar informações</Btn>
-            </Bot>
-        </Area>
-        <A href="#">Deixar para Depois</A>
-    </Box>
-)
+    const location = useLocation();
+
+    const completarCadastro = (perfil, nome, email, senha, nacionalidade, identidade, cep, numero, complemento, celular, estado, data, sexo) => {
+        axios.post('http://localhost:8080/api/v1/usuario', {
+            tipoDePerfilUsuario: `${perfil}`,
+            nomeUsuario: `${nome}`,
+            emailUsuario: `${email}`,
+            senhaUsuario: `${senha}`,
+            nacionalidadeUsuario: `${nacionalidade}`,
+            cpfUsuario: `${identidade}`,
+            cepUsuario: `${cep}`,
+            numeroUsuario: `${numero}`,
+            complementoUsuario: `${complemento}`,
+            celularUsuario: `${celular}`,
+            estadoCivilUsuario: `${estado}`,
+            dataNascimentoUsuario: `${data}`,
+            sexoUsuario: `${sexo}`
+        }, {
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
+            }
+        })
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        completarCadastro(location.state.tipoPerfil, location.state.nomeUsuario, location.state.emailUsuario, location.state.senhaUsuario, identidadeUsuario, cepUsuario, numeroUsuario, complementoUsuario, celularUsuario, dataNascimentoUsuario, sexoUsuario);
+        console.log("logado")
+    }
+
+    return (
+        <ConectavelLogo>
+            <FormCadastro style={{ overflow: "hidden" }} onSubmit={handleSubmit}>
+                <Box
+                    sx={{
+                        width: "90%",
+                        margin: "auto",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1rem"
+                    }}>
+                    <h2>Complete suas informações</h2>
+
+                    <InputsIdentidade/>
+                    <TextField
+                        label="CEP"
+                        {...register("cepUsuario", { required: "CEP is required." })}
+                        error={Boolean(errors.cepUsuario)}
+                        type='number'
+                        fullWidth
+                        required={true}
+                        value={cepUsuario}
+                        onChange={e => {
+                            setCepUsuario(e.target.value)
+                            console.log(cepUsuario)
+                        }}
+                        id="fullWidth" />
+                    <TextField
+                        label="Complemento"
+                        {...register("complementoUsuario", { required: "Complemento is required." })}
+                        error={Boolean(errors.complementoUsuario)}
+                        fullWidth
+                        required={true}
+                        value={complementoUsuario}
+                        onChange={e => {
+                            setComplementoUsuario(e.target.value)
+                            console.log(complementoUsuario)
+                        }}
+                        id="fullWidth" />
+
+                    <BoxInputPequeno sx={{ margin: "auto", }}>
+                        <TextField
+                            label="Número do endereço"
+                            required={true} {...register("numeroUsuario", { required: "Número do endereço is required." })}
+                            error={Boolean(errors.numeroUsuario)}
+                            type='number'
+                            style={{ width: "48%" }}
+                            id="outlined-basic"
+                            value={numeroUsuario}
+                            onChange={e => {
+                                setNumeroUsuario(e.target.value)
+                                console.log(numeroUsuario)
+                            }}
+                            variant="outlined" />
+                        <TextField
+                            label="Celular"
+                            required={true} {...register("celularUsuario", { required: "Celular is required." })}
+                            error={Boolean(errors.celularUsuario)}
+                            type='number'
+                            style={{ width: "48%" }}
+                            id="outlined-basic"
+                            value={celularUsuario}
+                            onChange={e => {
+                                setCelularUsuario(e.target.value)
+                                console.log(celularUsuario)
+                            }}
+                            variant="outlined" />
+
+                        <FormControl
+                            style={{ width: "48%" }}>
+                            <InputLabel
+                                required={true}
+                                id="demo-simple-select-label">Sexo</InputLabel>
+                            <Select
+                                label="Sexo"
+                                {...register("sexoUsuario", { required: "Sexo is required." })}
+                                error={Boolean(errors.sexoUsuario)}
+                                required={true}
+                                value={sexoUsuario}
+                                onChange={e => {
+                                    setSexoUsuario(e.target.value)
+                                    console.log(sexoUsuario)
+                                }}
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select">
+                            
+                                <MenuItem value="feminino">Feminino</MenuItem>
+                                <MenuItem value="masculino">Masculino</MenuItem>
+                                <MenuItem value="outro">Outro</MenuItem>
+                            </Select>
+                        </FormControl>
+
+                        <TextField
+                            type='date'
+                            {...register("dataNascimentoUsuario", { required: "Data de nascimento is required." })}
+                            error={Boolean(errors.dataNascimentoUsuario)}
+                            required={true}
+                            style={{ width: "48%" }}
+                            value={dataNascimentoUsuario}
+                            onChange={e => {
+                                setDataNascimentoUsuario(e.target.value)
+                                console.log(dataNascimentoUsuario)
+                            }}
+                            fullWidth id="fullWidth" />
+                    </BoxInputPequeno>
+
+                    <Button
+                        disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
+                        type="submit"
+                        style={{ width: "100%", margin: "1rem auto" }}
+                        variant="contained">Enviar informações</Button>
+                </Box>
+            </FormCadastro>
+        </ConectavelLogo>
+    )
 }
 
 export default CompletarInfoClientePage

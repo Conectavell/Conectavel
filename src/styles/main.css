@@ -41,3 +41,6 @@ body{
 .carousel-indicators{
   position: inherit !important;
 }
+.scroll{
+  overflow: hidden;
+}

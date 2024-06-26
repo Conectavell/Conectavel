@@ -70,7 +70,7 @@ const ColaboradoresPage = () => {
 
     return (
         <>
-            <BarraNavegacao />
+            <BarraNavegacao cor="azul" />
 
             <Box>
                 <Sub_heading>

@@ -6,15 +6,25 @@ import logotipo from '../assets/logotipo.png'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBarsStaggered } from "react-icons/fa6";
-import Lang from './Lang';
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
-import { NavItem } from 'react-bootstrap';
+import SelectLang from './SelectLang';
+import { FaUserAlt } from 'react-icons/fa';
+import { useContext } from 'react';
+import CadastroContext from '../context/CadastroContext';
+import Deslogar from './Deslogar';
 
 
+//
 
-export const Button = styled.button`
+const BarraNavegacao = ({ cor }) => {
+    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const { tipoPerfil, idUsuario } = useContext(CadastroContext)
+
+    const Button = styled(Link)`
     padding: .8rem 1rem;
+    text-align: center;
+    text-decoration: none;
     border: none;
     outline: none;
     border-radius: 1.5rem;
@@ -24,11 +34,9 @@ export const Button = styled.button`
     transition: all .3s linear;
     font-weight: 600;
     &:hover{
-        background-color: var(--verde_principal);
+        background-color: ${cor === "azul" ? "var(--verde_principal)" : "var(--azul_principal)"};
     }
     `
-const BarraNavegacao = () => {
-    const navItems = ['Home', 'Colaboradores', 'Descarte', 'Quem somos']
 
     const ListItem = styled.p`
     white-space: nowrap;
@@ -39,7 +47,7 @@ const BarraNavegacao = () => {
     color: white;
     cursor: pointer;
 
-    @media (max-width: 992px) {
+    @media (max-width:  1200px) {
         margin: .5rem auto;
     }
     &:hover{
@@ -56,9 +64,10 @@ const BarraNavegacao = () => {
         transition: all .3s linear;
 }
 `
-    const Login = styled.button`
+    const Login = styled(Link)`
     border-radius: 1.5rem;
     padding: .8rem 1rem;
+    text-decoration: none;
     border: none;
     outline: none;
     cursor: pointer;
@@ -79,15 +88,25 @@ const BarraNavegacao = () => {
     flex-direction: row;
     margin: auto;
     width: 100%;
-    @media (max-width: 992px) {
+    @media (max-width:  1200px) {
         flex-direction: column;
         margin-bottom: 1rem;
     }
     `
-    
-    const {t} = useTranslation()
+    const Block = styled.div`
+        width: auto;
+        display: flex;
+        align-items: center; 
+    `
+
+    const { t } = useTranslation()
     return (
-        <Navbar expand="lg" className='navbar' style={{ marginBottom: '2rem' }}>
+        <Navbar expand="xl" className='navbar' style={{
+            marginBottom: '2rem',
+            backgroundColor: cor === "azul"
+                ? "var(--azul_principal)"
+                : "var(--verde_principal)"
+        }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
                     <img width={60} src={logo} />
@@ -98,27 +117,38 @@ const BarraNavegacao = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="navbarScroll">
                     <NavSection>
-                        <Nav style={{ margin: 'auto', }} className="me-auto my-2 my-lg-0">
+                        <Nav style={{ margin: 'auto', }} className="me-auto my-2 my-xl-0">
                             {navItems.map((item, index) => {
                                 return (
                                     <ListItem key={index}>
                                         <StyledLink to={
                                             item === "Home" ? "/Conectavel" : item === "Quem somos" ? "/Conectavel/QuemSomos" : `/Conectavel/${item}`
                                         }>
-                                            {t(item)}
+                                            {t(`navbar.${item}`)}
                                         </StyledLink>
                                     </ListItem>
                                 )
                             })}
                             <ListItem>
-                                Serviços
+                                {t("navbar.Serviços")}
                             </ListItem>
                         </Nav>
-                        <div >
-                            <Button >{t("btncadastro")}</Button>
-                            <Login>{t("btnlogin")}</Login>
-                            <Lang />
-                        </div>
+                        <Block >
+                            {
+                                idUsuario ?
+                                    <>
+                                        <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
+                                        <Login to="/Conectavel" ><Deslogar size="1.5rem"/></Login>
+                                    </>
+                                    :
+                                    <>
+                                        <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
+                                        <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
+                                    </>
+                            }
+
+                            <SelectLang />
+                        </Block>
                     </NavSection>
                 </Navbar.Collapse>
             </Container>
@@ -126,9 +156,7 @@ const BarraNavegacao = () => {
     )
 }
 
-export default BarraNavegacao
-
-
+export default BarraNavegacao;
 
 
 

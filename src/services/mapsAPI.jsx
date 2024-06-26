@@ -2,6 +2,8 @@ import { MarkerF } from "@react-google-maps/api";
 import samsungImg from '/src/assets/samsung.png'
 import greenImg from '/src/assets/greenEletron.png'
 import abreeImg from '/src/assets/abree.png'
+import axios from "axios";
+import { responsiveProperty } from "@mui/material/styles/cssUtils";
 
 export const keyMaps = "AIzaSyBv_JyvnAqFgt2_21dARAT6p6ZzaBDP9So"
 
@@ -86,6 +88,13 @@ export const mapGreenEletron = (
         return <MarkerF key={index} position={loc} icon={greenImg} />
     })
 )
+// export const mapApi = (
+//     axios.get("http://localhost:8080/API/pontosDescarte").then(function(response){
+//         response.map((ponto, index) => {
+//             "lat":ponto.
+//         })
+//     })
+// )
 export const mapTodos = (
     <>
         {mapSamsung}
