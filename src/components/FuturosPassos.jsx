@@ -95,7 +95,7 @@ const FuturosPassos = () => {
             <div>
                 <p>E NÃO PARA POR AÍ</p>
                 <h2>Futuros passos</h2>
-                <p className="text">Um aplicativo para dispositiveis moveis, tanto para o sistema Android como IOS</p>
+                <p className="text">Um aplicativo para dispositiveis moveis,<br/> tanto para o sistema Android como IOS</p>
             </div>
             <div>
                 <img src="src\assets\appAndroid.jpg" alt="Aplicativo movile" height="700px"/>

@@ -31,6 +31,7 @@ const BarraNavegacao = () => {
     const navItems = ['Home', 'Colaboradores', 'Descarte', 'Quem somos']
 
     const ListItem = styled.p`
+    white-space: nowrap;
     list-style-type: none;
     font-size: .9em;
     font-weight: 500;
