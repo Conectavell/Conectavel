@@ -41,14 +41,17 @@ export const PerfilPrestador = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  
 
   .servico-container {
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
+    cursor: pointer;
+    
 
     .Container-servico {
-      height: 180px;
+      /* height: 180px; */
       margin-top: 16px;
       display: flex;
       flex-direction: column;
@@ -56,6 +59,7 @@ export const PerfilPrestador = styled.div`
       border-radius: 10px;
       border: 1px solid rgba(77, 89, 89, 0.5);
       padding: 8px;
+      
     }
     #P_container {
       text-align: center;
@@ -70,6 +74,7 @@ export const PerfilPrestador = styled.div`
       border-radius: 9.21px;
       cursor: pointer;
       font-size: 20px;
+      margin: .4rem 0;
     }
 
   label:hover{
@@ -95,6 +100,7 @@ export const PerfilPrestador = styled.div`
       cursor: pointer;
       font-size: 20px;
       user-select: none;
+      
     }
     .checkmark {
      
