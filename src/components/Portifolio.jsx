@@ -1,57 +1,27 @@
 import React, { useState } from "react";
+import './portifolio.css'
 
 function Portifolio() {
-    const [Image, setImage] = useState(null);
-
-    const VisuallyHiddenInput = styled('input')({
-        clip: 'rect(0 0 0 0)',
-        clipPath: 'inset(50%)',
-        height: 1,
-        overflow: 'hidden',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        whiteSpace: 'nowrap',
-        width: 1,
-    });
+    const [selectedImage, setSelectedImage] = useState(null);
 
     return (
         <div>
             <div className="Portifolio-body">
+                {selectedImage && (
+                    <div>
+                        <img className="img" alt="Selected Image" width="370px" height="340px"  src={URL.createObjectURL(selectedImage)} />
 
-                <h2>Galeria Nome prestador</h2>
+                        <button className="btn-del" onClick={() => setSelectedImage(null)}>Remove</button>
+                    </div>
+                )}
 
-                <img className="C-img" alt={`Imagem ${index + 1}`} key={index} width='370px' height='340' src={URL.createObjectURL(Image)} />
-
-                <div className="add-img">
-
-
-                </div>
-
-                <div className="Remove-img">
-                    <button className="btn-del" onClick={() => setImage(null)}>Remover foto</button>
-                </div>
-
+                <input className="add-img" type="file" name="myImage" onChange={(event) => {
+                    setSelectedImage(event.target.files[0]);
+                }} />
             </div>
+
         </div>
-    )
-
-
-    export default function InputFileUpload() {
-        return (
-            <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-            >
-                Upload file
-                <VisuallyHiddenInput type="file" />
-            </Button>
-        );
-    }
-
-}
+    );
+};
 
 export default Portifolio;
