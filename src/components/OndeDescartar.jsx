@@ -65,7 +65,7 @@ const ImgsContainer = styled.div`
         font-size: 24px;
         color: black;
     }
-    @media  (max-width: 990px){
+    @media  (max-width: 1300px){
         flex-direction: column;
     }
 `
