@@ -3,6 +3,7 @@ import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
 import axios from 'axios'
+import EnderecoContext from './context/EnderecoContext.jsx'
 
 // Hook personalizado para gerenciar o estado do usuário
 const useUsuario = () => {
@@ -59,14 +60,24 @@ function App() {
   const [usuario, setUsuario] = useUsuario();
   const [nextTab, setNextTab] = useState(0);
   const [fill, setFill] = useState(true);
+  const [logradouro, setLogradouro] = useState('')
+  const [bairro, setBairro] = useState('')
+  const [estado, setEstado] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [complementoUsuario, setComplementoUsuario] = useState('')
+  const [cep, setCep] = useState('')
+  const [numeroUsuario, setNumeroUsuario] = useState('')
+
 
   return (
     // Aplicação dos Providers dos contextos
-    <CadastroContext.Provider value={{ ...usuario, setUsuario, nextTab, setNextTab, fill, setFill }}>
-      <ExpandedNavContext.Provider value={{ expand, setExpand }}>
-      <Routes />
-      </ExpandedNavContext.Provider>
-    </CadastroContext.Provider>
+    <EnderecoContext.Provider value={{ cep, setCep, logradouro, setLogradouro, bairro, setBairro, estado, setEstado, cidade, setCidade, complementoUsuario, setComplementoUsuario, numeroUsuario, setNumeroUsuario }}>
+      <CadastroContext.Provider value={{ ...usuario, setUsuario, nextTab, setNextTab, fill, setFill }}>
+        <ExpandedNavContext.Provider value={{ expand, setExpand }}>
+          <Routes />
+        </ExpandedNavContext.Provider>
+      </CadastroContext.Provider>
+    </EnderecoContext.Provider>
   );
 }
 

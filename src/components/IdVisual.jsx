@@ -14,20 +14,6 @@ function IdVisual() {
     padding: 2rem 0;
 background: #175EC6;
 `
-
-
-
-
-    const Tittles = styled.div`
-    font-size: 48px;
-    text-align: center;
-    `
-
-    const SubTittle = styled.div`
-    font-size: 28px;
-    text-align: center;
-    `
-
     const Texts = styled.p`
     background: #fff;
     width: 30%;
@@ -45,7 +31,6 @@ background: #175EC6;
     const Conteiner = styled.div`
     width: 65%;
     margin: 2rem auto;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: space-between;
 
@@ -86,7 +71,6 @@ flex-direction: column;
     line-height: 140%;
     font-weight: 400;
     color: #fff;
-    /* width: 50%; */
     text-align: center;
     
     @media (max-width: 1200px){

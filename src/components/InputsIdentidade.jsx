@@ -4,7 +4,8 @@ import CadastroContext from '../context/CadastroContext'
 import ReactInputMask from 'react-input-mask'
 
 const InputsIdentidade = () => {
-    const { identidadeUsuario, setIdentidadeUsuario } = useContext(CadastroContext)
+    const [identidadeUsuario, setIdentidadeUsuario] = useState('')
+    const context = useContext(CadastroContext)
     const [tipoIdentidade, setTipoIdentidade] = useState('')
 
     return (
@@ -20,7 +21,8 @@ const InputsIdentidade = () => {
                     value={tipoIdentidade}
                     onChange={e => {
                         setTipoIdentidade(e.target.value)
-                        // console.log(tipoIdentidade)
+                        // context.identidade = tipoIdentidade
+                        // console.log(context.identidade)
                     }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -38,7 +40,8 @@ const InputsIdentidade = () => {
                             value={identidadeUsuario}
                             onChange={e => {
                                 setIdentidadeUsuario(e.target.value)
-                                console.log(identidadeUsuario)
+                                context.identidade = identidadeUsuario
+                                // console.log(context.identidade)
                             }}
                             disabled={false}
                             maskChar=" "
@@ -63,7 +66,8 @@ const InputsIdentidade = () => {
                             value={identidadeUsuario}
                             onChange={e => {
                                 setIdentidadeUsuario(e.target.value)
-                                console.log(identidadeUsuario)
+                                context.identidade = identidadeUsuario
+                                // console.log(identidadeUsuario)
                             }}
                             disabled={false}
                             maskChar=" "

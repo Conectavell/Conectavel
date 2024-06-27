@@ -8,7 +8,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-// import { useUsuario } from '../App';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -21,7 +20,7 @@ const MenuProps = {
     },
 }
 
-const names = [
+const hab = [
     'Manutenção de vídeo games',
     'Manutenção de celulares e telefones',
     'Manutenção de televisores',
@@ -29,10 +28,10 @@ const names = [
     'Manutenção de computadores',
 ]
 
-function getStyles(name, personName, theme) {
+function getStyles(name, habilidadesUsuario, theme) {
     return {
         fontWeight:
-            personName.indexOf(name) === -1
+        habilidadesUsuario.indexOf(name) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     }
@@ -41,20 +40,15 @@ function getStyles(name, personName, theme) {
 
 export const InputHabilidades = () => {
     const theme = useTheme();
-    const [personName, setPersonName] = useState([])
-    // const  [usuario, setUsuario ] = useUsuario()
-    // const { usuario, setUsuario } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const [habilidadesUsuario, setHabilidadesUsuario] = useState([])
 
 
     const handleChange = (event) => {
         const { target: { value } } = event
-        setPersonName(typeof value === 'string' ? value.split(',') : value)
-        // setUsuario({
-        //     ...usuario,
-        //     habilidades: [event.target.value]
-        // })
-        // console.log(usuario.habilidades[0])
-        // console.log(event.target.value)
+        setHabilidadesUsuario(typeof value === 'string' ? value.split(',') : value)
+        context.habilidades = habilidadesUsuario
+        // console.log(context.habilidades)
     }
 
 
@@ -66,7 +60,7 @@ export const InputHabilidades = () => {
                     labelId="demo-multiple-chip-label"
                     id="demo-multiple-chip"
                     multiple
-                    value={personName}
+                    value={habilidadesUsuario}
                     onChange={handleChange}
                     input={<OutlinedInput id="select-multiple-chip" label="Habilidades de reparo" />}
                     renderValue={(selected) => (
@@ -78,11 +72,11 @@ export const InputHabilidades = () => {
                     )}
                     MenuProps={MenuProps}
                 >
-                    {names.map((name) => (
+                    {hab.map((name) => (
                         <MenuItem
                             key={name}
                             value={name}
-                            style={getStyles(name, personName, theme)}>
+                            style={getStyles(name, habilidadesUsuario, theme)}>
                             {name}
                         </MenuItem>
                     ))}

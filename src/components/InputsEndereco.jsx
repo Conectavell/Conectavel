@@ -1,11 +1,35 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { TextField } from '@mui/material'
+import EnderecoContext from '../context/EnderecoContext'
+
+
+
+export const InputBairro = () => {
+    const context = useContext(CadastroContext)
+    const { bairro, setBairro } = useContext(EnderecoContext)
+
+    return (
+        <>
+            <TextField
+                label="Bairro"
+                type='text'
+                fullWidth
+                required={true}
+                value={bairro}
+                onChange={e => {
+                    setBairro(e.target.value)
+                    context.bairro = bairro
+                    // console.log(bairro)
+                }}
+                id="fullWidth" />
+        </>
+    )
+}
 
 export const InputLogradouro = () => {
-    const {
-        logradouro, setLogradouro,
-    } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const { logradouro, setLogradouro } = useContext(EnderecoContext)
     return (
         <>
             <TextField
@@ -14,31 +38,10 @@ export const InputLogradouro = () => {
                 fullWidth
                 required={true}
                 placeholder="Placeholder"
-                value={logradouro ? logradouro : ""}
+                value={logradouro ? logradouro : ''}
                 onChange={e => {
                     setLogradouro(e.target.value)
-                    // console.log(logradouro)
-                }}
-                id="fullWidth" />
-        </>
-    )
-}
-
-export const InputBairro = () => {
-    const {
-        bairro, setBairro,
-    } = useContext(CadastroContext)
-    return (
-        <>
-            <TextField
-                label="Bairro"
-                type='text'
-                fullWidth
-                required={true}
-                value={bairro ? bairro : ""}
-                onChange={e => {
-                    setBairro(e.target.value)
-                    // console.log(bairro)
+                    context.logradouro = logradouro
                 }}
                 id="fullWidth" />
         </>
@@ -46,9 +49,8 @@ export const InputBairro = () => {
 }
 
 export const InputEstado = () => {
-    const {
-        estado, setEstado,
-    } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const { estado, setEstado } = useContext(EnderecoContext)
     return (
         <>
             <TextField
@@ -59,6 +61,7 @@ export const InputEstado = () => {
                 value={estado ? estado : ""}
                 onChange={e => {
                     setEstado(e.target.value)
+                    context.estado = estado
                     // console.log(estado)
                 }} />
         </>
@@ -66,9 +69,8 @@ export const InputEstado = () => {
 }
 
 export const InputCidade = () => {
-    const {
-        cidade, setCidade
-    } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const { cidade, setCidade } = useContext(EnderecoContext)
     return (
         <>
             <TextField
@@ -79,6 +81,7 @@ export const InputCidade = () => {
                 value={cidade ? cidade : ""}
                 onChange={e => {
                     setCidade(e.target.value)
+                    context.cidade = cidade
                     // console.log(cidade)
                 }} />
         </>
@@ -86,19 +89,19 @@ export const InputCidade = () => {
 }
 
 export const InputComplemento = () => {
-    const {
-        complementoUsuario, setComplementoUsuario,
-    } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const { complementoUsuario, setComplementoUsuario } = useContext(EnderecoContext)
     return (
         <>
             <TextField
                 label="Complemento"
                 fullWidth
                 required={true}
-                value={complementoUsuario}
+                value={complementoUsuario ? complementoUsuario : ''}
                 onChange={e => {
                     setComplementoUsuario(e.target.value)
-                    // console.log(complementoUsuario)
+                    context.complemento = complementoUsuario
+                    // console.log(context.complemento)
                 }}
                 id="fullWidth" />
         </>
@@ -106,9 +109,8 @@ export const InputComplemento = () => {
 }
 
 export const InputNumeroEndereco = () => {
-    const {
-        numeroUsuario, setNumeroUsuario,
-    } = useContext(CadastroContext)
+    const context = useContext(CadastroContext)
+    const { numeroUsuario, setNumeroUsuario } = useContext(EnderecoContext)
     return (
         <>
             <TextField
@@ -117,10 +119,11 @@ export const InputNumeroEndereco = () => {
                 type='number'
                 style={{ width: "48%" }}
                 id="outlined-basic"
-                value={numeroUsuario}
+                value={numeroUsuario ? numeroUsuario : ''}
                 onChange={e => {
                     setNumeroUsuario(e.target.value)
-                    // console.log(numeroUsuario)
+                    context.numero = numeroUsuario
+                    // console.log(context.numero)
                 }}
                 variant="outlined" />
         </>

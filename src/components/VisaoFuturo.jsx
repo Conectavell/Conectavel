@@ -23,7 +23,6 @@ const VisaoFuturo = () => {
         line-height: 140%;
         font-weight: 400;
         color: #fff;
-        /* width: 50%; */
         text-align: center;
         
         @media (max-width: 1200px){

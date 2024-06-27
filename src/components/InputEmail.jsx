@@ -1,9 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { TextField } from '@mui/material'
 
 const InputEmail = () => {
-    const { emailUsuario, setEmailUsuario, } = useContext(CadastroContext)
+    const [emailUsuario, setEmailUsuario] = useState('')
+    const context = useContext(CadastroContext)
+    
 
     return (
         <>
@@ -15,7 +17,8 @@ const InputEmail = () => {
                 value={emailUsuario}
                 onChange={e => {
                     setEmailUsuario(e.target.value)
-                    // console.log(emailUsuario)
+                    context.email = emailUsuario
+                    // console.log(context.email)
                 }}
             />
         </>

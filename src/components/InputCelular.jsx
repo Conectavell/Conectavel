@@ -1,11 +1,12 @@
 import ReactInputMask from 'react-input-mask'
 import CadastroContext from '../context/CadastroContext'
 import { TextField } from '@mui/material'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 
 const InputCelular = () => {
-    const { celularUsuario, setCelularUsuario, } = useContext(CadastroContext)
+    const [celularUsuario, setCelularUsuario] = useState('') 
+    const context = useContext(CadastroContext)
     return (
         <>
             <ReactInputMask
@@ -13,7 +14,8 @@ const InputCelular = () => {
                 value={celularUsuario}
                 onChange={e => {
                     setCelularUsuario(e.target.value)
-                    // console.log(celularUsuario)
+                    context.celular = celularUsuario
+                    // console.log(context.celular)
                 }}
                 disabled={false}
                 maskChar=" "

@@ -1,10 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 
 const InputSexo = () => {
-    const { sexoUsuario, setSexoUsuario } = useContext(CadastroContext)
+    const [sexoUsuario, setSexoUsuario ] = useState('')
+    const context = useContext(CadastroContext)
 
     return (
         <>
@@ -20,7 +21,8 @@ const InputSexo = () => {
                     value={sexoUsuario}
                     onChange={e => {
                         setSexoUsuario(e.target.value)
-                        // console.log(sexoUsuario)
+                        context.sexo = sexoUsuario
+                        // console.log(context.sexo)
                     }}>
 
                     <MenuItem value="feminino">Feminino</MenuItem>
