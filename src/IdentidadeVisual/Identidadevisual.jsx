@@ -4,8 +4,7 @@ import verde1 from '../assets/verde.png'
 import verde2 from '../assets/verdeclaro.png'
 import laranja from '../assets/laranja.png'
 import branco from '../assets/branco.png'
-import android from '../assets/visaoandroid.png'
-import iphone from '../assets/visaoios.png'
+
 import styled from 'styled-components'
 import { Sub_heading } from '../components/Header'
 
@@ -17,28 +16,8 @@ background: #175EC6;
 `
 
 
-    const VisaoFuturo = styled.div`
-    padding: 2rem 0;
-    margin: auto;
-    flex-wrap: wrap;
+    
 
-    @media(max-width:1200px){
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    }
-    `
-
-    const Tittles = styled.div`
-    font-size: 48px;
-    text-align: center;
-    `
-
-    const SubTittle = styled.div`
-    font-size: 28px;
-    text-align: center;
-    `
 
     const Texts = styled.p`
     background: #fff;
@@ -91,17 +70,7 @@ flex-direction: column;
 }
 `
 
-    const Img2 = styled.div`
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media(max-width:1200px){
-width: 100%;
-flex-direction: column;
-}
-`
+    
     const Heading_text = styled.h2`  
     width: 100%;
     font-size: 48px;
@@ -154,33 +123,7 @@ flex-direction: column;
 
             </IdVisual>
 
-            <VisaoFuturo>
-
-                <Sub_heading style={{ width: "100%", textAlign: "center" }}>
-                    E NÃO PARA POR AI
-                </Sub_heading>
-
-                <Heading_text style={{ color: '#FB8C00' }}>
-                    Futuros passos
-                </Heading_text>
-
-                <Img2>
-
-                    <div>
-                        <img src={iphone} alt="Aplicativo Mobile IOS" />
-                        <p style={{ color: '#175EC6', textAlign: "center", fontSize: '1.8em' }} >IOS</p>
-                    </div>
-
-                    <p style={{ textAlign: "center", fontSize: '1.4em' }}>Um aplicativo para dispositivos móveis, tanto para o sistema Android como IOS.</p>
-
-                    <div>
-                        <img src={android} alt="Aplicativo Mobile Android" />
-                        <p style={{ color: '#2CB87B', textAlign: "center", fontSize: '1.8em' }} >Android</p>
-                    </div>
-
-                </Img2>
-
-            </VisaoFuturo>
+            
 
         </div>
     )

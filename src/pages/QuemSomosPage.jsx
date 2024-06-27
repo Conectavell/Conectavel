@@ -1,4 +1,4 @@
-import IdentidadeVisual from '../IdentidadeVisual/Identidadevisual'
+// import IdentidadeVisual from '../IdentidadeVisual/Identidadevisual'
 import BarraNavegacao from '../components/BarraNavegacao'
 import IdentidadeVisual from '../components/IdentidadeVisual'
 import NossoNegocio from '../components/NossoNegocio'
@@ -14,11 +14,11 @@ const QuemSomosPage = () => {
         <>
             <BarraNavegacao cor="azul" />
             <Equipe />
-            <IdentidadeVisual/>
-            <NossoNegocio/>
-             <FuturosPassos/>
-            <FaleConosco/>
-            <Footer cor="azul"/>
+            <IdentidadeVisual />
+            <NossoNegocio />
+            <FuturosPassos />
+            <FaleConosco />
+            <Footer cor="azul" />
         </>
 
     )

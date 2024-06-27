@@ -43,8 +43,6 @@ const Routes = () => {
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
                     <Route path='/Conectavel/Serviços' element={<ServicosPage />} />
 
-                    <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
-                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
 
                     <Route path="/Conectavel/selecionarprofissional" element={<SelecionarPrestador />} />
 
