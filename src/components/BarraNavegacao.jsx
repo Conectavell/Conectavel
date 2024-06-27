@@ -19,7 +19,7 @@ import logoFundoAzul from '../assets/logoFundoAzul.png'
 //
 
 const BarraNavegacao = ({ cor }) => {
-    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const navItems = ['Home', 'Quem somos',"Serviços" ,'Colaboradores', 'Descarte',]
     const { tipoPerfil, idUsuario } = useContext(CadastroContext)
 
     const Button = styled(Link)`
@@ -130,9 +130,6 @@ const BarraNavegacao = ({ cor }) => {
                                     </ListItem>
                                 )
                             })}
-                            <ListItem>
-                                {t("navbar.Serviços")}
-                            </ListItem>
                         </Nav>
                         <Block >
                             {
