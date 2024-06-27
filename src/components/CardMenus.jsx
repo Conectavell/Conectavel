@@ -1,26 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import icon_eletrodomestico from "../assets/icon_eletrodomestico.svg";
+import iconManuten from "../assets/iconManuten.svg";
+import iconReparo from "../assets/iconReparo.svg";
 
 const Card = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  width: 200px;
+  width: 250px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s, box-shadow 0.3s;
+  cursor: pointer;
 
   &:hover {
     border-color: var(--azul_secundario);
-    transform: scale(1.1);
-    box-shadow: 0px 8px 10px var(--azul_secundario);
+    transform: scale(1.03);
+    /* box-shadow: 0px 1px 10px var(--azul_secundario); */
   }
   .perfil_button {
     background-color: var(--azul_principal);
-    padding: 5px;
+    padding: 8px;
     border-radius: 8px;
     border: none;
     color: #ffffff;
@@ -29,14 +35,15 @@ const Card = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-bottom: 10px;
 `;
 
-const Name = styled.h2`
-  font-size: 1rem;
+const Name = styled.h3`
+  /* font-size: 2rem; */
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 const Description = styled.p`
@@ -82,7 +89,19 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
         {renderStars()}
         <Avaliacoes>{avaliacoes}</Avaliacoes>
       </Stars>
-      <Description>{descricao}</Description>
+      {/* <Description>{descricao}</Description> */}
+      <div>
+        {" "}
+        <p className="titulo">
+          Manutenção de eletrodomésticos
+        </p>
+        <p className="titulo">
+          Manutenção de vídeo games
+        </p>
+        <p className="titulo">
+          Manutenção de televisores
+        </p>
+      </div>
 
       <button className="perfil_button">Ver perfil</button>
     </Card>

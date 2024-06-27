@@ -44,7 +44,7 @@ const PreencherPrestadorPage = () => {
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
-            "celularUsuario":`${celularUsuario}`,
+            "celularUsuario": `${celularUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
@@ -63,7 +63,7 @@ const PreencherPrestadorPage = () => {
             .then(function (response) {
                 console.log(response)
                 setOpenModal(true)
-                alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
+                // alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })
             .catch(function (error) {
                 if (error.response) {

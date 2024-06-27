@@ -9,6 +9,7 @@ import { IoLockClosed } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import CadastroContext from '../context/CadastroContext';
+import Deslogar from './Deslogar';
 
 
 const NavbarConfiguracoes = () => {
@@ -25,6 +26,8 @@ const NavbarConfiguracoes = () => {
                         <Nav.Link  ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /> </Link></Nav.Link>
                         <Nav.Link  ><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes"><FaUserCircle size={25} /> Gerenciar configurações</Link></Nav.Link>
                         <Nav.Link  ><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes/seguranca"><IoLockClosed size={25} /> Segurança</Link></Nav.Link>
+                        <Nav.Link className='mx-3'> <Deslogar size="1.8rem" /></Nav.Link>
+
                     </Nav>
                 </Navbar.Collapse>
 

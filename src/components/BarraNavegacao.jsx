@@ -9,12 +9,18 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import '../styles/navbar.css'
 import { useTranslation } from 'react-i18next';
 import SelectLang from './SelectLang';
+import { FaUserAlt } from 'react-icons/fa';
+import { useContext } from 'react';
+import CadastroContext from '../context/CadastroContext';
+import Deslogar from './Deslogar';
+import logoFundoAzul from '../assets/logoFundoAzul.png'
 
 
 //
 
 const BarraNavegacao = ({ cor }) => {
-    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const navItems = ['Home', 'Quem somos',"Serviços" ,'Colaboradores', 'Descarte',]
+    const { tipoPerfil, idUsuario } = useContext(CadastroContext)
 
     const Button = styled(Link)`
     padding: .8rem 1rem;
@@ -34,6 +40,7 @@ const BarraNavegacao = ({ cor }) => {
     `
 
     const ListItem = styled.p`
+    white-space: nowrap;
     list-style-type: none;
     font-size: .9em;
     font-weight: 500;
@@ -103,7 +110,7 @@ const BarraNavegacao = ({ cor }) => {
         }}>
             <Container fluid className='navbar__container'>
                 <Navbar.Brand href="#">
-                    <img width={60} src={logo} />
+                    <img width={60} src={cor === "azul" ? logo : logoFundoAzul }/>
                     <img width={119} src={logotipo} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -123,13 +130,21 @@ const BarraNavegacao = ({ cor }) => {
                                     </ListItem>
                                 )
                             })}
-                            <ListItem>
-                                {t("navbar.Serviços")}
-                            </ListItem>
                         </Nav>
                         <Block >
-                            <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
-                            <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
+                            {
+                                idUsuario ?
+                                    <>
+                                        <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
+                                        <Login to="/Conectavel" ><Deslogar size="1.5rem"/></Login>
+                                    </>
+                                    :
+                                    <>
+                                        <Button to="/Conectavel/cadastro">{t("navbar.btncadastro")}</Button>
+                                        <Login to="/Conectavel/login" >{t("navbar.btnlogin")}</Login>
+                                    </>
+                            }
+
                             <SelectLang />
                         </Block>
                     </NavSection>

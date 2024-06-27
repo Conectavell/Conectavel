@@ -11,6 +11,8 @@ import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
 import Input from '../components/Input'
 import axios from 'axios'
+import InputSenha from "../components/InputSenha";
+import InputEmail from "../components/InputEmail";
 
 
 const ContainerDiv = styled.div`
@@ -48,10 +50,13 @@ const FormDiv = styled.div`
   min-height: 100vh;
 
   .form-container {
-    padding: 0% 10% 10% 10%;
-    max-width: 700px;
-    margin: 0 auto;
+    /* padding: 0% 10% 10% 10%; */
+    /* max-width: 700px; */
+    width: 80%;
+    margin:auto;
+    
   }
+  
 
   h2 {
     font-weight: 600;
@@ -149,10 +154,12 @@ const LoginPage = () => {
       sessionStorage.setItem('idUsuario', idUsuario)
       if (idTipoPerfil == 1) {
         navigate("/Conectavel/perfilcliente")
+        window.location.reload()
       } else if (idTipoPerfil == 2) {
         navigate("/Conectavel/perfilprestador")
+        window.location.reload()
       } else if (idTipoPerfil == 3) {
-        alert("Em desenvolvimento")
+        navigate("/Conectavel/admin")
       }
     })
       .catch(function (error) {
@@ -172,7 +179,6 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //alert(`${emailUsuario} e ${senhaUsuario}`)
     realizarLogin(emailUsuario, senhaUsuario)
   }
 
@@ -184,30 +190,20 @@ const LoginPage = () => {
         </div>
       </LogoDiv>
 
-      <FormDiv>
-        <button onClick={() => navigate(-1)} className="arrow_button">
+      <FormDiv style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        {/* <button onClick={() => navigate(-1)} className="arrow_button">
           <img src={Arrow_button} alt="Botão Voltar" />
-        </button>
+        </button> */}
 
         <div className="form-container">
           <h2>Entrar</h2>
           <form onSubmit={handleSubmit}>
-            <Input
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-              required
-              mudanca={(e) => setEmailUsuario(e.target.value)}
-            />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-              required
-              mudanca={(e) => setSenhaUsuario(e.target.value)}
-            />
+            <InputEmail />
+            <InputSenha sx fullWidth />
             <div className="justify-between">
               <div>
                 <input className="ckeckbox-input" type="checkbox" name="" />
@@ -223,21 +219,6 @@ const LoginPage = () => {
               <StyledLink to="/Conectavel/Cadastro">Cadastre-se</StyledLink>
             </span>
             <br />
-            <span
-              style={{ fontSize: "20px", display: "block", marginTop: "20px" }}
-            >
-              Ou
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: "28px" }}>
-            <ButtonLogin>
-              <img src={Google_logo} width={40} alt="Google Icon" />
-              <span>Entrar com Google</span>
-            </ButtonLogin>
-            <ButtonLogin>
-              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
-              <span>Entrar com Facebook</span>
-            </ButtonLogin>
           </div>
         </div>
       </FormDiv>

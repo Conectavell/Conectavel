@@ -34,11 +34,41 @@ const EditarInfoConfiguracoes = () => {
         nomeUsuario, setNomeUsuario,
         emailUsuario, setEmailUsuario,
         sobrenomeUsuario, setSobrenomeUsuario,
-        idUsuario, tipoPerfil
+        idUsuario, tipoPerfil,
+        setSenhaUsuario, setTipoPerfil
     } = useContext(CadastroContext)
     const [novoEmail, setNovoEmail] = useState("")
+    const [novoNome, setNovoNome] = useState("")
+    const [novoSobrenome, setNovoSobrenome] = useState("")
+    const [novaExperiencia, setNovaExperiencia] = useState("")
+    const [novaHabilidade, setNovaHabilidade] = useState("")
+    const [novoSobre, setNovoSobre] = useState("")
+    const [focused, setFocused] = useState(false)
 
     function atualizarInformacoes() {
+        novoEmail.length ? atualizarEmail() : ''
+        novoNome.length ? atualizarNome() : ''
+        novoSobrenome.length ? atualizarSobrenome() : ''
+        novaExperiencia.length ? atualizarExperiencia() : ''
+        novaHabilidade.length ? atualizarHabilidades() : ''
+        novoSobre.length ? atualizarSobre() : ''
+
+        fetch(`http://localhost:8080/API/getUsuario/${idUsuario}`).then(res => res.json()).then(data => {
+            setNomeUsuario(data.nomeUsuario)
+            setEmailUsuario(data.emailUsuario)
+            setSobrenomeUsuario(data.sobrenomeUsuario)
+            setEmailUsuario(data.emailUsuario)
+            setSenhaUsuario(data.senhaUsuario)
+            setExperienciaUsuario(data.experienciaUsuario)
+            setHabilidadesUsuario(data.habilidadeUsuario)
+            setSobreUsuario(data.sobreUsuario)
+            setTipoPerfil(data.tipoPerfil)
+          })
+
+        setEditarPerfil(!editarPerfil)
+    }
+
+    function atualizarEmail() {
         setEditarPerfil(false)
         console.log("foi")
         try {
@@ -47,9 +77,8 @@ const EditarInfoConfiguracoes = () => {
                     "novoEmail": `${novoEmail}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setEmailUsuario(novoEmail))
-
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 401) {
@@ -65,7 +94,135 @@ const EditarInfoConfiguracoes = () => {
         }
     }
 
+    function atualizarNome() {
 
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarNome`, null, {
+                params: {
+                    "novoNome": `${novoNome}`
+                }
+            })
+                // .then(res => console.log(res))
+                .then(setNomeUsuario(novoNome))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+
+        }
+    }
+    //////////////////////////////////////////
+    function atualizarSobrenome() {
+
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarSobrenome`, null, {
+                params: {
+                    "novoSobrenome": `${novoSobrenome}`
+                }
+            })
+                // .then(res => console.log(res))
+                .then(setSobrenomeUsuario(novoSobrenome))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+
+        }
+    }
+    ////////////////////////////////////////////
+    function atualizarSobre() {
+
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarSobre`, null, {
+                params: {
+                    "novoSobre": `${novoSobre}`
+                }
+            })
+                // .then(res => console.log(res))
+                .then(setSobreUsuario(novoSobre))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+
+        }
+    }
+    ////////////////////////////////////////////////////
+    function atualizarExperiencia() {
+
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarExperiencia`, null, {
+                params: {
+                    "novaExperiencia": `${novaExperiencia}`
+                }
+            })
+                // .then(res => console.log(res))
+                .then(setExperienciaUsuario(novaExperiencia))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+
+        }
+    }
+    /////////////////////////////////////////////
+    function atualizarHabilidades() {
+
+        try {
+            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarHabilidade`, null, {
+                params: {
+                    "novaHabilidade": `${novaHabilidade}`
+                }
+            })
+                // .then(res => console.log(res))
+                .then(setHabilidadesUsuario(novaHabilidade))
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+                } else {
+                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
+                }
+            } else if (error.request) {
+                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+            } else {
+                alert(`Erro: ${error.message}`);
+            }
+
+        }
+    }
 
 
     return (
@@ -74,13 +231,16 @@ const EditarInfoConfiguracoes = () => {
             <FormGroup sx={{ width: "100%", margin: "1rem 0", display: "flex", flexDirection: "column", gap: "1rem" }} >
 
                 <TextField
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
                     label="Primeiro nome"
                     type='text'
                     fullWidth required={true}
                     id="fullWidth"
-                    value={nomeUsuario}
+                    value={editarPerfil && focused ? novoNome : nomeUsuario}
+                    placeholder={focused ? nomeUsuario : novoNome}
                     onChange={e => {
-                        setNomeUsuario(e.target.value)
+                        setNovoNome(e.target.value)
                         // console.log(nomeUsuario)
                     }}
                     disabled={editarPerfil ? false : true}
@@ -88,14 +248,17 @@ const EditarInfoConfiguracoes = () => {
                 />
 
                 <TextField
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
                     label="Sobrenome"
                     type='text'
                     fullWidth required={true}
                     id="fullWidth"
-                    value={sobrenomeUsuario ? sobrenomeUsuario : "carregando..."}
+                    value={editarPerfil && focused ? novoSobrenome : sobrenomeUsuario}
+                    placeholder={focused ? sobrenomeUsuario : novoSobrenome}
                     onChange={e => {
-                        setSobrenomeUsuario(e.target.value)
-                        console.log(sobrenomeUsuario)
+                        setNovoSobrenome(e.target.value)
+                        // console.log(sobrenomeUsuario)
                     }}
                     disabled={editarPerfil ? false : true}
                 />
@@ -103,56 +266,67 @@ const EditarInfoConfiguracoes = () => {
 
                 {/* <InputSobrenome /> */}
                 <TextField
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
                     label="E-mail"
                     type='email'
                     fullWidth
                     required={true}
                     id="fullWidth"
-                    value={editarPerfil ? novoEmail : emailUsuario}
+                    value={editarPerfil && focused ? novoEmail : emailUsuario}
+                    placeholder={focused ? emailUsuario : novoEmail}
                     onChange={e => {
                         setNovoEmail(e.target.value)
                         // console.log(novoEmail)
                     }}
                     disabled={editarPerfil ? false : true}
                 />
-
                 {
                     tipoPerfil === 2 ? (
                         <>
 
                             <TextField
+                                onFocus={() => setFocused(true)}
+                                onBlur={() => setFocused(false)}
                                 label="Conte-nos sobre você"
                                 type='text'
                                 fullWidth required={true}
                                 id="fullWidth"
-                                value={sobreUsuario}
+                                value={editarPerfil && focused ? novoSobre : sobreUsuario}
+                                placeholder={focused ? sobreUsuario : novoSobre}
                                 onChange={e => {
-                                    setSobreUsuario(e.target.value)
+                                    setNovoSobre(e.target.value)
                                     // console.log(sobreUsuario)
                                 }}
                                 disabled={editarPerfil ? false : true}
                             />
                             <TextField
+                                onFocus={() => setFocused(true)}
+                                onBlur={() => setFocused(false)}
                                 label="Habilidades"
                                 type='text'
                                 fullWidth
                                 required={true}
-                                value={habilidadesUsuario}
+                                value={editarPerfil && focused ? novaHabilidade : habilidadesUsuario}
+                                placeholder={focused ? habilidadesUsuario : novaHabilidade}
                                 onChange={e => {
-                                    setHabilidadesUsuario(e.target.value)
+                                    setNovaHabilidade(e.target.value)
                                     // console.log(habilidadesUsuario)
                                 }}
                                 disabled={editarPerfil ? false : true}
                                 id="fullWidth" />
                             <TextField
+                                onFocus={() => setFocused(true)}
+                                onBlur={() => setFocused(false)}
                                 disabled={editarPerfil ? false : true}
                                 label="Experiência profissional"
                                 type='text'
                                 fullWidth
                                 required={true}
-                                value={experienciaUsuario}
+                                value={editarPerfil && focused ? novaExperiencia : experienciaUsuario}
+                                placeholder={focused ? experienciaUsuario : novaExperiencia}
                                 onChange={e => {
-                                    setExperienciaUsuario(e.target.value)
+                                    setNovaExperiencia(e.target.value)
                                     // console.log(experienciaUsuario)
                                 }}
                                 id="fullWidth" />

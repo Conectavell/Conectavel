@@ -1,8 +1,5 @@
-import React from 'react'
 import NavbarConfiguracoes from '../components/NavbarConfiguracoes'
 import styled from 'styled-components'
-import TrocarFotoConfiguracoes from '../components/TrocarFotoConfiguracoes'
-import EditarInfoConfiguracoes from '../components/EditarInfoConfiguracoes'
 import Footer from '../components/Footer'
 import AlterarSenhaConfiguracoes from '../components/AlterarSenhaConfiguracoes'
 import ApagarContaConfiguracoes from '../components/ApagarContaConfiguracoes'
@@ -26,8 +23,6 @@ const SegurancaPage = () => {
         <>
             <NavbarConfiguracoes />
             <Box>
-                {/* <TrocarFotoConfiguracoes /> */}
-                {/* <EditarInfoConfiguracoes /> */}
                 <AlterarSenhaConfiguracoes/>
                 <ApagarContaConfiguracoes/>
             </Box>

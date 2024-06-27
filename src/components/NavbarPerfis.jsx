@@ -14,10 +14,11 @@ import { FaBarsStaggered } from 'react-icons/fa6';
 import CadastroContext from '../context/CadastroContext';
 import { RiHome2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import Deslogar from './Deslogar';
 
 const NavbarPerfis = () => {
     const { innerWidth: width } = window
-    const { tipoPerfil } = useContext(CadastroContext)
+    const { tipoPerfil, nome } = useContext(CadastroContext)
 
 
     return (
@@ -55,10 +56,11 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo />
+                        <BemVindo usuario={nome} />
                         : ''
                 }
-            </Container>
+                <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>
+                </Container>
         </Navbar>
     )
 }
