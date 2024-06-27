@@ -6,6 +6,8 @@ import martinha from '../assets/martinha.png'
 import aurora from '../assets/aurora.png'
 import debora from '../assets/debora.png'
 import gabriel from '../assets/gabriel.png'
+import cicero from '../assets/cicero.png'
+import alexandre from '../assets/alexandre.png'
 import Parceiros from '../components/Parceiros'
 import Footer from '../components/Footer'
 
@@ -57,8 +59,8 @@ const ColaboradoresPage = () => {
 
         p{
             text-align: center;
-            font-weight: 500;
-            font-size: 1.2em;
+            font-weight: 600;
+            font-size: 25px;
             margin-top: .5rem;
         }
 
@@ -90,6 +92,16 @@ const ColaboradoresPage = () => {
                         <Col>
                             <img src={aurora} width={300} alt="" />
                             <p>Aurora</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <img src={cicero} width={300} alt="" />
+                            <p>Cícero</p>
+                        </Col>
+                        <Col>
+                            <img src={alexandre} width={300} alt="" />
+                            <p>Alexandre</p>
                         </Col>
                     </Row>
                     <Row>
