@@ -17,7 +17,16 @@ const Box = styled.section`
     }
     div{
         display: flex;
+        align-items: center;
         gap: 200px;
+    }
+    @media (max-width: 990px){
+        div{
+            flex-direction: column;
+        }
+        h2{
+            font-size: 40px;
+        }
     }
 `
 
