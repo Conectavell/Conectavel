@@ -1,6 +1,7 @@
 import React from 'react'
 import { Sub_heading } from './Header'
 import styled from 'styled-components'
+import { Button, Tooltip } from '@mui/material'
 
 const Assinaturas = () => {
     const Heading_text = styled.h2`  
@@ -41,13 +42,13 @@ const Assinaturas = () => {
 `
     const Analogico = styled.div`
     width: 31%;
-    height: 70vh;
+    height: 73vh;
     background-color: var(--verde_principal);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
     cursor: pointer;
     border: 5px solid var(--verde_principal);
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
 
     &:hover{
         background-color: transparent;
@@ -60,13 +61,13 @@ const Assinaturas = () => {
 `
     const Digital = styled.div`
     width: 31%;
-    height: 70vh;
+    height: 73vh;
     background-color: var(--azul_secundario);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
     cursor: pointer;
     border: 5px solid var(--azul_secundario);
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
 
     &:hover{
         background-color: transparent;
@@ -79,13 +80,13 @@ const Assinaturas = () => {
 `
     const Hd = styled.div`
     width: 31%;
-    height: 70vh;
+    height: 73vh;
     background-color: var(--laranja);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
     cursor: pointer;
     border: 5px solid var(--laranja);
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
 
     &:hover{
         background-color: transparent;
@@ -94,6 +95,7 @@ const Assinaturas = () => {
     @media (max-width: 1200px){
         width: 100%;
         margin: 1rem 0;
+        height: 75vh;
     }
 `
 
@@ -111,7 +113,7 @@ const Assinaturas = () => {
     const Preco = styled.p`
     color: white;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.4em;
 `
     const Divisor = styled.div`
     width: 90%;
@@ -128,6 +130,7 @@ const Assinaturas = () => {
 `
 
 
+
     return (
         <>
             <Background>
@@ -137,7 +140,7 @@ const Assinaturas = () => {
                 <ContainerPlanos>
                     <Analogico>
                         <Titutlo>Plano analógico</Titutlo>
-                        <Subtitulo mensalidade>Mensalidade</Subtitulo>
+                        <Subtitulo style={{ margin: '0' }}>Mensalidade</Subtitulo>
                         <Preco>39,99</Preco>
                         <Divisor />
                         <Subtitulo >Informações</Subtitulo>
@@ -145,10 +148,15 @@ const Assinaturas = () => {
                             <Item>Exibe mais informações sobre seu perfil</Item>
                             <Item>Galeria de serviços</Item>
                         </Lista>
+                            <Tooltip title="Em reparo...">
+                                <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white', marginTop: '38%' }} disableElevation>
+                                    Assinar
+                                </Button>
+                            </Tooltip>
                     </Analogico>
                     <Digital>
                         <Titutlo>Plano digital</Titutlo>
-                        <Subtitulo mensalidade>Mensalidade</Subtitulo>
+                        <Subtitulo style={{ margin: '0' }}>Mensalidade</Subtitulo>
                         <Preco>79,99</Preco>
                         <Divisor />
                         <Subtitulo>Informações</Subtitulo>
@@ -158,10 +166,15 @@ const Assinaturas = () => {
                         </Lista>
                         <Divisor />
                         <Subtitulo>Divulgação dentro da plataforma</Subtitulo>
+                        <Tooltip title="Em reparo...">
+                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white',marginTop: '19%' }} disableElevation>
+                                Assinar
+                            </Button>
+                        </Tooltip>
                     </Digital>
                     <Hd>
                         <Titutlo>Plano HD</Titutlo>
-                        <Subtitulo mensalidade>Mensalidade</Subtitulo>
+                        <Subtitulo style={{ margin: '0' }}>Mensalidade</Subtitulo>
                         <Preco>109,99</Preco>
                         <Divisor />
                         <Subtitulo>Informações</Subtitulo>
@@ -173,6 +186,11 @@ const Assinaturas = () => {
                         <Subtitulo>Divulgação dentro da plataforma</Subtitulo>
                         <Divisor />
                         <Subtitulo>Assessoria</Subtitulo>
+                        <Tooltip title="Em reparo...">
+                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white' }} disableElevation>
+                                Assinar
+                            </Button>
+                        </Tooltip>
                     </Hd>
 
                 </ContainerPlanos>
