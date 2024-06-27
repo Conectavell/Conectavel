@@ -7,8 +7,10 @@ import ChatLateral from "../components/ChatLateral";
 import { IoIosArrowBack } from "react-icons/io";
 
 const CardsMenu = styled.div`
+width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   @media (max-width:1200px){
     justify-content: center;
@@ -22,11 +24,10 @@ const MenuProfissionais = styled.div`
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  width: 76%;
+  width: 78%;
   height: auto;
-  margin: 0 1rem;
-  padding: 23px;
-  /* margin-top: 150px; */
+  margin: 0 0rem 0 1rem;
+  padding: 1rem 0;
   flex-wrap: wrap;
 
   h1 {
@@ -74,6 +75,7 @@ const Box = styled.div`
   flex-direction: row;
   justify-content: left;
   align-items: flex-start;
+  margin-top: 1.5rem;
   
   @media (max-width:1200px){
     align-items: center;
@@ -86,9 +88,7 @@ const SelecionarPrestador = () => {
   return (
     <>
       <Navbar tipoUsuario={"cliente"} />
-      <ButtonReturn className="button_return">
-      <IoIosArrowBack size={54}/>
-      </ButtonReturn>
+      
       <Box>
           <ChatLateral valueWidth={"20%"} />
         <MenuProfissionais>

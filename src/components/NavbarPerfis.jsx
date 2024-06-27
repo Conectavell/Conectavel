@@ -57,7 +57,11 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={"Gustavo"} />
+<<<<<<< HEAD
+                        <BemVindo usuario={"nome"} />
+=======
+                        <BemVindo usuario={context.nome} />
+>>>>>>> 5429769baed58b8b46503813d6aecc4615e7b1b7
                         : ''
                 }
                 <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>

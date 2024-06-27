@@ -5,7 +5,6 @@ import Kemilly from '../assets/kemilly.png';
 import { FaStar } from "react-icons/fa";
 import {
   FotoEInfos,
-  BotaoEditar,
   WrapperItemInfo,
   SectionWrapper,
   ChatLateral,
@@ -24,7 +23,6 @@ import {
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
 import { Button, Radio } from '@mui/material';
-import { useState, useContext } from 'react';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
