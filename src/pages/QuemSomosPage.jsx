@@ -1,3 +1,4 @@
+import IdentidadeVisual from '../IdentidadeVisual/Identidadevisual'
 import BarraNavegacao from '../components/BarraNavegacao'
 import IdentidadeVisual from '../components/IdentidadeVisual'
 import NossoNegocio from '../components/NossoNegocio'
