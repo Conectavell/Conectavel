@@ -12,6 +12,8 @@ import DescartePage from './pages/DescartePage'
 
 import ClienteOrcamento from './pages/ClienteOrcamento'
 import Comunidade from './pages/Comunidade'
+import TechnicianProfile from './pages/TechnicianProfile'
+import Dashboard from './pages/Dashboard'
 
 
 const Routes = () => {
@@ -29,6 +31,7 @@ const Routes = () => {
                     <Route path='/Conectavel/preencherprestador' element={<CompletarInfoPrestadorPage />} />
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
+                    
 
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
@@ -43,6 +46,9 @@ const Routes = () => {
                     <Route path='/PerfilPrestador' exact element={<PerfilPrestadorPage/>} />
                     <Route path='/Conectavel/Orcamento' exact element={<ClienteOrcamento/>} />
                     <Route path='/Conectavel/comunidade' exact element={<Comunidade/>} />
+
+                    <Route path='/Conectavel/TechnicianProfile' exact element={<TechnicianProfile/>} />
+                    <Route path='/Conectavel/Dashboard' exact element={<Dashboard/>} />
 
 
                 </Rotas>
