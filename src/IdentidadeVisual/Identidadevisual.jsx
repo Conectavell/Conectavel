@@ -50,6 +50,7 @@ background: #175EC6;
 
     @media(max-width:1200px){
     width: 80%;
+    margin-top: 2.4rem;
     }
     `
 
@@ -80,6 +81,8 @@ gap: 4rem;
 padding: 5rem;
 
 @media(max-width:1200px){
+    margin-top: 2rem;
+    padding: 4rem;
     justify-content: center;
     align-items: center;
     border-radius: 0;
