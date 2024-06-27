@@ -8,27 +8,27 @@ const Box = styled.section`
     display: flex;
     align-items: center;
     flex-direction: column;
-    p{
-        font-size: 32px;
-        font-weight: 400;
-        color: #E0FDA1;
-    }
+    padding: 100px;
     h2{
-        font-size: 60;
+        font-size: 60px;
         font-weight: 400;
         color: white;
+        margin-bottom: 80px;
     }
     div{
-        height: 500px;
+        display: flex;
+        gap: 200px;
     }
 `
 
 const Parceiros = () => {
     return(
         <Box>
-            <p>Apoiadores</p>
-            <h2>Parceiros</h2>
-            <div></div>
+            <h2>Nossos parceiros</h2>
+            <div>
+                <img src="src\assets\Lunna.png" alt="Lunna" />
+                <img src="src\assets\LarTV.png" alt="Eletrônic Lar TV" />
+            </div>
         </Box>
     )
 }
