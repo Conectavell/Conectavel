@@ -1,153 +1,118 @@
-import { useContext } from 'react';
-import { ChatMiniNome } from '../components/ChatMini'
-import Navbar from '../components/NavbarPerfis';
-import ChatMini from '../components/ChatMini';
-import Kemilly from '../assets/kemilly.png';
-import { BsPersonVcardFill } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
-import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
-import CadastroContext from '../context/CadastroContext';
-import { IoBagRemoveSharp } from 'react-icons/io5';
+import styled from "styled-components"
+
+const Box = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  .area{
+    border-radius: 24px;
+    height: 605px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
+  }
+  img{
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+  }
+  .div1{
+    margin: 30px 65px 7px;
+  }
+  .div2{
+    margin: 30px 110px 0 0;
+    p{
+      margin-left: 10px;
+    }
+  } 
+  .div3{
+    padding: 50px 50px 0;
+  }
+  .meio{
+    display: flex;
+    flex-direction: row;
+  }
+  .sp{
+    font-size: 24px;
+    font-weight: 400;
+  }
+  h2{
+    font-size: 56px;
+    font-weight: 600;
+  }
+  .comentario{
+    border: 1px solid #CECECE;
+    border-radius: 10px;
+    padding: 10px;
+    width: 280px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    p{
+      font-size: 14px;
+    }
+  }
+  button{
+    background-color: var(--azul_principal);
+    color: white;
+    font-size: 16px;
+    width: 530px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 65px;
+  }
+`
+const Titulo = styled.p`
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--azul_principal);
+`
+const Sub = styled.p`
+    color: #413B89;
+    font-weight: 500;
+    font-size: 12px;
+`
 
 const PerfilPrestadorPage = () => {
-  const {
-    nomeUsuario, sobrenomeUsuario,
-    emailUsuario, celularUsuario,
-    sobreUsuario, experienciaUsuario
-  } = useContext(CadastroContext)
-
   return (
-    <>
-      <Navbar />
-      <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-          </ChatLateralChats>
-        </ChatLateral>
-        <PerfilPrestador>
-          <BannerPerfil>
-            <p>MEU PERFIL</p>
-          </BannerPerfil>
-          <Informacoes>
-            <InfoPrincipais>
-              <FotoPrincipalPerfil src={Kemilly} />
-              <ItensInfo>
-                <ItemInfo>
-                  <WrapperItemInfo>
-                    <ChatMiniNome>Seu Nome</ChatMiniNome>
-                    <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
-                  </WrapperItemInfo>
-
-                </ItemInfo>
-                <ItemInfo>
-                  <WrapperItemInfo>
-                    <ChatMiniNome>E-mail</ChatMiniNome>
-                    <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
-                  </WrapperItemInfo>
-
-                </ItemInfo>
-                <ItemInfo>
-                  <WrapperItemInfo>
-                    <ChatMiniNome>Celular</ChatMiniNome>
-                    <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
-                  </WrapperItemInfo>
-                </ItemInfo>
-              </ItensInfo>
-              <ItensInfo Sobre>
-                <Textos>Sobre</Textos>
-                <ChatMiniNome descricao>
-                  {sobreUsuario}
-                </ChatMiniNome>
-              </ItensInfo>
-              <Habilidades>
-                <ChatMiniNome>Habilidades em</ChatMiniNome>
-                <HabilidadesBox>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                </HabilidadesBox>
-              </Habilidades>
-            </InfoPrincipais>
-
-
-            <InfoPrincipais infoSecundaria>
-              <DatalhesProfissionais>
-                <p>Detalhes profissionais</p>
-                <BsPersonVcardFill color="gray" size={40} />
-              </DatalhesProfissionais>
-              <ExperienciaWrapper>
-                <TextoExperiencia>
-                  Experiência
-                </TextoExperiencia>
-                <BoxExperiencia>
-                  <BoxExperienciaInter>
-                    <TextoExperiencia>
-                      {experienciaUsuario}
-                    </TextoExperiencia>
-                    <TextoExperiencia Desc>
-                      de total experiência
-                    </TextoExperiencia>
-                  </BoxExperienciaInter>
-                  <BoxDireita $primary >
-                    <IoBagRemoveSharp size={'1.5em'} color="white" />
-                  </BoxDireita>
-                </BoxExperiencia>
-              </ExperienciaWrapper>
-              <ExperienciaWrapper>
-                <TextoExperiencia>
-                  Ratings
-                </TextoExperiencia>
-                <BoxExperiencia>
-                  <BoxExperienciaInter>
-                    <TextoExperiencia>
-                      4 Estrelas
-                    </TextoExperiencia>
-                    <TextoExperiencia Desc>
-                      De 34 clientes
-                    </TextoExperiencia>
-                  </BoxExperienciaInter>
-                  <BoxDireita >
-                    <FaStar size={'1.5em'} color="white" />
-                  </BoxDireita>
-                </BoxExperiencia>
-              </ExperienciaWrapper>
-              <AvaliacoesWrapper>
-                <TextoExperiencia>
-                  Avaliações de clientes
-                </TextoExperiencia>
-                <AvaliacoesDiv>
-                  <TextoExperiencia NomeUsuario>
-                    Ankit Srivastava
-                  </TextoExperiencia>
-                  <EstrelasDiv>
-                    <FaStar size={22} color='orange' />
-                    <FaStar size={22} color='orange' />
-                    <FaStar size={22} color='orange' />
-                    <FaStar size={22} color='orange' />
-                    <FaStar size={22} />
-                  </EstrelasDiv>
-                  <TextoExperiencia Desc>
-                    excelent conversation with him.. very knowledgeble personhappy to talk towith him
-                  </TextoExperiencia>
-                </AvaliacoesDiv>
-              </AvaliacoesWrapper>
-              <TextoExperiencia SeeAll>
-                Veja todas as avaliações -
-              </TextoExperiencia>
-            </InfoPrincipais>
-          </Informacoes>
-        </PerfilPrestador>
-      </SectionWrapper>
-    </>
+    <Box>
+      <div className="area">
+        <img src="src\assets\wallpaperImage.png" alt="wallpaper" />
+        <div className="meio">
+          <div className="div1">
+            <img src="src\assets\Avatar Image.png" alt="técnico"/>
+            <Titulo>Localização</Titulo>
+            <p className="sp">São Paulo</p>
+            <img src="src\assets\Frame 640.png" alt="localização" />
+          </div>
+          <div className="div2">
+            <h2>Pedro Alves</h2>
+            <Titulo>Desde</Titulo>
+            <p>Fevereiro de 2024</p>
+            <Titulo>Especialidade</Titulo>
+            <p>Tecnico em Televisores</p>
+            <Titulo>Experiências</Titulo>
+            <p>Trabalho há 10 anos <br/> no ramo da Eletrônica</p>
+          </div>
+          <div className="div3">
+            <Titulo>Avaliação de clientes</Titulo>
+            <div className="comentario">
+              <Sub>Julia dos Santos</Sub>
+              estrelas
+              <p>Gostei muito do serviço, mas a garantia é curta!</p>
+            </div>
+            <div className="comentario">
+              <Sub>Gabriela Machado</Sub>
+              estrelas
+              <p>Serviço excelente, mas poderia ser mais rápido o conserto!</p>
+            </div>
+            <Sub>Veja todas as avaliações -</Sub>
+          </div>
+        </div>
+        <button type="submit">Contatar</button>
+      </div>
+    </Box>
   )
 }
 
-export default PerfilPrestadorPage;
+export default PerfilPrestadorPage
