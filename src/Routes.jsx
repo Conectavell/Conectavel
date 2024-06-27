@@ -32,6 +32,8 @@ const Routes = () => {
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
                     <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
                     <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
+                    <Route path='/Conectavel/ClienteAvaliacaoPage' element={<ClienteAvaliacao />} />
+
 
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />

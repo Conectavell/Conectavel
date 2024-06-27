@@ -7,10 +7,7 @@ const ClienteAvaliacao = () => {
 
     return (
         <div>
-            <NavbarPerfis usuario={usuario} />
-            <div className="container-coment">
-                <Button>Enviar</Button>
-            </div>
+         <h1>oi</h1>
         </div>
     );
 }
