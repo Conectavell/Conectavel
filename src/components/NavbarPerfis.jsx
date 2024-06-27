@@ -57,7 +57,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo usuario={nome} />
+                        <BemVindo usuario={"Gustavo"} />
                         : ''
                 }
                 <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>

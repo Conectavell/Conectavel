@@ -64,7 +64,9 @@ const Avaliacoes = styled.span`
 `;
 
 const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
-  const renderStars = () => {
+  console.log(nome)
+  const renderStars = () => { 
+
     const totalStars = 5;
     const starsFilled = Math.round((avaliacoes / 5) * totalStars);
     const starsArray = [];

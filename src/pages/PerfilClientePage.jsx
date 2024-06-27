@@ -24,10 +24,12 @@ import {
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
 import { Button, Radio } from '@mui/material';
+import { useState, useContext } from 'react';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const context = useContext(CadastroContext)
+  const [selectedService, setSelectedService] = useState('');
+  const context = useContext(CadastroContext);
 
   const names = [
     'Manutenção de vídeo games',
@@ -35,7 +37,21 @@ const PerfilClientePage = () => {
     'Manutenção de televisores',
     'Manutenção de aparelhos domésticos',
     'Manutenção de computadores',
-  ]
+  ];
+
+  const handleCheckboxChange = (event) => {
+    const { value } = event.target;
+    setSelectedService(prevSelected => prevSelected === value ? '' : value);
+  };
+
+// valor do check box selecionado vai aparecer no console :)
+  const handleSearch = () => {
+    if (selectedService) {
+      console.log(`Serviço selecionado: ${selectedService}`);
+    } else {
+      console.log('Nenhum serviço selecionado.');
+    }
+  };
 
   return (
     <>
@@ -86,14 +102,12 @@ const PerfilClientePage = () => {
                       <ChatMiniNome>E-mail</ChatMiniNome>
                       <ChatMiniNome descricao>{context.emailUsuario ? context.emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
                       <ChatMiniNome descricao>{context.celularUsuario ? context.celularUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -102,7 +116,6 @@ const PerfilClientePage = () => {
                   <div>
                     <p>Meus orçamentos</p>
                   </div>
-
                   <BotaoOrcamentos />
                 </ItensInfo>
                 <WrapperItemInfo>
@@ -130,9 +143,7 @@ const PerfilClientePage = () => {
               <p>
                 Novo serviço<br></br>Solicitar reparo
               </p>
-              <BotaoOrcamentos
-
-              />
+              <BotaoOrcamentos />
             </ItensInfo>
             {showTiposServicos && (
               <div className="container">
@@ -142,12 +153,14 @@ const PerfilClientePage = () => {
                   {
                     names.map((servico, index) => {
                       return (
-                        <label htmlFor="reparo" key={index}>
+                        <label htmlFor={`reparo-${index}`} key={index}>
                           <input
                             type="checkbox"
-                            id="reparo"
+                            id={`reparo-${index}`}
                             name="tipoServico"
-                            value="reparo"
+                            value={servico}
+                            checked={selectedService === servico}
+                            onChange={handleCheckboxChange}
                           />
                           <div className="checkmark"></div>
                           {servico}
@@ -156,7 +169,7 @@ const PerfilClientePage = () => {
                     })
                   }
                 </div>
-                <Button className='mt-3' variant="contained" fullWidth>Buscar</Button>
+                <Button className='mt-3' variant="contained" fullWidth onClick={handleSearch}>Buscar</Button>
               </div>
             )}
           </div>
