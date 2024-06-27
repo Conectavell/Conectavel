@@ -1,94 +1,119 @@
 import styled from "styled-components";
+import Azul1 from '../assets/azulclaro.png'
+import Azul2 from '../assets/azul.png'
+import verde1 from '../assets/verde.png'
+import verde2 from '../assets/verdeclaro.png'
+import laranja from '../assets/laranja.png'
+import branco from '../assets/branco.png'
+import { Sub_heading } from '../components/Header'
 
-const Box = styled.section`
-    width: 100%;
-    height: auto;
-    margin: auto;
-    background-color: var(--azul_principal);
-    padding: 70px 0;
+const IdVisual = styled.div`
+    padding: 2rem 0;
+background: #175EC6;
+`
+const Texts = styled.p`
+    background: #fff;
+    width: 30%;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+
+    @media(max-width:1200px){
+    width: 80%;
+    margin-top: 2.4rem;
+    }
+    `
+
+const Conteiner = styled.div`
+    width: 65%;
+    margin: 2rem auto;
+    /*border: 1px solid red;*/
     display: flex;
+    justify-content: space-between;
+
+    @media(max-width:1200px){
+width: 100%;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+    `
+
+const Imgs = styled.div`
+    margin: auto;
+background: #fff;
+width: 70%;
+border-radius: 28px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+gap: 4rem;
+padding: 5rem;
+
+@media(max-width:1200px){
+    margin-top: 2rem;
+    padding: 4rem;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    div{
-        background-color: white;
-        border-radius: 30px;
-    }
-    .maior{
-        width: 1000px;
-        padding: 120px 120px 60px;
-        margin-bottom: 60px;
-    }
-    .grupo{
-        background: none;
-        display: flex;
-        flex-direction: row;
-        gap: 200px;
-    }
-    .grupo div{
-        width: 400px;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px 30px;
-    }
-    p{
-        font-size: 32px;
-        font-weight: 400;
-        color: #E0FDA1;
-        margin-bottom: 30px;
-    }
-    h2{
-        font-size: 58px;
-        font-weight: 400;
-        color: white;
-        margin-bottom: 20px;
-    }
-    .title{
-        font-size: 32px;
-        font-weight: 400;
-        color: var(--preto);
-        margin-bottom: 20px;
-    }
-    h6{
-        font-size: 32px;
-        font-weight: 400;
-        margin-bottom: 20px;
-        color: var(--preto);
-    }
-    .paragrafoPoppins{
-        font-size: 24px;
-        font-weight: 400;
-        color: var(--verde_principal);
-        text-align: center;
-    }
-    .paragrafoQuantico{
-        font-size: 24px;
-        font-weight: 400;
-        color: var(--azul_principal);
-        text-align: center;
+    border-radius: 0;
+width: 100%;
+flex-direction: column;
+}
+`
+
+
+const Heading_text = styled.h2`  
+    width: 100%;
+    font-size: 48px;
+    line-height: 140%;
+    font-weight: 400;
+    color: #fff;
+    /* width: 50%; */
+    text-align: center;
+    
+    @media (max-width: 1200px){
+        width: 90%;
+        margin: auto;
     }
 `
 
 const IdentidadeVisual = () => {
-    return(
-        <Box>
-            <p>NOSSAS ESCOLHAS</p>
-            <h2>Identidade visual</h2>
-            <div className="maior">
-                <img src="src\assets\palhetaCores.png" alt="Palheta de cores" />
-            </div>
-            <div className="grupo">
-                <div>
-                    <p className="title">Poppins</p>
-                    <p className="paragrafoPoppins">Design acolhedor, sua visualização proporciona um acolhimento ao usuário</p>
-                </div>
-                <div>
-                    <h6>Quantico</h6>
-                    <p className="paragrafoQuantico">Design moderno, sua forma demonstrar algo tecnológico e moderno</p>
-                </div>
-            </div>
-        </Box>
+    return (
+        <IdVisual>
+
+            <Sub_heading style={{ color: "var(--verde_secundario)", width: "100%", textAlign: "center" }}>
+                NOSSAS ESCOLHAS
+            </Sub_heading>
+
+            <Heading_text>
+                Identidade visual
+            </Heading_text>
+
+            <Imgs>
+                <img src={Azul2} alt="Azul " width="210px" height="300px" />
+                <img src={verde1} alt="Identidade Visual" width="210px" height="300px" />
+                <img src={verde2} alt="Identidade Visual" width="210px" height="300px" />
+                <img src={laranja} alt="Identidade Visual" width="210px" height="300px" />
+                <img src={Azul1} alt="Identidade Visual" width="210px" height="300px" />
+                <img src={branco} alt="Identidade Visual" width="210px" height="300px" />
+            </Imgs>
+
+            <Conteiner>
+
+                <Texts>
+                    <h3 style={{ fontFamily: "Poppins, sans-serif" }}>Poppins</h3>
+                    <p>Design acolhedor, sua visualização proporciona um acolhimento ao usuário</p>
+                </Texts>
+
+                <Texts>
+                    <h3>Quantico</h3>
+                    <p>Design moderno, sua forma demonstrar algo tecnológico e moderno</p>
+                </Texts>
+
+            </Conteiner>
+
+        </IdVisual>
     )
 }
 
