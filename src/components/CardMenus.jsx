@@ -1,9 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import icon_eletrodomestico from "../assets/icon_eletrodomestico.svg";
-import iconManuten from "../assets/iconManuten.svg";
-import iconReparo from "../assets/iconReparo.svg";
 
 const Card = styled.div`
   display: flex;
@@ -13,16 +9,15 @@ const Card = styled.div`
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
+  /* margin: 10px; */
   width: 250px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.8s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 
   &:hover {
     border-color: var(--azul_secundario);
     transform: scale(1.03);
-    /* box-shadow: 0px 1px 10px var(--azul_secundario); */
   }
   .perfil_button {
     background-color: var(--azul_principal);
@@ -103,7 +98,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
         </p>
       </div>
 
-      <button className="perfil_button">Ver perfil</button>
+      <button className="perfil_button w-100">Ver perfil</button>
     </Card>
   );
 };
