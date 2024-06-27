@@ -24,6 +24,7 @@ function PrivateRoute({ children }) {
 {/* Import Administração */ }
 import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
 import SelecionarPrestador from './pages/SelecionarPrestadorPage'
+import ServicosPage from './pages/ServicosPage'
 
 const Routes = () => {
 
@@ -40,6 +41,7 @@ const Routes = () => {
 
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
+                    <Route path='/Conectavel/Serviços' element={<ServicosPage />} />
 
                     <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
                     <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />
