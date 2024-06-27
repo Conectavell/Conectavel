@@ -1,26 +1,29 @@
-import Azul1 from './assets/175EC6.png'
-import Azul2 from './assets/2196F3.png'
-import verde1 from './assets/2CB87B.png'
-import verde2 from './assets/77DD77.png'
-import laranja from './assets/FB8C00.png'
-import branco from './assets/ffffff.png'
-import android from './assets/app android v2.png'
-import iphone from  './assets/app ios.png'
+import Azul1 from '../assets/azulclaro.png'
+import Azul2 from '../assets/azul.png'
+import verde1 from '../assets/verde.png'
+import verde2 from '../assets/verdeclaro.png'
+import laranja from '../assets/laranja.png'
+import branco from '../assets/branco.png'
+import android from '../assets/visaoandroid.png'
+import iphone from '../assets/visaoios.png'
 import styled from 'styled-components'
+import { Sub_heading } from '../components/Header'
 
 
-function IdentVisual() {
+function IdentidadeVisual() {
     const IdVisual = styled.div`
+    padding: 2rem 0;
 background: #175EC6;
 `
 
 
     const VisaoFuturo = styled.div`
+    padding: 2rem 0;
     margin: auto;
     flex-wrap: wrap;
 
     @media(max-width:1200px){
-    width: 100%
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -40,9 +43,14 @@ background: #175EC6;
     const Texts = styled.p`
     background: #fff;
     width: 30%;
+    padding: 1rem;
     border-radius: 20px;
     text-align: center;
     font-size: 18px;
+
+    @media(max-width:1200px){
+    width: 80%;
+    }
     `
 
     const Conteiner = styled.div`
@@ -52,7 +60,7 @@ background: #175EC6;
     display: flex;
     justify-content: space-between;
 
-    @media(max-width:1200px;){
+    @media(max-width:1200px){
 width: 100%;
 flex-direction: column;
 align-items: center;
@@ -63,7 +71,7 @@ justify-content: center;
     const Imgs = styled.div`
     margin: auto;
 background: #fff;
-width: 60%;
+width: 70%;
 border-radius: 28px;
 display: flex;
 flex-wrap: wrap;
@@ -71,7 +79,10 @@ justify-content: space-evenly;
 gap: 4rem;
 padding: 5rem;
 
-@media(max-width:1200px;){
+@media(max-width:1200px){
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
 width: 100%;
 flex-direction: column;
 }
@@ -83,24 +94,37 @@ flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    @media(max-width:1200px;){
+    @media(max-width:1200px){
 width: 100%;
 flex-direction: column;
 }
 `
-
+    const Heading_text = styled.h2`  
+    width: 100%;
+    font-size: 48px;
+    line-height: 140%;
+    font-weight: 400;
+    color: #fff;
+    /* width: 50%; */
+    text-align: center;
+    
+    @media (max-width: 1200px){
+        width: 90%;
+        margin: auto;
+    }
+`
 
     return (
         <div>
             <IdVisual>
 
-                <SubTittle >
-                    <h3 style={{ color: '#E0FDA1' }}>nossas escolhas</h3>
-                </SubTittle>
+                <Sub_heading style={{ color: "var(--verde_secundario)", width: "100%", textAlign: "center" }}>
+                    NOSSAS ESCOLHAS
+                </Sub_heading>
 
-                <Tittles>
-                    <h2 style={{ color: '#fff' }}>Identidade visual</h2>
-                </Tittles>
+                <Heading_text>
+                    Identidade visual
+                </Heading_text>
 
                 <Imgs>
                     <img src={Azul2} alt="Azul " width="210px" height="300px" />
@@ -114,7 +138,7 @@ flex-direction: column;
                 <Conteiner>
 
                     <Texts>
-                        <h3>Poppis</h3>
+                        <h3 style={{ fontFamily: "Poppins, sans-serif" }}>Poppins</h3>
                         <p>Design acolhedor, sua visualização proporciona um acolhimento ao usuário</p>
                     </Texts>
 
@@ -129,26 +153,26 @@ flex-direction: column;
 
             <VisaoFuturo>
 
-                <SubTittle>
-                    <h3 style={{ color: '#000' }}>E não para por aí</h3>
-                </SubTittle>
+                <Sub_heading style={{ width: "100%", textAlign: "center" }}>
+                    E NÃO PARA POR AI
+                </Sub_heading>
 
-                <Tittles>
-                    <h2 style={{ color: '#FB8C00' }}>Futuros passos</h2>
-                </Tittles>
+                <Heading_text style={{ color: '#FB8C00' }}>
+                    Futuros passos
+                </Heading_text>
 
                 <Img2>
 
                     <div>
                         <img src={iphone} alt="Aplicativo Mobile IOS" />
-                        <p style={{ color: '#175EC6' }} >IOS</p>
+                        <p style={{ color: '#175EC6', textAlign: "center", fontSize: '1.8em' }} >IOS</p>
                     </div>
 
-                    <p>Um aplicativo para dispositiveis moveis, tanto para o sistema android como IOS</p>
+                    <p style={{ textAlign: "center", fontSize: '1.4em' }}>Um aplicativo para dispositivos móveis, tanto para o sistema Android como IOS.</p>
 
                     <div>
                         <img src={android} alt="Aplicativo Mobile Android" />
-                        <p style={{ color: '#2CB87B' }} >Android</p>
+                        <p style={{ color: '#2CB87B', textAlign: "center", fontSize: '1.8em' }} >Android</p>
                     </div>
 
                 </Img2>
@@ -159,4 +183,4 @@ flex-direction: column;
     )
 }
 
-export default IdentVisual;
+export default IdentidadeVisual;
