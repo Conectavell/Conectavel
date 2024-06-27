@@ -1,0 +1,44 @@
+.Portifolio-body {
+    margin: 10px;
+    padding: 5px;
+    position:relative;
+}
+
+.img {
+    background: #175EC6;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    border: 8px solid #175EC6;
+    display: flex;
+}
+
+.add-img {
+    width: 50%;
+    padding: 15px;
+    size: 12px;
+    border-radius: 25px;
+    background: #175EC6;
+    color: #131922;
+}
+
+.add-img:hover {
+    background: #2196F3;
+    color: #fff;
+}
+
+.btn-del {
+    width: 40%;
+    padding: 15px;
+    size: 12px;
+    float: right;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    background: #2CB87B;
+    color: #fff;
+}
+
+.btn-del:hover {
+    background: #77DD77;
+    color: #131922;
+    position: relative;
+}
