@@ -4,6 +4,7 @@ import FaleConosco from '../components/FaleConosco'
 
 import Footer from '../components/Footer'
 import IdentidadeVisual from '../components/IdentidadeVisual'
+import NossoNegocio from '../components/NossoNegocio'
 
 
 
@@ -14,6 +15,8 @@ const QuemSomosPage = () => {
             <BarraNavegacao cor="azul" />
             <Equipe />
             <IdentidadeVisual/>
+            <NossoNegocio/>
+            
             <FaleConosco/>
             <Footer cor="azul"/>
         </>
