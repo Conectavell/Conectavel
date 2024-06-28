@@ -18,7 +18,10 @@ const MainContainer = styled.div`
 `;
 
 const CardsMenu = styled.div`
+width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
@@ -31,6 +34,11 @@ const MenuProfissionais = styled.div`
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  width: 78%;
+  height: auto;
+  margin: 0 0rem 0 1rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
   width: 100%;
 
   padding: 23px;
@@ -44,44 +52,31 @@ const MenuProfissionais = styled.div`
 
 const ChatContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-  margin-left: 20px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  
+  @media (max-width:1200px){
+    align-items: center;
+    flex-direction: column;
+  }
+`
+ // flex-direction: column;
+  //margin-right: 20px;
+  //margin-left: 20px;
 `;
 
 const SelecionarPrestador = () => {
   return (
     <div>
       <Navbar tipoUsuario={"cliente"} />
+      
+      <Box>
+          <ChatLateral valueWidth={"20%"} />
 
       <MainContainer>
-        <ChatContainer>
-          <ChatLateral>
-            <ChatLateralH1>Chat</ChatLateralH1>
-            <ChatLateralChats>
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-            </ChatLateralChats>
-          </ChatLateral>
-        </ChatContainer>
+       
 
         <MenuProfissionais>
           <h1>Profissionais Disponíveis</h1>
