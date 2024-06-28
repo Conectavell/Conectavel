@@ -12,12 +12,12 @@ import { useState } from 'react';
 
 const PreencherPrestadorPage = () => {
     const [openModal, setOpenModal] = useState(false)
-// condicional de inputs cadastro profissional
+    // condicional de inputs cadastro profissional
 
     const {
         sobreUsuario,
         experienciaUsuario,
-        // habilidadesUsuario,
+        habilidadesUsuario,
         nacionalidadeUsuario,
         identidadeUsuario,
         cepUsuario,
@@ -37,20 +37,47 @@ const PreencherPrestadorPage = () => {
         setFill
     } = useContext(CadastroContext)
 
+    function convert() {
+        habilidadesUsuario.forEach((selectedService, index) => {
+            if (selectedService === 'Manutenção de vídeo games') {
+                // console.log(1)
+                habilidadesUsuario[index] = 1
+            } else if (selectedService === 'Manutenção de celulares e telefones') {
+                // console.log(2)
+                habilidadesUsuario[index] = 2
+            } else if (selectedService === 'Manutenção de televisores') {
+                // console.log(3)
+                habilidadesUsuario[index] = 3
+            } else if (selectedService === 'Manutenção de aparelhos domésticos') {
+                // console.log(4)
+                habilidadesUsuario[index] = 4
+            } else if (selectedService === 'Manutenção de computadores') {
+                // console.log(5)
+                habilidadesUsuario[index] = 5
+            } else {
+                console.log('Nenhum serviço selecionado.');
+            }
+        });
+        console.log(habilidadesUsuario)
+    }
     function cadastrar() {
+        convert()
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": 2,
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
-            "celularUsuario":`${celularUsuario}`,
+            "celularUsuario": `${celularUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
             "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
-            "sobreUsuario": `${sobreUsuario}`,
+            // "sobreUsuario": `${sobreUsuario}`,
+            "sobreUsuario": "",
             "experienciaUsuario": `${experienciaUsuario}`,
+            // "habilidadesUsuario": habilidadesUsuario,
+            "habilidadesUsuario": "",
             "enderecoDto": {
                 "cep": `${cepUsuario}`,
                 "logradouro": `${logradouro}`,
@@ -117,7 +144,7 @@ const PreencherPrestadorPage = () => {
                     <Tabs />
                 </>
             </Box>
-            <Modal isOpen={openModal}/>
+            <Modal isOpen={openModal} />
         </ConectavelLogo>
     )
 }

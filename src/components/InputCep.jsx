@@ -17,12 +17,15 @@ const InputCep = () => {
         const baseURL = `https://viacep.com.br/ws/${cepUsuario}/json/`
         const res = await axios.get(baseURL)
         const data = await res.data
-        console.log(data.logradouro)
         setLogradouro(data.logradouro)
         setBairro(data.bairro)
         setEstado(data.uf)
         setCidade(data.localidade)
         setCepUsuario(data.cep)
+    }
+
+    if(cepUsuario.length === 9){
+        getCEP(cepUsuario)
     }
     return (
         <>
@@ -33,7 +36,6 @@ const InputCep = () => {
                     setCepUsuario(e.target.value)
                     // console.log(cepUsuario)
                 }}
-                onBlur={() => getCEP(cepUsuario)}
                 disabled={false}
                 maskChar=" "
             >

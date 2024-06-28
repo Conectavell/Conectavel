@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import styled from 'styled-components'
+import img from '../assets/lucas.png'
 
 const TrocarFotoConfiguracoes = () => {
     const Box = styled.div`
@@ -20,18 +21,24 @@ const TrocarFotoConfiguracoes = () => {
     `
 
     const Imagem = styled.div`
-        width: 70%;
-        height: 50%;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
         background-color: red;
         overflow: hidden;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
         @media (max-width:992px){
-            width: 70%;
-            height: 55%;
+            width: 200px;
+            height: 200px;
+            /* height: 55%; */
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
     }
     `
 
@@ -39,11 +46,11 @@ const TrocarFotoConfiguracoes = () => {
         <>
             <Box>
                 <Imagem>
-                    {/* <img src={img} alt="imagem usuario" /> */}
-                    imagem
+                    <img src={img} alt="imagem usuario" />
+                    {/* imagem */}
                 </Imagem>
 
-                <Button sx={{width:"80%"}} variant="contained">Trocar foto</Button>
+                <Button sx={{ width: "80%" }} variant="contained">Trocar foto</Button>
             </Box>
         </>
     )

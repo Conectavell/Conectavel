@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import lartv from  '../assets/lartv.png'
+import lartv from '../assets/lartv.png'
+import lunna from '../assets/lunna.png'
 
 const Box = styled.section`
     width: 100%;
@@ -14,6 +15,14 @@ const Box = styled.section`
         font-size: 60;
         font-weight: 400;
         color: white;
+    }
+
+    .lunna{
+        cursor: pointer;
+        transition: .3s ease-in-out;
+    }
+    .lunna:hover{
+        transform: scale(1.05);
     }
     
 `
@@ -40,12 +49,15 @@ const ParceriasContainer = styled.div`
 `
 
 const Parceiros = () => {
-    return(
+    return (
         <Box>
             <Heading_text>Nossos parceiros</Heading_text>
             <ParceriasContainer>
 
                 <img src={lartv} width={300} height={239.54} alt="" />
+                <a href="https://linktr.ee/lunnacompany" target="_blank">
+                    <img className="lunna" src={lunna} width={300} height={239.54} alt="" />
+                </a>
             </ParceriasContainer>
         </Box>
     )

@@ -45,35 +45,34 @@ export const PerfilPrestador = styled.div`
   .servico-container {
     max-width: 600px;
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
 
-    .Container-servico {
-      height: 180px;
-      margin-top: 16px;
+      /* height: 180px; */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border-radius: 10px;
-      border: 1px solid rgba(77, 89, 89, 0.5);
       padding: 8px;
     }
     #P_container {
       text-align: center;
-      font-size: 12px;
+      font-size: 15px;
       color: var(--azul_principal);
       font-weight: bold
     }
 
     label {
-      padding: 3px;
+      margin: .3rem 0;
+      padding: .2rem .5rem;
       border: 1px solid rgba(77, 89, 89, 0.5);
       border-radius: 9.21px;
       cursor: pointer;
-      font-size: 20px;
+      transition: .3s ease-in-out;
+      width: 100%;
     }
 
   label:hover{
-    border: 2px solid var(--azul_principal);
+    border: 1px solid var(--azul_principal);
   }
   
     label input[type="checkbox"] {
@@ -81,6 +80,13 @@ export const PerfilPrestador = styled.div`
       float: right;
     }
 
+    .Container-servico  {
+      margin-bottom: 1rem;
+      border: 1px solid rgba(77, 89, 89, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+
+    }
     .Container-servico input {
    
       opacity: 0;
@@ -93,7 +99,7 @@ export const PerfilPrestador = styled.div`
       display: block;
       position: relative;
       cursor: pointer;
-      font-size: 20px;
+      /* font-size: 20px; */
       user-select: none;
     }
     .checkmark {
@@ -142,7 +148,7 @@ export const PerfilPrestador = styled.div`
       margin-right: 5px;
     }
   
-  }
+  
 `;
 
 export const BannerPerfil = styled.div`
@@ -162,7 +168,6 @@ export const BannerPerfil = styled.div`
 
 export const Informacoes = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   gap: 12px;
 
@@ -174,7 +179,7 @@ export const Informacoes = styled.div`
 
 export const InfoPrincipais = styled.div`
   width: 786px;
-  height: 417px;
+  /* height: 417px; */
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -184,7 +189,7 @@ export const InfoPrincipais = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 12px;
+  padding: .8rem;
 
   ${(props) =>
     props.infoSecundaria &&
@@ -218,6 +223,8 @@ export const FotoPrincipalPerfil = styled.img`
 `;
 
 export const ItensInfo = styled.div`
+margin-bottom: 1rem;
+cursor: pointer;
   width: 333px;
   height: 190px;
   display: flex;
@@ -243,7 +250,8 @@ export const ItensInfo = styled.div`
 
       p {
         color: #06208e;
-        font-size: 12px;
+        /* font-size: 12px; */
+        font-size: 1.2em;
       }
 
       @media screen and (max-width: 1000px) {

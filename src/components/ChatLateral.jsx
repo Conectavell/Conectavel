@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Cliente2 from '../assets/Cliente2.jpg'
 import Cliente3 from '../assets/Cliente3.jpg'
 import pedroAlves from '../assets/pedroAlves.png'
+import lucas from '../assets/lucas.png'
+import brunoo from '../assets/brunoo.png'
+import leonardo from '../assets/leonardo.png'
 
 
 // Styled components
@@ -116,7 +119,7 @@ const ChatLateral = ({valueWidth}) => {
         <h2>Chat</h2>
       </HeaderChat>
       <BlockChat>
-        <Avatar src={Cliente2} alt="User"  />
+        <Avatar src={brunoo} alt="User"  />
         <div>
           <h6>Bruno Ferreira</h6>
           <p>Digitando...</p>
@@ -130,14 +133,14 @@ const ChatLateral = ({valueWidth}) => {
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={Cliente2} alt="User"  />
+        <Avatar src={lucas} alt="User"  />
         <div>
           <h6>Lucas Bonfim</h6>
           <p>Qual equipamento?</p>
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={Cliente3} alt="User"  />
+        <Avatar src={leonardo} alt="User"  />
         <div>
           <h6>Leonardo Tavares</h6>
           <p>O reparo fica por R$80</p>

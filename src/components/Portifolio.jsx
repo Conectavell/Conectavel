@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import '../styles/PortifolioStyle.css'
 
 function Portifolio() {
     const [Image, setImage] = useState(null);
@@ -19,9 +23,9 @@ function Portifolio() {
         <div>
             <div className="Portifolio-body">
 
-                <h2>Galeria Nome prestador</h2>
+                <h2>Galeria do prestador</h2>
 
-                <img className="C-img" alt={`Imagem ${index + 1}`} key={index} width='370px' height='340' src={URL.createObjectURL(Image)} />
+                {/* <img className="C-img" alt={`Imagem ${index + 1}`} key={index} width='370px' height='340' src={URL.createObjectURL(Image)} /> */}
 
                 <div className="add-img">
 
@@ -32,26 +36,22 @@ function Portifolio() {
                     <button className="btn-del" onClick={() => setImage(null)}>Remover foto</button>
                 </div>
 
+                <Button
+                    component="label"
+                    role={undefined}
+                    variant="contained"
+                    tabIndex={-1}
+                    startIcon={<CloudUploadIcon />}
+                >
+                    Upload file
+                    <VisuallyHiddenInput type="file" />
+                    </Button>
+
             </div>
         </div>
     )
-
-
-    export default function InputFileUpload() {
-        return (
-            <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-            >
-                Upload file
-                <VisuallyHiddenInput type="file" />
-            </Button>
-        );
-    }
-
 }
+
+
 
 export default Portifolio;

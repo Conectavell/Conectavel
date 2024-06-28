@@ -1,18 +1,19 @@
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
-import Kemilly from '../assets/fotosUsuarios/Profile.jpeg';
-import React, { useContext, useState } from "react";
+import Kemilly from '../assets/kemilly.png';
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+import { CiMoneyCheck1, CiSquarePlus } from "react-icons/ci";
+import ChatLateral from '../components/ChatLateral';
+import { useNavigate } from 'react-router-dom';
+
 import {
   FotoEInfos,
-  BotaoEditar,
   WrapperItemInfo,
   SectionWrapper,
-  ChatLateral,
-  ChatLateralH1,
-  ChatLateralChats,
+
   PerfilPrestador,
   BannerPerfil,
   Informacoes,
@@ -25,41 +26,56 @@ import {
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
+import { Button } from '@mui/material';
+
+
 
 const PerfilClientePage = () => {
+  const [selectedService, setSelectedService] = useState('');
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, fotoUsuario } = useContext(CadastroContext)
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, setServicoEscolhido } = useContext(CadastroContext)
+  const navigate = useNavigate()
+  const ref = useRef()
 
+
+  const names = [
+    'Manutenção de vídeo games',
+    'Manutenção de celulares e telefones',
+    'Manutenção de televisores',
+    'Manutenção de aparelhos domésticos',
+    'Manutenção de computadores',
+  ];
+
+  const handleCheckboxChange = (event) => {
+    const { value } = event.target;
+    setSelectedService(prevSelected => prevSelected === value ? '' : value);
+    console.log(value)
+  };
+
+  // valor do check box selecionado vai aparecer no console :)
+  const handleSearch = () => {
+    if (selectedService === 'Manutenção de vídeo games') {
+      setServicoEscolhido(1)
+    } else if (selectedService === 'Manutenção de celulares e telefones') {
+      setServicoEscolhido(2)
+    } else if (selectedService === 'Manutenção de televisores') {
+      setServicoEscolhido(3)
+    } else if (selectedService === 'Manutenção de aparelhos domésticos') {
+      setServicoEscolhido(4)
+    } else if (selectedService === 'Manutenção de computadores') {
+      setServicoEscolhido(5)
+    } else {
+      console.log('Nenhum serviço selecionado.');
+    }
+    navigate("/Conectavel/selecionarprofissional")
+  };
 
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-          </ChatLateralChats>
-        </ChatLateral>
+
+        <ChatLateral valueWidth={"30%"} />
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
@@ -72,7 +88,7 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>{nomeUsuario || sobrenomeUsuario ? (nomeUsuario + " " + sobrenomeUsuario) : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${nomeUsuario} ${sobrenomeUsuario}`}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
@@ -80,14 +96,13 @@ const PerfilClientePage = () => {
                       <ChatMiniNome>E-mail</ChatMiniNome>
                       <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
                       <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
-                    </WrapperItemInfo>
 
+                    </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -96,8 +111,8 @@ const PerfilClientePage = () => {
                   <div>
                     <p>Meus orçamentos</p>
                   </div>
-
                   <BotaoOrcamentos />
+
                 </ItensInfo>
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
@@ -115,71 +130,59 @@ const PerfilClientePage = () => {
                     <small>Uma ótima cliente! </small>
                   </ItensInfo>
                 </WrapperItemInfo>
-                <p>Veja todas as avaliações -</p>
+                {/* <p>Veja todas as avaliações -</p> */}
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
-          <div className="servico-container">
-            <ItensInfo NovoServico>
-              <p>
-                Novo serviço<br></br>Solicitar reparo
-              </p>
-              <BotaoOrcamentos
-                onClick={() => setShowTiposServicos((state) => !state)}
-              />
-            </ItensInfo>
+          <div className="servico-container" >
+            <div onClick={() => {
+              setShowTiposServicos(!showTiposServicos)
+              setTimeout(() => {
+                ref.current.scrollIntoView({ behavior: "smooth" })
+              }, 10);
+
+            }}>
+              <ItensInfo NovoServico >
+                <p style={{ fontSize: '1em' }}>
+                  <b style={{ fontWeight: '500' }}> Novo serviço</b><br></br>Solicitar reparo
+                </p>
+                <BotaoOrcamentos >
+                  <CiSquarePlus color="white" size={40} />
+                </BotaoOrcamentos>
+
+              </ItensInfo>
+            </div>
             {showTiposServicos && (
-              <div className="container">
-                <div className="Container-servico">
-                  <p id="P_container">Tipo de Serviço</p>
-                  <label htmlFor="reparo">
-                    <input
-                      type="checkbox"
-                      id="reparo"
-                      name="tipoServico"
-                      value="reparo"
-                    />
-                    <div className="checkmark"></div>
-                    Reparo
-                  </label>
-                  <label htmlFor="manutencao">
-                    <div class="checkmark"></div>
-                    Reparo
-                  </label>
-                  <label for="manutencao">
-                    <input
-                      type="checkbox"
-                      id="manutencao"
-                      name="tipoServico"
-                      value="manutencao"
+              <div className="container" >
+                <div className="Container-servico" >
 
-                    />
-                    <div className="checkmark"></div>
-                    Manutenção
-                  </label>
-                  <label htmlFor="Instalação">
-                    <div class="checkmark"></div>
-                    Manutenção
-                  </label>
-                  <label for="Instalação">
-                    <input
-                      type="checkbox"
-                      id="Instalação"
-                      name="tipoServico"
-                      value="Instalação"
-                    />
-                    <div className="checkmark"></div>
-                    <div class="checkmark"></div>
-                    Instalação
-                  </label>
 
+                  {
+                    names.map((servico, index) => {
+                      return (
+                        <label htmlFor={`reparo-${index}`} key={index}>
+                          <input
+                            type="checkbox"
+                            id={`reparo-${index}`}
+                            name="tipoServico"
+                            value={servico}
+                            checked={selectedService === servico}
+                            onChange={handleCheckboxChange}
+                          />
+                          <div className="checkmark"></div>
+                          {servico}
+                        </label>
+                      )
+                    })
+                  }
                 </div>
-                <Button>Buscar</Button>
+                <Button disabled={!selectedService ? true : false} className='mt-1' variant="contained" ref={ref} fullWidth onClick={handleSearch}>Buscar</Button>
+
               </div>
             )}
           </div>
         </PerfilPrestador>
-      </SectionWrapper>
+      </SectionWrapper >
     </>
   );
 };
