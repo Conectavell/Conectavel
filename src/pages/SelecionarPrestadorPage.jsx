@@ -23,9 +23,8 @@ width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  justify-content: center;
   margin-top: 20px;
-  gap: 1rem;
+  /* gap: rem; */
 `;
 
 const MenuProfissionais = styled.div`
@@ -35,14 +34,14 @@ const MenuProfissionais = styled.div`
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  width: 78%;
   height: auto;
   margin: 0 0rem 0 1rem;
   padding: 1rem 0;
   flex-wrap: wrap;
-  width: 100%;
+  /* width: 100%; */
+  width: 75vw;
 
-  padding: 23px;
+  /* padding: 23px; */
   /* margin-top: 50px; */
 
   h1 {
@@ -69,10 +68,15 @@ const ChatContainer = styled.div`
 
 const Box = styled.div`
   width: 100%;
+  height: 80vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
   padding: 1rem;
+
+  @media (max-width: 1200px){
+    flex-direction: column;
+  }
 `
 
 
@@ -82,7 +86,7 @@ const SelecionarPrestador = () => {
       <Navbar tipoUsuario={"1"} />
 
       <Box>
-        <ChatLateral valueWidth={"30%"} />
+        <ChatLateral valueWidth={"25vw"} />
 
         <MainContainer>
 
@@ -93,7 +97,7 @@ const SelecionarPrestador = () => {
                 nome={"John Doe"}
                 foto={Kemilly}
                 descricao={"Especialista em eletrônica."}
-                avaliacoes={1.3}
+                avaliacoes={4.3}
               />
               <CardMenu
                 nome={"Lucas Bonfim"}
@@ -112,19 +116,6 @@ const SelecionarPrestador = () => {
                 foto={leonardo}
                 descricao={"Especialista em Televisores."}
                 avaliacoes={5.0}
-              />
-              <CardMenu
-                foto={Kemilly}
-                nome={"Mike Johnson"}
-                descricao={"Especialista em reparo de iphone."}
-                avaliacoes={2.5}
-              />
-              <CardMenu
-                nome={"Anna Brown"}
-                foto={Kemilly}
-                descricao={"Especialista em Reparo de computador."}
-                avaliacoes={3.2}
-
               />
             </CardsMenu>
           </MenuProfissionais>

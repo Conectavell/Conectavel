@@ -36,13 +36,15 @@ const ProfileImage = styled.img`
 `;
 
 const Name = styled.h2`
-  font-size: 1rem;
+  font-size: 1.5em;
   margin-bottom: 10px;
 `;
 
 const Description = styled.p`
-  font-size: 1rem;
   text-align: center;
+  border-radius: 40px;
+  background-color: #b2b2b23c;
+  margin-top: 10px;
 `;
 
 const Stars = styled.div`
@@ -58,7 +60,6 @@ const Avaliacoes = styled.span`
 `;
 
 const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
-  console.log(nome)
   const renderStars = () => { 
 
     const totalStars = 5;
