@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -24,78 +24,75 @@ const FormCadastro = styled.form`
 `
 
 const InputsProfissional = ({ show }) => {
-const [nacionalidadeUsuario, setNacionalidadeUsuario] = useState('')
-const [sobreUsuario, setSobreUsuario] = useState('')
-const [experienciaUsuario, setExperienciaUsuario] = useState('')
+    const { register, formState: { errors } } = useForm();
+    const { nacionalidadeUsuario, setNacionalidadeUsuario,
+        sobreUsuario, setSobreUsuario,
+        experienciaUsuario, setExperienciaUsuario,
+        habilidadesUsuario, setHabilidadesUsuario,
+    } = useContext(CadastroContext)
 
-const context = useContext(CadastroContext)
-
-
-return (
-    <FormCadastro style={{ overflow: "hidden", display: `${show ? "" : "none"}` }}>
-        <Box
-            sx={{
-                width: "90%",
-                margin: "auto",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem"
-            }}
-        >
-            <h2>Complete suas informações</h2>
-            <TextField
-                label="Conte-nos sobre você"
-                type='text'
-                fullWidth required={true}
-                id="fullWidth"
-                value={sobreUsuario}
-                onChange={e => {
-                    setSobreUsuario(e.target.value)
-                    context.sobre = sobreUsuario
-                    // console.log(context.sobre)
+    return (
+        <FormCadastro style={{ overflow: "hidden", display: `${show ? "" : "none"}` }}>
+            <Box
+                sx={{
+                    width: "90%",
+                    margin: "auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem"
                 }}
-            />
-            <TextField
-                label="Experiência profissional"
-                type='text'
-                fullWidth
-                required={true}
-                value={experienciaUsuario}
-                onChange={e => {
-                    setExperienciaUsuario(e.target.value)
-                    context.experiencia = experienciaUsuario
-                    // console.log(context.experiencia)
-                }}
-                id="fullWidth" />
-
-            <InputHabilidades />
-
-
-            <FormControl>
-                <InputLabel
-                    required={true}
-                    id="demo-simple-select-label"
-                >Nacionalidade</InputLabel>
-                <Select
-                    label="Nacionalidade"
-                    required={true}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={nacionalidadeUsuario}
+            >
+                <h2>Complete suas informações</h2>
+                <TextField
+                    label="Conte-nos sobre você"
+                    type='text'
+                    fullWidth required={true}
+                    id="fullWidth"
+                    value={sobreUsuario}
                     onChange={e => {
-                        setNacionalidadeUsuario(e.target.value)
-                        context.nacionalidade = nacionalidadeUsuario
-                        // console.log(context.nacionalidade)
-                    }}>
-                    <MenuItem value="BR">Brasileira</MenuItem>
-                    <MenuItem value="ES">Estadunidente</MenuItem>
-                    {/* <MenuItem value="outro">Outros</MenuItem> */}
-                </Select>
-            </FormControl>
+                        setSobreUsuario(e.target.value)
+                        // console.log(sobreUsuario)
+                    }}
+                />
+                <TextField
+                    label="Experiência profissional"
+                    type='text'
+                    fullWidth
+                    required={true}
+                    value={experienciaUsuario}
+                    onChange={e => {
+                        setExperienciaUsuario(e.target.value)
+                        // console.log(experienciaUsuario)
+                    }}
+                    id="fullWidth" />
+                    
+                    <InputHabilidades/>
+                
 
-        </Box>
-    </FormCadastro>
-)
+                <FormControl>
+                    <InputLabel
+                        required={true}
+                        id="demo-simple-select-label"
+                    >Nacionalidade</InputLabel>
+                    <Select
+                        label="Nacionalidade"
+                        required={true}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={nacionalidadeUsuario}
+                        onChange={e => {
+                            setNacionalidadeUsuario(e.target.value)
+                            // console.log(nacionalidadeUsuario)
+                        }}>
+                        <MenuItem value="BR">Brasileira</MenuItem>
+                        <MenuItem value="ES">Estadunidente</MenuItem>
+                        {/* <MenuItem value="outro">Outros</MenuItem> */}
+                    </Select>
+                </FormControl>
+
+            </Box>
+        </FormCadastro>
+    )
 }
 
 export default InputsProfissional

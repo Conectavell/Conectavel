@@ -1,18 +1,26 @@
+import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/NavbarPerfis";
-import pedroAlves from "../assets/pedroAlves.png";
+import ChatMini from "../components/ChatMini";
+import Kemilly from "../assets/kemilly.png";
+import {
+  ChatLateral,
+  ChatLateralH1,
+  ChatLateralChats,
+} from "../styles/InfoClientePageStyle";
 import CardMenu from "../components/CardMenus";
-import Arrow_Laranja from "../assets/Arrow_Laranja.svg";
-import ChatLateral from "../components/ChatLateral";
-import { IoIosArrowBack } from "react-icons/io";
+
+
+const MainContainer = styled.div`
+  display: flex;
+  padding: 20px;
+`;
 
 const CardsMenu = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  @media (max-width:1200px){
-    justify-content: center;
-  }
+  justify-content: center;
+  margin-top: 20px;
 `;
 
 const MenuProfissionais = styled.div`
@@ -22,106 +30,90 @@ const MenuProfissionais = styled.div`
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  width: 76%;
-  height: auto;
-  margin: 0 1rem;
+  width: 100%;
+
   padding: 23px;
-  /* margin-top: 150px; */
-  flex-wrap: wrap;
+  margin-top: 50px;
 
   h1 {
     font-size: 3rem;
-  }
-
-  .titulo {
-    border: 1px solid rgba(128, 128, 128, 0.5);
-    border-radius: 30px;
-    padding: 4px;
-    text-align: center;
-  }
-
-  @media (max-width:1200px){
-    width: 90%;
-    justify-content: center;
-    gap: 0;
+    position: relative;
   }
 `;
 
-const ButtonReturn = styled.button`
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-
-  border: none;
-  background: transparent;
-  outline: none;
-  margin-left: 30px;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-`;
-
-const Box = styled.div`
-  width: 100%;
+const ChatContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: flex-start;
-  
-  @media (max-width:1200px){
-    align-items: center;
-    flex-direction: column;
-  }
-`
+  flex-direction: column;
+  margin-right: 20px;
+  margin-left: 20px;
+`;
 
 const SelecionarPrestador = () => {
-  
   return (
-    <>
+    <div>
       <Navbar tipoUsuario={"cliente"} />
-      <ButtonReturn className="button_return">
-      <IoIosArrowBack size={54}/>
-      </ButtonReturn>
-      <Box>
-          <ChatLateral valueWidth={"20%"} />
+
+      <MainContainer>
+        <ChatContainer>
+          <ChatLateral>
+            <ChatLateralH1>Chat</ChatLateralH1>
+            <ChatLateralChats>
+              <ChatMini
+                foto={Kemilly}
+                nome={"Sarah Doe"}
+                descricao={"Muito obrigada pelo reparo!"}
+              />
+              <ChatMini
+                foto={Kemilly}
+                nome={"Sarah Doe"}
+                descricao={"Muito obrigada pelo reparo!"}
+              />
+              <ChatMini
+                foto={Kemilly}
+                nome={"Sarah Doe"}
+                descricao={"Muito obrigada pelo reparo!"}
+              />
+              <ChatMini
+                foto={Kemilly}
+                nome={"Sarah Doe"}
+                descricao={"Muito obrigada pelo reparo!"}
+              />
+            </ChatLateralChats>
+          </ChatLateral>
+        </ChatContainer>
+
         <MenuProfissionais>
-          <h2>Profissionais Disponíveis</h2>
+          <h1>Profissionais Disponíveis</h1>
           <CardsMenu>
             <CardMenu
-              nome={"Pedro Alves"}
-              foto={pedroAlves}
+              nome={"John Doe"}
+              foto={Kemilly}
               descricao={"Especialista em eletrônica."}
-              avaliacoes={4.3}
+              avaliacoes={1.3}
             />
             <CardMenu
-              nome={"Lucas Bonfim"}
-              foto={pedroAlves}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={4.2}
+              nome={"Jane Smith"}
+              foto={Kemilly}
+              descricao={"Especialista em Televisores."}
+              avaliacoes={5.0}
             />
             <CardMenu
-              nome={"Bruno Ferreira"}
-              foto={pedroAlves}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={4.6}
+              foto={Kemilly}
+              nome={"Mike Johnson"}
+              descricao={"Especialista em reparo de iphone."}
+              avaliacoes={2.5}
             />
             <CardMenu
-              nome={"Leonardo Tavares"}
-              foto={pedroAlves}
+              nome={"Anna Brown"}
+              foto={Kemilly}
               descricao={"Especialista em Reparo de computador."}
-              avaliacoes={4.4}
+              avaliacoes={3.2}
+             
             />
           </CardsMenu>
         </MenuProfissionais>
-      </Box>
-    </>
+      </MainContainer>
+    </div>
   );
 };
 

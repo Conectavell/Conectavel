@@ -1,51 +1,39 @@
-import { useContext} from 'react'
+import { useContext } from 'react'
 import { TextField } from '@mui/material'
 import CadastroContext from '../context/CadastroContext'
 import axios from "axios";
 import ReactInputMask from 'react-input-mask'
-import EnderecoContext from '../context/EnderecoContext';
 
 const InputCep = () => {
-    // const { setLogradouro} = useContext(CadastroContext)
-    const context = useContext(CadastroContext)
-    const { setLogradouro,
+    const {
+        cepUsuario, setCepUsuario,
+        setLogradouro,
         setBairro,
         setEstado,
-        setCidade,
-        cep,setCep } = useContext(EnderecoContext)
+        setCidade
+    } = useContext(CadastroContext)
 
     async function getCEP() {
-        const baseURL = `https://viacep.com.br/ws/${cep}/json/`
+        const baseURL = `https://viacep.com.br/ws/${cepUsuario}/json/`
         const res = await axios.get(baseURL)
         const data = await res.data
-
-        // exibir dados autopreenchidos para o usuario
+        console.log(data.logradouro)
         setLogradouro(data.logradouro)
         setBairro(data.bairro)
         setEstado(data.uf)
         setCidade(data.localidade)
-        setCep(data.cep)
-
-        // colocar no context
-        context.logradouro = data.logradouro
-        context.bairro = data.bairro
-        context.estado = data.uf
-        context.cidade = data.localidade
-        context.cep = data.cep
-
-        
+        setCepUsuario(data.cep)
     }
     return (
         <>
             <ReactInputMask
                 mask="99999-999"
-                value={cep}
+                value={cepUsuario}
                 onChange={e => {
-                    setCep(e.target.value)
-                    context.cep = cep
+                    setCepUsuario(e.target.value)
                     // console.log(cepUsuario)
                 }}
-                onBlur={() => getCEP(cep)}
+                onBlur={() => getCEP(cepUsuario)}
                 disabled={false}
                 maskChar=" "
             >
@@ -62,7 +50,5 @@ const InputCep = () => {
         </>
     )
 }
-
-
 
 export default InputCep

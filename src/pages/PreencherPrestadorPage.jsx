@@ -37,29 +37,27 @@ const PreencherPrestadorPage = () => {
         setFill
     } = useContext(CadastroContext)
 
-    const context = useContext(CadastroContext)
-
     function cadastrar() {
         axios.post('http://localhost:8080/API/salvarUsuario', {
-            "nacionalidadeUsuario": `${context.nacionalidade}`,
+            "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": 2,
-            "nomeUsuario": `${context.nome}`,
-            "sobrenomeUsuario": `${context.sobrenome}`,
-            "emailUsuario": `${context.email}`,
-            "celularUsuario": `${context.celular}`,
-            "senhaUsuario": `${context.senha}`,
-            "cpfUsuario": `${context.identidade}`,
-            "dataNascimentoUsuario": `${context.dataNascimento}`,
-            "sexoUsuario": `${context.sexo === "outro" ? "O" : context.sexo === "feminino" ? "F" : "M"}`,
-            "sobreUsuario": `${context.sobre}`,
-            "experienciaUsuario": `${context.experiencia}`,
+            "nomeUsuario": `${nomeUsuario}`,
+            "sobrenomeUsuario": `${sobrenomeUsuario}`,
+            "emailUsuario": `${emailUsuario}`,
+            "celularUsuario":`${celularUsuario}`,
+            "senhaUsuario": `${senhaUsuario}`,
+            "cpfUsuario": `${identidadeUsuario}`,
+            "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
+            "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
+            "sobreUsuario": `${sobreUsuario}`,
+            "experienciaUsuario": `${experienciaUsuario}`,
             "enderecoDto": {
-                "cep": `${context.cep}`,
-                "logradouro": `${context.logradouro}`,
-                "bairro": `${context.bairro}`,
-                "complemento": `${context.complemento}`,
-                "numero": `${context.numero}`,
-                "uf": `${context.estado}`
+                "cep": `${cepUsuario}`,
+                "logradouro": `${logradouro}`,
+                "bairro": `${bairro}`,
+                "complemento": `${complementoUsuario}`,
+                "numero": `${numeroUsuario}`,
+                "uf": `${estado}`
             },
         })
             .then(function (response) {
@@ -91,7 +89,7 @@ const PreencherPrestadorPage = () => {
                         <InputsProfissional show={false} />
                         <BoxBars>
                             <Button
-                                disabled={!(context.identidade && context.cep && context.numero && context.complemento && context.celular && context.dataNascimento && context.sexo)}
+                                disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
                                 style={{ width: "90%", margin: "1rem auto" }}
                                 onClick={() => {
                                     setNextTab(1)
@@ -109,7 +107,7 @@ const PreencherPrestadorPage = () => {
                         <BoxBars>
                             {/* botão que envia todos os dados */}
                             <Button
-                                disabled={!(context.identidade && context.cep && context.numero && context.complemento && context.celular && context.dataNascimento && context.sexo)}
+                                disabled={!(identidadeUsuario && cepUsuario && numeroUsuario && complementoUsuario && celularUsuario && dataNascimentoUsuario && sexoUsuario)}
                                 style={{ width: "90%", margin: "1rem auto" }}
                                 onClick={cadastrar}
                                 variant="contained">Enviar informações</Button>
@@ -125,25 +123,3 @@ const PreencherPrestadorPage = () => {
 }
 
 export default PreencherPrestadorPage
-
-// {
-//     "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
-//     "tipoDePerfilUsuario": 2,
-//     "nomeUsuario": `${nomeUsuario}`,
-//     "sobrenomeUsuario": `${sobrenomeUsuario}`,
-//     "emailUsuario": `${emailUsuario}`,
-//     "celularUsuario": `${celularUsuario}`,
-//     "senhaUsuario": `${senhaUsuario}`,
-//     "cpfUsuario": `${identidadeUsuario}`,
-//     "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
-//     "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
-//     "sobreUsuario": `${sobreUsuario}`,
-//     "experienciaUsuario": `${experienciaUsuario}`,
-//     "enderecoDto": {
-//         "cep": `${cepUsuario}`,
-//         "logradouro": `${logradouro}`,
-//         "bairro": `${bairro}`,
-//         "complemento": `${complementoUsuario}`,
-//         "numero": `${numeroUsuario}`,
-//         "uf": `${estado}`
-//     },

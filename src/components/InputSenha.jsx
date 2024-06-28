@@ -3,19 +3,17 @@ import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } fr
 import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext';
 
-const InputSenha = ({ fullWidth, sx }) => {
+const InputSenha = () => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    const [senhaUsuario, setSenhaUsuario] = useState('')
-    const context = useContext(CadastroContext)
-
+    const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     }
 
     return (
         <>
-            <FormControl sx={sx ? { marginTop: "1rem" } : ''} fullWidth={fullWidth ? true : false} variant="outlined">
+            <FormControl variant="outlined">
                 <InputLabel
                     required={true}
                     htmlFor="outlined-adornment-password">Senha</InputLabel>
@@ -23,8 +21,7 @@ const InputSenha = ({ fullWidth, sx }) => {
                     value={senhaUsuario}
                     onChange={e => {
                         setSenhaUsuario(e.target.value)
-                        context.senha = senhaUsuario
-                        // console.log(context.senha)
+                        // console.log(senhaUsuario)
                     }}
                     id="outlined-adornment-password"
                     type={showPassword ? 'text' : 'password'}

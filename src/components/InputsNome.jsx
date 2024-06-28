@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { TextField } from '@mui/material'
 
 export const InputPrimeiroNome = () => {
-    const context = useContext(CadastroContext)
-    const [nomeUser, setNomeUser] = useState('')
+    const { nomeUsuario, setNomeUsuario, } = useContext(CadastroContext)
 
     return (
         <>
@@ -13,18 +12,17 @@ export const InputPrimeiroNome = () => {
                 type='text'
                 fullWidth required={true}
                 id="fullWidth"
-                value={nomeUser}
+                value={nomeUsuario}
                 onChange={e => {
-                    setNomeUser(e.target.value)
-                    context.nome = nomeUser
+                    setNomeUsuario(e.target.value)
+                    // console.log(nomeUsuario)
                 }}
             />
         </>
     )
 }
 export const InputSobrenome = () => {
-    const context = useContext(CadastroContext)
-    const [sobrenomeUser, setSobrenomeUser] = useState('')
+    const { sobrenomeUsuario, setSobrenomeUsuario, } = useContext(CadastroContext)
     return (
         <>
             <TextField
@@ -32,11 +30,10 @@ export const InputSobrenome = () => {
                 type='text'
                 fullWidth required={true}
                 id="fullWidth"
-                value={sobrenomeUser}
+                value={sobrenomeUsuario}
                 onChange={e => {
-                    setSobrenomeUser(e.target.value)
-                    context.sobrenome = sobrenomeUser
-                    // console.log(context.sobrenome)
+                    setSobrenomeUsuario(e.target.value)
+                    console.log(sobrenomeUsuario)
                 }}
             />
         </>

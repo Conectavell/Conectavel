@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { TextField } from '@mui/material'
 
 const InputDataNascimento = () => {
-    const [dataNascimentoUsuario, setDataNascimentoUsuario] = useState('')
-    const context = useContext(CadastroContext)
+    const { dataNascimentoUsuario, setDataNascimentoUsuario } = useContext(CadastroContext)
     return (
         <>
             <TextField
@@ -15,8 +14,7 @@ const InputDataNascimento = () => {
                 value={dataNascimentoUsuario}
                 onChange={e => {
                     setDataNascimentoUsuario(e.target.value)
-                    context.dataNascimento = dataNascimentoUsuario
-                    // console.log(context.dataNascimento)
+                    // console.log(dataNascimentoUsuario)
                 }}
                 fullWidth id="fullWidth" />
         </>
