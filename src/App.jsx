@@ -2,7 +2,6 @@ import { useState } from 'react'
 import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
-import axios from 'axios'
 
 function App() {
   const [expand, setExpand] = useState(false)

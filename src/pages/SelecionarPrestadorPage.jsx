@@ -55,33 +55,7 @@ const SelecionarPrestador = () => {
       <Navbar tipoUsuario={"cliente"} />
 
       <MainContainer>
-        <ChatContainer>
-          <ChatLateral>
-            <ChatLateralH1>Chat</ChatLateralH1>
-            <ChatLateralChats>
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-              <ChatMini
-                foto={Kemilly}
-                nome={"Sarah Doe"}
-                descricao={"Muito obrigada pelo reparo!"}
-              />
-            </ChatLateralChats>
-          </ChatLateral>
-        </ChatContainer>
+        
 
         <MenuProfissionais>
           <h1>Profissionais Disponíveis</h1>

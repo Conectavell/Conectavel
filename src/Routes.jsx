@@ -34,26 +34,29 @@ const Routes = () => {
                 <Rotas>
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/login' element={<LoginPage />} />
-
-                    <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
-                    <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
-                    <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
-
+                    <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
                     <Route path='/Conectavel/Serviços' element={<ServicosPage />} />
 
 
+                    <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
+                    <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
+                    <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
+
+                    
+
+
                     <Route path="/Conectavel/selecionarprofissional" element={<SelecionarPrestador />} />
 
 
-                    <Route path="/Conectavel/descarte" element={<DescartePage />} />
-                    <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
-                    <Route path='/Conectavel/chatprofissional' exact element={<ChatProfissional />} />
+                    <Route path='/Conectavel/orcamento' element={<PrivateRoute><ClienteOrcamento /></PrivateRoute>} />
+                    <Route path='/Conectavel/chatprofissional' exact element={<PrivateRoute><ChatProfissional /></PrivateRoute>} />
 
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
+                    {/* <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} /> */}
                     <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
                     <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>} />
 
