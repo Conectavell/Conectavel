@@ -1,4 +1,3 @@
-import React from 'react'
 import { Sub_heading } from './Header'
 import styled from 'styled-components'
 import { Button, Tooltip } from '@mui/material'
@@ -14,6 +13,7 @@ const Assinaturas = () => {
     
     @media (max-width: 992px){
         width: 90%;
+        font-size: 36px;
         text-align: center;
         margin: auto;
     }
@@ -34,17 +34,23 @@ const Assinaturas = () => {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 2rem;
+    p{
+        font-size: 1.3em;
+    }
 
     @media (max-width: 1200px){
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        p{
+            font-size: 1.4em;
+        }
     }
 `
     const Analogico = styled.div`
     position: relative;
     width: 31%;
-    height: 73vh;
+    min-height: 73vh;
     background-color: var(--verde_principal);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
@@ -64,7 +70,7 @@ const Assinaturas = () => {
     const Digital = styled.div`
     position: relative;
     width: 31%;
-    height: 73vh;
+    min-height: 73vh;
     background-color: var(--azul_secundario);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
@@ -79,12 +85,13 @@ const Assinaturas = () => {
     @media (max-width: 1200px){
         width: 100%;
         margin: 1rem 0;
+        height: 80vh;
     }
 `
     const Hd = styled.div`
     position: relative;
     width: 31%;
-    height: 73vh;
+    min-height: 73vh;
     background-color: var(--laranja);
     padding: 1rem;
     box-shadow: 0 0px 10px #00000046;
@@ -99,12 +106,12 @@ const Assinaturas = () => {
     @media (max-width: 1200px){
         width: 100%;
         margin: 1rem 0;
-        height: 75vh;
+        height: 90vh;
     }
 `
 
     const Titutlo = styled.p`
-    font-size: 1.8rem;
+    font-size: 1.7em !important;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -128,6 +135,7 @@ const Assinaturas = () => {
     const Lista = styled.ul`
     color: white;
     font-weight: 600;
+    font-size: 1.2em;
 `
     const Item = styled.li`
     margin: .5rem 0;

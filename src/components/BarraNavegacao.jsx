@@ -34,6 +34,8 @@ const BarraNavegacao = ({ cor }) => {
     color: white;
     transition: all .3s linear;
     font-weight: 600;
+    font-size: 1.1em;
+
     &:hover{
         background-color: ${cor === "azul" ? "var(--verde_principal)" : "var(--azul_principal)"};
     }
@@ -41,7 +43,7 @@ const BarraNavegacao = ({ cor }) => {
 
     const ListItem = styled.p`
     list-style-type: none;
-    font-size: .9em;
+    font-size: 1.05em;
     font-weight: 500;
     margin: 0 .5rem;
     color: white;
@@ -74,6 +76,7 @@ const BarraNavegacao = ({ cor }) => {
     background-color: transparent;
     font-weight: 600;
     color: white;
+    font-size: 1.1em;
 
     &:hover{
         color: var(--laranja);
