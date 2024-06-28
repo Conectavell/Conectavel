@@ -7,6 +7,9 @@ import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
+import Comunidade from './pages/Comunidade'
+import TechnicianProfile from './pages/TechnicianProfile'
+import Dashboard from './pages/Dashboard'
 import ChatProfissional from './pages/ChatProfissional'
 import ClienteAvaliacao from './pages/ClienteAvaliacaoPage'
 import PerfilClientePage from './pages/PerfilClientePage'
@@ -58,8 +61,10 @@ const Routes = () => {
                     <Route path="/Conectavel/selecionarprofissional" element={<SelecionarPrestador />} />
                     <Route path="/Conectavel/profissional" element={<PerfilProfissionalPage />} />
 
+                    <Route path='/Conectavel/comunidade' exact element={<Comunidade/>} />
 
-                    
+                    <Route path='/Conectavel/TechnicianProfile' exact element={<TechnicianProfile/>} />
+                    <Route path='/Conectavel/Dashboard' exact element={<Dashboard/>} />
 
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
