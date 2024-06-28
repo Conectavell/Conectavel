@@ -3,7 +3,8 @@ import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import CadastroContext from '../context/CadastroContext'
-import { InputHabilidades } from './InputsInformacoesProfissonal'
+import MultipleSelectCheckmarks from './InputHabilidades'
+import InputHabilidades from './InputHabilidades'
 // inputs para o profissional, q pede habilidades, experiencia, etc
 
 const FormCadastro = styled.form`
@@ -24,12 +25,14 @@ const FormCadastro = styled.form`
 `
 
 const InputsProfissional = ({ show }) => {
-    const { register, formState: { errors } } = useForm();
-    const { nacionalidadeUsuario, setNacionalidadeUsuario,
+    const {
+        nacionalidadeUsuario, setNacionalidadeUsuario,
         sobreUsuario, setSobreUsuario,
         experienciaUsuario, setExperienciaUsuario,
         habilidadesUsuario, setHabilidadesUsuario,
     } = useContext(CadastroContext)
+
+
 
     return (
         <FormCadastro style={{ overflow: "hidden", display: `${show ? "" : "none"}` }}>
@@ -65,9 +68,8 @@ const InputsProfissional = ({ show }) => {
                         // console.log(experienciaUsuario)
                     }}
                     id="fullWidth" />
-                    
-                    <InputHabilidades/>
-                
+
+                <InputHabilidades />
 
                 <FormControl>
                     <InputLabel
@@ -86,7 +88,6 @@ const InputsProfissional = ({ show }) => {
                         }}>
                         <MenuItem value="BR">Brasileira</MenuItem>
                         <MenuItem value="ES">Estadunidente</MenuItem>
-                        {/* <MenuItem value="outro">Outros</MenuItem> */}
                     </Select>
                 </FormControl>
 

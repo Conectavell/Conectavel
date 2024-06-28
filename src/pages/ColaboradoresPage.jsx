@@ -7,6 +7,8 @@ import aurora from '../assets/aurora.png'
 import debora from '../assets/debora.png'
 import gabriel from '../assets/gabriel.png'
 import Footer from '../components/Footer'
+import SecaoColaboradores from '../components/SecaoColaboradores'
+import Parceiros from '../components/Parceiros'
 
 const ColaboradoresPage = () => {
     const Sub_heading = styled.p`
@@ -70,43 +72,8 @@ const ColaboradoresPage = () => {
     return (
         <>
             <BarraNavegacao cor="azul" />
-
-            <Box>
-                <Sub_heading>
-                    APOIO
-                </Sub_heading>
-                <Heading_text>Colaboradores</Heading_text>
-                <Col>
-                    <Row>
-                        <Col>
-                            <img src={jailson} width={300} alt="" />
-                            <p>Jailson</p>
-                        </Col>
-                        <Col>
-                            <img src={adriana} width={300} alt="" />
-                            <p>Adriana</p>
-                        </Col>
-                        <Col>
-                            <img src={aurora} width={300} alt="" />
-                            <p>Aurora</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <img src={martinha} width={300} alt="" />
-                            <p>Martinha</p>
-                        </Col>
-                        <Col>
-                            <img src={gabriel} width={300} alt="" />
-                            <p>Gabriel</p>
-                        </Col>
-                        <Col>
-                            <img src={debora} width={300} alt="" />
-                            <p>Debora</p>
-                        </Col>
-                    </Row>
-                </Col>
-            </Box>
+            <SecaoColaboradores />
+            <Parceiros />
             <Footer cor="azul" />
         </>
     )

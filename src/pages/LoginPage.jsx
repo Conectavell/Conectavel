@@ -11,8 +11,6 @@ import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
 import Input from '../components/Input'
 import axios from 'axios'
-import InputSenha from "../components/InputSenha";
-import InputEmail from "../components/InputEmail";
 
 
 const ContainerDiv = styled.div`
@@ -156,7 +154,7 @@ const LoginPage = () => {
         navigate("/Conectavel/perfilprestador")
         window.location.reload()
       } else if (idTipoPerfil == 3) {
-        navigate("/Conectavel/admin")
+        alert("Em desenvolvimento")
       }
     })
       .catch(function (error) {
@@ -195,8 +193,22 @@ const LoginPage = () => {
         <div className="form-container">
           <h2>Entrar</h2>
           <form onSubmit={handleSubmit}>
-            <InputEmail />
-            <InputSenha sx fullWidth />
+            <Input
+              name="email"
+              label="E-mail"
+              placeholder="Digite seu e-mail aqui"
+              type="email"
+              required
+              mudanca={(e) => setEmailUsuario(e.target.value)}
+            />
+            <Input
+              name="senha"
+              label="Senha"
+              placeholder="Digite sua senha aqui"
+              type="password"
+              required
+              mudanca={(e) => setSenhaUsuario(e.target.value)}
+            />
             <div className="justify-between">
               <div>
                 <input className="ckeckbox-input" type="checkbox" name="" />

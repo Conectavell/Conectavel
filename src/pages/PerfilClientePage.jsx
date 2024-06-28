@@ -2,15 +2,18 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+import { CiMoneyCheck1, CiSquarePlus } from "react-icons/ci";
+import ChatLateral from '../components/ChatLateral';
+import { useNavigate } from 'react-router-dom';
+
 import {
   FotoEInfos,
-  BotaoEditar,
   WrapperItemInfo,
   SectionWrapper,
-  ChatLateral,
-  ChatLateralH1,
-  ChatLateralChats,
+
   PerfilPrestador,
   BannerPerfil,
   Informacoes,
@@ -23,11 +26,17 @@ import {
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
-import { Button, Radio } from '@mui/material';
+import { Button } from '@mui/material';
+
+
 
 const PerfilClientePage = () => {
+  const [selectedService, setSelectedService] = useState('');
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const context = useContext(CadastroContext)
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, setServicoEscolhido } = useContext(CadastroContext)
+  const navigate = useNavigate()
+  const ref = useRef()
+
 
   const names = [
     'Manutenção de vídeo games',
@@ -35,37 +44,38 @@ const PerfilClientePage = () => {
     'Manutenção de televisores',
     'Manutenção de aparelhos domésticos',
     'Manutenção de computadores',
-  ]
+  ];
+
+  const handleCheckboxChange = (event) => {
+    const { value } = event.target;
+    setSelectedService(prevSelected => prevSelected === value ? '' : value);
+    console.log(value)
+  };
+
+  // valor do check box selecionado vai aparecer no console :)
+  const handleSearch = () => {
+    if (selectedService === 'Manutenção de vídeo games') {
+      setServicoEscolhido(1)
+    } else if (selectedService === 'Manutenção de celulares e telefones') {
+      setServicoEscolhido(2)
+    } else if (selectedService === 'Manutenção de televisores') {
+      setServicoEscolhido(3)
+    } else if (selectedService === 'Manutenção de aparelhos domésticos') {
+      setServicoEscolhido(4)
+    } else if (selectedService === 'Manutenção de computadores') {
+      setServicoEscolhido(5)
+    } else {
+      console.log('Nenhum serviço selecionado.');
+    }
+    navigate("/Conectavel/selecionarprofissional")
+  };
 
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-          </ChatLateralChats>
-        </ChatLateral>
+
+        <ChatLateral valueWidth={"30%"} />
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
@@ -78,22 +88,21 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>{`${context.nome} ${context.sobrenome}`}</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${nomeUsuario} ${sobrenomeUsuario}`}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>{context.emailUsuario ? context.emailUsuario : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>{context.celularUsuario ? context.celularUsuario : '-----'}</ChatMiniNome>
-                    </WrapperItemInfo>
+                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
 
+                    </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -102,8 +111,8 @@ const PerfilClientePage = () => {
                   <div>
                     <p>Meus orçamentos</p>
                   </div>
-
                   <BotaoOrcamentos />
+
                 </ItensInfo>
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
@@ -121,33 +130,44 @@ const PerfilClientePage = () => {
                     <small>Uma ótima cliente! </small>
                   </ItensInfo>
                 </WrapperItemInfo>
-                <p>Veja todas as avaliações -</p>
+                {/* <p>Veja todas as avaliações -</p> */}
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
-          <div className="servico-container">
-            <ItensInfo onClick={() => setShowTiposServicos((state) => !state)} NovoServico>
-              <p>
-                Novo serviço<br></br>Solicitar reparo
-              </p>
-              <BotaoOrcamentos
+          <div className="servico-container" >
+            <div onClick={() => {
+              setShowTiposServicos(!showTiposServicos)
+              setTimeout(() => {
+                ref.current.scrollIntoView({ behavior: "smooth" })
+              }, 10);
 
-              />
-            </ItensInfo>
+            }}>
+              <ItensInfo NovoServico >
+                <p style={{ fontSize: '1em' }}>
+                  <b style={{ fontWeight: '500' }}> Novo serviço</b><br></br>Solicitar reparo
+                </p>
+                <BotaoOrcamentos >
+                  <CiSquarePlus color="white" size={40} />
+                </BotaoOrcamentos>
+
+              </ItensInfo>
+            </div>
             {showTiposServicos && (
-              <div className="container">
-                <div className="Container-servico">
-                  <p id="P_container">Tipo de Serviço</p>
+              <div className="container" >
+                <div className="Container-servico" >
+
 
                   {
                     names.map((servico, index) => {
                       return (
-                        <label htmlFor="reparo" key={index}>
+                        <label htmlFor={`reparo-${index}`} key={index}>
                           <input
                             type="checkbox"
-                            id="reparo"
+                            id={`reparo-${index}`}
                             name="tipoServico"
-                            value="reparo"
+                            value={servico}
+                            checked={selectedService === servico}
+                            onChange={handleCheckboxChange}
                           />
                           <div className="checkmark"></div>
                           {servico}
@@ -156,12 +176,13 @@ const PerfilClientePage = () => {
                     })
                   }
                 </div>
-                <Button className='mt-3' variant="contained" fullWidth>Buscar</Button>
+                <Button disabled={!selectedService ? true : false} className='mt-1' variant="contained" ref={ref} fullWidth onClick={handleSearch}>Buscar</Button>
+
               </div>
             )}
           </div>
         </PerfilPrestador>
-      </SectionWrapper>
+      </SectionWrapper >
     </>
   );
 };
