@@ -54,8 +54,8 @@ const Routes = () => {
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
-                    <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
-                    <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
+                    <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
+                    <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>} />
 
 
                     <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
