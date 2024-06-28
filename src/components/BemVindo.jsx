@@ -4,7 +4,7 @@ import pedro from '../assets/pedroAlves.png'
 import styled from 'styled-components'
 import CadastroContext from '../context/CadastroContext'
 
-const BemVindo = ({ usuario }) => {
+const BemVindo = ({ onclick }) => {
     const { innerWidth: width, innerHeight: height } = window
     const { nomeUsuario, sobrenomeUsuario, tipoPerfil } = useContext(CadastroContext)
 
@@ -50,7 +50,7 @@ const BemVindo = ({ usuario }) => {
 
     return (
         <>
-            <Container>
+            <Container onClick={onclick}>
                 <img src={tipoPerfil === 2 ? pedro : kemilly} width={45} alt="" />
 
                 <Details>
@@ -58,7 +58,7 @@ const BemVindo = ({ usuario }) => {
                         width > 992 ? <p>Bem vindo de volta,</p>
                             : ''
                     }
-                    <Nome>{nomeUsuario + " " + sobrenomeUsuario} </Nome>
+                    <Nome>{nomeUsuario ? nomeUsuario + " " + sobrenomeUsuario : '-------'} </Nome>
                 </Details>
             </Container>
         </>
