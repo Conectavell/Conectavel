@@ -19,7 +19,7 @@ import Deslogar from './Deslogar';
 //
 
 const BarraNavegacao = ({ cor }) => {
-    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const navItems = ['Home', 'Quem somos', "Serviços", 'Colaboradores', 'Descarte',]
     const { tipoPerfil, idUsuario } = useContext(CadastroContext)
 
     const Button = styled(Link)`
@@ -129,16 +129,13 @@ const BarraNavegacao = ({ cor }) => {
                                     </ListItem>
                                 )
                             })}
-                            <ListItem>
-                                {t("navbar.Serviços")}
-                            </ListItem>
                         </Nav>
                         <Block >
                             {
                                 idUsuario ?
                                     <>
                                         <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
-                                        <Login to="/Conectavel" ><Deslogar size="1.5rem"/></Login>
+                                        <Login to="/Conectavel" ><Deslogar size="1.5rem" /></Login>
                                     </>
                                     :
                                     <>
