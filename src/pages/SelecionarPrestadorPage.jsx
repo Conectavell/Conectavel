@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/NavbarPerfis";
 import ChatMini from "../components/ChatMini";
@@ -10,6 +10,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import lucas from '../assets/lucas.png'
 import brunoo from '../assets/brunoo.png'
 import leonardo from '../assets/leonardo.png'
+import axios from "axios";
+import CadastroContext from "../context/CadastroContext";
 
 
 const MainContainer = styled.div`
@@ -19,10 +21,15 @@ const MainContainer = styled.div`
 
 const CardsMenu = styled.div`
 width: 100%;
+height: 45vh;
+padding-top: 1rem;
+overflow-y: scroll;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
   margin-top: 20px;
   /* gap: rem; */
 `;
@@ -31,6 +38,7 @@ const MenuProfissionais = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: 2px #ebebee solid;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -38,11 +46,7 @@ const MenuProfissionais = styled.div`
   margin: 0 0rem 0 1rem;
   padding: 1rem 0;
   flex-wrap: wrap;
-  /* width: 100%; */
   width: 75vw;
-
-  /* padding: 23px; */
-  /* margin-top: 50px; */
 
   h1 {
     font-size: 3rem;
@@ -50,27 +54,12 @@ const MenuProfissionais = styled.div`
   }
 `;
 
-const ChatContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: flex-start;
-  margin-top: 1.5rem;
-  
-  @media (max-width:1200px){
-    align-items: center;
-    flex-direction: column;
-  }
-`
-// flex-direction: column;
-//margin-right: 20px;
-//margin-left: 20px;
 
 const Box = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   padding: 1rem;
 
@@ -80,7 +69,14 @@ const Box = styled.div`
 `
 
 
+
+
+
 const SelecionarPrestador = () => {
+
+  const { allUsers, servicoEscolhido } = useContext(CadastroContext)
+  const filtered = allUsers.filter((user) => user.tipoPerfil === 2 && user.habilidadeUsuario == servicoEscolhido)
+
   return (
     <div>
       <Navbar tipoUsuario={"1"} />
@@ -93,31 +89,20 @@ const SelecionarPrestador = () => {
           <MenuProfissionais>
             <h1>Profissionais Disponíveis</h1>
             <CardsMenu>
-              <CardMenu
-                nome={"John Doe"}
-                foto={Kemilly}
-                descricao={"Especialista em eletrônica."}
-                avaliacoes={4.3}
-              />
-              <CardMenu
-                nome={"Lucas Bonfim"}
-                foto={lucas}
-                descricao={"Especialista em Reparo de computador."}
-                avaliacoes={4.2}
-              />
-              <CardMenu
-                nome={"Bruno Ferreira"}
-                foto={brunoo}
-                descricao={"Especialista em Reparo de computador."}
-                avaliacoes={4.6}
-              />
-              <CardMenu
-                nome={"Leonardo Tavares"}
-                foto={leonardo}
-                descricao={"Especialista em Televisores."}
-                avaliacoes={5.0}
-              />
-            </CardsMenu>
+            {
+              filtered.map((user, index) => {
+                return (
+                  <CardMenu
+                    key={user.idUsuario}
+                    nome={user.nomeUsuario}
+                    foto={lucas}
+                    descricao={user.habilidadeUsuario}
+                    avaliacoes={4.2}
+                    />
+                  )
+                })
+              }
+              </CardsMenu>
           </MenuProfissionais>
         </MainContainer>
       </Box>
