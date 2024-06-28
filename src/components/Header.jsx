@@ -39,7 +39,7 @@ export const Sub_heading = styled.p`
     font-weight: 400;
     color: var(--azul_principal);
     
-    @media (max-width: 992px){
+    @media (max-width: 1200px){
         font-size: 20px;
         text-align: center;
     }
