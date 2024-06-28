@@ -1,7 +1,7 @@
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
-import Kemilly from '../assets/kemilly.png';
+import Kemilly from '../assets/fotosUsuarios/Profile.jpeg';
 import React, { useContext, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
@@ -28,7 +28,8 @@ import CadastroContext from '../context/CadastroContext';
 
 const PerfilClientePage = () => {
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext)
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, fotoUsuario } = useContext(CadastroContext)
+
 
   return (
     <>
@@ -66,7 +67,7 @@ const PerfilClientePage = () => {
           <Informacoes>
             <InfoPrincipais>
               <FotoEInfos>
-                <FotoPrincipalPerfil src={Kemilly} />
+                <FotoPrincipalPerfil src={fotoUsuario} />
                 <ItensInfo>
                   <ItemInfo>
                     <WrapperItemInfo>

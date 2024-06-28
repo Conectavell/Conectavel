@@ -30,6 +30,7 @@ function App() {
   const [senhaUsuario, setSenhaUsuario] = useState('')
   const [fill, setFill] = useState(true)
   const [idUsuario, setIdUsuario] = useState('')
+  const [fotoUsuario, setFotoUsuario] = useState('')
 
   if ((sessionStorage.getItem('idUsuario')) != null) {
     const ID = sessionStorage.getItem('idUsuario');
@@ -41,8 +42,9 @@ function App() {
       setEmailUsuario(data.emailUsuario)
       setSenhaUsuario(data.senhaUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
-      setHabilidadesUsuario(data.habilidadeUsuario)
+      setHabilidadesUsuario(data.habilidades)
       setSobreUsuario(data.sobreUsuario)
+      setFotoUsuario(data.fotoPerfilPath)
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
@@ -74,6 +76,7 @@ function App() {
       sobrenomeUsuario, setSobrenomeUsuario,
       emailUsuario, setEmailUsuario,
       senhaUsuario, setSenhaUsuario,
+      fotoUsuario, setFotoUsuario,
       fill, setFill, idUsuario
 
     }}>
