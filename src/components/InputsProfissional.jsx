@@ -29,7 +29,6 @@ const InputsProfissional = ({ show }) => {
         nacionalidadeUsuario, setNacionalidadeUsuario,
         sobreUsuario, setSobreUsuario,
         experienciaUsuario, setExperienciaUsuario,
-        habilidadesUsuario, setHabilidadesUsuario,
     } = useContext(CadastroContext)
 
 
@@ -87,7 +86,7 @@ const InputsProfissional = ({ show }) => {
                             // console.log(nacionalidadeUsuario)
                         }}>
                         <MenuItem value="BR">Brasileira</MenuItem>
-                        <MenuItem value="ES">Estadunidente</MenuItem>
+                        <MenuItem value="ES">Estadunidense</MenuItem>
                     </Select>
                 </FormControl>
 

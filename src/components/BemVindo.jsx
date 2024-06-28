@@ -58,7 +58,7 @@ const BemVindo = ({ usuario }) => {
                         width > 992 ? <p>Bem vindo de volta,</p>
                             : ''
                     }
-                    <Nome>Kemilly Vitoria </Nome>
+                    <Nome>{nomeUsuario + " " + sobrenomeUsuario} </Nome>
                 </Details>
             </Container>
         </>

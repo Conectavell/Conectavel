@@ -73,10 +73,11 @@ const PreencherPrestadorPage = () => {
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,
             "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
-            "sobreUsuario": `${sobreUsuario}`,
+            // "sobreUsuario": `${sobreUsuario}`,
+            "sobreUsuario": "",
             "experienciaUsuario": `${experienciaUsuario}`,
             // "habilidadesUsuario": habilidadesUsuario,
-            "habilidadesUsuario": [2],
+            "habilidadesUsuario": "",
             "enderecoDto": {
                 "cep": `${cepUsuario}`,
                 "logradouro": `${logradouro}`,

@@ -36,7 +36,7 @@ const NavbarPerfis = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className='navbar__container__collapse' id="basic-navbar-nav">
                     <Nav className="me-auto navbar__container__collapse__content">
-                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
+                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 2 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
                         {
                             width > 992 ?
                                 ''

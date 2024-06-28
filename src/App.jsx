@@ -42,12 +42,29 @@ function App() {
       setSobrenomeUsuario(data.sobrenomeUsuario)
       setEmailUsuario(data.emailUsuario)
       setSenhaUsuario(data.senhaUsuario)
+      console.log(experienciaUsuario)
+      console.log(habilidadesUsuario)
+      console.log(sobreUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
       setHabilidadesUsuario(data.habilidadeUsuario)
       setSobreUsuario(data.sobreUsuario)
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
+
+      console.log(data.nomeUsuario)
+      console.log(data.emailUsuario)
+      console.log(data.sobrenomeUsuario)
+      console.log(data.emailUsuario)
+      console.log(data.senhaUsuario)
+      console.log(data.experienciaUsuario)
+      console.log(data.habilidadeUsuario)
+      console.log(data.sobreUsuario)
+      console.log(data.celularUsuario)
+      console.log(ID)
+      console.log(data.tipoPerfil)
+
+
     })
   }
 

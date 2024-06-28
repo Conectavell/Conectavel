@@ -17,7 +17,6 @@ const InputCep = () => {
         const baseURL = `https://viacep.com.br/ws/${cepUsuario}/json/`
         const res = await axios.get(baseURL)
         const data = await res.data
-        console.log(data.logradouro)
         setLogradouro(data.logradouro)
         setBairro(data.bairro)
         setEstado(data.uf)
