@@ -1,17 +1,20 @@
-import styled from "styled-components";
 import Azul1 from '../assets/azulclaro.png'
 import Azul2 from '../assets/azul.png'
 import verde1 from '../assets/verde.png'
 import verde2 from '../assets/verdeclaro.png'
 import laranja from '../assets/laranja.png'
 import branco from '../assets/branco.png'
-import { Sub_heading } from '../components/Header'
 
-const IdVisual = styled.div`
+import styled from 'styled-components'
+import { Sub_heading } from './Header'
+
+
+function IdVisual() {
+    const IdVisualContainer = styled.div`
     padding: 2rem 0;
 background: #175EC6;
 `
-const Texts = styled.p`
+    const Texts = styled.p`
     background: #fff;
     width: 30%;
     padding: 1rem;
@@ -25,10 +28,9 @@ const Texts = styled.p`
     }
     `
 
-const Conteiner = styled.div`
+    const Conteiner = styled.div`
     width: 65%;
     margin: 2rem auto;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: space-between;
 
@@ -40,7 +42,7 @@ justify-content: center;
 }
     `
 
-const Imgs = styled.div`
+    const Imgs = styled.div`
     margin: auto;
 background: #fff;
 width: 70%;
@@ -63,13 +65,12 @@ flex-direction: column;
 `
 
 
-const Heading_text = styled.h2`  
+    const Heading_text = styled.h2`  
     width: 100%;
     font-size: 48px;
     line-height: 140%;
     font-weight: 400;
     color: #fff;
-    /* width: 50%; */
     text-align: center;
     
     @media (max-width: 1200px){
@@ -78,10 +79,8 @@ const Heading_text = styled.h2`
     }
 `
 
-const IdentidadeVisual = () => {
     return (
-        <IdVisual>
-
+        <IdVisualContainer>
             <Sub_heading style={{ color: "var(--verde_secundario)", width: "100%", textAlign: "center" }}>
                 NOSSAS ESCOLHAS
             </Sub_heading>
@@ -112,9 +111,8 @@ const IdentidadeVisual = () => {
                 </Texts>
 
             </Conteiner>
-
-        </IdVisual>
+        </IdVisualContainer>
     )
 }
 
-export default IdentidadeVisual
+export default IdVisual;

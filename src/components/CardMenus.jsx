@@ -4,7 +4,6 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -21,7 +20,7 @@ const Card = styled.div`
   }
   .perfil_button {
     background-color: var(--azul_principal);
-    padding: 8px;
+    padding: 5px;
     border-radius: 8px;
     border: none;
     color: #ffffff;
@@ -30,15 +29,15 @@ const Card = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 10px;
+  border-radius: 10px;
 `;
 
-const Name = styled.h3`
-  /* font-size: 2rem; */
+const Name = styled.h2`
+  font-size: 1rem;
   margin-bottom: 10px;
-  text-align: center;
 `;
 
 const Description = styled.p`
@@ -86,19 +85,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
         {renderStars()}
         <Avaliacoes>{avaliacoes}</Avaliacoes>
       </Stars>
-      {/* <Description>{descricao}</Description> */}
-      <div>
-        {" "}
-        <p className="titulo">
-          Manutenção de eletrodomésticos
-        </p>
-        <p className="titulo">
-          Manutenção de vídeo games
-        </p>
-        <p className="titulo">
-          Manutenção de televisores
-        </p>
-      </div>
+      <Description>{descricao}</Description>
 
       <button className="perfil_button w-100">Ver perfil</button>
     </Card>

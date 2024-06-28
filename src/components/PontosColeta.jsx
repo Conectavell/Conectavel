@@ -72,16 +72,6 @@ const Mapa = styled.div`
         }
     `
 
-const Pontos = styled.div`
-        display: flex;
-        @media (max-width:1200px){
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-    
-    `
-
 const PontosColeta = () => {
 
     const [company, setCompany] = useState("samsung")
@@ -99,12 +89,7 @@ const PontosColeta = () => {
                                 : "Veja todos"
                 }
             </Heading_text>
-            <Pontos>
-                <Button onClick={() => setCompany("samsung")}>  Samsung</Button>
-                <Button onClick={() => setCompany("abree")}>  Abree</Button>
-                <Button onClick={() => setCompany("green")}>  GreenEletron</Button>
-                <Button onClick={() => setCompany("todos")}>  Todos</Button>
-            </Pontos>
+
             <Mapa>
                 <Maps company={company} />
             </Mapa>
@@ -121,7 +106,12 @@ const PontosColeta = () => {
                     </Button>
                     : ''
             }
-
+            <div>
+                <Button onClick={() => setCompany("samsung")}>  Samsung</Button>
+                <Button onClick={() => setCompany("abree")}>  Abree</Button>
+                <Button onClick={() => setCompany("green")}>  GreenEletron</Button>
+                <Button onClick={() => setCompany("todos")}>  Todos</Button>
+            </div>
 
         </Box>
     )

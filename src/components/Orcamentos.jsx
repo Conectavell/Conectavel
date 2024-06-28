@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import pedroAlves from '../assets/pedroAlves.png'
 
 function Orcamentos() {
 
@@ -13,14 +12,13 @@ function Orcamentos() {
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  margin: auto 0;
   padding: 22px 16px 80px;
   width: 65vw;
-  min-height: 60vh;
   justify-content: flex-start;
-  align-items: flex-start;
-  @media (max-width: 1200px) {
-    margin: auto;
-    width: 90%;
+  align-items: flex-start
+  @media (max-width: 991px) {
+    max-width: 100%;
   }
 `;
 
@@ -28,7 +26,7 @@ const Titulo = styled.div`
   color: rgba(34, 34, 34, 0.9);
   font: 500 24px Poppins, sans-serif;
  
-  @media (max-width: 1200px) {
+  @media (max-width: 991px) {
     max-width: 100%;
   }
 `;
@@ -45,7 +43,7 @@ const Orcamento = styled.div`
   gap: 20px;
   justify-content: space-between;
   padding: 16px 13px;
-  @media (max-width: 1200px) {
+  @media (max-width: 991px) {
     max-width: 100%;
     flex-wrap: wrap;
   }
@@ -56,12 +54,6 @@ const Div23 = styled.div`
   align-items: center;
   gap: 18px;
   margin: auto 0;
-  @media (max-width: 1200px){
-    flex-direction: column;
-    justify-content: center;
-  }
-    
-
 `;
 
 const BntPerfil = styled.div`
@@ -73,7 +65,6 @@ const BntPerfil = styled.div`
   margin: auto 0;
   padding: 15px 13px;
   font: 500 13px Poppins, sans-serif;
-  text-align: center;
 `;
 
 const Img6 = styled.img`
@@ -82,11 +73,6 @@ const Img6 = styled.img`
   object-position: center;
   width: 64px;
   align-self: stretch;
-  @media (max-width: 1200px){
-    /* justify-content: center; */
-    /* align-items: center; */
-    align-self: auto;
-  }
 `;
 
 const ContentPerfil = styled.div`
@@ -94,20 +80,11 @@ const ContentPerfil = styled.div`
   display: flex;
   flex-direction: column;
   margin: auto 0;
-  @media (max-width: 1200px){
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 const Nome = styled.div`
   color: rgba(34, 34, 34, 0.9);
   font: 700 14px Poppins, sans-serif;
-  @media (max-width: 1200px){
-    /* justify-content: center; */
-    /* align-items: center; */
-    text-align: center;
-  }
 `;
 
 const Descricao = styled.div`
@@ -117,21 +94,12 @@ const Descricao = styled.div`
   letter-spacing: 0.12px;
   margin-top: 13px;
   font: 600 12px Poppins, sans-serif;
-  @media (max-width: 1200px){
-    text-align: center;
-  }
 `;
 
 const Div28 = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: 400;
-  
-  @media (max-width: 1200px){
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 const Div29 = styled.div`
@@ -140,7 +108,7 @@ const Div29 = styled.div`
   font-size: 13px;
   white-space: nowrap;
   letter-spacing: 0.13px;
-  @media (max-width: 1200px) {
+  @media (max-width: 991px) {
     white-space: initial;
   }
 `;
@@ -167,19 +135,14 @@ const Div32 = styled.div`
   flex-direction: column;
   align-items: start;
   font-size: 14px;
-  @media (max-width: 1200px) {
-    padding-left: 0px;
-    align-items: center;
+  @media (max-width: 991px) {
+    padding-left: 20px;
   }
 `;
 
 const Div33 = styled.div`
   display: flex;
   gap: 5px;
-  @media (max-width: 1200px){
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 const Div34 = styled.div`
@@ -208,16 +171,16 @@ const Div36 = styled.div`
 
         
         <Titulo>Meus orçamentos</Titulo>
-
         <Orcamento>
+
           <Div23>
             <BntPerfil>Ver perfil</BntPerfil>
             <Img6
               loading="lazy"
-              src={pedroAlves}
+              srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&"
             />
             <ContentPerfil>
-              <Nome>Pedro Alves</Nome>
+              <Nome>Lucas Bonfim</Nome>
               <Descricao>Conserto eletrodomésticos e dispositivos móveis</Descricao>
             </ContentPerfil>
           </Div23>

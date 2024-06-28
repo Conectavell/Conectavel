@@ -19,7 +19,7 @@ import Deslogar from './Deslogar';
 
 const NavbarPerfis = () => {
     const { innerWidth: width } = window
-    const context = useContext(CadastroContext)
+    const { tipoPerfil, nomeUsuario } = useContext(CadastroContext)
 
 
     return (
@@ -36,7 +36,7 @@ const NavbarPerfis = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className='navbar__container__collapse' id="basic-navbar-nav">
                     <Nav className="me-auto navbar__container__collapse__content">
-                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${context.tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
+                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
                         {
                             width > 992 ?
                                 ''
@@ -57,11 +57,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-<<<<<<< HEAD
-                        <BemVindo usuario={"nome"} />
-=======
-                        <BemVindo usuario={context.nome} />
->>>>>>> 5429769baed58b8b46503813d6aecc4615e7b1b7
+                        <BemVindo usuario={"nomeUsuario"} />
                         : ''
                 }
                 <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>

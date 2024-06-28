@@ -2,14 +2,18 @@ import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
+import React, { useContext, useState } from "react";
+import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+import { CiMoneyCheck1 } from "react-icons/ci";
+import ChatLateral from '../components/ChatLateral';
+import { useNavigate } from 'react-router-dom';
+
 import {
   FotoEInfos,
   WrapperItemInfo,
   SectionWrapper,
-  ChatLateral,
-  ChatLateralH1,
-  ChatLateralChats,
+  
   PerfilPrestador,
   BannerPerfil,
   Informacoes,
@@ -28,9 +32,10 @@ import { useState,useContext } from 'react';
 
 
 const PerfilClientePage = () => {
-  const [showTiposServicos, setShowTiposServicos] = useState(false);
   const [selectedService, setSelectedService] = useState('');
-  const context = useContext(CadastroContext);
+  const [showTiposServicos, setShowTiposServicos] = useState(false);
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario,  } = useContext(CadastroContext)
+  const navigate = useNavigate()
 
   const names = [
     'Manutenção de vídeo games',
@@ -54,35 +59,14 @@ const PerfilClientePage = () => {
     }
   };
 
+
+  
+
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-            <ChatMini
-              foto={Kemilly}
-              nome={"Sarah Doe"}
-              descricao={"Muito obrigada pelo reparo!"}
-            />
-          </ChatLateralChats>
-        </ChatLateral>
+        <ChatLateral valueWidth={"30%"}/>
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
@@ -95,19 +79,20 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>{`${context.nome} ${context.sobrenome}`}</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${nomeUsuario} ${sobrenomeUsuario}`}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>{context.emailUsuario ? context.emailUsuario : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>{context.celularUsuario ? context.celularUsuario : '-----'}</ChatMiniNome>
+                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
+
                     </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
@@ -118,6 +103,7 @@ const PerfilClientePage = () => {
                     <p>Meus orçamentos</p>
                   </div>
                   <BotaoOrcamentos />
+
                 </ItensInfo>
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
@@ -135,21 +121,62 @@ const PerfilClientePage = () => {
                     <small>Uma ótima cliente! </small>
                   </ItensInfo>
                 </WrapperItemInfo>
-                <p>Veja todas as avaliações -</p>
+                {/* <p>Veja todas as avaliações -</p> */}
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
           <div className="servico-container">
-            <ItensInfo onClick={() => setShowTiposServicos((state) => !state)} NovoServico>
+            <ItensInfo NovoServico>
               <p>
                 Novo serviço<br></br>Solicitar reparo
               </p>
               <BotaoOrcamentos />
+
             </ItensInfo>
             {showTiposServicos && (
               <div className="container">
                 <div className="Container-servico">
                   <p id="P_container">Tipo de Serviço</p>
+                  <label htmlFor="reparo">
+                    <input
+                      type="checkbox"
+                      id="reparo"
+                      name="tipoServico"
+                      value="reparo"
+                    />
+                    <div className="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label htmlFor="manutencao">
+                    <div class="checkmark"></div>
+                    Reparo
+                  </label>
+                  <label for="manutencao">
+                    <input
+                      type="checkbox"
+                      id="manutencao"
+                      name="tipoServico"
+                      value="manutencao"
+
+                    />
+                    <div className="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label htmlFor="Instalação">
+                    <div class="checkmark"></div>
+                    Manutenção
+                  </label>
+                  <label for="Instalação">
+                    <input
+                      type="checkbox"
+                      id="Instalação"
+                      name="tipoServico"
+                      value="Instalação"
+                    />
+                    <div className="checkmark"></div>
+                    <div class="checkmark"></div>
+                    Instalação
+                  </label>
 
                   {
                     names.map((servico, index) => {
@@ -171,6 +198,7 @@ const PerfilClientePage = () => {
                   }
                 </div>
                 <Button className='mt-3' variant="contained" fullWidth onClick={handleSearch}>Buscar</Button>
+
               </div>
             )}
           </div>
