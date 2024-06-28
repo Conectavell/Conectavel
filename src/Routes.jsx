@@ -35,6 +35,13 @@ const Routes = () => {
                     <Route path='/Conectavel' element={<HomePage />} />
                     <Route path='/Conectavel/login' element={<LoginPage />} />
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
+
+                    <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
+                    <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
+                    <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
+                    <Route path='/Conectavel/ClienteAvaliacaoPage' element={<ClienteAvaliacao />} />
+
+
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
                     <Route path='/Conectavel/Serviços' element={<ServicosPage />} />
@@ -57,10 +64,11 @@ const Routes = () => {
                     {/* ------------ telas de configuracoes do usuario ------------ */}
 
                     {/* <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} /> */}
-                    <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
-                    <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>} />
 
 
+  
+                    <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>}  />
+                    <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>}/>
                     <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
                     <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
 

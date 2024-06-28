@@ -6,9 +6,11 @@ import React, { useContext, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { CiMoneyCheck1 } from "react-icons/ci";
+import ChatLateral from '../components/ChatLateral';
+import { useNavigate } from 'react-router-dom';
+
 import {
   FotoEInfos,
-  BotaoEditar,
   WrapperItemInfo,
   SectionWrapper,
   
@@ -25,13 +27,40 @@ import {
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
 import { Button, Radio } from '@mui/material';
-import ChatLateral from '../components/ChatLateral';
-import { useNavigate } from 'react-router-dom';
+import { useState,useContext } from 'react';
+
+
 
 const PerfilClientePage = () => {
+  const [selectedService, setSelectedService] = useState('');
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext)
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario,  } = useContext(CadastroContext)
   const navigate = useNavigate()
+
+  const names = [
+    'Manutenção de vídeo games',
+    'Manutenção de celulares e telefones',
+    'Manutenção de televisores',
+    'Manutenção de aparelhos domésticos',
+    'Manutenção de computadores',
+  ];
+
+  const handleCheckboxChange = (event) => {
+    const { value } = event.target;
+    setSelectedService(prevSelected => prevSelected === value ? '' : value);
+  };
+
+// valor do check box selecionado vai aparecer no console :)
+  const handleSearch = () => {
+    if (selectedService) {
+      console.log(`Serviço selecionado: ${selectedService}`);
+    } else {
+      console.log('Nenhum serviço selecionado.');
+    }
+  };
+
+
+  
 
   return (
     <>
@@ -50,22 +79,21 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>Kemilly Vitoria</ChatMiniNome>
+                      <ChatMiniNome descricao>{`${nomeUsuario} ${sobrenomeUsuario}`}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>E-mail</ChatMiniNome>
-                      <ChatMiniNome descricao>kemilly@gmail.com</ChatMiniNome>
+                      <ChatMiniNome descricao>{emailUsuario ? emailUsuario : '-----'}</ChatMiniNome>
                     </WrapperItemInfo>
-
                   </ItemInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
-                      <ChatMiniNome descricao>11967442957</ChatMiniNome>
-                    </WrapperItemInfo>
+                      <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
 
+                    </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
               </FotoEInfos>
@@ -74,10 +102,8 @@ const PerfilClientePage = () => {
                   <div>
                     <p>Meus orçamentos</p>
                   </div>
+                  <BotaoOrcamentos />
 
-                  <BotaoOrcamentos onClick={() => navigate("/Conectavel/orcamento")} >
-                  <CiMoneyCheck1 color="white" size={40}/>
-                  </BotaoOrcamentos>
                 </ItensInfo>
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
@@ -104,9 +130,8 @@ const PerfilClientePage = () => {
               <p>
                 Novo serviço<br></br>Solicitar reparo
               </p>
-              <BotaoOrcamentos
-                onClick={() => setShowTiposServicos((state) => !state)}
-              />
+              <BotaoOrcamentos />
+
             </ItensInfo>
             {showTiposServicos && (
               <div className="container">
@@ -153,8 +178,27 @@ const PerfilClientePage = () => {
                     Instalação
                   </label>
 
+                  {
+                    names.map((servico, index) => {
+                      return (
+                        <label htmlFor={`reparo-${index}`} key={index}>
+                          <input
+                            type="checkbox"
+                            id={`reparo-${index}`}
+                            name="tipoServico"
+                            value={servico}
+                            checked={selectedService === servico}
+                            onChange={handleCheckboxChange}
+                          />
+                          <div className="checkmark"></div>
+                          {servico}
+                        </label>
+                      )
+                    })
+                  }
                 </div>
-                <Button onClick={()=> navigate("/Conectavel/selecionarprofissional")} className='mt-3' variant="contained" fullWidth>Buscar</Button>
+                <Button className='mt-3' variant="contained" fullWidth onClick={handleSearch}>Buscar</Button>
+
               </div>
             )}
           </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
@@ -9,14 +8,15 @@ const Card = styled.div`
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
-  width: 200px;
+  /* margin: 10px; */
+  width: 250px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 
   &:hover {
     border-color: var(--azul_secundario);
-    transform: scale(1.1);
-    box-shadow: 0px 8px 10px var(--azul_secundario);
+    transform: scale(1.03);
   }
   .perfil_button {
     background-color: var(--azul_principal);
@@ -58,7 +58,9 @@ const Avaliacoes = styled.span`
 `;
 
 const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
-  const renderStars = () => {
+  console.log(nome)
+  const renderStars = () => { 
+
     const totalStars = 5;
     const starsFilled = Math.round((avaliacoes / 5) * totalStars);
     const starsArray = [];
@@ -85,7 +87,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
       </Stars>
       <Description>{descricao}</Description>
 
-      <button className="perfil_button">Ver perfil</button>
+      <button className="perfil_button w-100">Ver perfil</button>
     </Card>
   );
 };

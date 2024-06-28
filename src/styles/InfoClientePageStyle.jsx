@@ -59,17 +59,17 @@ export const PerfilPrestador = styled.div`
     }
     #P_container {
       text-align: center;
-      font-size: 12px;
+      font-size: 15px;
       color: var(--azul_principal);
       font-weight: bold
     }
 
     label {
+
       padding: 3px;
       border: 1px solid rgba(77, 89, 89, 0.5);
       border-radius: 9.21px;
       cursor: pointer;
-      font-size: 20px;
     }
 
   label:hover{

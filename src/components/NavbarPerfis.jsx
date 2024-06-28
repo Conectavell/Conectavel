@@ -1,5 +1,5 @@
+import React, { useContext, useState } from "react";
 import Container from 'react-bootstrap/Container';
-import { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../styles/NavbarPerfis.css"
@@ -16,9 +16,10 @@ import { RiHome2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import Deslogar from './Deslogar';
 
+
 const NavbarPerfis = () => {
     const { innerWidth: width } = window
-    const { tipoPerfil } = useContext(CadastroContext)
+    const { tipoPerfil, nomeUsuario } = useContext(CadastroContext)
 
 
     return (
@@ -35,18 +36,18 @@ const NavbarPerfis = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className='navbar__container__collapse' id="basic-navbar-nav">
                     <Nav className="me-auto navbar__container__collapse__content">
-                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/perfilcliente`}><RiHome2Line size={25} /></Link></Nav.Link>
+                        <Nav.Link ><Link className='navbar__container__collapse__text' to={`/Conectavel/${tipoPerfil === 1 ? "perfilcliente" : "perfilprestador"}`}><RiHome2Line size={25} /></Link></Nav.Link>
                         {
                             width > 992 ?
                                 ''
                                 :
                                 <Nav.Link> <Link className='navbar__container__collapse__text'><BemVindo /></Link></Nav.Link>
                         }
-                        {tipoPerfil === 2 ?
+                        {context.tipoPerfil === 2 ?
                             <>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/chatprofissional"><HiOutlineChatBubbleBottomCenterText size={25} /> Chat</Link></Nav.Link>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/comunidade"><PiUsersThree size={25} /> Comunidade</Link></Nav.Link>
-                            </> : ""}
+                            </> : null}
 
                         <Nav.Link><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes"><AiOutlineSetting size={25} /> Configurações</Link></Nav.Link>
                         <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/descarte"><BiRecycle size={25} /> Descarte</Link></Nav.Link>
@@ -56,7 +57,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo />
+                        <BemVindo usuario={"nomeUsuario"} />
                         : ''
                 }
                 <Nav.Link className='mx-3'> <Deslogar size="2rem"/></Nav.Link>
