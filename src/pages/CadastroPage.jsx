@@ -1,9 +1,16 @@
-import React from 'react'
+import ConectavelLogo from "../components/ConectavelLogo";
+import InputsComumCadastro from "../components/InputsComumCadastro";
 
 const CadastroPage = () => {
-  return (
-    <div>CadastroPage</div>
-  )
-}
 
-export default CadastroPage
+  return (
+    <>
+      <ConectavelLogo>
+          <InputsComumCadastro />
+      </ConectavelLogo>
+    </>
+
+  );
+};
+
+export default CadastroPage;

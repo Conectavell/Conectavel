@@ -45,9 +45,9 @@ i18n.use(initReactI18next).init({
         pt: {
             ...PTBR
         },
-        ja:{
-            ...JA
-        },
+        // ja:{
+        //     ...JA
+        // },
         en:{
             ...EN
         }
@@ -58,5 +58,4 @@ i18n.use(initReactI18next).init({
 })
 
 export default i18n;
-
 

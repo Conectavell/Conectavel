@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from "styled-components";
-import NavPerfil from "../components/NavPerfil";
 import ChatPerfil from "../components/ChatPerfil";
 import Orcamentos from "../components/Orcamentos";
+import NavbarPerfis from '../components/NavbarPerfis';
 
 
 
@@ -49,7 +48,7 @@ align-items: center;
   return (
     
     <MainContainer>
-      <NavPerfil />
+      <NavbarPerfis usuario='profissional' />
       <ContentContainer>
         <ChatSection>
           <ChatPerfil />
