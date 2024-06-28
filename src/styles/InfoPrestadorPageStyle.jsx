@@ -158,7 +158,8 @@ export const BotaoEditar = styled.button`
 export const Textos = styled.p`
         font-size: 16px;
         color: #000000;
-        margin: 0
+        margin: 0;
+        margin-bottom:.5rem;
 `
 
 export const Habilidades = styled.div`

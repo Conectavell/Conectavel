@@ -89,7 +89,7 @@ const PreencherPrestadorPage = () => {
         })
             .then(function (response) {
                 console.log(response)
-                // setOpenModal(true)
+                setOpenModal(true)
                 // alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })
             .catch(function (error) {

@@ -1,41 +1,34 @@
 import { useContext } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
-import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
 import { BsPersonVcardFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, ChatLateral, ChatLateralH1, ChatLateralChats, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
+import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
 import CadastroContext from '../context/CadastroContext';
 import { IoBagRemoveSharp } from 'react-icons/io5';
+import ChatLateral from '../components/ChatLateral';
+import pedroAlves from '../assets/pedroAlves.png'
 
 const PerfilPrestadorPage = () => {
   const {
     nomeUsuario, sobrenomeUsuario,
     emailUsuario, celularUsuario,
-    sobreUsuario, experienciaUsuario
+    sobreUsuario, experienciaUsuario, tipoPerfil
   } = useContext(CadastroContext)
 
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral>
-          <ChatLateralH1>Chat</ChatLateralH1>
-          <ChatLateralChats>
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-            <ChatMini foto={Kemilly} nome={"Sarah Doe"} descricao={"Muito obrigada pelo reparo!"} />
-          </ChatLateralChats>
-        </ChatLateral>
+        <ChatLateral valueWidth={"30%"} />
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
           </BannerPerfil>
           <Informacoes>
             <InfoPrincipais>
-              <FotoPrincipalPerfil src={Kemilly} />
+              <FotoPrincipalPerfil src={tipoPerfil === "2" ? pedroAlves : Kemilly} />
               <ItensInfo>
                 <ItemInfo>
                   <WrapperItemInfo>
@@ -59,9 +52,9 @@ const PerfilPrestadorPage = () => {
                 </ItemInfo>
               </ItensInfo>
               <ItensInfo Sobre>
-                <Textos>Sobre</Textos>
                 <ChatMiniNome descricao>
-                  {sobreUsuario}
+                  <Textos>Sobre</Textos>
+                  {sobreUsuario ? sobreUsuario : "--------"}
                 </ChatMiniNome>
               </ItensInfo>
               <Habilidades>
@@ -89,11 +82,8 @@ const PerfilPrestadorPage = () => {
                 </TextoExperiencia>
                 <BoxExperiencia>
                   <BoxExperienciaInter>
-                    <TextoExperiencia>
-                      {experienciaUsuario}
-                    </TextoExperiencia>
                     <TextoExperiencia Desc>
-                      de total experiência
+                      {experienciaUsuario ? experienciaUsuario : '------'}
                     </TextoExperiencia>
                   </BoxExperienciaInter>
                   <BoxDireita $primary >
@@ -139,9 +129,7 @@ const PerfilPrestadorPage = () => {
                   </TextoExperiencia>
                 </AvaliacoesDiv>
               </AvaliacoesWrapper>
-              <TextoExperiencia SeeAll>
-                Veja todas as avaliações -
-              </TextoExperiencia>
+
             </InfoPrincipais>
           </Informacoes>
         </PerfilPrestador>
