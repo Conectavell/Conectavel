@@ -14,7 +14,7 @@ import leonardo from '../assets/leonardo.png'
 
 const MainContainer = styled.div`
   display: flex;
-  padding: 20px;
+  /* padding: 20px; */
 `;
 
 const CardsMenu = styled.div`
@@ -25,6 +25,7 @@ width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  gap: 1rem;
 `;
 
 const MenuProfissionais = styled.div`
@@ -42,7 +43,7 @@ const MenuProfissionais = styled.div`
   width: 100%;
 
   padding: 23px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 
   h1 {
     font-size: 3rem;
@@ -62,71 +63,76 @@ const ChatContainer = styled.div`
     flex-direction: column;
   }
 `
- // flex-direction: column;
-  //margin-right: 20px;
-  //margin-left: 20px;
-`;
+// flex-direction: column;
+//margin-right: 20px;
+//margin-left: 20px;
+
+const Box = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 1rem;
+`
+
 
 const SelecionarPrestador = () => {
   return (
     <div>
-      <Navbar tipoUsuario={"cliente"} />
-      
+      <Navbar tipoUsuario={"1"} />
+
       <Box>
-          <ChatLateral valueWidth={"20%"} />
+        <ChatLateral valueWidth={"30%"} />
 
-      <MainContainer>
-<<<<<<< HEAD
-        
-=======
-       
->>>>>>> f7251d96986a4301bd380ca6102c7df63d9a34fa
+        <MainContainer>
 
-        <MenuProfissionais>
-          <h1>Profissionais Disponíveis</h1>
-          <CardsMenu>
-            <CardMenu
-              nome={"John Doe"}
-              foto={Kemilly}
-              descricao={"Especialista em eletrônica."}
-              avaliacoes={1.3}
-            />
-            <CardMenu
-              nome={"Lucas Bonfim"}
-              foto={lucas}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={4.2}
-            />
-            <CardMenu
-              nome={"Bruno Ferreira"}
-              foto={brunoo}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={4.6}
-            />
-            <CardMenu
-              nome={"Leonardo Tavares"}
-              foto={leonardo}
-              descricao={"Especialista em Televisores."}
-              avaliacoes={5.0}
-            />
-            <CardMenu
-              foto={Kemilly}
-              nome={"Mike Johnson"}
-              descricao={"Especialista em reparo de iphone."}
-              avaliacoes={2.5}
-            />
-            <CardMenu
-              nome={"Anna Brown"}
-              foto={Kemilly}
-              descricao={"Especialista em Reparo de computador."}
-              avaliacoes={3.2}
-             
-            />
-          </CardsMenu>
-        </MenuProfissionais>
-      </MainContainer>
+          <MenuProfissionais>
+            <h1>Profissionais Disponíveis</h1>
+            <CardsMenu>
+              <CardMenu
+                nome={"John Doe"}
+                foto={Kemilly}
+                descricao={"Especialista em eletrônica."}
+                avaliacoes={1.3}
+              />
+              <CardMenu
+                nome={"Lucas Bonfim"}
+                foto={lucas}
+                descricao={"Especialista em Reparo de computador."}
+                avaliacoes={4.2}
+              />
+              <CardMenu
+                nome={"Bruno Ferreira"}
+                foto={brunoo}
+                descricao={"Especialista em Reparo de computador."}
+                avaliacoes={4.6}
+              />
+              <CardMenu
+                nome={"Leonardo Tavares"}
+                foto={leonardo}
+                descricao={"Especialista em Televisores."}
+                avaliacoes={5.0}
+              />
+              <CardMenu
+                foto={Kemilly}
+                nome={"Mike Johnson"}
+                descricao={"Especialista em reparo de iphone."}
+                avaliacoes={2.5}
+              />
+              <CardMenu
+                nome={"Anna Brown"}
+                foto={Kemilly}
+                descricao={"Especialista em Reparo de computador."}
+                avaliacoes={3.2}
+
+              />
+            </CardsMenu>
+          </MenuProfissionais>
+        </MainContainer>
+      </Box>
     </div>
-  );
-};
+  )
+}
+
 
 export default SelecionarPrestador;

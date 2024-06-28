@@ -26,8 +26,7 @@ import {
   DivUsuarioAvaliado,
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
-import { Button, Radio } from '@mui/material';
-import { useState,useContext } from 'react';
+import { Button } from '@mui/material';
 
 
 

@@ -43,7 +43,7 @@ const NavbarPerfis = () => {
                                 :
                                 <Nav.Link> <Link className='navbar__container__collapse__text'><BemVindo /></Link></Nav.Link>
                         }
-                        {context.tipoPerfil === 2 ?
+                        {tipoPerfil === 2 ?
                             <>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/chatprofissional"><HiOutlineChatBubbleBottomCenterText size={25} /> Chat</Link></Nav.Link>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/comunidade"><PiUsersThree size={25} /> Comunidade</Link></Nav.Link>
