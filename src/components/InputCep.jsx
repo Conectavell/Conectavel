@@ -23,6 +23,10 @@ const InputCep = () => {
         setCidade(data.localidade)
         setCepUsuario(data.cep)
     }
+
+    if(cepUsuario.length === 9){
+        getCEP(cepUsuario)
+    }
     return (
         <>
             <ReactInputMask
@@ -32,7 +36,6 @@ const InputCep = () => {
                     setCepUsuario(e.target.value)
                     // console.log(cepUsuario)
                 }}
-                onBlur={() => getCEP(cepUsuario)}
                 disabled={false}
                 maskChar=" "
             >
