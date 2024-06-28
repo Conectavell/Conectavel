@@ -42,6 +42,7 @@ const Assinaturas = () => {
     }
 `
     const Analogico = styled.div`
+    position: relative;
     width: 31%;
     height: 73vh;
     background-color: var(--verde_principal);
@@ -61,6 +62,7 @@ const Assinaturas = () => {
     }
 `
     const Digital = styled.div`
+    position: relative;
     width: 31%;
     height: 73vh;
     background-color: var(--azul_secundario);
@@ -80,6 +82,7 @@ const Assinaturas = () => {
     }
 `
     const Hd = styled.div`
+    position: relative;
     width: 31%;
     height: 73vh;
     background-color: var(--laranja);
@@ -150,7 +153,7 @@ const Assinaturas = () => {
                             <Item>Galeria de serviços</Item>
                         </Lista>
                             <Tooltip title="Em reparo...">
-                                <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white', marginTop: '38%' }} disableElevation>
+                                <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white', position: 'absolute', bottom:"2%", left: '0' }} disableElevation>
                                     Assinar
                                 </Button>
                             </Tooltip>
@@ -168,7 +171,7 @@ const Assinaturas = () => {
                         <Divisor />
                         <Subtitulo>Divulgação dentro da plataforma</Subtitulo>
                         <Tooltip title="Em reparo...">
-                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white',marginTop: '19%' }} disableElevation>
+                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white',position: 'absolute', bottom:"2%", left: '0' }} disableElevation>
                                 Assinar
                             </Button>
                         </Tooltip>
@@ -188,7 +191,7 @@ const Assinaturas = () => {
                         <Divisor />
                         <Subtitulo>Assessoria</Subtitulo>
                         <Tooltip title="Em reparo...">
-                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white' }} disableElevation>
+                            <Button fullWidth variant="contained" sx={{ backgroundColor: 'transparent', fontWeight: 'bold', border: '2px solid white', position: 'absolute', bottom:"2%", left: '0' }} disableElevation>
                                 Assinar
                             </Button>
                         </Tooltip>

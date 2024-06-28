@@ -8,6 +8,7 @@ import debora from '../assets/debora.png'
 import gabriel from '../assets/gabriel.png'
 import Footer from '../components/Footer'
 import SecaoColaboradores from '../components/SecaoColaboradores'
+import Parceiros from '../components/Parceiros'
 
 const ColaboradoresPage = () => {
     const Sub_heading = styled.p`
@@ -71,9 +72,9 @@ const ColaboradoresPage = () => {
     return (
         <>
             <BarraNavegacao cor="azul" />
-
-            <SecaoColaboradores/>
-            <Footer cor="azul"/>
+            <SecaoColaboradores />
+            <Parceiros />
+            <Footer cor="azul" />
         </>
     )
 }
