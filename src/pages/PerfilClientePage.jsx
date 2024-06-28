@@ -83,7 +83,7 @@ const PerfilClientePage = () => {
           <Informacoes>
             <InfoPrincipais>
               <FotoEInfos>
-                <FotoPrincipalPerfil src={Kemilly} />
+                <FotoPrincipalPerfil src={fotoUsuario} />
                 <ItensInfo>
                   <ItemInfo>
                     <WrapperItemInfo>

@@ -32,6 +32,7 @@ function App() {
   const [idUsuario, setIdUsuario] = useState('')
   const [allUsers, setAllUsers] = useState('')
   const [servicoEscolhido, setServicoEscolhido] = useState()
+  const [fotoUsuario, setFotoUsuario] = useState('')
 
   if ((sessionStorage.getItem('idUsuario')) != null) {
     const ID = sessionStorage.getItem('idUsuario');
@@ -46,8 +47,9 @@ function App() {
       console.log(habilidadesUsuario)
       console.log(sobreUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
-      setHabilidadesUsuario(data.habilidadeUsuario)
+      setHabilidadesUsuario(data.habilidades)
       setSobreUsuario(data.sobreUsuario)
+      setFotoUsuario(data.fotoPerfilPath)
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
@@ -108,6 +110,7 @@ function App() {
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
       servicoEscolhido, setServicoEscolhido
+      fotoUsuario, setFotoUsuario,
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
