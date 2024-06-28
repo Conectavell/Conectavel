@@ -69,7 +69,7 @@ const ColaboradoresPage = () => {
 
     return (
         <>
-            <BarraNavegacao cor="azul" />
+            <BarraNavegacao />
 
             <Box>
                 <Sub_heading>
@@ -107,7 +107,7 @@ const ColaboradoresPage = () => {
                     </Row>
                 </Col>
             </Box>
-            <Footer cor="azul" />
+            <Footer/>
         </>
     )
 }

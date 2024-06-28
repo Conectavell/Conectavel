@@ -44,7 +44,7 @@ const PreencherPrestadorPage = () => {
             "nomeUsuario": `${nomeUsuario}`,
             "sobrenomeUsuario": `${sobrenomeUsuario}`,
             "emailUsuario": `${emailUsuario}`,
-            "celularUsuario": `${celularUsuario}`,
+            "celularUsuario":`${celularUsuario}`,
             "senhaUsuario": `${senhaUsuario}`,
             "cpfUsuario": `${identidadeUsuario}`,
             "dataNascimentoUsuario": `${dataNascimentoUsuario}`,

@@ -12,6 +12,7 @@ import SelectLang from './SelectLang';
 import { FaUserAlt } from 'react-icons/fa';
 import { useContext } from 'react';
 import CadastroContext from '../context/CadastroContext';
+import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Deslogar from './Deslogar';
 
 

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes as Rotas, Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes as Rotas } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CadastroPage from './pages/CadastroPage'
 import LoginPage from './pages/LoginPage'
@@ -14,12 +14,6 @@ import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
 import PreencherClientePage from './pages/PreencherClientePage'
 import ConfiguracoesPage from './pages/ConfiguracoesPage'
 import SegurancaPage from './pages/SegurancaPage'
-import Auth from './context/Auth'
-import AdminPage from './pages/AdminPage'
-
-function PrivateRoute({ children }) {
-    return Auth() ? <>{children}</> : <Navigate to="/Conectavel" />
-}
 
 const Routes = () => {
 
@@ -37,6 +31,9 @@ const Routes = () => {
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
 
+                    <Route path="/Conectavel/perfilprestador" element={<PerfilPrestadorPage />} />
+                    <Route path="/Conectavel/perfilcliente" element={<PerfilClientePage />} />                  
+
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/orcamento' element={<ClienteOrcamento />} />
 
@@ -46,15 +43,12 @@ const Routes = () => {
                     <Route path='/Conectavel/configuracoes/seguranca' element={<SegurancaPage />} />
                     
 
-                    <Route path='/Conectavel/perfilcliente' element={<PrivateRoute><PerfilClientePage /></PrivateRoute>} />
-                    <Route path='/Conectavel/perfilprestador' element={<PrivateRoute><PerfilPrestadorPage /></PrivateRoute>} />
-                    <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
                 </Rotas>
+
+
             </BrowserRouter>
         </>
     )
 }
-
-
 
 export default Routes

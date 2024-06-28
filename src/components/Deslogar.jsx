@@ -17,7 +17,7 @@ const Deslogar = ({ size }) => {
     } = useContext(CadastroContext)
 
     function deslogarUsuario() {
-        sessionStorage.removeItem("idUsuario")
+        sessionStorage.clear();
         setNomeUsuario('')
         setEmailUsuario('')
         setSobrenomeUsuario('')
