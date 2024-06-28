@@ -76,7 +76,7 @@ const PreencherPrestadorPage = () => {
             "sobreUsuario": `${sobreUsuario}`,
             "experienciaUsuario": `${experienciaUsuario}`,
             // "habilidadesUsuario": habilidadesUsuario,
-            "habilidadesUsuario": 3,
+            "habilidadesUsuario": [2],
             "enderecoDto": {
                 "cep": `${cepUsuario}`,
                 "logradouro": `${logradouro}`,
