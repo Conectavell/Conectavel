@@ -9,7 +9,7 @@ const CrieSeuPerfil = () => {
         height: auto;
         display: flex;
         flex-direction: column;
-        padding: 3rem 0;
+        padding: 7rem 0;
         @media (max-width: 1200px){
             padding: 5rem 0;
     }
