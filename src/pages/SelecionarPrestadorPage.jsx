@@ -3,12 +3,13 @@ import styled from "styled-components";
 import Navbar from "../components/NavbarPerfis";
 import ChatMini from "../components/ChatMini";
 import Kemilly from "../assets/kemilly.png";
-import {
-  ChatLateral,
-  ChatLateralH1,
-  ChatLateralChats,
-} from "../styles/InfoClientePageStyle";
 import CardMenu from "../components/CardMenus";
+import Arrow_Laranja from "../assets/Arrow_Laranja.svg";
+import ChatLateral from "../components/ChatLateral";
+import { IoIosArrowBack } from "react-icons/io";
+import lucas from '../assets/lucas.png'
+import brunoo from '../assets/brunoo.png'
+import leonardo from '../assets/leonardo.png'
 
 
 const MainContainer = styled.div`
@@ -92,8 +93,20 @@ const SelecionarPrestador = () => {
               avaliacoes={1.3}
             />
             <CardMenu
-              nome={"Jane Smith"}
-              foto={Kemilly}
+              nome={"Lucas Bonfim"}
+              foto={lucas}
+              descricao={"Especialista em Reparo de computador."}
+              avaliacoes={4.2}
+            />
+            <CardMenu
+              nome={"Bruno Ferreira"}
+              foto={brunoo}
+              descricao={"Especialista em Reparo de computador."}
+              avaliacoes={4.6}
+            />
+            <CardMenu
+              nome={"Leonardo Tavares"}
+              foto={leonardo}
               descricao={"Especialista em Televisores."}
               avaliacoes={5.0}
             />

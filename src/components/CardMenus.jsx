@@ -32,6 +32,7 @@ const ProfileImage = styled.img`
   width: 80px;
   height: 80px;
   margin-bottom: 10px;
+  border-radius: 10px;
 `;
 
 const Name = styled.h2`
