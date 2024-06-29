@@ -33,7 +33,7 @@ import { Button } from '@mui/material';
 const PerfilClientePage = () => {
   const [selectedService, setSelectedService] = useState('');
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, setServicoEscolhido } = useContext(CadastroContext)
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario, setServicoEscolhido, fotoUsuario } = useContext(CadastroContext)
   const navigate = useNavigate()
   const ref = useRef()
 
@@ -83,7 +83,7 @@ const PerfilClientePage = () => {
           <Informacoes>
             <InfoPrincipais>
               <FotoEInfos>
-                <FotoPrincipalPerfil src={Kemilly} />
+                <FotoPrincipalPerfil src={fotoUsuario} />
                 <ItensInfo>
                   <ItemInfo>
                     <WrapperItemInfo>
