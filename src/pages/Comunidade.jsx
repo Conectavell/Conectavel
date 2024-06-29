@@ -5,6 +5,7 @@ import ChatComunidade from "../components/ChatComunidade";
 import Community from "../components/Community";
 import flechaVoltar from "../assets/flechaVoltar.png"
 import NavbarPerfis from '../components/NavbarPerfis';
+import ChatLateral from '../components/ChatLateral';
 
 
 
@@ -16,6 +17,12 @@ display: flex;
 flex-direction: column;
 height: 0vh;
 width: 100vw;
+margin: 1rem 0;
+padding: 1rem;
+
+@media (max-width: 1200px){
+  align-items: center;
+}
 
 `;
 
@@ -29,7 +36,8 @@ width: 100vw;
 box-sizing: border-box;
 /* gap: 40px; */
 @media (max-width: 1200px) {
-  flex-direction: column;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 `;
 
@@ -70,29 +78,21 @@ align-items: center;
 
   return (
 
-    <MainContainer>
-      {/* <NavPerfil /> */}
-      <NavbarPerfis usuario="profissional" />
+    <>
+      <NavbarPerfis />
+      <MainContainer>
+        <ContentContainer>
 
-      <ContentContainer>
+          <ChatLateral valueWidth={'30vw'} />
+
+          <ComunidadeSection>
+            <Community />
+          </ComunidadeSection>
 
 
-        {/* <a href="#">
-          <Img loading="seta" src={flechaVoltar} />
-        </a> */}
-
-
-
-        <ChatSection>
-          <ChatComunidade />
-        </ChatSection>
-
-        <ComunidadeSection>
-          <Community />
-        </ComunidadeSection>
-
-      </ContentContainer>
-    </MainContainer>
+        </ContentContainer>
+      </MainContainer>
+    </>
   );
 }
 
