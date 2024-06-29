@@ -43,9 +43,9 @@ function App() {
       setSobrenomeUsuario(data.sobrenomeUsuario)
       setEmailUsuario(data.emailUsuario)
       setSenhaUsuario(data.senhaUsuario)
-      console.log(experienciaUsuario)
-      console.log(habilidadesUsuario)
-      console.log(sobreUsuario)
+      // console.log(experienciaUsuario)
+      // console.log(habilidadesUsuario)
+      // console.log(sobreUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
       setHabilidadesUsuario(data.habilidades)
       setSobreUsuario(data.sobreUsuario)
@@ -53,34 +53,34 @@ function App() {
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
-
-      console.log(data.nomeUsuario)
-      console.log(data.emailUsuario)
-      console.log(data.sobrenomeUsuario)
-      console.log(data.emailUsuario)
-      console.log(data.senhaUsuario)
-      console.log(data.experienciaUsuario)
-      console.log(data.habilidadeUsuario)
-      console.log(data.sobreUsuario)
-      console.log(data.celularUsuario)
-      console.log(ID)
-      console.log(data.tipoPerfil)
+      // setEstado(data.)
+     // console.log(data)
+      // console.log(data.emailUsuario)
+      // console.log(data.sobrenomeUsuario)
+      // console.log(data.emailUsuario)
+      // console.log(data.senhaUsuario)
+      // console.log(data.experienciaUsuario)
+      // console.log(data.habilidadeUsuario)
+      // console.log(data.sobreUsuario)
+      // console.log(data.celularUsuario)
+      // console.log(ID)
+      // console.log(data.tipoPerfil)
 
 
     })
   }
 
-  if (!allUsers) {
-    console.log('nada')
-    try {
-      axios.get("http://localhost:8080/API/usuarios")
-        // .then(res => console.log(res.data))
-        .then(res => setAllUsers(res.data))
-        .then(console.log(allUsers ))
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // if (!allUsers) {
+  //   console.log('nada')
+  //   try {
+  //     axios.get("http://localhost:8080/API/usuarios")
+  //       // .then(res => console.log(res.data))
+  //       .then(res => setAllUsers(res.data))
+  //       .then(console.log(allUsers ))
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   return (
     // Aplicação dos Providers dos contextos
@@ -109,7 +109,7 @@ function App() {
       senhaUsuario, setSenhaUsuario,
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
-      servicoEscolhido, setServicoEscolhido
+      servicoEscolhido, setServicoEscolhido,
       fotoUsuario, setFotoUsuario,
 
     }}>

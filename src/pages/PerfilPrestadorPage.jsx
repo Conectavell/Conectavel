@@ -15,7 +15,7 @@ const PerfilPrestadorPage = () => {
     nomeUsuario, sobrenomeUsuario,
     emailUsuario, celularUsuario,
     sobreUsuario, experienciaUsuario,
-    habilidadesUsuario
+    habilidadesUsuario, tipoPerfil
   } = useContext(CadastroContext)
 
   const[habilidades, setHabilidades] = useState(habilidadesUsuario || [])
