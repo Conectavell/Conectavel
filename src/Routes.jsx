@@ -7,6 +7,9 @@ import ColaboradoresPage from './pages/ColaboradoresPage'
 import QuemSomosPage from './pages/QuemSomosPage'
 import DescartePage from './pages/DescartePage'
 import ClienteOrcamento from './pages/ClienteOrcamento'
+import Comunidade from './pages/Comunidade'
+import TechnicianProfile from './pages/TechnicianProfile'
+import Dashboard from './pages/Dashboard'
 import ChatProfissional from './pages/ChatProfissional'
 import PerfilClientePage from './pages/PerfilClientePage'
 import PreencherPrestadorPage from './pages/PreencherPrestadorPage'
@@ -27,7 +30,6 @@ function PrivateRoute({ children }) {
 {/* Import Administração */ }
 import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
 
-gi
 const Routes = () => {
 
     return (
@@ -54,6 +56,12 @@ const Routes = () => {
                     <Route path='/Conectavel/orcamento' element={<PrivateRoute><ClienteOrcamento /></PrivateRoute>} />
                     <Route path='/Conectavel/chatprofissional' exact element={<PrivateRoute><ChatProfissional /></PrivateRoute>} />
                     <Route path="/Conectavel/profissional" element={<PrivateRoute><PerfilProfissionalPage /></PrivateRoute>} />
+
+                    {/* <Route path='/Conectavel/comunidade' exact element={<Comunidade/>} /> */}
+
+                    <Route path='/Conectavel/TechnicianProfile' exact element={<TechnicianProfile/>} />
+                    <Route path='/Conectavel/Dashboard' exact element={<Dashboard/>} />
+
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
                     <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
