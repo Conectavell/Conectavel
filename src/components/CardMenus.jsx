@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import axios from "axios";
+import { useContext } from "react";
+import CadastroContext from "../context/CadastroContext";
 
 const Card = styled.div`
   display: flex;
@@ -60,7 +63,7 @@ const Avaliacoes = styled.span`
 `;
 
 const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
-  const renderStars = () => { 
+  const renderStars = () => {
 
     const totalStars = 5;
     const starsFilled = Math.round((avaliacoes / 5) * totalStars);
@@ -77,6 +80,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
     return starsArray;
   };
 
+
   return (
     <Card>
       <Name>{nome}</Name>
@@ -88,7 +92,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
       </Stars>
       <Description>{descricao}</Description>
 
-      <button className="perfil_button w-100">Ver perfil</button>
+      <button  className="perfil_button w-100">Ver perfil</button>
     </Card>
   );
 };

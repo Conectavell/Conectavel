@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 import Galeria from "../components/Galeria"
 import CardProfissional from "../components/CardProfissional"
+import NavbarPerfis from "../components/NavbarPerfis"
 
 const Box = styled.section`
 padding-top: 2rem;
@@ -13,17 +14,18 @@ padding-top: 2rem;
   margin: auto;
   flex-direction: column;
   overflow: scroll;
-  
-  
 `
 
 
 const PerfilProfissionalPage = () => {
     return (
+        <>
+        <NavbarPerfis/>
         <Box>
            <CardProfissional/>
             <Galeria/>
         </Box>
+        </>
     )
 }
 

@@ -9,7 +9,7 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Galeria = () => {
-    const { nomeUsuario } = useContext(CadastroContext)
+    const { nomeUsuario, tipoPerfil } = useContext(CadastroContext)
 
     const Container = styled.div`
         width: 50vw;
@@ -24,6 +24,10 @@ const Galeria = () => {
         img{
             border-radius: 38px;
             border: 10px solid var(--azul_principal);
+        }
+
+        @media (max-width:1200px){
+            width: 90%;
         }
     `
 
@@ -60,26 +64,32 @@ const Galeria = () => {
                     <img src={circuito} alt="circuito" width={300} />
                     <img src={circuito} alt="circuito" width={300} />
                 </Row>
-                
-                <Row style={{justifyContent:'space-between'}}>
-                    <Button
-                        component="label"
-                        role={undefined}
-                        variant="contained"
-                        tabIndex={-1}
-                        startIcon={<CloudUploadIcon />}
-                    >
-                        Upload file
-                        <VisuallyHiddenInput onChange={(e) => {
-                            console.log(e.target.value)
-                        }} type="file" />
-                    </Button>
+
+                {
+                    tipoPerfil !== '2' && (
+                        <Row style={{ justifyContent: 'space-between' }}>
+                            <Button
+                                component="label"
+                                role={undefined}
+                                variant="contained"
+                                tabIndex={-1}
+                                startIcon={<CloudUploadIcon />}
+                            >
+                                Adicionar imagem
+                                <VisuallyHiddenInput onChange={(e) => {
+                                    console.log(e.target.value)
+                                }} type="file" />
+                            </Button>
 
 
-                    <IconButton  onClick={() => setImage(null)} aria-label="delete" size="large">
-                    <DeleteIcon fontSize="inherit" />
-                </IconButton>
-                </Row>
+                            <IconButton onClick={() => setImage(null)} aria-label="delete" size="large">
+                                <DeleteIcon fontSize="inherit" />
+                            </IconButton>
+                        </Row>
+                    )
+                }
+
+
             </Container >
 
 

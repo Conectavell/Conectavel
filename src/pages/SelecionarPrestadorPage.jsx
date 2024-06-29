@@ -89,6 +89,12 @@ const SelecionarPrestador = () => {
           <MenuProfissionais>
             <h1>Profissionais Disponíveis</h1>
             <CardsMenu>
+            <CardMenu
+                    nome={'ana'}
+                    foto={lucas}
+                    descricao={'manutenção de eletrodomésticos'}
+                    avaliacoes={4.2}
+                    />
             {
               filtered.map((user, index) => {
                 return (

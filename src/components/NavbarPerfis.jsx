@@ -44,7 +44,7 @@ const NavbarPerfis = () => {
                                 :
                                 <Nav.Link> <Link className='navbar__container__collapse__text'><BemVindo /></Link></Nav.Link>
                         }
-                        {tipoPerfil === 2 ?
+                        {tipoPerfil !== 1 ?
                             <>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/chatprofissional"><HiOutlineChatBubbleBottomCenterText size={25} /> Chat</Link></Nav.Link>
                                 <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/comunidade"><PiUsersThree size={25} /> Comunidade</Link></Nav.Link>
@@ -54,6 +54,7 @@ const NavbarPerfis = () => {
                         <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/descarte"><BiRecycle size={25} /> Descarte</Link></Nav.Link>
 
 
+                <Nav.Link className='mx-3'> <Deslogar size="2rem" /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 {
@@ -61,7 +62,6 @@ const NavbarPerfis = () => {
                         <BemVindo onclick={() => navigate("/Conectavel/profissional")} usuario={"nomeUsuario"} />
                         : ''
                 }
-                <Nav.Link className='mx-3'> <Deslogar size="2rem" /></Nav.Link>
             </Container>
         </Navbar>
     )

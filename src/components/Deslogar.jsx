@@ -1,7 +1,8 @@
 import { RiLogoutBoxRFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import CadastroContext from '../context/CadastroContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import ModalPersonalizado from './ModalPersonalizado'
 
 const Deslogar = ({ size }) => {
     const {
@@ -15,7 +16,7 @@ const Deslogar = ({ size }) => {
         setIdUsuario,
         setTipoPerfil,
     } = useContext(CadastroContext)
-
+    const [isOpen, setIsOpen] = useState(false)
     function deslogarUsuario() {
         sessionStorage.clear();
         setNomeUsuario('')
@@ -28,12 +29,15 @@ const Deslogar = ({ size }) => {
         setSobreUsuario('')
         setIdUsuario('')
         setTipoPerfil('')
+        
+        setIsOpen(true)
     }
-
+    
     return (
         <>
-            <Link to="/Conectavel">
+            <Link>
                 <RiLogoutBoxRFill onClick={() => deslogarUsuario()} color="white" size={size} />
+                    <ModalPersonalizado isOpen={isOpen} text="Desconectado com sucesso!" button textButton={"Sair"} rota="/" />
             </Link>
         </>
     )
