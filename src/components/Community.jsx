@@ -9,33 +9,34 @@ function Community() {
   const Div = styled.div`
   align-self: center;
   display: flex;
-  margin-top: 18px;
 //   gap: 20px;
 //   justify-content: space-between;
   padding: 0 10px;
   @media (max-width: 1200px) {
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
 
 
   const ChatsP = styled.div`
-width: 50vw;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
-  border-color: rgba(235, 235, 238, 1);
-  border-style: solid;
+width: 63vw;
+margin-right:3rem;
+border-radius: 10px;
+box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+border-color: rgba(235, 235, 238, 1);
+border-style: solid;
   border-width: 2px;
   background-color: #fff;
   display: flex;
-  margin-top: 11px;
   flex-direction: column;
   font-size: 12px;
   font-weight: 400;
   padding: 1rem;
   @media (max-width: 1200px) {
     width: 90vw;
+    margin-right: 0rem;
   }
 `;
 
