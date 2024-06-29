@@ -41,16 +41,7 @@ box-sizing: border-box;
 }
 `;
 
-  const ChatSection = styled.div`
-/* flex: 0 0 10%; */
-display: flex;
-justify-content: center;
-align-items: center;
-margin-left: 2vw;
-@media (max-width: 1200px) {
-  width: 100vw;
-}
-`;
+
 
   const ComunidadeSection = styled.div`
 flex: 0 0 10% ;
@@ -62,18 +53,6 @@ align-items: center;
   width: 100%;
 }
 `;
-
-  const Img = styled.img`
-  aspect-ratio: 1;
-  object-fit: auto;
-  object-position: center;
-  width: 50px;
-  align-self: start;
-  justify-content: start;
-  cursor: pointer;
-
-`;
-
 
 
   return (

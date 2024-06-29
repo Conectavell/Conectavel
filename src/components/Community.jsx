@@ -21,8 +21,8 @@ function Community() {
 
 
   const ChatsP = styled.div`
-width: 70vw;
-margin-right: 1rem;
+width: 63vw;
+margin-right:3rem;
 border-radius: 10px;
 box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
 border-color: rgba(235, 235, 238, 1);
