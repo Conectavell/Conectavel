@@ -10,20 +10,22 @@ import { IoIosStar } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
 const CardProfissional = () => {
-    const Titulo = styled.p`
+  const Titulo = styled.p`
     font-size: 16px;
     font-weight: 700;
     color: var(--azul_principal);
 `
-    const Sub = styled.p`
+  const Sub = styled.p`
     color: #413B89;
     font-weight: 500;
     font-size: 15px !important;
     margin-bottom: 5px;
 `
 
-    const Box = styled.div`
-    
+  const Box = styled.div`
+    .exp{
+      width: 300px;
+    }
     .area{
     border-radius: 24px;
     height: 605px;
@@ -85,18 +87,25 @@ const CardProfissional = () => {
 }
   @media (max-width: 1200px) {
       text-align: center;
-    button{
-        margin: 0;
+      .exp{
+      max-width: 300px;
+      text-align: center;
+      word-wrap: break-word;
     }
+      button{
+        margin: 0;
+      }
       .meio{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-    .area{
+      }
+      .area{
+      padding-bottom: 2rem;
       flex-direction: column;
       height: auto;
-      width: 400px;
+      width: 90%;
+      margin: auto;
     }
     .div1{
       width: auto;
@@ -122,72 +131,76 @@ const CardProfissional = () => {
     .wallpaper{
       object-fit: cover;
       overflow: hidden;
-      width: 400px;
+      width: 100%;
+      margin-bottom: 1rem;
       height: 120px;
     }
     .localizacao{
         margin-top: 1rem;
         text-align: center;
     }
+    
   }
     `
 
-    const { estado, cidade } = useContext(CadastroContext)
-    const navigate = useNavigate()
-    return (
+  const { estado, cidade, nomeUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
+  const navigate = useNavigate()
+  return (
 
-        <Box>
-            <div className="area">
-                <img src={wallpaper} alt="wallpaper" />
-                <div className="meio">
-                    <div className="div1">
-                        <img src={avatar} alt="técnico" />
-                        <Titulo className="localizacao">Localização</Titulo>
-                        <p className="sp">{estado ? estado : "-------"}</p>
-                        <p>
-                            <IoLocationOutline />
-                            {cidade ? cidade : "-------"}
-                        </p>
-                    </div>
-                    <div className="div2">
-                        <h2>Pedro Alves</h2>
-                        <Titulo>Desde</Titulo>
-                        <p>Fevereiro de 2024</p>
-                        <Titulo>Especialidade</Titulo>
-                        <p>Tecnico em Televisores</p>
-                        <Titulo>Experiências</Titulo>
-                        <p>Trabalho há 10 anos <br /> no ramo da Eletrônica</p>
-                    </div>
-                    <div className="div3">
-                        <Titulo>Avaliação de clientes</Titulo>
-                        <div className="comentario">
-                            <Sub>Julia dos Santos</Sub>
-                            <div  className='star'>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            </div>
-                            <p>Gostei muito do serviço, mas a garantia é curta!</p>
-                        </div>
-                        <div className="comentario">
-                            <Sub>Gabriela Machado</Sub>
-                            <div className='star'>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            <IoIosStar color={"#E9C46A"} size={25}/>
-                            </div>
-                            <p>Serviço excelente, mas poderia ser mais rápido o conserto!</p>
-                        </div>
-                    </div>
-                </div>
-                <button onClick={()=> navigate("/Conectavel/chatprofissional")} type="submit">Contatar</button>
+    <Box>
+      <div className="area">
+        <img className='wallpaper' src={wallpaper} alt="wallpaper" />
+        <div className="meio">
+          <div className="div1">
+            <img src={avatar} alt="técnico" />
+            <Titulo className="localizacao">Localização</Titulo>
+            <p className="sp">{estado ? estado : "-------"}</p>
+            <p>
+              <IoLocationOutline />
+              {cidade ? cidade : "-------"}
+            </p>
+          </div>
+          <div className="div2">
+            <h2>{nomeUsuario ? nomeUsuario + " " + sobrenomeUsuario : "-------"}</h2>
+
+            <Titulo>Desde</Titulo>
+            <p>Fevereiro de 2024</p>
+            <Titulo>Especialidade</Titulo>
+            <p>{habilidadesUsuario === '' ? habilidadesUsuario : '---------'}</p>
+            <Titulo>Experiências</Titulo>
+            <p className='exp'>llllllllllllllllllllllllllloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</p>
+
+          </div>
+          <div className="div3">
+            <Titulo>Avaliação de clientes</Titulo>
+            <div className="comentario">
+              <Sub>Julia dos Santos</Sub>
+              <div className='star'>
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+              </div>
+              <p>Gostei muito do serviço, mas a garantia é curta!</p>
             </div>
+            <div className="comentario">
+              <Sub>Gabriela Machado</Sub>
+              <div className='star'>
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+                <IoIosStar color={"#E9C46A"} size={25} />
+              </div>
+              <p>Serviço excelente, mas poderia ser mais rápido o conserto!</p>
+            </div>
+          </div>
+        </div>
+        <button onClick={() => navigate("/Conectavel/chatprofissional")} type="submit">Contatar</button>
+      </div>
 
-        </Box>
-    )
+    </Box>
+  )
 }
 
 export default CardProfissional

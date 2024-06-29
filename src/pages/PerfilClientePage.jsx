@@ -88,7 +88,7 @@ const PerfilClientePage = () => {
                   <ItemInfo>
                     <WrapperItemInfo>
                       <ChatMiniNome>Seu Nome</ChatMiniNome>
-                      <ChatMiniNome descricao>{`${nomeUsuario} ${sobrenomeUsuario}`}</ChatMiniNome>
+                      <ChatMiniNome descricao>{nomeUsuario ? nomeUsuario + " " + sobrenomeUsuario : '-------'}</ChatMiniNome>
                     </WrapperItemInfo>
                   </ItemInfo>
                   <ItemInfo>
@@ -107,7 +107,7 @@ const PerfilClientePage = () => {
                 </ItensInfo>
               </FotoEInfos>
               <ItensInfo ClienteOrcamentos>
-                <ItensInfo MeusOrcamentos>
+                <ItensInfo onClick={()=> navigate("/Conectavel/orcamentos")} MeusOrcamentos>
                   <div>
                     <p>Meus orçamentos</p>
                   </div>

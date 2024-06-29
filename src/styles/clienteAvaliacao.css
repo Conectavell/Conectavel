@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+.body{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.chatBox {
+    width: 20vw;
+    height: auto;
+    border: 3px rgba(212, 212, 212) solid;
+    border-radius: 20px;
+    margin:  2% 1%;
+}
+
+.voltar{
+    height: 3%;
+    width: 3%;
+    cursor: pointer;
+}
+
+.chatName{
+    font-size: 35px;
+    padding-left: 10px;
+    font-weight: 300;
+    margin-bottom: 10%;
+}
+
+.contatos{
+    align-items: center;
+    border: 2px rgb(212, 212, 212) solid;
+    width: 90%;
+    height: auto;
+    margin: 10px auto ;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 0px;
+}
+
+.infoContato{
+    margin: 5px;
+}
+
+.nomeContato{
+    margin: auto 10px;
+  font-size: 17px;
+}
+
+.fotoContato{
+    width: 13%;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.comentarioContato{
+    font-size: 14px;
+    margin: auto 10px;
+    width: 70%;
+    color: rgb(53, 53, 53);
+}
+
+
+.enviar {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: rgba(23, 94, 198, 1);
+    width: 85%;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.comentario {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+.novaAvaliacao {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    width: 40VW;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00000058;
+}
+
+.texto{
+    height: 20vh;
+    width: 20VW;
+    background: #F2F4F8;
+}

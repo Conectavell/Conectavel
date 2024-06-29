@@ -53,12 +53,15 @@ const Parceiros = () => {
         <Box>
             <Heading_text>Nossos parceiros</Heading_text>
             <ParceriasContainer>
+                <a href="https://instagram.com/lar_tv_eletronica" target="_blank">
+                    <img className="lunna" src={lartv} width={300} height={239.54} alt="" />
 
-                <img src={lartv} width={300} height={239.54} alt="" />
+                </a>
                 <a href="https://linktr.ee/lunnacompany" target="_blank">
                     <img className="lunna" src={lunna} width={300} height={239.54} alt="" />
                 </a>
             </ParceriasContainer>
+            <p style={{fontSize:'1.2em', fontWeight: 500, color: "white", marginTop: '2rem'}}>Toque para acessar!</p>
         </Box>
     )
 }
