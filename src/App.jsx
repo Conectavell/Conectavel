@@ -68,17 +68,17 @@ function App() {
     })
   }
 
-  if (!allUsers) {
-    console.log('nada')
-    try {
-      axios.get("http://localhost:8080/API/usuarios")
-        // .then(res => console.log(res.data))
-        .then(res => setAllUsers(res.data))
-        .then(console.log(allUsers ))
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // if (!allUsers) {
+  //   console.log('nada')
+  //   try {
+  //     axios.get("http://localhost:8080/API/usuarios")
+  //       // .then(res => console.log(res.data))
+  //       .then(res => setAllUsers(res.data))
+  //       .then(console.log(allUsers ))
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   return (
     // Aplicação dos Providers dos contextos
@@ -107,7 +107,7 @@ function App() {
       senhaUsuario, setSenhaUsuario,
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
-      servicoEscolhido, setServicoEscolhido
+      servicoEscolhido, setServicoEscolhido,
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>
