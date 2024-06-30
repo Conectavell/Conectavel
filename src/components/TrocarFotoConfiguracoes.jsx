@@ -1,6 +1,9 @@
 import { Button } from '@mui/material'
 import styled from 'styled-components'
 import img from '../assets/lucas.png'
+import AccordionImagens from './AccordionImagens'
+import { useContext } from 'react'
+import CadastroContext from '../context/CadastroContext'
 
 const TrocarFotoConfiguracoes = () => {
     const Box = styled.div`
@@ -41,17 +44,20 @@ const TrocarFotoConfiguracoes = () => {
         height: 100%;
     }
     `
+const {fotoUsuario} = useContext(CadastroContext)
+
 
     return (
         <>
             <Box>
                 <Imagem>
-                    <img src={img} alt="imagem usuario" />
+                    <img src={fotoUsuario} alt="imagem usuario" />
                     {/* imagem */}
                 </Imagem>
-
-                <Button sx={{ width: "80%" }} variant="contained">Trocar foto</Button>
+                {/* <Button sx={{ width: "80%" }} variant="contained">Trocar foto</Button> */}
+                <AccordionImagens/>
             </Box>
+                
         </>
     )
 }

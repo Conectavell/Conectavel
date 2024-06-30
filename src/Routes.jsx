@@ -28,6 +28,7 @@ function PrivateRoute({ children }) {
 
 {/* Import Administração */ }
 import PaginaTbUsuarios from './pages/PaginaTbUsuarios'
+import AccordionImagens from './components/AccordionImagens'
 
 const Routes = () => {
 
@@ -41,6 +42,7 @@ const Routes = () => {
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
                     <Route path='/Conectavel/Serviços' element={<ServicosPage />} />
+                    <Route path='/Conectavel/teste' element={<AccordionImagens />} />
 
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
                     <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
@@ -59,7 +61,8 @@ const Routes = () => {
 
 
                     {/* ------------ telas de configuracoes do usuario ------------ */}
-                    <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
+                    <Route path='/Conectavel/configuracoes' element={<ConfiguracoesPage />} />
+                    {/* <Route path='/Conectavel/configuracoes' element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} /> */}
                     <Route path='/Conectavel/configuracoes/seguranca' element={<PrivateRoute><SegurancaPage /></PrivateRoute>} />
 
                     {/* Rotas Administração */}
