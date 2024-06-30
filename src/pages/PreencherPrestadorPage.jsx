@@ -34,7 +34,8 @@ const PreencherPrestadorPage = () => {
         bairro,
         estado,
         logradouro,
-        setFill
+        setFill,
+        fotoUsuario
     } = useContext(CadastroContext)
 
     function convert() {
@@ -78,7 +79,7 @@ const PreencherPrestadorPage = () => {
             "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
             "sobreUsuario": `${sobreUsuario}`,
             "experienciaUsuario": `${experienciaUsuario}`,
-            // "habilidadesUsuario": habilidadesUsuario,
+            "fotoPerfilPath": `${fotoUsuario}`,
             "habilidades": hab,
             "enderecoDto": {
                 "cep": `${cepUsuario}`,

@@ -25,13 +25,8 @@ const Deslogar = ({ size }) => {
         setExperienciaUsuario('')
         setHabilidadesUsuario('')
         setSobreUsuario('')
-        // setIdUsuario('')
-        
         sessionStorage.clear();
         window.location.reload()
-        // setTimeout(() => {
-            
-        // }, 2000);
     }
 
     return (

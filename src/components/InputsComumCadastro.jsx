@@ -7,6 +7,7 @@ import InputSenha from './InputSenha';
 import SelectPerfil from './SelectPerfil';
 import { InputPrimeiroNome, InputSobrenome } from './InputsNome';
 import InputEmail from './InputEmail';
+import AccordionImagens from './AccordionImagens';
 // inputs tela de cadastro para selecionar tipo de perfil
 
 const FormCadastro = styled.form`
@@ -20,7 +21,7 @@ const FormCadastro = styled.form`
 `
 const InputsComumCadastro = () => {
     const navigate = useNavigate();
-    const { tipoPerfil } = useContext(CadastroContext)
+    const { tipoPerfil,fotoUsuario } = useContext(CadastroContext)
 
 
     const realizarCadastro = () => {
@@ -49,8 +50,8 @@ const InputsComumCadastro = () => {
                 <InputSobrenome />
                 <InputEmail />
                 <InputSenha />
-                
-                <Button type='submit' variant="contained">Cadastrar</Button>
+                <AccordionImagens cadastro={true}/>
+                <Button disabled={!fotoUsuario ? true : false} type='submit' variant="contained">Cadastrar</Button>
             </Box>
         </FormCadastro>
     )

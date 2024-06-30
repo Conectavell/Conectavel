@@ -57,6 +57,11 @@ const CardProfissional = () => {
     font-size: 24px;
     font-weight: 400;
   }
+  .perfil{
+    width: 200px;
+    border-radius: 20px;
+
+  }
   h2{
     font-size: 56px;
     font-weight: 600;
@@ -142,7 +147,8 @@ const CardProfissional = () => {
     
   }
     `
-  const { cidade, estado, nomeUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
+  const { cidade, estado, nomeUsuario,fotoUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
+  const navigate = useNavigate()
   return (
 
     <Box>
@@ -150,7 +156,7 @@ const CardProfissional = () => {
         <img className='wallpaper' src={wallpaper} alt="wallpaper" />
         <div className="meio">
           <div className="div1">
-            <img src={avatar} alt="técnico" />
+            <img className='perfil' src={fotoUsuario}  alt="técnico" />
             <Titulo className="localizacao">Localização</Titulo>
             <p className="sp">{estado ? estado : "-------"}</p>
             <p>

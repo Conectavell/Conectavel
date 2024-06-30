@@ -24,6 +24,9 @@ const BemVindo = ({ onclick }) => {
     p{
         margin: 0;
     }
+    img{
+        border-radius: 10px;
+    }
 
     @media (max-width: 992px){
         width: 10rem;
@@ -46,12 +49,12 @@ const BemVindo = ({ onclick }) => {
         margin: 0;
         font-weight: 500;
     `
-
+const {fotoUsuario} = useContext(CadastroContext)
 
     return (
         <>
             <Container onClick={onclick}>
-                <img src={tipoPerfil === 2 ? pedro : kemilly} width={45} alt="" />
+                <img src={fotoUsuario} width={45} alt="" />
 
                 <Details>
                     {

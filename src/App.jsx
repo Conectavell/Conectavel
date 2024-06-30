@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
@@ -33,10 +33,13 @@ function App() {
   const [servicoEscolhido, setServicoEscolhido] = useState()
   const [fotoUsuario, setFotoUsuario] = useState('')
 
+useEffect(() => {
+
   if ((sessionStorage.getItem('idUsuario')) != null) {
     const ID = sessionStorage.getItem('idUsuario');
 
     fetch(`http://localhost:8080/API/getUsuario/${ID}`).then(res => res.json()).then(data => {
+
       setNomeUsuario(data.nomeUsuario)
       setEmailUsuario(data.emailUsuario)
       setSobrenomeUsuario(data.sobrenomeUsuario)
@@ -50,10 +53,12 @@ function App() {
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
       setFotoUsuario(data.fotoPerfilPath)
-      setCidade(data.cidade)
-      setEstado(data.estado)
+      setCidade(data.endereco.uf)
+      setEstado(data.endereco.uf)
+      setSexoUsuario(data.sexoUsuario)
     })
   }
+}, [])
 
   return (
     // Aplicação dos Providers dos contextos
@@ -83,7 +88,7 @@ function App() {
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
       servicoEscolhido, setServicoEscolhido,
-      fotoUsuario, setFotoUsuario
+      fotoUsuario, setFotoUsuario,
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>

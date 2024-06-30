@@ -54,7 +54,6 @@ const {fotoUsuario} = useContext(CadastroContext)
                     <img src={fotoUsuario} alt="imagem usuario" />
                     {/* imagem */}
                 </Imagem>
-                {/* <Button sx={{ width: "80%" }} variant="contained">Trocar foto</Button> */}
                 <AccordionImagens/>
             </Box>
                 

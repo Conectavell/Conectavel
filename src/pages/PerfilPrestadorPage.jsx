@@ -1,14 +1,12 @@
 import { useContext, useState, useEffect } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
-import Kemilly from '../assets/kemilly.png';
 import { BsPersonVcardFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { WrapperItemInfo, EstrelasDiv, AvaliacoesDiv, AvaliacoesWrapper, BoxDireita, BoxExperienciaInter, BoxExperiencia, TextoExperiencia, ExperienciaWrapper, SectionWrapper, PerfilPrestador, BannerPerfil, Informacoes, InfoPrincipais, FotoPrincipalPerfil, ItensInfo, ItemInfo, Textos, Habilidades, HabilidadesBox, ItemHabilidade, DatalhesProfissionais } from '../styles/InfoPrestadorPageStyle';
 import CadastroContext from '../context/CadastroContext';
 import { IoBagRemoveSharp } from 'react-icons/io5';
 import ChatLateral from '../components/ChatLateral';
-import pedroAlves from '../assets/pedroAlves.png'
 
 const PerfilPrestadorPage = () => {
   const {
@@ -41,7 +39,7 @@ const PerfilPrestadorPage = () => {
           </BannerPerfil>
           <Informacoes>
             <InfoPrincipais>
-              <FotoPrincipalPerfil src={tipoPerfil === "2" ? pedroAlves : Kemilly} />
+              <FotoPrincipalPerfil src={fotoUsuario} />
               <ItensInfo>
                 <ItemInfo>
                   <WrapperItemInfo>

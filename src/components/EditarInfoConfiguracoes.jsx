@@ -64,7 +64,7 @@ const EditarInfoConfiguracoes = () => {
             setSobreUsuario(data.sobreUsuario)
             console.log(sobreUsuario)
             setTipoPerfil(data.tipoPerfil)
-          })
+        })
 
         setEditarPerfil(!editarPerfil)
     }
