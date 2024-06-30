@@ -3,6 +3,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import axios from "axios";
 import { useContext } from "react";
 import CadastroContext from "../context/CadastroContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Card = styled.div`
   display: flex;
@@ -62,7 +63,8 @@ const Avaliacoes = styled.span`
   color: var(--azul_secundario);
 `;
 
-const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
+const CardMenu = ({ foto, nome, descricao, avaliacoes, id }) => {
+  const navigate = useNavigate()
   const renderStars = () => {
 
     const totalStars = 5;
@@ -80,6 +82,9 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
     return starsArray;
   };
 
+  const escolherProfissional = (idProfissional) => {
+    navigate(`/Conectavel/${idProfissional}`)
+  }
 
   return (
     <Card>
@@ -92,7 +97,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes }) => {
       </Stars>
       <Description>{descricao}</Description>
 
-      <button  className="perfil_button w-100">Ver perfil</button>
+      <button  className="perfil_button w-100" onClick={() => escolherProfissional(id)}>Ver perfil</button>
     </Card>
   );
 };

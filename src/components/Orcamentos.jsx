@@ -209,6 +209,7 @@ const Status = styled.div`
             <Img6
               loading="lazy"
               src={lucas}
+              srcSet={fotoPerfil}
             />
             <ContentPerfil>
               <Nome>Lucas Bonfim</Nome>

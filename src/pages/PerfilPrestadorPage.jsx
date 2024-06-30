@@ -14,9 +14,20 @@ const PerfilPrestadorPage = () => {
   const {
     nomeUsuario, sobrenomeUsuario,
     emailUsuario, celularUsuario,
-    sobreUsuario, experienciaUsuario,
-    habilidadesUsuario, tipoPerfil
+    sobreUsuario, experienciaUsuario, tipoPerfil,
+    habilidadesUsuario, fotoUsuario
+
   } = useContext(CadastroContext)
+  
+  const[habilidades, setHabilidades] = useState(habilidadesUsuario || [])
+
+  useEffect(() => {
+    if (Array.isArray(habilidadesUsuario)) {
+      setHabilidades(habilidadesUsuario);
+    } else {
+      setHabilidades([]);
+    }
+  }, [habilidadesUsuario]);
 
   const[habilidades, setHabilidades] = useState(habilidadesUsuario || [])
 

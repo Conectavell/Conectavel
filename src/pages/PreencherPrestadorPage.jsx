@@ -58,10 +58,13 @@ const PreencherPrestadorPage = () => {
                 console.log('Nenhum serviço selecionado.');
             }
         });
-        console.log(habilidadesUsuario)
+       return habilidadesUsuario
     }
+
+    // console.log(convert())
     function cadastrar() {
-        convert()
+        const hab = convert()
+        
         axios.post('http://localhost:8080/API/salvarUsuario', {
             "nacionalidadeUsuario": `${nacionalidadeUsuario}`,
             "tipoDePerfilUsuario": 2,
@@ -77,7 +80,7 @@ const PreencherPrestadorPage = () => {
             "sobreUsuario": "",
             "experienciaUsuario": `${experienciaUsuario}`,
             // "habilidadesUsuario": habilidadesUsuario,
-            "habilidadesUsuario": "",
+            "habilidades": hab,
             "enderecoDto": {
                 "cep": `${cepUsuario}`,
                 "logradouro": `${logradouro}`,

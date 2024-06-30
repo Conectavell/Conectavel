@@ -53,8 +53,9 @@ function App() {
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
-      // setEstado(data.)
-     // console.log(data)
+      setFotoUsuario(data.fotoPerfilPath)
+
+      // console.log(data.nomeUsuario)
       // console.log(data.emailUsuario)
       // console.log(data.sobrenomeUsuario)
       // console.log(data.emailUsuario)
@@ -110,7 +111,7 @@ function App() {
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
       servicoEscolhido, setServicoEscolhido,
-      fotoUsuario, setFotoUsuario,
+      fotoUsuario, setFotoUsuario
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>

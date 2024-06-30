@@ -78,22 +78,22 @@ const SelecionarPrestador = () => {
   //const filtered = allUsers.filter((user) => user.tipoPerfil === 2 && user.habilidadeUsuario == servicoEscolhido)
   const [prestadores, setPrestadores] = useState([]);
 
-    // Função para retornar prestadores
-    const retornaPrestadores = () => {
-        axios.get('http://localhost:8080/API/filtarUsuario', {
-            params: { valorHabilidade: servicoEscolhido }
-        })
-        .then(function (response) {
-            setPrestadores(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    };
+  const retornaPrestadores = () => {
+    axios.get('http://localhost:8080/API/filtarUsuario', {
+        params: { valorHabilidade: servicoEscolhido }
+    })
+    .then(function (response) {
+        setPrestadores(response.data);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+};
 
-  useEffect(() => {
-      retornaPrestadores();
-  }, []);
+useEffect(() => {
+  retornaPrestadores();
+}, []);
+
 
 
 
@@ -109,9 +109,17 @@ const SelecionarPrestador = () => {
           <MenuProfissionais>
             <h1>Profissionais Disponíveis</h1>
             <CardsMenu>
-                {prestadores.map((prestador, index) => (
-                    <CardMenu key={index} nome={prestador}/>
-                ))}
+              {
+                prestadores.map((prestador, index) => (
+                  <CardMenu
+                  id={prestador.idUsuario}
+                  key={prestador.idUsuario}
+                  nome={prestador.nomeUsuario}
+                  foto={lucas}
+                  avaliacoes={5}
+                  />
+                ))
+              }
 
               </CardsMenu>
           </MenuProfissionais>
