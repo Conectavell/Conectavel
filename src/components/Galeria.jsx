@@ -9,7 +9,6 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Galeria = () => {
-    const { nomeUsuario, tipoPerfil } = useContext(CadastroContext)
 
     const Container = styled.div`
         width: 50vw;

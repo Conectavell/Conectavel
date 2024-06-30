@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ChatMiniNome } from '../components/ChatMini'
 import Navbar from '../components/NavbarPerfis';
 import Kemilly from '../assets/kemilly.png';
@@ -14,8 +14,19 @@ const PerfilPrestadorPage = () => {
   const {
     nomeUsuario, sobrenomeUsuario,
     emailUsuario, celularUsuario,
-    sobreUsuario, experienciaUsuario, tipoPerfil
+    sobreUsuario, experienciaUsuario, tipoPerfil,
+    habilidadesUsuario, fotoUsuario
   } = useContext(CadastroContext)
+  
+  const[habilidades, setHabilidades] = useState(habilidadesUsuario || [])
+
+  useEffect(() => {
+    if (Array.isArray(habilidadesUsuario)) {
+      setHabilidades(habilidadesUsuario);
+    } else {
+      setHabilidades([]);
+    }
+  }, [habilidadesUsuario]);
 
   return (
     <>
@@ -60,12 +71,9 @@ const PerfilPrestadorPage = () => {
               <Habilidades>
                 <ChatMiniNome>Habilidades em</ChatMiniNome>
                 <HabilidadesBox>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
-                  <ItemHabilidade><p>🎮​ Reparo de Vídeo Games</p></ItemHabilidade>
+                {habilidades.map(hab => 
+                      <ItemHabilidade><p>{hab.nomeHabilidade}</p></ItemHabilidade>
+                  )}
                 </HabilidadesBox>
               </Habilidades>
             </InfoPrincipais>

@@ -32,6 +32,7 @@ function App() {
   const [idUsuario, setIdUsuario] = useState('')
   const [allUsers, setAllUsers] = useState('')
   const [servicoEscolhido, setServicoEscolhido] = useState()
+  const [fotoUsuario, setFotoUsuario] = useState('')
 
   if ((sessionStorage.getItem('idUsuario')) != null) {
     const ID = sessionStorage.getItem('idUsuario');
@@ -42,27 +43,28 @@ function App() {
       setSobrenomeUsuario(data.sobrenomeUsuario)
       setEmailUsuario(data.emailUsuario)
       setSenhaUsuario(data.senhaUsuario)
-      console.log(experienciaUsuario)
-      console.log(habilidadesUsuario)
-      console.log(sobreUsuario)
+      // console.log(experienciaUsuario)
+      // console.log(habilidadesUsuario)
+      // console.log(sobreUsuario)
       setExperienciaUsuario(data.experienciaUsuario)
-      setHabilidadesUsuario(data.habilidadeUsuario)
+      setHabilidadesUsuario(data.habilidades)
       setSobreUsuario(data.sobreUsuario)
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)
+      setFotoUsuario(data.fotoPerfilPath)
 
-      console.log(data.nomeUsuario)
-      console.log(data.emailUsuario)
-      console.log(data.sobrenomeUsuario)
-      console.log(data.emailUsuario)
-      console.log(data.senhaUsuario)
-      console.log(data.experienciaUsuario)
-      console.log(data.habilidadeUsuario)
-      console.log(data.sobreUsuario)
-      console.log(data.celularUsuario)
-      console.log(ID)
-      console.log(data.tipoPerfil)
+      // console.log(data.nomeUsuario)
+      // console.log(data.emailUsuario)
+      // console.log(data.sobrenomeUsuario)
+      // console.log(data.emailUsuario)
+      // console.log(data.senhaUsuario)
+      // console.log(data.experienciaUsuario)
+      // console.log(data.habilidadeUsuario)
+      // console.log(data.sobreUsuario)
+      // console.log(data.celularUsuario)
+      // console.log(ID)
+      // console.log(data.tipoPerfil)
 
 
     })
@@ -108,6 +110,7 @@ function App() {
       fill, setFill, idUsuario,
       allUsers, setAllUsers,
       servicoEscolhido, setServicoEscolhido,
+      fotoUsuario, setFotoUsuario
 
     }}>
       <ExpandedNavContext.Provider value={{ expand, setExpand }}>

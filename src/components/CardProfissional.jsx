@@ -143,8 +143,6 @@ const CardProfissional = () => {
   }
     `
 
-  const { estado, cidade, nomeUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
-  const navigate = useNavigate()
   return (
 
     <Box>

@@ -45,11 +45,11 @@ i18n.use(initReactI18next).init({
         pt: {
             ...PTBR
         },
-        // ja:{
-        //     ...JA
-        // },
         en:{
             ...EN
+        },   
+        ja:{
+            ...JA
         }
     },  
     react: {

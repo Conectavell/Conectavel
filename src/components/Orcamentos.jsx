@@ -1,10 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-<<<<<<< HEAD
 import lucas from   '../assets/lucas.png'
-=======
 import fotoPerfil from '../assets/fotoPerfil.png';
->>>>>>> ed1aa20d7046cfd60c3025ddaa4b9ebd3785de61
 
 function Orcamentos() {
 
@@ -212,12 +209,9 @@ const Status = styled.div`
             <BntPerfil>Ver perfil</BntPerfil>
             <Img6
               loading="lazy"
-<<<<<<< HEAD
               src={lucas}
               // srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d259851f3b35f6337cc8859d4a008850100cbca2fa5a3319a986c30ba498cd20?apiKey=1aeb7b0691c842979fcde7487ae78091&"
-=======
               srcSet={fotoPerfil}
->>>>>>> ed1aa20d7046cfd60c3025ddaa4b9ebd3785de61
             />
             <ContentPerfil>
               <Nome>Lucas Bonfim</Nome>
