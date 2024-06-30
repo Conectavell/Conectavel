@@ -135,7 +135,7 @@ const BarraNavegacao = ({ cor }) => {
                         </Nav>
                         <Block >
                             {
-                                idUsuario ?
+                                tipoPerfil === 1 || tipoPerfil === 2?
                                     <>
                                         <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
                                         <Login to="/Conectavel" ><Deslogar size="1.5rem" /></Login>

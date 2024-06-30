@@ -1,5 +1,5 @@
 import { RiLogoutBoxRFill } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CadastroContext from '../context/CadastroContext'
 import { useContext, useState } from 'react'
 import ModalPersonalizado from './ModalPersonalizado'
@@ -13,12 +13,10 @@ const Deslogar = ({ size }) => {
         setExperienciaUsuario,
         setHabilidadesUsuario,
         setSobreUsuario,
-        setIdUsuario,
         setTipoPerfil,
     } = useContext(CadastroContext)
-    const [isOpen, setIsOpen] = useState(false)
     function deslogarUsuario() {
-        sessionStorage.clear();
+        setTipoPerfil('')
         setNomeUsuario('')
         setEmailUsuario('')
         setSobrenomeUsuario('')
@@ -27,17 +25,19 @@ const Deslogar = ({ size }) => {
         setExperienciaUsuario('')
         setHabilidadesUsuario('')
         setSobreUsuario('')
-        setIdUsuario('')
-        setTipoPerfil('')
+        // setIdUsuario('')
         
-        setIsOpen(true)
+        sessionStorage.clear();
+        window.location.reload()
+        // setTimeout(() => {
+            
+        // }, 2000);
     }
-    
+
     return (
         <>
             <Link>
                 <RiLogoutBoxRFill onClick={() => deslogarUsuario()} color="white" size={size} />
-                    <ModalPersonalizado isOpen={isOpen} text="Desconectado com sucesso!" button textButton={"Sair"} rota="/" />
             </Link>
         </>
     )

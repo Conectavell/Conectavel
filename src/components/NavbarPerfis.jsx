@@ -53,8 +53,7 @@ const NavbarPerfis = () => {
                         <Nav.Link><Link className='navbar__container__collapse__text' to="/Conectavel/configuracoes"><AiOutlineSetting size={25} /> Configurações</Link></Nav.Link>
                         <Nav.Link> <Link className='navbar__container__collapse__text' to="/Conectavel/descarte"><BiRecycle size={25} /> Descarte</Link></Nav.Link>
 
-
-                <Nav.Link className='mx-3'> <Deslogar size="2rem" /></Nav.Link>
+                        <Nav.Link className='mx-3'> <Deslogar size="2rem" /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 {

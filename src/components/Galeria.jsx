@@ -52,14 +52,13 @@ const Galeria = () => {
         width: 1,
     });
     const [Image, setImage] = useState();
+    const {  tipoPerfil, nomeUsuario } = useContext(CadastroContext)
 
     return (
         <>
             <Container>
                 <h2>Galeria de {nomeUsuario}</h2>
                 <Row>
-                    <img src={circuito} alt="circuito" width={300} />
-                    <img src={circuito} alt="circuito" width={300} />
                     <img src={circuito} alt="circuito" width={300} />
                     <img src={circuito} alt="circuito" width={300} />
                 </Row>
@@ -79,7 +78,6 @@ const Galeria = () => {
                                     console.log(e.target.value)
                                 }} type="file" />
                             </Button>
-
 
                             <IconButton onClick={() => setImage(null)} aria-label="delete" size="large">
                                 <DeleteIcon fontSize="inherit" />

@@ -29,15 +29,6 @@ const PerfilPrestadorPage = () => {
     }
   }, [habilidadesUsuario]);
 
-  const[habilidades, setHabilidades] = useState(habilidadesUsuario || [])
-
-  useEffect(() => {
-    if (Array.isArray(habilidadesUsuario)) {
-      setHabilidades(habilidadesUsuario);
-    } else {
-      setHabilidades([]);
-    }
-  }, [habilidadesUsuario]);
 
   return (
     <>

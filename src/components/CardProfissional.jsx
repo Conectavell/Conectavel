@@ -142,7 +142,7 @@ const CardProfissional = () => {
     
   }
     `
-
+  const { cidade, estado, nomeUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
   return (
 
     <Box>
@@ -166,7 +166,7 @@ const CardProfissional = () => {
             <Titulo>Especialidade</Titulo>
             <p>{habilidadesUsuario === '' ? habilidadesUsuario : '---------'}</p>
             <Titulo>Experiências</Titulo>
-            <p className='exp'>llllllllllllllllllllllllllloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</p>
+            <p className='exp'>{experienciaUsuario}</p>
 
           </div>
           <div className="div3">
