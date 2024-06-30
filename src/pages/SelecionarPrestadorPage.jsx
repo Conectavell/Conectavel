@@ -96,6 +96,7 @@ useEffect(() => {
 
 
 
+
   return (
     <div>
       <Navbar tipoUsuario={"1"} />
@@ -119,6 +120,7 @@ useEffect(() => {
                   />
                 ))
               }
+
               </CardsMenu>
           </MenuProfissionais>
         </MainContainer>

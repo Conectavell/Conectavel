@@ -49,6 +49,7 @@ function App() {
       setExperienciaUsuario(data.experienciaUsuario)
       setHabilidadesUsuario(data.habilidades)
       setSobreUsuario(data.sobreUsuario)
+      setFotoUsuario(data.fotoPerfilPath)
       setCelularUsuario(data.celularUsuario)
       setIdUsuario(ID)
       setTipoPerfil(data.tipoPerfil)

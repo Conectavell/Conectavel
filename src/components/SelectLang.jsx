@@ -30,7 +30,7 @@ export default function SelectLang() {
             <Select
                 indicator={<KeyboardArrowDown />}
                 sx={{
-                    width: 110, color: "white", fontSize: '1.2em',
+                    width: 100, color: "white", fontSize: '1.1em',
                     [`& .${selectClasses.indicator}`]: {
                         transition: '0.2s',
                         [`&.${selectClasses.expanded}`]: {
@@ -53,4 +53,4 @@ export default function SelectLang() {
         </>
 
     );
-}
+}   
