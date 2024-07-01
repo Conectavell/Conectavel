@@ -1,8 +1,8 @@
-import { ChatMiniNome } from '../components/ChatMini'
+import React, { useContext, useState } from 'react';
+import { ChatMiniNome } from '../components/ChatMini';
 import Navbar from '../components/NavbarPerfis';
 import ChatMini from '../components/ChatMini';
 import Kemilly from '../assets/kemilly.png';
-import React, { useContext, useState } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { CiMoneyCheck1 } from "react-icons/ci";
@@ -13,7 +13,6 @@ import {
   FotoEInfos,
   WrapperItemInfo,
   SectionWrapper,
-  
   PerfilPrestador,
   BannerPerfil,
   Informacoes,
@@ -27,15 +26,12 @@ import {
 } from "../styles/InfoClientePageStyle";
 import CadastroContext from '../context/CadastroContext';
 import { Button, Radio } from '@mui/material';
-import { useState,useContext } from 'react';
-
-
 
 const PerfilClientePage = () => {
   const [selectedService, setSelectedService] = useState('');
   const [showTiposServicos, setShowTiposServicos] = useState(false);
-  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario,  } = useContext(CadastroContext)
-  const navigate = useNavigate()
+  const { nomeUsuario, sobrenomeUsuario, emailUsuario, celularUsuario } = useContext(CadastroContext);
+  const navigate = useNavigate();
 
   const names = [
     'Manutenção de vídeo games',
@@ -50,7 +46,6 @@ const PerfilClientePage = () => {
     setSelectedService(prevSelected => prevSelected === value ? '' : value);
   };
 
-// valor do check box selecionado vai aparecer no console :)
   const handleSearch = () => {
     if (selectedService) {
       console.log(`Serviço selecionado: ${selectedService}`);
@@ -59,14 +54,11 @@ const PerfilClientePage = () => {
     }
   };
 
-
-  
-
   return (
     <>
       <Navbar />
       <SectionWrapper>
-        <ChatLateral valueWidth={"30%"}/>
+        <ChatLateral valueWidth={"30%"} />
         <PerfilPrestador>
           <BannerPerfil>
             <p>MEU PERFIL</p>
@@ -92,7 +84,6 @@ const PerfilClientePage = () => {
                     <WrapperItemInfo>
                       <ChatMiniNome>Celular</ChatMiniNome>
                       <ChatMiniNome descricao>{celularUsuario ? celularUsuario : '-----'}</ChatMiniNome>
-
                     </WrapperItemInfo>
                   </ItemInfo>
                 </ItensInfo>
@@ -103,7 +94,6 @@ const PerfilClientePage = () => {
                     <p>Meus orçamentos</p>
                   </div>
                   <BotaoOrcamentos />
-
                 </ItensInfo>
                 <WrapperItemInfo>
                   <p>Avaliação de trabalhadores</p>
@@ -121,17 +111,15 @@ const PerfilClientePage = () => {
                     <small>Uma ótima cliente! </small>
                   </ItensInfo>
                 </WrapperItemInfo>
-                {/* <p>Veja todas as avaliações -</p> */}
               </ItensInfo>
             </InfoPrincipais>
           </Informacoes>
           <div className="servico-container">
             <ItensInfo NovoServico>
               <p>
-                Novo serviço<br></br>Solicitar reparo
+                Novo serviço<br />Solicitar reparo
               </p>
               <BotaoOrcamentos />
-
             </ItensInfo>
             {showTiposServicos && (
               <div className="container">
@@ -148,57 +136,29 @@ const PerfilClientePage = () => {
                     Reparo
                   </label>
                   <label htmlFor="manutencao">
-                    <div class="checkmark"></div>
-                    Reparo
-                  </label>
-                  <label for="manutencao">
-                    <input
-                      type="checkbox"
-                      id="manutencao"
-                      name="tipoServico"
-                      value="manutencao"
-
-                    />
                     <div className="checkmark"></div>
                     Manutenção
                   </label>
                   <label htmlFor="Instalação">
-                    <div class="checkmark"></div>
-                    Manutenção
-                  </label>
-                  <label for="Instalação">
-                    <input
-                      type="checkbox"
-                      id="Instalação"
-                      name="tipoServico"
-                      value="Instalação"
-                    />
                     <div className="checkmark"></div>
-                    <div class="checkmark"></div>
                     Instalação
                   </label>
-
-                  {
-                    names.map((servico, index) => {
-                      return (
-                        <label htmlFor={`reparo-${index}`} key={index}>
-                          <input
-                            type="checkbox"
-                            id={`reparo-${index}`}
-                            name="tipoServico"
-                            value={servico}
-                            checked={selectedService === servico}
-                            onChange={handleCheckboxChange}
-                          />
-                          <div className="checkmark"></div>
-                          {servico}
-                        </label>
-                      )
-                    })
-                  }
+                  {names.map((servico, index) => (
+                    <label htmlFor={`reparo-${index}`} key={index}>
+                      <input
+                        type="checkbox"
+                        id={`reparo-${index}`}
+                        name="tipoServico"
+                        value={servico}
+                        checked={selectedService === servico}
+                        onChange={handleCheckboxChange}
+                      />
+                      <div className="checkmark"></div>
+                      {servico}
+                    </label>
+                  ))}
                 </div>
-                <Button className='mt-3' variant="contained" fullWidth onClick={handleSearch}>Buscar</Button>
-
+                <Button className="mt-3" variant="contained" fullWidth onClick={handleSearch}>Buscar</Button>
               </div>
             )}
           </div>
