@@ -1,9 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
 import NavbarPerfis from '../components/NavbarPerfis'
-import ChatCentral from '../components/ChatCentral'
 import PopUp from '../components/PopUp'
 import ChatLateral from '../components/ChatLateral'
+import ChatCentralComCliente from '../components/ChatCentralComCliente'
 
 const ChatProfissional = () => {
 
@@ -25,7 +24,7 @@ const ChatProfissional = () => {
       <NavbarPerfis />
       <ContainerPai>
         <ChatLateral valueWidth={"25%"}/>
-        <ChatCentral />
+        <ChatCentralComCliente />
         <PopUp />
       </ContainerPai>
     </>

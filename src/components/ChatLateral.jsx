@@ -1,15 +1,10 @@
 // Minhas importações
 import styled from 'styled-components';
-import Cliente2 from '../assets/Cliente2.jpg'
-import Cliente3 from '../assets/Cliente3.jpg'
-import pedroAlves from '../assets/pedroAlves.png'
-import lucas from '../assets/lucas.png'
-import brunoo from '../assets/brunoo.png'
-import leonardo from '../assets/leonardo.png'
+import homem1 from '../assets/fotosPerfil/homem1.png'
+import homem2 from '../assets/fotosPerfil/homem2.png'
+import homem3 from '../assets/fotosPerfil/homem3.png'
+import homem4 from '../assets/fotosPerfil/homem4.png'
 
-
-// Styled components
-// Styled components
 export const ContainerChat = styled.section`
   background: #fff;
   /* width: 100%; */
@@ -119,31 +114,31 @@ const ChatLateral = ({valueWidth}) => {
         <h2>Chat</h2>
       </HeaderChat>
       <BlockChat>
-        <Avatar src={brunoo} alt="User"  />
+        <Avatar src={homem1} alt="User"  />
         <div>
           <h6>Bruno Ferreira</h6>
           <p>Digitando...</p>
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={pedroAlves} alt="User"  />
+        <Avatar src={homem2} alt="User"  />
         <div>
           <h6>Pedro Alves</h6>
           <p>Boa tarde</p>
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={lucas} alt="User"  />
+        <Avatar src={homem3} alt="User"  />
         <div>
           <h6>Lucas Bonfim</h6>
           <p>Qual equipamento?</p>
         </div>
       </BlockChat>
       <BlockChat>
-        <Avatar src={leonardo} alt="User"  />
+        <Avatar src={homem4} alt="User"  />
         <div>
           <h6>Leonardo Tavares</h6>
-          <p>O reparo fica por R$80</p>
+          <p>Digitando...</p>
         </div>
       </BlockChat>
     </ContainerChat>

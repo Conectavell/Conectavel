@@ -69,7 +69,7 @@ const AccordionImagens = ({ cadastro }) => {
                     "novaFoto": `${img}`
                 }
             })
-                .then(res => console.log(res))
+                // .then(res => console.log(res))
                 .then(setFotoUsuario(img))
         } catch (error) {
             if (error.response) {

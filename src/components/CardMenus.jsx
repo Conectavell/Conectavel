@@ -95,7 +95,12 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes, id }) => {
         {renderStars()}
         <Avaliacoes>{avaliacoes}</Avaliacoes>
       </Stars>
-      <Description>{descricao}</Description>
+      {/* <Description>a</Description> */}
+      {
+        descricao.map((desc,index)=>{
+          return <Description key={index}>{desc.nomeHabilidade}</Description>
+        })
+      }
 
       <button  className="perfil_button w-100" onClick={() => escolherProfissional(id)}>Ver perfil</button>
     </Card>

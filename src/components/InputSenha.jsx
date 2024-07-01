@@ -6,10 +6,10 @@ import CadastroContext from '../context/CadastroContext';
 const InputSenha = () => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     }
+    const { setSenhaUsuario, senhaUsuario } = useContext(CadastroContext)
 
     return (
         <>

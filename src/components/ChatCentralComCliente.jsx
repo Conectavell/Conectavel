@@ -5,7 +5,11 @@ import { RiRadioButtonLine } from "react-icons/ri";
 import Usuaria from '../assets/Usuaria.jpg';
 import Usuario from '../assets/Usuario.jpg';
 import pedroAlves from '../assets/pedroAlves.png'
+import cliente from '../assets/fotosPerfil/mulher4.png'
 import kemilly from '../assets/kemilly.png'
+import { useContext } from 'react';
+import CadastroContext from '../context/CadastroContext';
+import { Tooltip } from '@mui/material';
 
 
 const ChatContainer = styled.div`
@@ -236,14 +240,17 @@ const AvatarChat2 = styled.img`
   }
 `;
 
-const ChatCentral = () => {
-    return (
+const ChatCentralComCliente = () => {
+  const { fotoUsuario, tipoPerfil, nomeUsuario, sobrenomeUsuario } = useContext(CadastroContext)
+  return (
+    <>
+
       <ChatContainer>
         <ChatHeader>
           <UserInfo>
-            <UserAvatar src={kemilly} alt="User" style={{ width: '50px', height: 'auto' }} />
+            <UserAvatar src={cliente} alt="User" style={{ width: '50px', height: 'auto' }} />
             <div>
-              <h2>Kemily Vitoria</h2>
+              <h2>{"Kemily Vitoria"}</h2>
               <UserInfoOnline>
                 <RiRadioButtonLine className='only-content' />
                 <p>Online</p>
@@ -251,43 +258,93 @@ const ChatCentral = () => {
             </div>
           </UserInfo>
         </ChatHeader>
+
+
         <ChatBody>
-          <BlockChatMundial>
-            <AvatarChat src={kemilly} alt="User" />
-            <Message>Boa tarde!</Message>
-          </BlockChatMundial>
-          <BlockChatMundial2>
-            <Message sent>Boa tarde! Como posso te ajudar?</Message>
-            <AvatarChat2 src={pedroAlves} alt="User" />
-          </BlockChatMundial2>
-          <BlockChatMundial>
-            <AvatarChat src={kemilly} alt="User" />
-            <Message>Gostaria de uma manutenção no meu liquidificador</Message>
-          </BlockChatMundial>
-          <BlockChatMundial2>
-            <Message sent>Ok, deseja mais alguma coisa?</Message>
-            <AvatarChat2 src={pedroAlves} alt="User" />
-          </BlockChatMundial2>
-          <BlockChatMundial>
-            <AvatarChat src={kemilly} alt="User" />
-            <Message>No momento só isso mesmo</Message>
-          </BlockChatMundial>
-          <BlockChatMundial2>
-            <Message sent>Consigo fazer por R$93. Tem interesse?</Message>
-            <AvatarChat2 src={pedroAlves} alt="User" />
-          </BlockChatMundial2>
-          <BlockChatMundial>
-            <AvatarChat src={kemilly} alt="User" />
-            <Message>Negócio fechado!</Message>
-          </BlockChatMundial>
+
+          {
+            tipoPerfil === 1 ?
+              <>
+                <BlockChatMundial2>
+                  <Message sent>Boa tarde! </Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message >Boa tarde! Como posso te ajudar?</Message>
+                </BlockChatMundial>
+
+                <BlockChatMundial2>
+                  <Message sent>Gostaria de uma manutenção no meu liquidificador</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message >Ok, deseja mais alguma coisa?</Message>
+                </BlockChatMundial>
+
+                <BlockChatMundial2>
+                  <Message sent>No momento só isso mesmo</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message >Consigo fazer por R$93. Tem interesse?</Message>
+                </BlockChatMundial>
+                <BlockChatMundial2>
+                  <Message sent>Negócio fechado!</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+
+
+              </>
+              :
+              <>
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message>Boa tarde!</Message>
+                </BlockChatMundial>
+                <BlockChatMundial2>
+                  <Message sent>Boa tarde! Como posso te ajudar?</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message>Gostaria de uma manutenção no meu liquidificador</Message>
+                </BlockChatMundial>
+                <BlockChatMundial2>
+                  <Message sent>Ok, deseja mais alguma coisa?</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message>No momento só isso mesmo</Message>
+                </BlockChatMundial>
+                <BlockChatMundial2>
+                  <Message sent>Consigo fazer por R$93. Tem interesse?</Message>
+                  <AvatarChat2 src={fotoUsuario} alt="User" />
+                </BlockChatMundial2>
+                <BlockChatMundial>
+                  <AvatarChat src={cliente} alt="User" />
+                  <Message>Negócio fechado!</Message>
+                </BlockChatMundial>
+              </>
+          }
+
         </ChatBody>
         <ChatFooter>
           <Input type="text" placeholder="Type a message" />
-          <Button><BsFillSendFill /></Button>
+          <Tooltip title="Em reparo...">
+            <Button><BsFillSendFill /></Button>
+          </Tooltip>
         </ChatFooter>
       </ChatContainer>
-    );
-  };
-  
-  export default ChatCentral;
-  
+    </>
+  );
+};
+
+export default ChatCentralComCliente;
+

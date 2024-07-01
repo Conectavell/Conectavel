@@ -5,10 +5,10 @@ import circuito from '../assets/circuitopairafa.png'
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import '../styles/PortifolioStyle.css'
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Galeria = ({nome}) => {
+const Galeria = ({ nome }) => {
 
     const Container = styled.div`
         width: 50vw;
@@ -52,7 +52,7 @@ const Galeria = ({nome}) => {
         width: 1,
     });
     const [Image, setImage] = useState();
-    const {  tipoPerfil, nomeUsuario } = useContext(CadastroContext)
+    const { tipoPerfil, nomeUsuario } = useContext(CadastroContext)
 
     return (
         <>
@@ -66,22 +66,25 @@ const Galeria = ({nome}) => {
                 {
                     tipoPerfil !== '2' && nomeUsuario === nome && (
                         <Row style={{ justifyContent: 'space-between' }}>
-                            <Button
-                                component="label"
-                                role={undefined}
-                                variant="contained"
-                                tabIndex={-1}
-                                startIcon={<CloudUploadIcon />}
-                            >
-                                Adicionar imagem
-                                <VisuallyHiddenInput onChange={(e) => {
-                                    console.log(e.target.value)
-                                }} type="file" />
-                            </Button>
-
-                            <IconButton onClick={() => setImage(null)} aria-label="delete" size="large">
-                                <DeleteIcon fontSize="inherit" />
-                            </IconButton>
+                            <Tooltip title="Em reparo...">
+                                <Button
+                                    component="label"
+                                    role={undefined}
+                                    variant="contained"
+                                    tabIndex={-1}
+                                    startIcon={<CloudUploadIcon />}
+                                >
+                                    Adicionar imagem
+                                    <VisuallyHiddenInput onChange={(e) => {
+                                        console.log(e.target.value)
+                                    }} type="file" />
+                                </Button>
+                            </Tooltip>
+                            <Tooltip title="Em reparo...">
+                                <IconButton onClick={() => setImage(null)} aria-label="delete" size="large">
+                                    <DeleteIcon fontSize="inherit" />
+                                </IconButton>
+                            </Tooltip>
                         </Row>
                     )
                 }

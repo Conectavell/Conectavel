@@ -37,7 +37,6 @@ const Routes = () => {
             <BrowserRouter>
                 <Rotas>
                     <Route path='/Conectavel' element={<HomePage />} />
-                    <Route path='/Conectavel/login' element={<LoginPage />} />
                     <Route path="/Conectavel/descarte" element={<DescartePage />} />
                     <Route path='/Conectavel/colaboradores' element={<ColaboradoresPage />} />
                     <Route path='/Conectavel/quemsomos' element={<QuemSomosPage />} />
@@ -45,6 +44,7 @@ const Routes = () => {
                     <Route path='/Conectavel/teste' element={<AccordionImagens />} />
 
                     <Route path='/Conectavel/cadastro' element={<CadastroPage />} />
+                    <Route path='/Conectavel/login' element={<LoginPage />} />
                     <Route path='/Conectavel/preencherprestador' element={<PreencherPrestadorPage />} />
                     <Route path='/Conectavel/preenchercliente' element={<PreencherClientePage />} />
                     {/* <Route path='/Conectavel/avaliacaocliente' element={<ClienteAvaliacaoPage />} /> */}

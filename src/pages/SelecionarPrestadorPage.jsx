@@ -14,7 +14,7 @@ const MainContainer = styled.div`
 
 const CardsMenu = styled.div`
 width: 100%;
-height: 45vh;
+height: 58vh;
 padding-top: 1rem;
 overflow-y: scroll;
   display: flex;
@@ -108,7 +108,8 @@ const SelecionarPrestador = () => {
                     id={prestador.idUsuario}
                     key={prestador.idUsuario}
                     nome={prestador.nomeUsuario}
-                    foto={lucas}
+                    descricao={prestador.habilidades}
+                    foto={prestador.fotoPerfilPath}
                     avaliacoes={5}
                   />
                 ))

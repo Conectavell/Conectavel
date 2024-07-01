@@ -123,17 +123,17 @@ const PerfilPrestadorPage = () => {
                 </TextoExperiencia>
                 <AvaliacoesDiv>
                   <TextoExperiencia NomeUsuario>
-                    Ankit Srivastava
+                    João Ferreira
                   </TextoExperiencia>
                   <EstrelasDiv>
                     <FaStar size={22} color='orange' />
                     <FaStar size={22} color='orange' />
                     <FaStar size={22} color='orange' />
                     <FaStar size={22} color='orange' />
-                    <FaStar size={22} />
+                    <FaStar size={22} color='orange' />
                   </EstrelasDiv>
                   <TextoExperiencia Desc>
-                    excelent conversation with him.. very knowledgeble personhappy to talk towith him
+                    Atencioso, serviço de qualidade.
                   </TextoExperiencia>
                 </AvaliacoesDiv>
               </AvaliacoesWrapper>

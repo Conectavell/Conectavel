@@ -62,7 +62,6 @@ useEffect(() => {
   }
 
   if (!allUsers) {
-    console.log('nada')
     try {
       axios.get("http://localhost:8080/API/usuarios")
         .then(res => setAllUsers(res.data))

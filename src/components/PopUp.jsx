@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import CadastroContext from '../context/CadastroContext';
 
 export const PopDadContainer = styled.div`
 
@@ -104,6 +105,7 @@ font-weight: 400;
 
 const PopUp = () => {
     const navigate = useNavigate()
+    const {tipoUsuario} = useContext(CadastroContext)
 
     return (
         <PopDadContainer>
@@ -121,7 +123,7 @@ const PopUp = () => {
                 <h5>
                     Valor: <span className='alterblue'>R$93,00</span>
                 </h5>
-                <button onClick={() => navigate('/Conectavel/avaliacaocliente')} type="submit">Avaliar</button>
+                <button onClick={() => navigate( tipoUsuario === '1' ?'/Conectavel/avaliacaoprofissional' : '/Conectavel/avaliacaocliente')} type="submit">Avaliar</button>
             </PopSonContainer>
         </PopDadContainer>
     )

@@ -37,7 +37,7 @@ export default function InputHabilidades() {
         setHabilidadesUsuario(
             typeof value === 'string' ? value.split(',') : value
         );
-        console.log(habilidadesUsuario)
+        // console.log(habilidadesUsuario)
     };
 
     return (

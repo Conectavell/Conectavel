@@ -4,7 +4,6 @@ import { useContext, useState } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import axios from 'axios'
 
-
 const ContainerButtons = styled.div`
         width: 100%;
         display: flex;
@@ -30,18 +29,17 @@ const EditarInfoConfiguracoes = () => {
     const {
         sobreUsuario, setSobreUsuario,
         experienciaUsuario, setExperienciaUsuario,
-        habilidadesUsuario, setHabilidadesUsuario,
         nomeUsuario, setNomeUsuario,
         emailUsuario, setEmailUsuario,
         sobrenomeUsuario, setSobrenomeUsuario,
         idUsuario, tipoPerfil,
         setSenhaUsuario, setTipoPerfil
     } = useContext(CadastroContext)
+
     const [novoEmail, setNovoEmail] = useState("")
     const [novoNome, setNovoNome] = useState("")
     const [novoSobrenome, setNovoSobrenome] = useState("")
     const [novaExperiencia, setNovaExperiencia] = useState("")
-    const [novaHabilidade, setNovaHabilidade] = useState("")
     const [novoSobre, setNovoSobre] = useState("")
     const [focused, setFocused] = useState(false)
 
@@ -50,7 +48,6 @@ const EditarInfoConfiguracoes = () => {
         novoNome.length ? atualizarNome() : ''
         novoSobrenome.length ? atualizarSobrenome() : ''
         novaExperiencia.length ? atualizarExperiencia() : ''
-        novaHabilidade.length ? atualizarHabilidades() : ''
         novoSobre.length ? atualizarSobre() : ''
 
         fetch(`http://localhost:8080/API/getUsuario/${idUsuario}`).then(res => res.json()).then(data => {
@@ -60,7 +57,6 @@ const EditarInfoConfiguracoes = () => {
             setEmailUsuario(data.emailUsuario)
             setSenhaUsuario(data.senhaUsuario)
             setExperienciaUsuario(data.experienciaUsuario)
-            setHabilidadesUsuario(data.habilidadeUsuario)
             setSobreUsuario(data.sobreUsuario)
             console.log(sobreUsuario)
             setTipoPerfil(data.tipoPerfil)
@@ -199,33 +195,6 @@ const EditarInfoConfiguracoes = () => {
         }
     }
     /////////////////////////////////////////////
-    function atualizarHabilidades() {
-
-        try {
-            axios.put(`http://localhost:8080/API/${idUsuario}/atualizarHabilidade`, null, {
-                params: {
-                    "novaHabilidade": `${novaHabilidade}`
-                }
-            })
-                // .then(res => console.log(res))
-                .then(setHabilidadesUsuario(novaHabilidade))
-        } catch (error) {
-            if (error.response) {
-                if (error.response.status === 401) {
-                    alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
-                } else {
-                    alert(`Erro: ${error.response.status} - ${error.response.data}`);
-                }
-            } else if (error.request) {
-                alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
-            } else {
-                alert(`Erro: ${error.message}`);
-            }
-
-        }
-    }
-
-
     return (
         <Container>
             <h2>Edite suas informações</h2>
@@ -301,21 +270,7 @@ const EditarInfoConfiguracoes = () => {
                                 }}
                                 disabled={editarPerfil ? false : true}
                             />
-                            <TextField
-                                onFocus={() => setFocused(true)}
-                                onBlur={() => setFocused(false)}
-                                label="Habilidades"
-                                type='text'
-                                fullWidth
-                                required={true}
-                                value={editarPerfil && focused ? novaHabilidade : habilidadesUsuario}
-                                placeholder={focused ? habilidadesUsuario : novaHabilidade}
-                                onChange={e => {
-                                    setNovaHabilidade(e.target.value)
-                                    // console.log(habilidadesUsuario)
-                                }}
-                                disabled={editarPerfil ? false : true}
-                                id="fullWidth" />
+
                             <TextField
                                 onFocus={() => setFocused(true)}
                                 onBlur={() => setFocused(false)}

@@ -11,6 +11,8 @@ import Facebook_logo from "../assets/Facebook_logo.svg";
 import Arrow_button from "../assets/Arrow_button.svg";
 import Input from '../components/Input'
 import axios from 'axios'
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Tooltip } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 
 const ContainerDiv = styled.div`
@@ -45,12 +47,15 @@ const FormDiv = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 0px 0px 0px 100px;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .form-container {
     padding: 0% 10% 10% 10%;
-    max-width: 700px;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto;
   }
 
   h2 {
@@ -173,9 +178,13 @@ const LoginPage = () => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     realizarLogin(emailUsuario, senhaUsuario)
   }
+  const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    }
 
   return (
     <ContainerDiv>
@@ -186,59 +195,67 @@ const LoginPage = () => {
       </LogoDiv>
 
       <FormDiv>
-        <button onClick={() => navigate(-1)} className="arrow_button">
-          <img src={Arrow_button} alt="Botão Voltar" />
-        </button>
-
         <div className="form-container">
           <h2>Entrar</h2>
-          <form onSubmit={handleSubmit}>
-            <Input
-              name="email"
+           
+            <TextField
               label="E-mail"
-              placeholder="Digite seu e-mail aqui"
-              type="email"
-              required
-              mudanca={(e) => setEmailUsuario(e.target.value)}
+              type='email'
+              fullWidth required={true}
+              id="fullWidth"
+              value={emailUsuario}
+              onChange={e => {
+                setEmailUsuario(e.target.value)
+                // console.log(emailUsuario)
+              }}
             />
-            <Input
-              name="senha"
-              label="Senha"
-              placeholder="Digite sua senha aqui"
-              type="password"
-              required
-              mudanca={(e) => setSenhaUsuario(e.target.value)}
-            />
+
+            <FormControl sx={{marginTop:"1.5rem"}} fullWidth variant="outlined">
+              <InputLabel
+                required={true}
+                htmlFor="outlined-adornment-password">Senha</InputLabel>
+              <OutlinedInput
+                value={senhaUsuario}
+                onChange={e => {
+                  setSenhaUsuario(e.target.value)
+                  // console.log(senhaUsuario)
+                }}
+                id="outlined-adornment-password"
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Senha"
+              />
+            </FormControl>
             <div className="justify-between">
               <div>
                 <input className="ckeckbox-input" type="checkbox" name="" />
                 <label htmlFor="">Lembrar senha</label>
               </div>
-              <a href="#">Esqueceu sua senha?</a>
+              <Tooltip title="Em reparo...">
+                <a href="#">Esqueceu sua senha?</a>
+              </Tooltip>
             </div>
-            <Button type="submit" >Entrar</Button>
-          </form>
+            <Button onClick={()=>handleSubmit()} >Entrar</Button>
           <div className="center-text">
             <span>
               Não tem uma conta?&nbsp;
               <StyledLink to="/Conectavel/Cadastro">Cadastre-se</StyledLink>
             </span>
-            <br />
-            <span
-              style={{ fontSize: "20px", display: "block", marginTop: "20px" }}
-            >
-              Ou
-            </span>
+
           </div>
           <div style={{ display: "flex", gap: "28px" }}>
-            <ButtonLogin>
-              <img src={Google_logo} width={40} alt="Google Icon" />
-              <span>Entrar com Google</span>
-            </ButtonLogin>
-            <ButtonLogin>
-              <img src={Facebook_logo} width={40} alt="Facebook Icon" />
-              <span>Entrar com Facebook</span>
-            </ButtonLogin>
+
           </div>
         </div>
       </FormDiv>

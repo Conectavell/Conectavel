@@ -56,6 +56,7 @@ const CardProfissional = ({ nome, sobrenome, estado, bairro, experiencia, habili
   .sp{
     font-size: 24px;
     font-weight: 400;
+    text-transform: uppercase;
   }
   .perfil{
     width: 200px;
