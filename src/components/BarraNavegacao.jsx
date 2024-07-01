@@ -19,7 +19,7 @@ import Deslogar from './Deslogar';
 //
 
 const BarraNavegacao = ({ cor }) => {
-    const navItems = ['Home', 'Quem somos', 'Colaboradores', 'Descarte',]
+    const navItems = ['Home', 'Quem somos', "Serviços", 'Colaboradores', 'Descarte',]
     const { tipoPerfil, idUsuario } = useContext(CadastroContext)
 
     const Button = styled(Link)`
@@ -34,6 +34,8 @@ const BarraNavegacao = ({ cor }) => {
     color: white;
     transition: all .3s linear;
     font-weight: 600;
+    font-size: 1.1em;
+
     &:hover{
         background-color: ${cor === "azul" ? "var(--verde_principal)" : "var(--azul_principal)"};
     }
@@ -41,7 +43,7 @@ const BarraNavegacao = ({ cor }) => {
 
     const ListItem = styled.p`
     list-style-type: none;
-    font-size: .9em;
+    font-size: 1.05em;
     font-weight: 500;
     margin: 0 .5rem;
     color: white;
@@ -74,6 +76,7 @@ const BarraNavegacao = ({ cor }) => {
     background-color: transparent;
     font-weight: 600;
     color: white;
+    font-size: 1.1em;
 
     &:hover{
         color: var(--laranja);
@@ -129,16 +132,13 @@ const BarraNavegacao = ({ cor }) => {
                                     </ListItem>
                                 )
                             })}
-                            <ListItem>
-                                {t("navbar.Serviços")}
-                            </ListItem>
                         </Nav>
                         <Block >
                             {
                                 idUsuario ?
                                     <>
                                         <Login to={tipoPerfil === 1 ? "/Conectavel/perfilcliente" : "/Conectavel/perfilprestador"} ><FaUserAlt size={'1.5rem'} /></Login>
-                                        <Login to="/Conectavel" ><Deslogar size="1.5rem"/></Login>
+                                        <Login to="/Conectavel" ><Deslogar size="1.5rem" /></Login>
                                     </>
                                     :
                                     <>

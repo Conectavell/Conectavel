@@ -3,7 +3,7 @@ import { Sub_heading } from './Header'
 import escolher from '../assets/escolher.png'
 import Qualidades from './Qualidades'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 
 
@@ -106,6 +106,7 @@ const Heading_text = styled.h2`
 const NosEscolher = () => {
     const { innerWidth: width, innerHeight: height } = window
     const { t } = useTranslation()
+    const navigate = useNavigate()
 
 
     return (
@@ -129,7 +130,7 @@ const NosEscolher = () => {
                             width > 992 ? : ''
                         } */}
 
-                        <Button className='button1'>{t("nosEscolher.btncomecar")}</Button>
+                        <Button onClick={() => navigate("/Conectavel/cadastro")} className='button1'>{t("nosEscolher.btncomecar")}</Button>
                     </div>
                     <div className="qualidades">
                         <Qualidades title={t("nosEscolher.valores.valor2.title")} text={t("nosEscolher.valores.valor2.text")} />
@@ -141,7 +142,7 @@ const NosEscolher = () => {
             {/* {
                 width > 992 ? '' : <Button className='button'>{t("nosEscolher.btncomecar")}</Button>
             } */}
-            <Button className='button2'>{t("nosEscolher.btncomecar")}</Button>
+            <Button onClick={() => navigate("/Conectavel/cadastro")} className='button2'>{t("nosEscolher.btncomecar")}</Button>
         </Box >
     )
 }

@@ -38,7 +38,7 @@ const InputsIdentidade = () => {
                             value={identidadeUsuario}
                             onChange={e => {
                                 setIdentidadeUsuario(e.target.value)
-                                console.log(identidadeUsuario)
+                                // console.log(identidadeUsuario)
                             }}
                             disabled={false}
                             maskChar=" "

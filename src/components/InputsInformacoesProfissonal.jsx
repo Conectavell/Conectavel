@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import CadastroContext from '../context/CadastroContext'
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
 
-export const InputHabilidades = () => {
+const InputHabilidades = () => {
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
     const MenuProps = {
@@ -41,7 +41,6 @@ export const InputHabilidades = () => {
 
 
         const theme = useTheme();
-        const context = useContext(CadastroContext)
         const {habilidadesUsuario, setHabilidadesUsuario} = useContext(CadastroContext)
 
 
@@ -57,7 +56,7 @@ export const InputHabilidades = () => {
 
         return (
             <>
-                <FormControl fullWidth>
+                {/* <FormControl fullWidth>
                     <InputLabel required id="demo-multiple-chip-label">Habilidades de reparo</InputLabel>
                     <Select
                         labelId="demo-multiple-chip-label"
@@ -84,7 +83,10 @@ export const InputHabilidades = () => {
                             </MenuItem>
                         ))}
                     </Select>
-                </FormControl>
+                </FormControl> */}
+                
+                
+                
             </>
         )
     }

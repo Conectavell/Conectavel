@@ -62,6 +62,7 @@ const EditarInfoConfiguracoes = () => {
             setExperienciaUsuario(data.experienciaUsuario)
             setHabilidadesUsuario(data.habilidadeUsuario)
             setSobreUsuario(data.sobreUsuario)
+            console.log(sobreUsuario)
             setTipoPerfil(data.tipoPerfil)
           })
 
