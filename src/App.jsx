@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ExpandedNavContext from './context/ExpandNavContext.jsx'
 import Routes from './Routes.jsx'
 import CadastroContext from './context/CadastroContext.jsx'
+import axios from 'axios'
 
 function App() {
   const [expand, setExpand] = useState(false)
@@ -54,9 +55,30 @@ useEffect(() => {
       setTipoPerfil(data.tipoPerfil)
       setFotoUsuario(data.fotoPerfilPath)
       setCidade(data.endereco.uf)
+      setBairro(data.endereco.bairro)
       setEstado(data.endereco.uf)
       setSexoUsuario(data.sexoUsuario)
     })
+  }
+
+  if (!allUsers) {
+    console.log('nada')
+    try {
+      axios.get("http://localhost:8080/API/usuarios")
+        .then(res => setAllUsers(res.data))
+    } catch (error){
+      if (error.response) {
+          if (error.response.status === 401) {
+              alert("Erro: Credenciais inválidas. Verifique seu email e senha.");
+          } else {
+              alert(`Erro: ${error.response.status} - ${error.response.data}`);
+          }
+      } else if (error.request) {
+          alert("Erro: Nenhuma resposta do servidor. Tente novamente mais tarde.");
+      } else {
+          alert(`Erro: ${error.message}`);
+      }
+  }
   }
 }, [])
 

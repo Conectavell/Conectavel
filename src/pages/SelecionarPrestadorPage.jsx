@@ -1,16 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import Navbar from "../components/NavbarPerfis";
-import ChatMini from "../components/ChatMini";
-import Kemilly from "../assets/kemilly.png";
 import CardMenu from "../components/CardMenus";
-import Arrow_Laranja from "../assets/Arrow_Laranja.svg";
 import ChatLateral from "../components/ChatLateral";
-import { IoIosArrowBack } from "react-icons/io";
 import lucas from '../assets/lucas.png'
-import brunoo from '../assets/brunoo.png'
-import leonardo from '../assets/leonardo.png'
-import axios from "axios";
 import CadastroContext from "../context/CadastroContext";
 
 
@@ -74,25 +67,25 @@ const Box = styled.div`
 
 const SelecionarPrestador = () => {
 
-  const { servicoEscolhido } = useContext(CadastroContext)
-  //const filtered = allUsers.filter((user) => user.tipoPerfil === 2 && user.habilidadeUsuario == servicoEscolhido)
-  const [prestadores, setPrestadores] = useState([]);
+  const { servicoEscolhido, allUsers } = useContext(CadastroContext)
+  const filtered = allUsers.filter((user) => user.tipoPerfil === 2 && user.habilidadeUsuario == servicoEscolhido)
+  // const [prestadores, setPrestadores] = useState([]);
 
-  const retornaPrestadores = () => {
-    axios.get('http://localhost:8080/API/filtarUsuario', {
-        params: { valorHabilidade: servicoEscolhido }
-    })
-    .then(function (response) {
-        setPrestadores(response.data);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-};
+  //   const retornaPrestadores = () => {
+  //     axios.get('http://localhost:8080/API/filtarUsuario', {
+  //         params: { valorHabilidade: servicoEscolhido }
+  //     })
+  //     .then(function (response) {
+  //         setPrestadores(response.data);
+  //     })
+  //     .catch(function (error) {
+  //         console.log(error);
+  //     });
+  // };
 
-useEffect(() => {
-  retornaPrestadores();
-}, []);
+  // useEffect(() => {
+  //   retornaPrestadores();
+  // }, []);
 
 
 
@@ -110,18 +103,18 @@ useEffect(() => {
             <h1>Profissionais Disponíveis</h1>
             <CardsMenu>
               {
-                prestadores.map((prestador, index) => (
+                filtered.map(prestador => (
                   <CardMenu
-                  id={prestador.idUsuario}
-                  key={prestador.idUsuario}
-                  nome={prestador.nomeUsuario}
-                  foto={lucas}
-                  avaliacoes={5}
+                    id={prestador.idUsuario}
+                    key={prestador.idUsuario}
+                    nome={prestador.nomeUsuario}
+                    foto={lucas}
+                    avaliacoes={5}
                   />
                 ))
               }
 
-              </CardsMenu>
+            </CardsMenu>
           </MenuProfissionais>
         </MainContainer>
       </Box>

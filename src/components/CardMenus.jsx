@@ -83,7 +83,7 @@ const CardMenu = ({ foto, nome, descricao, avaliacoes, id }) => {
   };
 
   const escolherProfissional = (idProfissional) => {
-    navigate(`/Conectavel/${idProfissional}`)
+    navigate(`/Conectavel/profissional/${idProfissional}`)
   }
 
   return (

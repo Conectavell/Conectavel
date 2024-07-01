@@ -1,15 +1,12 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components'
-import avatar from '../assets/Avatar Image.png'
 import wallpaper from '../assets/wallpaperImage.png'
-import frame from '../assets/Frame 640.png'
-import Portifolio from "../components/Portifolio"
 import CadastroContext from '../context/CadastroContext'
 import { IoLocationOutline } from 'react-icons/io5'
 import { IoIosStar } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-const CardProfissional = () => {
+const CardProfissional = ({ nome, sobrenome, estado, bairro, experiencia, habilidades, foto }) => {
   const Titulo = styled.p`
     font-size: 16px;
     font-weight: 700;
@@ -28,12 +25,15 @@ const CardProfissional = () => {
     }
     .area{
     border-radius: 24px;
-    height: 605px;
+    min-height: 605px;
+  padding-bottom: 2rem;
+
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
   }
   img{
     border-top-right-radius: 24px;
     border-top-left-radius: 24px;
+    width: 100%;
   }
   .div1{
     margin: 30px 65px 7px;
@@ -147,63 +147,72 @@ const CardProfissional = () => {
     
   }
     `
-  const { cidade, estado, nomeUsuario,fotoUsuario, sobrenomeUsuario, habilidadesUsuario, experienciaUsuario } = useContext(CadastroContext)
   const navigate = useNavigate()
   return (
+    <>
 
-    <Box>
-      <div className="area">
-        <img className='wallpaper' src={wallpaper} alt="wallpaper" />
-        <div className="meio">
-          <div className="div1">
-            <img className='perfil' src={fotoUsuario}  alt="técnico" />
-            <Titulo className="localizacao">Localização</Titulo>
-            <p className="sp">{estado ? estado : "-------"}</p>
-            <p>
-              <IoLocationOutline />
-              {cidade ? cidade : "-------"}
-            </p>
-          </div>
-          <div className="div2">
-            <h2>{nomeUsuario ? nomeUsuario + " " + sobrenomeUsuario : "-------"}</h2>
-
-            <Titulo>Desde</Titulo>
-            <p>Fevereiro de 2024</p>
-            <Titulo>Especialidade</Titulo>
-            <p>{habilidadesUsuario === '' ? habilidadesUsuario : '---------'}</p>
-            <Titulo>Experiências</Titulo>
-            <p className='exp'>{experienciaUsuario}</p>
-
-          </div>
-          <div className="div3">
-            <Titulo>Avaliação de clientes</Titulo>
-            <div className="comentario">
-              <Sub>Julia dos Santos</Sub>
-              <div className='star'>
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-              </div>
-              <p>Gostei muito do serviço, mas a garantia é curta!</p>
+      <Box>
+        <div className="area">
+          <img className='wallpaper' src={wallpaper} alt="wallpaper" />
+          <div className="meio">
+            <div className="div1">
+              <img className='perfil' src={foto} alt="técnico" />
+              <Titulo className="localizacao">Localização</Titulo>
+              <p className="sp">{estado ? estado : "-------"}</p>
+              <p>
+                <IoLocationOutline />
+                {bairro ? bairro : "-------"}
+              </p>
             </div>
-            <div className="comentario">
-              <Sub>Gabriela Machado</Sub>
-              <div className='star'>
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
-                <IoIosStar color={"#E9C46A"} size={25} />
+            <div className="div2">
+              <h2>{nome ? nome + " " + sobrenome : "-------"}</h2>
+
+              <Titulo>Desde</Titulo>
+              <p>Fevereiro de 2024</p>
+              <Titulo>Especialidade</Titulo>
+              {
+                // tipoPerfil === 1 ?
+                habilidades.map((hab, index) => {
+                  return <p key={index}>{hab.nomeHabilidade}</p>
+                })
+                // :
+                // ''
+              }
+
+              <Titulo>Experiências</Titulo>
+              <p className='exp'>{experiencia}</p>
+
+            </div>
+            <div className="div3">
+              <Titulo>Avaliação de clientes</Titulo>
+              <div className="comentario">
+                <Sub>Julia dos Santos</Sub>
+                <div className='star'>
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                </div>
+                <p>Gostei muito do serviço, mas a garantia é curta!</p>
               </div>
-              <p>Serviço excelente, mas poderia ser mais rápido o conserto!</p>
+              <div className="comentario">
+                <Sub>Gabriela Machado</Sub>
+                <div className='star'>
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                  <IoIosStar color={"#E9C46A"} size={25} />
+                </div>
+                <p>Serviço excelente, mas poderia ser mais rápido o conserto!</p>
+              </div>
             </div>
           </div>
+          <button onClick={() => navigate("/Conectavel/chatprofissional")} type="submit">Contatar</button>
         </div>
-        <button onClick={() => navigate("/Conectavel/chatprofissional")} type="submit">Contatar</button>
-      </div>
 
-    </Box>
+      </Box>
+    </>
   )
 }
 

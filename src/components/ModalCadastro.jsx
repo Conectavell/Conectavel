@@ -39,7 +39,7 @@ text-align: center;
     border-radius: 1.5rem;
     cursor: pointer;
     background-color: var(--laranja);
-    color: white;
+    color: white !important;
     transition: all .3s linear;
     font-weight: 600;
     &:hover{
@@ -54,7 +54,7 @@ const ModalCadastro = ({ isOpen }) => {
             <BackgroundWrapper>
                 <ModalStyle>
                     <ModalTexto>Cadastro realizado com sucesso!</ModalTexto>
-                    <ButtonModal to="/Conectavel">Fazer login</ButtonModal>
+                    <ButtonModal to="/Conectavel/login">Fazer login</ButtonModal>
                 </ModalStyle>
             </BackgroundWrapper>
         )

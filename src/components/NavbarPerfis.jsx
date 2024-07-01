@@ -58,7 +58,7 @@ const NavbarPerfis = () => {
                 </Navbar.Collapse>
                 {
                     width > 992 ?
-                        <BemVindo onclick={() => navigate("/Conectavel/profissional")} usuario={"nomeUsuario"} />
+                        <BemVindo onclick={tipoPerfil === 2 ? () => navigate("/Conectavel/profissional") : ''} usuario={"nomeUsuario"} />
                         : ''
                 }
             </Container>

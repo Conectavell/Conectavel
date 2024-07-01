@@ -19,7 +19,7 @@ import SelecionarPrestador from './pages/SelecionarPrestadorPage'
 import ServicosPage from './pages/ServicosPage'
 import PerfilProfissionalPage from './pages/PerfilProfissionalPage'
 // import ClienteAvaliacaoPage from './pages/ClienteAvaliacaoPage'
-import usuarioFiltrado from './pages/ProfissionalFiltrado'
+import ProfissionalFltrado from './pages/ProfissionalFiltrado'
 import Auth from './context/Auth'
 
 function PrivateRoute({ children }) {
@@ -69,7 +69,7 @@ const Routes = () => {
                     <Route path='/Conectavel/Admin' element={<PrivateRoute><AdminPage /></PrivateRoute>} />
 
                     {/* Tela do profissional filtrado */}
-                    <Route path='/Conectavel/:usuarioSelecionado' element={<PrivateRoute><usuarioFiltrado/></PrivateRoute>} />
+                    <Route path='/Conectavel/profissional/:id' element={<PrivateRoute><ProfissionalFltrado/></PrivateRoute>} />
                 </Rotas>
             </BrowserRouter>
         </>

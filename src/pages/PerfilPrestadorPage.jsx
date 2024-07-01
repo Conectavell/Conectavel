@@ -12,7 +12,7 @@ const PerfilPrestadorPage = () => {
   const {
     nomeUsuario, sobrenomeUsuario,
     emailUsuario, celularUsuario,
-    sobreUsuario, experienciaUsuario, tipoPerfil,
+    sobreUsuario, experienciaUsuario, 
     habilidadesUsuario, fotoUsuario
 
   } = useContext(CadastroContext)
@@ -71,8 +71,8 @@ const PerfilPrestadorPage = () => {
               <Habilidades>
                 <ChatMiniNome>Habilidades em</ChatMiniNome>
                 <HabilidadesBox>
-                {habilidades.map(hab => 
-                      <ItemHabilidade><p>{hab.nomeHabilidade}</p></ItemHabilidade>
+                {habilidades.map((hab, index) => 
+                      <ItemHabilidade  key={index}><p>{hab.nomeHabilidade}</p></ItemHabilidade>
                   )}
                 </HabilidadesBox>
               </Habilidades>

@@ -8,7 +8,7 @@ import '../styles/PortifolioStyle.css'
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Galeria = () => {
+const Galeria = ({nome}) => {
 
     const Container = styled.div`
         width: 50vw;
@@ -57,14 +57,14 @@ const Galeria = () => {
     return (
         <>
             <Container>
-                <h2>Galeria de {nomeUsuario}</h2>
+                <h2>Galeria de {nome}</h2>
                 <Row>
                     <img src={circuito} alt="circuito" width={300} />
                     <img src={circuito} alt="circuito" width={300} />
                 </Row>
 
                 {
-                    tipoPerfil !== '2' && (
+                    tipoPerfil !== '2' && nomeUsuario === nome && (
                         <Row style={{ justifyContent: 'space-between' }}>
                             <Button
                                 component="label"

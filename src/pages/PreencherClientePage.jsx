@@ -30,6 +30,7 @@ const PreencherClientePage = () => {
         bairro,
         estado,
         logradouro,
+        fotoUsuario
     } = useContext(CadastroContext)
 
     function cadastrar() {
@@ -46,6 +47,7 @@ const PreencherClientePage = () => {
             "sexoUsuario": `${sexoUsuario === "outro" ? "O" : sexoUsuario === "feminino" ? "F" : "M"}`,
             "sobreUsuario": `${sobreUsuario}`,
             "experienciaUsuario": `${experienciaUsuario}`,
+            "fotoPerfilPath": `${fotoUsuario}`,
             "enderecoDto": {
                 "cep": `${cepUsuario}`,
                 "logradouro": `${logradouro}`,
@@ -57,7 +59,7 @@ const PreencherClientePage = () => {
             "habilidades":[6]
         })
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 setOpenModal(true)
                 // alert(`Você está logado ${nomeUsuario} ${sobrenomeUsuario}!`)
             })

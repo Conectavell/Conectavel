@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Galeria from "../components/Galeria"
 import CardProfissional from "../components/CardProfissional"
 import NavbarPerfis from "../components/NavbarPerfis"
+import { useContext } from "react"
+import CadastroContext from "../context/CadastroContext"
 
 const Box = styled.section`
 padding-top: 2rem;
@@ -16,14 +18,22 @@ padding-top: 2rem;
   overflow: scroll;
 `
 
-
 const PerfilProfissionalPage = () => {
+    const {nomeUsuario, sobrenomeUsuario, experienciaUsuario, habilidadesUsuario, estado, bairro, fotoUsuario} = useContext(CadastroContext)
     return (
         <>
         <NavbarPerfis/>
         <Box>
-           <CardProfissional/>
-            <Galeria/>
+           <CardProfissional
+            nome={nomeUsuario}
+            sobrenome={sobrenomeUsuario}
+            bairro={bairro}
+            estado={estado}
+            experiencia={experienciaUsuario}
+            habilidades={habilidadesUsuario}
+            foto={fotoUsuario}
+           />
+            <Galeria nome={nomeUsuario}/>
         </Box>
         </>
     )
